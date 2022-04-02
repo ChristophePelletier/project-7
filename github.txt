@@ -1,1 +1,7 @@
 https://github.com/ChristophePelletier/project-7.git
+back
+node server
+nodemon
+
+front
+npm run serve
