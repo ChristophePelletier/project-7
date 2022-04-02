@@ -5,7 +5,7 @@ export default {
 	},
 }
 /*
-auth.register({
+auth.signup({
 	email: 'test@test.gmail',
 	password: '123456',
 })

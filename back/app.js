@@ -14,7 +14,7 @@ app.get('/test', (req, res) => {
 
 app.post('/signup', (req, res) => {
 	res.send({
-		message: `Bonjour ${req.body.email} utilisateur enregistré`,
+		message: `Bonjour ${req.body.name}, ${req.body.email} utilisateur enregistré`,
 	})
 })
 
