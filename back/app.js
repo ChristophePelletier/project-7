@@ -2,7 +2,7 @@ const cors = require('cors')
 const express = require('express')
 
 const app = express()
-
+const { Sequelize } = require('sequelize')
 app.use(cors())
 app.use(express.json())
 app.get('/test', (req, res) => {
@@ -11,6 +11,20 @@ app.get('/test', (req, res) => {
     message: 'test',
   })
 })
+const sequelize = new Sequelize(
+  'groupomania',
+  'Christophe_Pelletier',
+  '87420_Mysql',
+  {
+    host: 'localhost',
+    dialect: 'mysql',
+  }
+)
+
+sequelize
+  .authenticate()
+  .then(() => console.log('Database connected !!!!!'))
+  .catch((err) => console.log('Error: ' + err))
 
 app.post('/signup', (req, res) => {
   console.log('req.body : ', req.body)
