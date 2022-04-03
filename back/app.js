@@ -13,8 +13,9 @@ app.get('/test', (req, res) => {
 })
 
 app.post('/signup', (req, res) => {
+  console.log('test')
   res.send({
-    message: `Bonjour ${req.body.name}, ${req.body.email} utilisateur enregistré, votre mot de passe : ${req.body.password}`,
+    message: `Bonjour bonjour ${req.body.name}, ${req.body.email} utilisateur enregistré, votre mot de passe : ${req.body.password}`,
   })
 })
 
