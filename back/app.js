@@ -23,7 +23,7 @@ const sequelize = new Sequelize(
 
 sequelize
   .authenticate()
-  .then(() => console.log('Database connected !!!!!'))
+  .then(() => console.log('OK Database connected OK'))
   .catch((err) => console.log('Error: ' + err))
 
 app.post('/signup', (req, res) => {
