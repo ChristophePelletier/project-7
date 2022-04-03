@@ -1,8 +1,8 @@
-import axios from 'axios'
+//axios object that points to the backend
+
+import axios from "axios";
 export default () => {
-	return axios.create({
-		baseURL: `http://localhost:3000`,
-	})
-}
-
-
+  return axios.create({
+    baseURL: `http://localhost:3000`,
+  });
+};

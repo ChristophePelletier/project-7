@@ -5,26 +5,39 @@
     <div>
       <input type="email" name="email" v-model="email" placeholder="email" />
     </div>
-    <input type="text" name="nom" v-model="name" placeholder="nom" />
+    <div>
+      <input
+        type="password"
+        name="password"
+        v-model="password"
+        placeholder="password"
+      />
+    </div>
+    <div>
+      <input type="text" name="nom" v-model="name" placeholder="nom" />
+    </div>
     <button @click="signup">S'inscrire</button>
   </div>
 </template>
 
 <script>
-import register from "@/services/register";
+import signupService from "@/services/signupService";
 export default {
   data() {
     return {
       email: "",
+      password: "",
       name: "",
     };
   },
   methods: {
     async signup() {
-      await register.signup({
+      const response = await signupService.signup({
         email: this.email,
+        password: this.password,
         name: this.name,
       });
+      console.log(response.data);
     },
     /*
     signup() {
@@ -32,10 +45,11 @@ export default {
     },
     */
   },
+  /*
   watch: {
     email(value) {
       console.log("email : ", value);
     },
-  },
+  },*/
 };
 </script>
