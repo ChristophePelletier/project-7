@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import register from "@/services/register";
 export default {
   data() {
     return {
@@ -19,9 +20,17 @@ export default {
     };
   },
   methods: {
-    signup() {
-      console.log("click register button");
+    async signup() {
+      await register.signup({
+        email: this.email,
+        name: this.name,
+      });
     },
+    /*
+    signup() {
+      console.log("click register button", this.email, this.name);
+    },
+    */
   },
   watch: {
     email(value) {
