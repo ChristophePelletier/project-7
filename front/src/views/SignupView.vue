@@ -22,6 +22,7 @@
 
 <script>
 import signupService from "@/services/signupService";
+
 export default {
   data() {
     return {
@@ -50,6 +51,6 @@ export default {
     email(value) {
       console.log("email : ", value);
     },
-  },*/
+  }, */
 };
 </script>

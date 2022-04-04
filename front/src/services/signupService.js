@@ -5,9 +5,3 @@ export default {
     return api().post("signup", identification);
   },
 };
-/*
-signupService.signup({
-	email: 'test@test.gmail',
-	password: '123456',
-})
-*/
