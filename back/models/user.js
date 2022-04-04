@@ -1,7 +1,9 @@
-// https://sequelize.org/docs/v6/core-concepts/model-basics/
-//const Sequelize = require('sequelize')
-
-//
+/* https://sequelize.org/docs/v6/core-concepts/model-basics/
+const Sequelize = require('sequelize')
+Models can be defined in two equivalent ways in Sequelize:
+-> Calling sequelize.define(modelName, attributes, options)
+-> Extending Model and calling init(attributes, options)
+*/
 module.exports = (sequelize, DataTypes) =>
   sequelize.define(
     'Post',

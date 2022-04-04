@@ -14,7 +14,7 @@ app.get('/test', (req, res) => {
 
 //Data base connection
 //require('./database/connection')
-
+//Sequelize refers to the library itself while sequelize refers to an instance of Sequelize, which represents a connection to one database
 const sequelize = new Sequelize('test', 'Christophe_Pelletier', '87420_Mysql', {
   host: 'localhost',
   dialect: 'mysql',

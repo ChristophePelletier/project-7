@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "Christophe_Pelletier",
+    "password": "87420_Mysql",
+    "database": "test",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "Christophe_Pelletier",
+    "password": "87420_Mysql",
+    "database": "test",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "Christophe_Pelletier",
+    "password": "87420_Mysql",
+    "database": "test",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
