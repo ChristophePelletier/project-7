@@ -11,15 +11,10 @@ app.get('/test', (req, res) => {
     message: 'test',
   })
 })
-const sequelize = new Sequelize(
-  'groupomania',
-  'Christophe_Pelletier',
-  '87420_Mysql',
-  {
-    host: 'localhost',
-    dialect: 'mysql',
-  }
-)
+const sequelize = new Sequelize('test', 'Christophe_Pelletier', '87420_Mysql', {
+  host: 'localhost',
+  dialect: 'mysql',
+})
 
 sequelize
   .authenticate()
