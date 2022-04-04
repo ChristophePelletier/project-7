@@ -3,6 +3,8 @@ Models are the essence of Sequelize. A model is an abstraction that represents a
 
 */
 
+//npx sequelize-cli init
+/*
 'use strict'
 
 const fs = require('fs')
@@ -49,3 +51,4 @@ db.sequelize = sequelize
 db.Sequelize = Sequelize
 
 module.exports = db
+*/
