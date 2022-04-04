@@ -15,6 +15,9 @@ app.get('/test', (req, res) => {
 //Data base connection
 //require('./database/connection')
 //Sequelize refers to the library itself while sequelize refers to an instance of Sequelize, which represents a connection to one database
+
+//OK
+/*
 const sequelize = new Sequelize('test', 'Christophe_Pelletier', '87420_Mysql', {
   host: 'localhost',
   dialect: 'mysql',
@@ -24,6 +27,10 @@ sequelize
   .authenticate()
   .then(() => console.log('OK Database connected OK'))
   .catch((err) => console.log('Error: ' + err))
+*/
+
+const db = require('./models')
+db.sequelize.sync()
 
 app.post('/signup', (req, res) => {
   console.log('req.body : ', req.body)
@@ -32,4 +39,9 @@ app.post('/signup', (req, res) => {
   })
 })
 
-app.listen(process.env.PORT || 3000)
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+  console.log(`Serveur en fonction sur le port : ${PORT}.`)
+})
+
+//app.listen(process.env.PORT || 3000)
