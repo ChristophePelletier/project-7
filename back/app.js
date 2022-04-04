@@ -2,15 +2,34 @@ const cors = require('cors')
 const express = require('express')
 
 const app = express()
-const { Sequelize } = require('sequelize')
+const Sequelize = require('sequelize')
 app.use(cors())
 app.use(express.json())
-app.get('/test', (req, res) => {
-  console.log('test')
+
+const db = require('./models')
+const PORT = process.env.PORT || 3000
+
+db.sequelize
+  .sync()
+  .then(() => {
+    app.listen(PORT)
+    console.log(`Serveur en fonction sur le port : ${PORT}.`)
+  })
+  .catch((err) => console.error('erreur connexion bdd via sequelize', err))
+
+app.post('/signup', (req, res) => {
+  console.log('req.body : ', req.body)
   res.send({
-    message: 'test',
+    message: `Bonjour bonjour ${req.body.name}, ${req.body.email} utilisateur enregistré, votre mot de passe : ${req.body.password}`,
   })
 })
+
+/*
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+  console.log(`Serveur en fonction sur le port : ${PORT}.`)
+})
+*/
 
 //Data base connection
 //require('./database/connection')
@@ -29,19 +48,15 @@ sequelize
   .catch((err) => console.log('Error: ' + err))
 */
 
-const db = require('./models')
-db.sequelize.sync()
-
-app.post('/signup', (req, res) => {
-  console.log('req.body : ', req.body)
+/*
+app.get('/test', (req, res) => {
+  console.log('test')
   res.send({
-    message: `Bonjour bonjour ${req.body.name}, ${req.body.email} utilisateur enregistré, votre mot de passe : ${req.body.password}`,
+    message: 'test',
   })
 })
+*/
 
-const PORT = process.env.PORT || 3000
-app.listen(PORT, () => {
-  console.log(`Serveur en fonction sur le port : ${PORT}.`)
-})
-
+/*
 //app.listen(process.env.PORT || 3000)
+*/
