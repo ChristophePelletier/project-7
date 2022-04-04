@@ -21,14 +21,14 @@
 </template>
 
 <script>
-import signupService from "@/services/signupService";
+import signupService from '@/services/signupService';
 
 export default {
   data() {
     return {
-      email: "",
-      password: "",
-      name: "",
+      email: '',
+      password: '',
+      name: '',
     };
   },
   methods: {

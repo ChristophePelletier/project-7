@@ -11,6 +11,10 @@ app.get('/test', (req, res) => {
     message: 'test',
   })
 })
+
+//Data base connection
+//require('./database/connection')
+
 const sequelize = new Sequelize('test', 'Christophe_Pelletier', '87420_Mysql', {
   host: 'localhost',
   dialect: 'mysql',

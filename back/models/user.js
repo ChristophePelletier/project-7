@@ -1,20 +1,24 @@
 // https://sequelize.org/docs/v6/core-concepts/model-basics/
+//const Sequelize = require('sequelize')
 
+//
 module.exports = (sequelize, DataTypes) =>
   sequelize.define(
-    'User',
+    'Post',
     {
       // Model attributes are defined here
-      email: {
-        type: DataTypes.STRING,
-        unique: true,
+      id: {
+        type: DataTypes.INTEGER(11),
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
       },
       name: {
         type: DataTypes.STRING,
         // allowNull defaults to true
       },
-      password: {
-        type: DataTypes.STRING,
+      content: {
+        type: DataTypes.STRING(1500),
         // allowNull defaults to true
       },
     },
