@@ -13,22 +13,19 @@
         placeholder="password"
       />
     </div>
-    <div>
-      <input type="text" name="nom" v-model="name" placeholder="nom" />
-    </div>
     <button @click="signup">S'inscrire</button>
   </div>
 </template>
 
 <script>
-import signupService from '@/services/signupService';
+import signupService from "@/services/signupService";
 
 export default {
   data() {
     return {
-      email: '',
-      password: '',
-      name: '',
+      email: "",
+      password: "",
+      name: "",
     };
   },
   methods: {
@@ -36,7 +33,6 @@ export default {
       const response = await signupService.signup({
         email: this.email,
         password: this.password,
-        name: this.name,
       });
       console.log(response.data);
     },
