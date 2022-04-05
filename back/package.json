@@ -17,6 +17,7 @@
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
     "passport": "^0.5.2",
+    "password": "^0.1.1",
     "sequelize": "^6.17.0"
   },
   "devDependencies": {

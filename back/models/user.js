@@ -5,6 +5,33 @@ Models can be defined in two equivalent ways in Sequelize:
 -> Extending Model and calling init(attributes, options)
 */
 
+module.exports = function (sequelize, Sequelize) {
+  const User = sequelize.define(
+    'user',
+    {
+      id: {
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      firstName: { type: Sequelize.STRING, notEmpty: true },
+      lastName: { type: Sequelize.STRING, notEmpty: true },
+      email: {
+        type: Sequelize.STRING,
+        validate: { isEmail: true },
+        unique: true,
+      },
+      password: { type: Sequelize.STRING, allowNull: false },
+    },
+    {
+      tableName: 'users',
+    }
+  )
+  return User
+}
+
+/*
 const Promise = require('bluebird')
 const bcrypt = Promise.promisifyAll(require('bcrypt-nodejs'))
 
@@ -51,7 +78,7 @@ module.exports = (sequelize, DataTypes) => {
   return User
 }
 
-/*
+
 module.exports = (sequelize, DataTypes) =>
   sequelize.define(
     'Post',
