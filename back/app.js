@@ -29,7 +29,8 @@ app.post('/signup', (req, res) => {
   })
 })
 const db = require('./models')
-
+const userRoutes = require('./routes/user')
+app.use('/api/auth', userRoutes)
 db.sequelize.sync().then(() => {
   console.log('ok')
 })
