@@ -4,7 +4,8 @@
 Models are the essence of Sequelize. A model is an abstraction that represents a table in your database. In Sequelize, it is a class that extends Model.
 
 */
-
+const fs = require('fs')
+const path = require('path')
 const dbConfig = require('../config/dbconfig.js')
 const Sequelize = require('sequelize')
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
