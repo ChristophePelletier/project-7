@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const app = express()
 const { Sequelize } = require('sequelize')
+const userRoutes = require('./routes/user')
 let corsOptions = {
   origin: 'http://localhost:3000',
 }
@@ -33,7 +34,7 @@ const db = require('./models')
 db.sequelize.sync().then(() => {
   console.log('ok')
 })
-
+app.use('/api/auth', userRoutes)
 app.listen(process.env.PORT || 3000)
 
 /*
