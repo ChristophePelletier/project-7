@@ -1,9 +1,38 @@
-/* https://sequelize.org/docs/v6/core-concepts/model-basics/
+/*
+https://sequelize.org/docs/v6/core-concepts/model-basics/
 const Sequelize = require('sequelize')
 Models can be defined in two equivalent ways in Sequelize:
 -> Calling sequelize.define(modelName, attributes, options)
 -> Extending Model and calling init(attributes, options)
 */
+
+module.exports = function (sequelize, Sequelize) {
+  const User = sequelize.define(
+    'user',
+    {
+      id: {
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      firstName: { type: Sequelize.STRING, notEmpty: true },
+      lastName: { type: Sequelize.STRING, notEmpty: true },
+      email: {
+        type: Sequelize.STRING,
+        validate: { isEmail: true },
+        unique: true,
+      },
+      password: { type: Sequelize.STRING, allowNull: false },
+    },
+    {
+      tableName: 'users',
+    }
+  )
+  return User
+}
+
+/*
 module.exports = (sequelize, DataTypes) =>
   sequelize.define(
     'Post',
@@ -28,3 +57,4 @@ module.exports = (sequelize, DataTypes) =>
       // Other model options go here
     }
   )
+*/
