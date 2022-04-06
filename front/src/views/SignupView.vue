@@ -36,6 +36,21 @@ export default {
       });
       console.log(response.data);
     },
+    /*,
+    mounted() {
+      axios
+        .post("http://localhost:3000/api/auth/signup", {
+          email: this.email,
+          password: this.password,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
+    */
     /*
     signup() {
       console.log("click register button", this.email, this.name);
