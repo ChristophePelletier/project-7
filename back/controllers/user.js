@@ -33,8 +33,9 @@ exports.signup = (req, res) => {
         email: req.body.email,
         password: hash,
       })
-        .then(() =>
-          res.status(201).json({ message: 'Contributeur de sauces bien créé' })
+        .then(
+          () => res.status(201),
+          res.json({ message: 'Contributeur de sauces bien créé' })
         )
         .catch((error) => res.status(400).json({ error }))
     })
