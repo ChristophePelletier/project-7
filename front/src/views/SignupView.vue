@@ -4,6 +4,7 @@
     <h1>Signup</h1>
     <div>
       <input type="email" name="email" v-model="email" placeholder="email" />
+      <p>{{ email }}</p>
     </div>
     <div>
       <input
@@ -12,6 +13,7 @@
         v-model="password"
         placeholder="password"
       />
+      <p>{{ password }}</p>
     </div>
     <button @click="signup">S'inscrire</button>
   </div>
@@ -39,7 +41,7 @@ export default {
       } catch (error) {
         this.error = error.response.data.error;
       }
-    },
+    } /*
     redirect() {
       if (xhr.readyState === 4) {
         // Checking status codes
@@ -52,7 +54,7 @@ export default {
           onError();
         }
       }
-    },
+    },*/,
   },
 };
 </script>

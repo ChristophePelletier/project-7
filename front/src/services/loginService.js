@@ -1,3 +1,12 @@
+import api from "@/services/api";
+//
+export default {
+  login(identification) {
+    return api().post("./api/auth/login", identification);
+  },
+};
+
+/*
 import axios from "axios";
 const API_URL = "http://localhost:3000/api/auth/";
 
@@ -27,3 +36,4 @@ class AuthService {
   }
 }
 export default new AuthService();
+*/
