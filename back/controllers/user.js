@@ -28,9 +28,11 @@ exports.signup = (req, res) => {
     password: bcrypt.hashSync(req.body.password, 8),
   })
     .then((user) => {
+      console.log("L'utilisateur a été enregistré avec succès!")
       res.send({ message: "L'utilisateur a été enregistré avec succès!" })
     })
     .catch((err) => {
+      console.log('Erreur')
       res.status(500).send({ message: err.message })
     })
 }

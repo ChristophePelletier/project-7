@@ -1,7 +1,3 @@
-const jwt = require('jsonwebtoken')
-const dotenv = require('dotenv')
-dotenv.config()
-
 const db = require('../models')
 const User = db.user
 
@@ -12,6 +8,7 @@ module.exports = (req, res, next) => {
     },
   }).then((user) => {
     if (user) {
+      console.log('email déjà utilisé')
       res.status(400).send({
         message: 'Email déjà utilisé',
       })
