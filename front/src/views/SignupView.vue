@@ -30,38 +30,16 @@ export default {
   },
   methods: {
     async signup() {
-      const response = await signupService.signup({
-        email: this.email,
-        password: this.password,
-      });
-      console.log(response.data);
-    },
-    /*,
-    mounted() {
-      axios
-        .post("http://localhost:3000/api/auth/signup", {
+      try {
+        const response = await signupService.signup({
           email: this.email,
           password: this.password,
-        })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
         });
+        console.log(response.data);
+      } catch (error) {
+        this.error = error.response.data.error;
+      }
     },
-    */
-    /*
-    signup() {
-      console.log("click register button", this.email, this.name);
-    },
-    */
   },
-  /*
-  watch: {
-    email(value) {
-      console.log("email : ", value);
-    },
-  }, */
 };
 </script>
