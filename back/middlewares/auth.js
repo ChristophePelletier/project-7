@@ -16,16 +16,14 @@ module.exports = (req, res, next) => {
     //if error --> catch
     // OK : we pass it in env variable
     const userId = decodedToken.userId
-    console.log('rrrr', decodedToken.userId)
+    console.log('decodedToken.userId', decodedToken.userId)
     console.log('userId', userId)
     // prevent delete object from someone else
     //req.userId = userId;
-    //
     // we add to the request object the userId --> for the delete function
     req.auth = { userId }
     //req.userId=userId;
     //req.auth = { userId: userId }
-    //
     //
     if (req.body.userId && req.body.userId !== userId) {
       /*

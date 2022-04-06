@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 //
 
 const User = db.user
+
 /*
 const handleErrors = (err) => {
 	console.log(err.message, err.code)
@@ -19,7 +20,29 @@ dotenv.config()
 // crypt the password
 // new instance of the object User -> new User
 // save the new User in the data base
+
+//V2
 exports.signup = (req, res) => {
+  console.log(' signup req : ', req.body)
+  bcrypt
+    .hash(req.body.password, 8)
+    .then((hash) => {
+      User.create({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: hash,
+      })
+        .then(() =>
+          res.status(201).json({ message: 'Contributeur de sauces bien créé' })
+        )
+        .catch((error) => res.status(400).json({ error }))
+    })
+    .catch((error) => res.status(500).json({ error }))
+}
+/*
+exports.signup = (req, res) => {
+  //console.log('User :', User)
   // Enregistrer l'utilisateur dans la base de données
   User.create({
     firstName: req.body.firstName,
@@ -29,13 +52,17 @@ exports.signup = (req, res) => {
   })
     .then((user) => {
       console.log("L'utilisateur a été enregistré avec succès!")
+      res.status(200)
       res.send({ message: "L'utilisateur a été enregistré avec succès!" })
     })
     .catch((err) => {
       console.log('Erreur')
-      res.status(500).send({ message: err.message })
+      res.status(500)
+      res.send({ message: err.message })
     })
 }
+*/
+///problem--> errors not catched
 
 // http://localhost:3000/api/auth/signup
 // test postman ok --> JSON
