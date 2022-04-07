@@ -8,9 +8,9 @@ module.exports = (req, res, next) => {
     },
   }).then((user) => {
     if (user) {
-      console.log('email déjà utilisé')
+      console.log('check double : email déjà utilisé')
       res.status(400).send({
-        message: 'Email déjà utilisé',
+        message: 'Check double : Email déjà utilisé',
       })
       return
     }

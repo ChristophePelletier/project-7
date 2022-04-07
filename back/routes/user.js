@@ -3,7 +3,8 @@ const router = express.Router()
 
 const userCtrl = require('../controllers/user')
 const checkDoubleEmail = require('../middlewares/checkDoubleEmail')
+const authPolicy = require('../middlewares/authPolicy')
 //
-router.post('/signup', checkDoubleEmail, userCtrl.signup)
+router.post('/signup', authPolicy, checkDoubleEmail, userCtrl.signup)
 router.post('/login', userCtrl.login)
 module.exports = router

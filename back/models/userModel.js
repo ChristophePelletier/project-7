@@ -13,8 +13,7 @@ module.exports = function (sequelize, Sequelize) {
       userId: {
         autoIncrement: true,
         primaryKey: true,
-        //11 *********************
-        type: Sequelize.INTEGER(11),
+        type: Sequelize.INTEGER,
         allowNull: false,
         unique: true,
       },
