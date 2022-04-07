@@ -1,12 +1,19 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-    <router-link to="/signup">Signup</router-link>
-    <router-link to="/login">Login</router-link>
+    <router-link to="/article">Article</router-link> |
+    <router-link to="/signup">Signup</router-link> |
+    <router-link to="/login">Login</router-link> |
+    <router-link to="/about">À propos</router-link>
   </nav>
   <router-view />
+
+  <footer>
+    <p>2022 -- Groupomania</p>
+  </footer>
 </template>
+
+
 
 <style>
 #app {

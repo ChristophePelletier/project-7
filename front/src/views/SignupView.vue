@@ -1,6 +1,6 @@
 <template>
   <div class="signup">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <img alt="" src="../assets/icon-above-font.png" />
     <h1>Signup</h1>
     <div>
       <input type="email" name="email" v-model="email" placeholder="email" />
