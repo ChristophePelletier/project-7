@@ -91,8 +91,10 @@ exports.login = (req, res, next) => {
               .json({ error: 'Le mot de passe saisi est incorrect' })
           }
           res.status(200).json({
-            id: user.userId,
+            userId: user.userId,
             email: user.email,
+            password: user.password,
+            admin: user.admin,
             // jwt -> sign function : --> 3 arguments
             // 1: datas to endode in the token (payload)
             // 2 : secret key
