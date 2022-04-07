@@ -16,6 +16,7 @@
       <p>{{ password }}</p>
     </div>
     <div class="alert" v-html="error" />
+    <div class="alert" v-html="response" />
   </div>
 
   <button @click="signup">S'inscrire</button>
@@ -30,6 +31,7 @@ export default {
       email: "",
       password: "",
       error: null,
+      response: null,
     };
   },
   methods: {
