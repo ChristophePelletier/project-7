@@ -3,6 +3,7 @@ module.exports = {
   user: 'Christophe_Pelletier',
   password: '87420_Mysql',
   database: 'test',
+  // to replace by database : process.env.DB_NAME || nom par défaut
   dialect: 'mysql',
   port: 3306,
   pool: {

@@ -1,23 +1,30 @@
 /*
-Models are the essence of Sequelize. A model is an abstraction that represents a table in your database. In Sequelize, it is a class that extends Model.
-
+Models
+--> essence of Sequelize
+--> an abstraction that represents a table in the database.
+In Sequelize, it is a class that extends Model.
 */
-const config = require('../config/config.js')
+const configDb = require('../config/configDb.js')
 const Sequelize = require('sequelize')
-const sequelize = new Sequelize(config.database, config.user, config.password, {
-  host: config.hostname,
-  port: config.port,
-  dialect: config.dialect,
-  pool: {
-    max: config.pool.max,
-    min: config.pool.min,
-    acquire: config.pool.acquire,
-    idle: config.pool.idle,
-  },
-  define: {
-    timestamps: false,
-  },
-})
+const sequelize = new Sequelize(
+  configDb.database,
+  configDb.user,
+  configDb.password,
+  {
+    host: configDb.hostname,
+    port: configDb.port,
+    dialect: configDb.dialect,
+    pool: {
+      max: configDb.pool.max,
+      min: configDb.pool.min,
+      acquire: configDb.pool.acquire,
+      idle: configDb.pool.idle,
+    },
+    define: {
+      timestamps: false,
+    },
+  }
+)
 const db = {}
 db.Sequelize = Sequelize
 db.sequelize = sequelize

@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt')
-const config = require('../config/config')
+//const configDb = require('../config/configDb')
 const db = require('../models')
 const jwt = require('jsonwebtoken')
 //
@@ -53,7 +53,8 @@ exports.signup = (req, res) => {
     .then((user) => {
       console.log("L'utilisateur a été enregistré avec succès!")
       res.status(200)
-      res.send({ message: "L'utilisateur a été enregistré avec succès!" })
+      res.send(user.toJSON())
+      //res.send({ message: "L'utilisateur a été enregistré avec succès!" })
     })
     .catch((err) => {
       console.log('Erreur')
@@ -90,7 +91,7 @@ exports.login = (req, res, next) => {
               .json({ error: 'Le mot de passe saisi est incorrect' })
           }
           res.status(200).json({
-            id: user.id,
+            id: user.userId,
             // jwt -> sign function : --> 3 arguments
             // 1: datas to endode in the token (payload)
             // 2 : secret key
