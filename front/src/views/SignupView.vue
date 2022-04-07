@@ -16,7 +16,6 @@
       <p>{{ password }}</p>
     </div>
     <div class="alert" v-html="error" />
-    <p>test</p>
   </div>
 
   <button @click="signup">S'inscrire</button>
@@ -65,7 +64,11 @@ export default {
 </script>
 
 <style scoped>
-.alert {
+div.alert ol,
+div.alert,
+div.alert li {
   color: red;
+  text-align: center;
+  list-style-type: none !important;
 }
 </style>
