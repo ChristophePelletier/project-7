@@ -92,11 +92,12 @@ exports.login = (req, res, next) => {
           }
           res.status(200).json({
             id: user.userId,
+            email: user.email,
             // jwt -> sign function : --> 3 arguments
             // 1: datas to endode in the token (payload)
             // 2 : secret key
             // 3 : time
-            token: jwt.sign({ id: user.id }, 'RANDOM_TOKEN_SECRET', {
+            token: jwt.sign({ id: user.userId }, 'RANDOM_TOKEN_SECRET', {
               expiresIn: '12h',
             }),
             // OK Request headers : Bearer user._id crypted
