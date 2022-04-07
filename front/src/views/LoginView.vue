@@ -1,5 +1,5 @@
 <template>
-  <div class="signup">
+  <div class="login">
     <img alt="" src="../assets/icon-above-font.png" />
     <h1>Login</h1>
     <div>
@@ -15,25 +15,24 @@
       />
       <p>{{ password }}</p>
     </div>
-    <button @click="signup">Se connecter</button>
+    <button @click="login">Se connecter</button>
   </div>
 </template>
 
 <script>
-import signupService from "@/services/loginService";
+import loginService from "@/services/loginService";
 
 export default {
   data() {
     return {
       email: "",
       password: "",
-      name: "",
     };
   },
   methods: {
-    async signup() {
+    async login() {
       try {
-        const response = await signupService.signup({
+        const response = await loginService.login({
           email: this.email,
           password: this.password,
         });

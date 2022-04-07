@@ -9,7 +9,7 @@ const User = db.user
 exports.createArticle = (req, res, next) => {
   // get the object
   const articleObject = JSON.parse(req.body.article)
-  delete articleObject._id
+  delete articleObject.id
   //correction security problem
   //without this condition we can create a article with a user id we choose
   //-> we check that the user Id in the object is the same as the id in the token
