@@ -13,8 +13,10 @@ module.exports = function (sequelize, Sequelize) {
       id: {
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        //11 *********************
+        type: Sequelize.INTEGER(11),
         allowNull: false,
+        unique: true,
       },
       firstName: { type: Sequelize.STRING, notEmpty: true },
       lastName: { type: Sequelize.STRING, notEmpty: true },
@@ -24,9 +26,12 @@ module.exports = function (sequelize, Sequelize) {
         unique: true,
       },
       password: { type: Sequelize.STRING, allowNull: false },
+      admin: Sequelize.BOOLEAN,
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE,
     },
     {
-      tableName: 'users',
+      tableName: 'users7',
     }
   )
   return User

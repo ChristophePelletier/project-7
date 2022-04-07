@@ -4,7 +4,7 @@
     <h1>Login</h1>
     <div>
       <input type="email" name="email" v-model="email" placeholder="email" />
-      <p>{{ login }}</p>
+      <p>{{ email }}</p>
     </div>
     <div>
       <input
