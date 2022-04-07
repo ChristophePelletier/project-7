@@ -10,7 +10,7 @@ module.exports = function (sequelize, Sequelize) {
   const User = sequelize.define(
     'user',
     {
-      id: {
+      userId: {
         autoIncrement: true,
         primaryKey: true,
         //11 *********************
@@ -26,12 +26,15 @@ module.exports = function (sequelize, Sequelize) {
         unique: true,
       },
       password: { type: Sequelize.STRING, allowNull: false },
-      admin: Sequelize.BOOLEAN,
-      createdAt: Sequelize.DATE,
-      updatedAt: Sequelize.DATE,
+      admin: { type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false },
+      /*
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },*/
     },
     {
-      tableName: 'users7',
+      tableName: 'users11',
     }
   )
   return User
