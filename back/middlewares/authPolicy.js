@@ -20,10 +20,12 @@ module.exports = (req, res, next) => {
           error: `Le mot de passe ne rentre pas dans nos règles de sécurité informatique.<br/> 1 Le mot de passe doit contenir uniquement minuscules, majuscules et nombres. 2 entre 5 et 12 caractères`,
         })
         break
+
       default:
+        next() /*
         res.status(400).send({
           error: 'Invalid registration information',
-        })
+        })*/
     }
   } else {
     next()
