@@ -15,8 +15,11 @@
       />
       <p>{{ password }}</p>
     </div>
-    <button @click="signup">S'inscrire</button>
+    <div class="alert" v-html="error" />
+    <p>test</p>
   </div>
+
+  <button @click="signup">S'inscrire</button>
 </template>
 
 <script>
@@ -27,6 +30,7 @@ export default {
     return {
       email: "",
       password: "",
+      error: null,
     };
   },
   methods: {
@@ -59,3 +63,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.alert {
+  color: red;
+}
+</style>
