@@ -15,7 +15,14 @@ module.exports = function (sequelize, Sequelize) {
       },
       title: { type: Sequelize.STRING, notEmpty: true },
       content: { type: Sequelize.STRING, notEmpty: true },
-      createdAt: Sequelize.DATE,
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
     },
     {
       tableName: 'users10',
