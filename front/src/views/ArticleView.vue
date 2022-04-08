@@ -2,15 +2,16 @@
   <div class="article">
     <img alt="" src="../assets/icon-above-font.png" />
     <h1>Article</h1>
-    <div>
-      <p>{{ title }}</p>
-    </div>
-    <div v-for="article in articles" :key="article.title">
+
+    <div v-for="article in articles" :key="article.id">
       <h2>
         {{ article.title }}
       </h2>
       <p>
-        {{ article.author }}
+        {{ article.content }}
+      </p>
+      <p>
+        {{ article.createdAt }}
       </p>
     </div>
     <button @click="poster">Poster</button>
@@ -43,7 +44,9 @@ export default {
     };
   },
   async mounted() {
-    this.articles = articleService.getAllArticles();
+    this.articles = (await articleService.getAllArticles()).data;
+    console.log("data", data);
+    console.log("this.article : ", this.articles.data);
   },
 };
 </script>

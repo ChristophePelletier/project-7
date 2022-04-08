@@ -26,7 +26,7 @@ module.exports = function (sequelize, Sequelize) {
       },
     },
     {
-      tableName: 'articles101',
+      tableName: 'articles',
     }
   )
   return Article
