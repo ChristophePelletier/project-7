@@ -33,7 +33,7 @@ module.exports = function (sequelize, Sequelize) {
       },*/
     },
     {
-      tableName: 'users11',
+      tableName: 'users100',
     }
   )
   return User
