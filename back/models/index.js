@@ -21,7 +21,7 @@ const sequelize = new Sequelize(
       idle: configDb.pool.idle,
     },
     define: {
-      timestamps: false,
+      timestamps: true,
     },
   }
 )

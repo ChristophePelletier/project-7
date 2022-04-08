@@ -26,14 +26,17 @@ module.exports = function (sequelize, Sequelize) {
       },
       password: { type: Sequelize.STRING, allowNull: false },
       admin: { type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false },
-      /*
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-      },*/
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+      },
     },
     {
-      tableName: 'users100',
+      tableName: 'users101',
     }
   )
   return User
