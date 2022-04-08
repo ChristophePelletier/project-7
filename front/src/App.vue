@@ -3,11 +3,9 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/article">Article</router-link> |
     <router-link to="/signup">Signup</router-link>|
-    <router-link to="/signup">Signup</router-link>
-    |
-
-    <router-link to="/login" v-if="!$store.state.loggedIn">Login</router-link> |
+    <router-link to="/login">Login</router-link> |
     <router-link to="/about">À propos</router-link>
+    <button v-if="$store.state.loggedIn" @click="logout">Logout</button>
   </nav>
   <router-view />
 
@@ -16,7 +14,19 @@
   </footer>
 </template>
 
+<script>
+import loginService from "@/services/loginService";
 
+export default {
+  methods: {
+    logout() {
+      this.$store.dispatch("setToken", null);
+      this.$store.dispatch("setUserId", null);
+      this.$router.push({ name: "root" });
+    },
+  },
+};
+</script>
 
 <style>
 /*on l'ajoutera à la fin afin de ne pas masquer de suite dynamiquement les menus
