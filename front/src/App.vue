@@ -2,8 +2,11 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/article">Article</router-link> |
-    <router-link to="/signup">Signup</router-link> |
-    <router-link to="/login">Login</router-link> |
+    <router-link to="/signup">Signup</router-link>|
+    <router-link to="/signup">Signup</router-link>
+    |
+
+    <router-link to="/login" v-if="!$store.state.loggedIn">Login</router-link> |
     <router-link to="/about">À propos</router-link>
   </nav>
   <router-view />
@@ -16,6 +19,9 @@
 
 
 <style>
+/*on l'ajoutera à la fin afin de ne pas masquer de suite dynamiquement les menus
+v-if="!$store.state.loggedIn"
+*/
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,3 +43,4 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+
