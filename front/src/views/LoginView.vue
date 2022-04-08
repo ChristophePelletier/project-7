@@ -23,6 +23,7 @@
 import loginService from "@/services/loginService";
 
 export default {
+  name: "login",
   data() {
     return {
       email: "",
@@ -36,14 +37,16 @@ export default {
           email: this.email,
           password: this.password,
         });
-        //this$store.dispatch("setToken", response.data.token);
+        this.$store.dispatch("setToken", response.data.token);
         // store --> setToken method
-        //this$store.dispatch("setUser", response.data.user);
+        this.$store.dispatch("setUser", response.data.user);
         console.log("response.data :", response.data);
+        console.log("response.data.message :", response.data.message);
         //console.log(response.data.user);
         //console.log(response.data.token);
       } catch (error) {
-        this.error = error.response.data.error;
+        console.log("error");
+        //this.error = error.response.data.error;
       }
     },
   },

@@ -10,7 +10,11 @@ export default createStore({
   mutations: {
     setToken(state, token) {
       state.token = token;
-      state.loggedIn = !!token;
+      if (token) {
+        state.loggedIn = true;
+      } else {
+        state.loggedIn = false;
+      }
     },
     setUser(state, user) {
       state.user = user;
