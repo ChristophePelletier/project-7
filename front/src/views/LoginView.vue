@@ -39,11 +39,11 @@ export default {
         });
         this.$store.dispatch("setToken", response.data.token);
         // store --> setToken method
-        this.$store.dispatch("setUser", response.data.user);
+        this.$store.dispatch("setUserId", response.data.userId);
         console.log("response.data :", response.data);
         console.log("response.data.message :", response.data.message);
-        //console.log(response.data.user);
-        //console.log(response.data.token);
+        console.log("response.data.userId :", response.data.userId);
+        console.log("response.data.token :", response.data.token);
       } catch (error) {
         console.log("error");
         //this.error = error.response.data.error;
