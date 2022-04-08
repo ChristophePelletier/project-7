@@ -1,48 +1,37 @@
-const bcrypt = require('bcrypt')
-const config = require('../config/config')
 const db = require('../models')
-const jwt = require('jsonwebtoken')
-//
+const Article = db.article
 
-const User = db.user
+exports.createArticle = (req, res) => {
+  Article.create(req.body)
+    .then((article) => {
+      console.log('Article créé avec succès!')
+      res.status(200)
+      res.send(article)
+    })
+    .catch((err) => {
+      console.log('Erreur')
+      res.status(500)
+      res.send({ message: err.message })
+    })
+}
 
-exports.createArticle = (req, res, next) => {
-  // get the object
-  const articleObject = JSON.parse(req.body.article)
-  delete articleObject.id
-  //correction security problem
-  //without this condition we can create a article with a user id we choose
-  //-> we check that the user Id in the object is the same as the id in the token
-  // for memory : req.auth.userId -> decodedToken.userId
+//delete articleObject.id
+/*
   if (articleObject.userId !== req.auth.userId) {
     console.log('non autorisé')
     return res.status(401).json({
       message: 'unauthorized',
     })
   }
-  //
-  const article = new Article({
-    ...articleObject,
-    // image URL http or https + host of the server + /images/ + filename
-    imageUrl: `${req.protocol}://${req.get('host')}/images/${
-      req.file.filename
-    }`,
-  })
-  article
-    .save()
-    //save returns a promise --> then ... catch
-    .then(() => res.status(201).json({ message: 'Article enregistrée' }))
-    // !!response to the front necessary else the request would expire
-    .catch((error) => res.status(400).json({ error: error }))
-}
+  */
 
 /**
 getAllArticles
 */
 exports.getAllArticles = (req, res, next) => {
-  Article.find()
+  Article.findAll({ limit: 15 })
     .then((articles) => {
-      res.status(200).json(articles)
+      res.send(articles)
     })
     .catch((error) => {
       res.status(400).json({
@@ -51,9 +40,7 @@ exports.getAllArticles = (req, res, next) => {
     })
 }
 
-/**
-getOneArticle
-*/
+/*
 exports.getOneArticle = (req, res, next) => {
   Article.findOne({
     _id: req.params.id,
@@ -68,11 +55,8 @@ exports.getOneArticle = (req, res, next) => {
     })
 }
 
-/**
- updateArticle
- */
+
 exports.updateArticle = (req, res, next) => {
-  //
   Article.findOne({ _id: req.params.id })
     .then((article) => {
       if (req.file && article.userId == req.auth.userId) {
@@ -121,9 +105,6 @@ exports.updateArticle = (req, res, next) => {
   //
 }
 
-/**
- deleteArticle
- */
 exports.deleteArticle = (req, res, next) => {
   // ! id de la article but not id of the user --> security to adapt
   Article.findOne({ _id: req.params.id })
@@ -132,11 +113,6 @@ exports.deleteArticle = (req, res, next) => {
         return res.status(404).json({
           message: 'Not Found',
         })
-        /*
-				res.status(404).json({
-					error: new Error('no article'),
-				})
-				*/
       }
       // ! only the user who sent the article can delete the article
       if (article.userId !== req.auth.userId) {
@@ -145,12 +121,6 @@ exports.deleteArticle = (req, res, next) => {
         return res.status(401).json({
           message: 'unauthorized',
         })
-        /*
-				return res.status(401).json({
-					error:
-						'requête non autorisée : seul le créateur de la article peut la supprimer',
-				})
-				*/
       }
       //
 
@@ -175,3 +145,4 @@ exports.deleteArticle = (req, res, next) => {
       })
     })
 }
+*/

@@ -15,6 +15,7 @@ module.exports = function (sequelize, Sequelize) {
       },
       title: { type: Sequelize.STRING, notEmpty: true },
       content: { type: Sequelize.STRING, notEmpty: true },
+      articleIllustration: { type: Sequelize.STRING },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -25,7 +26,7 @@ module.exports = function (sequelize, Sequelize) {
       },
     },
     {
-      tableName: 'users10',
+      tableName: 'users101',
     }
   )
   return Article
