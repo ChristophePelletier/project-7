@@ -3,8 +3,15 @@
     <img alt="" src="../assets/icon-above-font.png" />
     <h1>Article</h1>
     <div>
-      <input type="text" name="title" v-model="title" placeholder="title" />
       <p>{{ title }}</p>
+    </div>
+    <div v-for="article in articles" :key="article.title">
+      <h2>
+        {{ article.title }}
+      </h2>
+      <p>
+        {{ article.author }}
+      </p>
     </div>
     <button @click="poster">Poster</button>
   </div>
@@ -16,7 +23,20 @@ import signupService from "@/services/signupService";
 export default {
   data() {
     return {
-      title: "",
+      articles: [
+        {
+          title: "Test titre article",
+          author: "Test auteur",
+        },
+        {
+          title: "Test titre article",
+          author: "Test auteur",
+        },
+        {
+          title: "Test titre article",
+          author: "Test auteur",
+        },
+      ],
     };
   },
   methods: {
