@@ -36,7 +36,12 @@ export default {
           email: this.email,
           password: this.password,
         });
-        console.log(response.data);
+        //this$store.dispatch("setToken", response.data.token);
+        // store --> setToken method
+        //this$store.dispatch("setUser", response.data.user);
+        console.log("response.data :", response.data);
+        //console.log(response.data.user);
+        //console.log(response.data.token);
       } catch (error) {
         this.error = error.response.data.error;
       }
