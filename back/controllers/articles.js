@@ -34,7 +34,7 @@ exports.getAllArticles = (req, res, next) => {
       res.send(articles)
     })
     .catch((error) => {
-      res.status(400).json({
+      res.status(500).json({
         error: error,
       })
     })

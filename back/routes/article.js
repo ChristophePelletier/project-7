@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const userCtrl = require('../controllers/article')
+const articleCtrl = require('../controllers/articles')
 //
-router.post('/articles')
+router.get('/articles', articleCtrl)
+router.post('/article', articleCtrl)
 module.exports = router
