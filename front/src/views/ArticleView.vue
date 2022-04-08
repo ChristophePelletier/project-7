@@ -18,38 +18,32 @@
 </template>
 
 <script>
-import signupService from "@/services/signupService";
+import articleService from "@/services/articleService";
 
 export default {
   data() {
     return {
+      articles: null,
+      /*
       articles: [
         {
-          title: "Test titre article",
+          title: "Test titre article 1",
+          author: "Test auteur 1",
+        },
+        {
+          title: "Test titre article 2",
           author: "Test auteur",
         },
         {
-          title: "Test titre article",
-          author: "Test auteur",
-        },
-        {
-          title: "Test titre article",
+          title: "Test titre article 3",
           author: "Test auteur",
         },
       ],
+      */
     };
   },
-  methods: {
-    async post() {
-      try {
-        const response = await signupService.poster({
-          title: this.title,
-        });
-        console.log(response.data);
-      } catch (error) {
-        this.error = error.response.data.error;
-      }
-    },
+  async mounted() {
+    this.articles = articleService.getAllArticles();
   },
 };
 </script>
