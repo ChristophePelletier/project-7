@@ -32,11 +32,11 @@ app.post('/signup', (req, res) => {
 })
 const db = require('./models')
 
-db.sequelize.sync().then(() => {
+db.sequelize.sync({ force: true }).then(() => {
   console.log('Data base ok')
 })
 app.use('/api/auth', userRoutes)
-app.use('/api/', articleRoutes)
+app.use('/api', articleRoutes)
 app.listen(process.env.PORT || 3000)
 
 /*

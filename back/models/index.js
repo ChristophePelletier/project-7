@@ -29,6 +29,7 @@ const db = {}
 db.Sequelize = Sequelize
 db.sequelize = sequelize
 db.user = require('../models/userModel.js')(sequelize, Sequelize)
+db.article = require('../models/articleModel.js')(sequelize, Sequelize)
 module.exports = db
 //npx sequelize-cli init
 /*

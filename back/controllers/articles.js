@@ -10,7 +10,7 @@ exports.createArticle = (req, res) => {
     })
     .catch((err) => {
       console.log('Erreur')
-      res.status(500)
+      res.status(400)
       res.send({ message: err.message })
     })
 }
