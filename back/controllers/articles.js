@@ -1,10 +1,5 @@
-const bcrypt = require('bcrypt')
-const config = require('../config/config')
 const db = require('../models')
-const jwt = require('jsonwebtoken')
-//
-
-const User = db.user
+const Article = db.article
 
 exports.createArticle = (req, res, next) => {
   // get the object

@@ -3,6 +3,7 @@ const cors = require('cors')
 const app = express()
 const { Sequelize } = require('sequelize')
 const userRoutes = require('./routes/user')
+const articleRoutes = require('./routes/article')
 let corsOptions = {
   origin: 'http://localhost:3000',
 }
@@ -35,6 +36,7 @@ db.sequelize.sync().then(() => {
   console.log('Data base ok')
 })
 app.use('/api/auth', userRoutes)
+app.use('/api/article', articleRoutes)
 app.listen(process.env.PORT || 3000)
 
 /*
