@@ -45,8 +45,8 @@ export default {
   },
   async mounted() {
     this.articles = (await articleService.getAllArticles()).data;
-    console.log("data", data);
-    console.log("this.article : ", this.articles.data);
+    //console.log("data", data);
+    //  console.log("this.article : ", this.articles.data);
   },
 };
 </script>
