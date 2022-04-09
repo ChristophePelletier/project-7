@@ -11,7 +11,8 @@
         {{ article.content }}
       </p>
       <p>
-        {{ article.createdAt }}
+        Article rédigé le :
+        {{ getFormattedDate(article.createdAt) }}
       </p>
     </div>
     <button @click="poster">Poster</button>
@@ -20,33 +21,22 @@
 
 <script>
 import articleService from "@/services/articleService";
-
+import * as moment from "moment";
 export default {
   data() {
     return {
       articles: null,
-      /*
-      articles: [
-        {
-          title: "Test titre article 1",
-          author: "Test auteur 1",
-        },
-        {
-          title: "Test titre article 2",
-          author: "Test auteur",
-        },
-        {
-          title: "Test titre article 3",
-          author: "Test auteur",
-        },
-      ],
-      */
     };
   },
   async mounted() {
     this.articles = (await articleService.getAllArticles()).data;
     //console.log("data", data);
     //  console.log("this.article : ", this.articles.data);
+  },
+  methods: {
+    getFormattedDate(date) {
+      return moment(date).format("Do MMMM YYYY");
+    },
   },
 };
 </script>
