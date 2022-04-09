@@ -33,13 +33,16 @@
 
 <script>
 import articleService from "@/services/articleService";
+
 export default {
   data() {
     return {
       article: {
+        userId: this.$store.state.userId,
         articleId: null,
         title: null,
         content: null,
+        articleIllustration: null,
       },
     };
   },

@@ -20,6 +20,11 @@ exports.createArticle = (req, res) => {
   Article.create({
     title: req.body.title,
     content: req.body.content,
+    userId: req.body.userId,
+    //
+    //test
+    //userId: req.body.userId,
+    //
   })
     .then((article) => {
       console.log('article bien créé')
@@ -48,7 +53,7 @@ exports.createArticle = (req, res) => {
 getAllArticles
 */
 exports.getAllArticles = (req, res, next) => {
-  Article.findAll({ limit: 15 })
+  Article.findAll({ limit: 55 })
     .then((articles) => {
       res.send(articles)
     })

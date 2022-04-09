@@ -5,7 +5,6 @@ module.exports = function (sequelize, Sequelize) {
       userId: {
         type: Sequelize.INTEGER,
         allowNull: true,
-        defaultValue: '1',
       },
       articleId: {
         autoIncrement: true,
