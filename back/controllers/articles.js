@@ -17,6 +17,9 @@ exports.createArticle = (req, res) => {
 }
 */
 exports.createArticle = (req, res) => {
+  if (!req.body.userId) {
+    console.log("on ne peut plus envoyer d'articles sans être loggé")
+  }
   Article.create({
     title: req.body.title,
     content: req.body.content,
