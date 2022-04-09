@@ -4,7 +4,8 @@ module.exports = function (sequelize, Sequelize) {
     {
       userId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
+        defaultValue: '1',
       },
       articleId: {
         autoIncrement: true,
@@ -13,8 +14,8 @@ module.exports = function (sequelize, Sequelize) {
         allowNull: false,
         unique: true,
       },
-      title: { type: Sequelize.STRING, notEmpty: true },
-      content: { type: Sequelize.STRING, notEmpty: true },
+      title: { type: Sequelize.STRING },
+      content: { type: Sequelize.STRING },
       articleIllustration: { type: Sequelize.STRING },
       createdAt: {
         allowNull: false,

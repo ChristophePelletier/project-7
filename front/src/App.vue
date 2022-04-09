@@ -2,6 +2,7 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/article">Article</router-link> |
+    <router-link to="/article-create">Rédiger</router-link> |
     <router-link to="/signup">Signup</router-link>|
     <router-link to="/login">Login</router-link> |
     <router-link to="/about">À propos</router-link>

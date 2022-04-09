@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import SignupView from "../views/SignupView.vue";
 import ArticleView from "../views/ArticleView.vue";
+import createArticleView from "../views/createArticleView.vue";
 import LoginView from "../views/LoginView.vue";
 
 const routes = [
@@ -19,6 +20,11 @@ const routes = [
     path: "/article",
     name: "article",
     component: ArticleView,
+  },
+  {
+    path: "/article-create",
+    name: "article-create",
+    component: createArticleView,
   },
   {
     path: "/tests",

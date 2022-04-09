@@ -1,6 +1,7 @@
 const db = require('../models')
 const Article = db.article
 
+/*
 exports.createArticle = (req, res) => {
   Article.create(req.body)
     .then((article) => {
@@ -9,8 +10,26 @@ exports.createArticle = (req, res) => {
       res.send(article)
     })
     .catch((err) => {
-      console.log('Erreur')
+      console.log('Erreur création article...')
       res.status(400)
+      res.send({ message: err.message })
+    })
+}
+*/
+exports.createArticle = (req, res) => {
+  Article.create({
+    title: req.body.title,
+    content: req.body.content,
+  })
+    .then((article) => {
+      console.log('article bien créé')
+      res.status(200)
+      res.send(article.toJSON())
+      //res.send({ message: "L'utilisateur a été enregistré avec succès!" })
+    })
+    .catch((err) => {
+      console.log('Erreur')
+      res.status(500)
       res.send({ message: err.message })
     })
 }
