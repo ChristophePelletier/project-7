@@ -2,7 +2,9 @@
   <div class="article">
     <img alt="" src="../assets/icon-above-font.png" />
     <h1>Article</h1>
-
+    <router-link :to="{ name: 'article-create' }">
+      <p>Rédiger un nouvel article</p>
+    </router-link>
     <div v-for="article in articles" :key="article.id">
       <h2>
         {{ article.title }}
