@@ -1,6 +1,6 @@
 const db = require('../models')
 const Article = db.article
-
+//
 /*
 exports.createArticle = (req, res) => {
   Article.create(req.body)

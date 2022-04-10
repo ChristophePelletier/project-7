@@ -7,22 +7,39 @@ const User = db.user
 
 module.exports = (req, res, next) => {
   try {
-    const token = req.headers.authorization.split('RANDOM_TOKEN_SECRET')[1]
-    jwt.verify(token, 'RANDOM_TOKEN_SECRET')
-    //console.log(decodedToken)
-    //const userId = decodedToken.userId
-    //console.log('decodedToken.userId', decodedToken.userId)
-    //console.log('userId', userId)
+    //we get the authorization in the req.headers and get the token
+    // array [bearer token(crypted)] --> we get the token
+    const token = req.headers.authorization.split(' ')[1]
+    const decodedToken = jwt.verify(token, process.env.RTS)
+    //
+    //jwt.verify(token, process.env.RTS)
+    //if error --> catch
+    // OK : we pass it in env variable
+    const userId = decodedToken.userId
+    console.log('decodedToken.userId', decodedToken.userId)
+    console.log('userId', userId)
     // prevent delete object from someone else
     //req.userId = userId;
     // we add to the request object the userId --> for the delete function
-    //req.auth = { userId }
+    req.auth = { userId }
     //req.userId=userId;
     //req.auth = { userId: userId }
     //
-    next()
+    if (req.body.userId && req.body.userId !== userId) {
+      /*
+			//exception
+			//Throwing your own errors (exceptions)
+			Instead of waiting for one error to occur before control is automatically transferred from the try block to the catch block, 
+			--> you can also explicitly throw your own exceptions to force that to happen on demand.
+			--> This is great for creating your own definitions of what an error is and when control should be transferred to catch.
+			*/
+      throw 'User ID not valid'
+    } else {
+      console.log('Middleware auth : token ok')
+
+      next()
+    }
   } catch {
-    console.log('erreur')
     res.status(401).json({
       error: new Error('Invalid request!'),
     })
