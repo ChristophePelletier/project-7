@@ -49,6 +49,9 @@ export default {
   methods: {
     async create() {
       await articleService.post(this.article);
+      this.$router.push({
+        name: "article",
+      });
     },
     catch(err) {
       console.log("erreur erreur");
