@@ -2,9 +2,15 @@
   <div class="article">
     <img alt="" src="../assets/icon-above-font.png" />
     <h1>Article</h1>
+    <!--
     <router-link :to="{ name: 'article-create' }">
       <p>Rédiger un nouvel article</p>
     </router-link>
+    -->
+    <button @click="navigateTo({ name: 'article-create' })">
+      Rédiger un nouvel article
+    </button>
+
     <div v-for="article in articles" :key="article.id">
       <h2>
         {{ article.title }}
@@ -38,6 +44,9 @@ export default {
   methods: {
     getFormattedDate(date) {
       return moment(date).format("Do MMMM YYYY");
+    },
+    navigateTo(route) {
+      this.$router.push(route);
     },
   },
 };

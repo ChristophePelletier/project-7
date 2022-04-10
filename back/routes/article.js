@@ -2,7 +2,9 @@ const express = require('express')
 const router = express.Router()
 
 const articleCtrl = require('../controllers/articles')
+const auth = require('../middlewares/auth')
+const authConsult = require('../middlewares/authConsult')
 //
-router.get('/articles', articleCtrl.getAllArticles)
+router.get('/articles', authConsult, articleCtrl.getAllArticles)
 router.post('/article', articleCtrl.createArticle)
 module.exports = router
