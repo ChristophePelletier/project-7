@@ -30,14 +30,15 @@ db.Sequelize = Sequelize
 db.sequelize = sequelize
 db.user = require('../models/userModel.js')(sequelize, Sequelize)
 db.article = require('../models/articleModel.js')(sequelize, Sequelize)
-//ajout relations
 db.comment = require('../models/commentModel.js')(sequelize, Sequelize)
+//ajout relations
+/*
 db.article.hasMany(db.comment, { as: 'comments' })
 db.comment.belongsTo(db.article, {
   foreignKey: 'articleId',
   as: 'article',
 })
-
+*/
 //
 
 module.exports = db
