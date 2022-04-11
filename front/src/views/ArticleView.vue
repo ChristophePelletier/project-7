@@ -7,43 +7,39 @@
       <p>Rédiger un nouvel article</p>
     </router-link>
     -->
-    <button @click="navigateTo({ name: 'article-create' })">
-      Rédiger un nouvel article
-    </button>
 
-    <div v-for="article in articles" :key="article.articleId">
-      <h2>
-        <router-link :to="'/article/' + article.articleId">Article</router-link
-        >|
+    <h2>
+      {{ article.title }}
+    </h2>
+    <p>
+      {{ article.content }}
+    </p>
+    <p>
+      Article rédigé le :
+      {{ getFormattedDate(article.createdAt) }}
+    </p>
 
-        {{ article.title }}
-      </h2>
-      <p>
-        {{ article.content }}
-      </p>
-      <p>
-        Article rédigé le :
-        {{ getFormattedDate(article.createdAt) }}
-      </p>
-    </div>
     <button @click="poster">Poster</button>
   </div>
 </template>
 
 <script>
+/*
+let url = new URL(window.location.href);
+let id = url.searchParams.get("articleId");
+const apiUrlArticleId = "http://localhost:3000/api/article/" + id;
+*/
 import articleService from "@/services/articleService";
 import * as moment from "moment";
-
 export default {
   data() {
     return {
-      articles: null,
+      article: null,
     };
   },
   async mounted() {
-    this.articles = (await articleService.getAllArticles()).data;
-    //console.log("data", data);
-    //  console.log("this.article : ", this.articles.data);
+    this.article = (await articleService.getOneArticle()).data;
+    console.log("data", data);
   },
   methods: {
     getFormattedDate(date) {

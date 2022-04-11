@@ -50,7 +50,7 @@ export default {
     async create() {
       await articleService.post(this.article);
       this.$router.push({
-        name: "article",
+        name: "articles",
       });
     },
     catch(err) {

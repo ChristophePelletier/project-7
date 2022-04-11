@@ -2,9 +2,11 @@ const db = require('../models')
 const Comment = db.comment
 
 exports.createComment = (req, res) => {
+  /*
   if (!req.body.userId) {
-    console.log("on ne peut plus envoyer d'articles sans être loggé")
+    console.log("on ne peut pas envoyer de commentaires sans être identifié")
   }
+  */
   Comment.create({
     title: req.body.title,
     content: req.body.content,
@@ -15,7 +17,7 @@ exports.createComment = (req, res) => {
     //
   })
     .then((comment) => {
-      console.log('comment bien créé')
+      console.log('commentaire bien créé')
       res.status(200)
       res.send(comment.toJSON())
       //res.send({ message: "L'utilisateur a été enregistré avec succès!" })
