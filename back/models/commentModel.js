@@ -11,6 +11,13 @@ module.exports = (sequelize, DataTypes) => {
       content: {
         type: DataTypes.STRING,
       },
+      com: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'articles',
+          foreignKey: 'com',
+        },
+      },
     },
     {
       tableName: 'comments',

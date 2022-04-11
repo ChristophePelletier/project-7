@@ -29,10 +29,12 @@ module.exports = function (sequelize, Sequelize) {
       tableName: 'articles',
     }
   )
+  /*
   Article.associate = (models) => {
     Article.hasMany(models.Comment, {
       onDelete: 'cascade',
     })
   }
+  */
   return Article
 }
