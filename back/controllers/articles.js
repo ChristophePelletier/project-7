@@ -67,11 +67,8 @@ exports.getAllArticles = (req, res, next) => {
     })
 }
 
-/*
 exports.getOneArticle = (req, res, next) => {
-  Article.findOne({
-    _id: req.params.id,
-  })
+  Article.findByPk(req.params.articleId)
     .then((article) => {
       res.status(200).json(article)
     })
@@ -82,7 +79,7 @@ exports.getOneArticle = (req, res, next) => {
     })
 }
 
-
+/*
 exports.updateArticle = (req, res, next) => {
   Article.findOne({ _id: req.params.id })
     .then((article) => {
