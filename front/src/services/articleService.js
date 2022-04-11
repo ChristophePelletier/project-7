@@ -5,7 +5,8 @@ export default {
     return api().get("./api/articles");
   },
   getOneArticle(articleId) {
-    return api().get("article/" + articleId);
+    //console.log("testart id :", articleId);
+    return api().get("./api/article/" + articleId);
   },
   post(article) {
     return api().post("./api/article", article);

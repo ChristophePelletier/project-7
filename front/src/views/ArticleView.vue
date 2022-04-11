@@ -25,28 +25,35 @@
 
 <script>
 /*
-let url = new URL(window.location.href);
-let id = url.searchParams.get("articleId");
-const apiUrlArticleId = "http://localhost:3000/api/article/" + id;
+
 */
 import articleService from "@/services/articleService";
 import * as moment from "moment";
+
 export default {
   data() {
+    //  console.log("1");
     return {
       article: null,
     };
   },
-  async mounted() {
-    this.article = (await articleService.getOneArticle()).data;
-    console.log("data", data);
+  async created() {
+    //console.log("2");
+    //let url = new URL(window.location.href);
+    //let articleId = url.searchParams.get("articleId");
+    //console.log("route", this.$route.params.articleId);
+    //const apiUrlArticleId = "http://localhost:3000/api/article/" + id;
+    //const articleId = url.searchParams.get("articleId");
+    //console.log(await articleService.getOneArticle());
+    this.article = (
+      await articleService.getOneArticle(this.$route.params.articleId)
+    ).data;
+    //console.log("this.art...", this.article);
   },
   methods: {
     getFormattedDate(date) {
+      //  console.log("3");
       return moment(date).format("Do MMMM YYYY");
-    },
-    navigateTo(route) {
-      this.$router.push(route);
     },
   },
 };

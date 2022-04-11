@@ -70,8 +70,10 @@ exports.getAllArticles = (req, res, next) => {
 }
 
 exports.getOneArticle = (req, res, next) => {
+  console.log('getOneArticle')
   Article.findByPk(req.params.articleId)
     .then((article) => {
+      console.log(article)
       res.status(200).json(article)
     })
     .catch((error) => {

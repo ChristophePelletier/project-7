@@ -33,7 +33,7 @@
 <script>
 import articleService from "@/services/articleService";
 import * as moment from "moment";
-
+import "moment/locale/fr";
 export default {
   data() {
     return {
