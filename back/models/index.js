@@ -33,9 +33,9 @@ db.article = require('../models/articleModel.js')(sequelize, Sequelize)
 db.comment = require('../models/commentModel.js')(sequelize, Sequelize)
 
 db.article.hasMany(db.comment, {
-  foreignKey: 'articleId',
+  key: 'art_id',
 })
-db.comment.belongsTo(db.article)
+//db.comment.belongsTo(db.article)
 
 //ajout relations
 /*

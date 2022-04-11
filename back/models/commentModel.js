@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       content: {
         type: DataTypes.STRING,
       },
-      com: {
+      art_id: {
         type: DataTypes.INTEGER,
         references: {
           model: 'articles',
-          foreignKey: 'com',
+          key: 'articleId',
         },
       },
     },
