@@ -40,6 +40,7 @@ export default {
         this.$store.dispatch("setToken", response.data.token);
         // store --> setToken method
         this.$store.dispatch("setUserId", response.data.userId);
+        this.$store.dispatch("setUserEmail", response.data.email);
         console.log("response.data :", response.data);
         console.log("response.data.message :", response.data.message);
         console.log("response.data.userId :", response.data.userId);

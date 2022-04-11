@@ -5,6 +5,7 @@ export default createStore({
     token: null,
     userId: null,
     loggedIn: false,
+    email: null,
   },
   getters: {},
   mutations: {
@@ -19,6 +20,9 @@ export default createStore({
     setUserId(state, userId) {
       state.userId = userId;
     },
+    setUserEmail(state, email) {
+      state.email = email;
+    },
   },
   actions: {
     setToken({ commit }, token) {
@@ -26,6 +30,9 @@ export default createStore({
     },
     setUserId({ commit }, userId) {
       commit("setUserId", userId);
+    },
+    setUserEmail({ commit }, email) {
+      commit("setUserEmail", email);
     },
   },
   modules: {},

@@ -12,6 +12,9 @@
       {{ article.title }}
     </h2>
     <p>
+      {{ article.author }}
+    </p>
+    <p>
       {{ article.content }}
     </p>
     <p>

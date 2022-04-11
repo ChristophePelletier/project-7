@@ -14,8 +14,8 @@ module.exports = function (sequelize, Sequelize) {
         unique: true,
       },
       title: { type: Sequelize.STRING },
+      author: { type: Sequelize.STRING },
       content: { type: Sequelize.STRING },
-      articleIllustration: { type: Sequelize.STRING },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -29,10 +29,8 @@ module.exports = function (sequelize, Sequelize) {
       tableName: 'articles',
     }
   )
-  //
   Article.associate = (models) => {
     Article.hasMany(models.Comment, {
-      // supprimer les comments si articles deleted
       onDelete: 'cascade',
     })
   }

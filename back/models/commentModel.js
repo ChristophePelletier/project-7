@@ -5,7 +5,10 @@ module.exports = (sequelize, DataTypes) => {
       title: {
         type: DataTypes.STRING,
       },
-      text: {
+      author: {
+        type: DataTypes.STRING,
+      },
+      content: {
         type: DataTypes.STRING,
       },
     },

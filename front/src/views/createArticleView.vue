@@ -39,6 +39,7 @@ export default {
     return {
       article: {
         userId: this.$store.state.userId,
+        email: this.$store.state.email,
         articleId: null,
         title: null,
         content: null,

@@ -19,6 +19,11 @@
         {{ article.title }}
       </h2>
       <p>
+        Auteur de l'article :
+        {{ $store.state.email }}
+      </p>
+      <p>
+        Contenu de l'article
         {{ article.content }}
       </p>
       <p>
