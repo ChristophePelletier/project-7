@@ -35,6 +35,7 @@ export default {
       comment: {
         userId: this.$store.state.userId,
         email: this.$store.state.email,
+        id: this.$route.params.id,
       },
     };
   },
