@@ -6,7 +6,7 @@ const createComment = async (req, res) => {
   //console.log(req.body.id)
   console.log('req.params', req.params)
   console.log(req.params.id)
-  console.log(req.id)
+  //  console.log(req.id)
   const id = req.params.id
   let data = {
     article_id: id,
@@ -25,33 +25,6 @@ module.exports = {
   createComment,
   getComments,
 }
-/*
-exports.createComment = (req, res) => {
-  if (!req.body.userId) {
-    console.log("on ne peut pas envoyer de commentaires sans être identifié")
-  }
-  Comment.create({
-    article_id: req.params.id,
-    title: req.body.title,
-    content: req.body.content,
-    userId: req.body.userId,
-    //
-    //test
-    //userId: req.body.userId,
-    //
-  })
-    .then((comment) => {
-      console.log('commentaire bien créé')
-      res.status(200)
-      res.send(comment.toJSON())
-      //res.send({ message: "L'utilisateur a été enregistré avec succès!" })
-    })
-    .catch((err) => {
-      console.log('Erreur')
-      res.status(500)
-      res.send({ message: err.message })
-    })
-}
 
 exports.getComments = (req, res, next) => {
   console.log('getComments')
@@ -69,4 +42,3 @@ exports.getComments = (req, res, next) => {
       })
     })
 }
-*/
