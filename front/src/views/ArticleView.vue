@@ -1,45 +1,37 @@
 <template>
-  <div class="article">
+  <div>
     <img alt="" src="../assets/icon-above-font.png" />
-    <h1>Article</h1>
+
     <h2>
+      Titre de l'article<br />
       {{ article.title }}
     </h2>
     <p>
+      Auteur de l'article<br />
       {{ article.author }}
     </p>
     <p>
+      Contenu de l'article :<br />
       {{ article.content }}
     </p>
     <p>
       Article rédigé le :
       {{ getFormattedDate(article.createdAt) }}
     </p>
-    <div>
-      <textarea
-        type="textarea"
-        name="content"
-        v-model="comment.content"
-        placeholder=""
-      />
-      <p>
-        {{ comment.content }}
-      </p>
-
-      <v-btn @click="create"><button>Envoyer mon commentaire</button></v-btn>
-    </div>
+    <router-link :to="'/comment-create/' + article.id"
+      >Lien Lien vers post comment</router-link
+    >|
   </div>
 </template>
 
 <script>
 import articleService from "@/services/articleService";
-import commentService from "@/services/commentService";
 import * as moment from "moment";
 
 export default {
   data() {
     return {
-      article: null,
+      article: {},
       comment: {
         userId: this.$store.state.userId,
         email: this.$store.state.email,
@@ -56,15 +48,12 @@ export default {
     this.article = (
       await articleService.getOneArticle(this.$route.params.id)
     ).data;
-    //console.log("this.art...", this.article);
+    console.log("this.article", this.article);
   },
   methods: {
     getFormattedDate(date) {
       //  console.log("3");
       return moment(date).format("Do MMMM YYYY");
-    },
-    async create() {
-      await commentService.post(this.comment);
     },
     catch(err) {
       console.log("erreur");

@@ -41,7 +41,7 @@ exports.getOneArticle = (req, res, next) => {
   console.log('getOneArticle')
   Article.findByPk(req.params.id)
     .then((article) => {
-      console.log(article)
+      console.log('article dans get One :', article)
       console.log('req.params.id :', req.params.id)
 
       res.status(200).json(article)
