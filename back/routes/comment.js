@@ -6,7 +6,7 @@ const auth = require('../middlewares/auth')
 const authConsult = require('../middlewares/authConsult')
 //
 //router.get('/comments', articleCtrl.getCommentsArticle)
-router.post('/comment', commentCtrl.createComment)
+router.post('/comment/', commentCtrl.createComment)
 
 //router.get('/comments', commentCtrl.getComments)
 module.exports = router

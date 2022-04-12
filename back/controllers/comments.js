@@ -4,6 +4,9 @@ const Comment = db.comment
 const createComment = async (req, res) => {
   //const id = req.body.id
   //console.log(req.body.id)
+  console.log('req.params', req.params)
+  console.log(req.params.id)
+  console.log(req.id)
   const id = req.params.id
   let data = {
     article_id: id,

@@ -2,12 +2,6 @@
   <div class="article">
     <img alt="" src="../assets/icon-above-font.png" />
     <h1>Article</h1>
-    <!--
-    <router-link :to="{ name: 'article-create' }">
-      <p>Rédiger un nouvel article</p>
-    </router-link>
-    -->
-
     <h2>
       {{ article.title }}
     </h2>
@@ -38,16 +32,12 @@
 </template>
 
 <script>
-/*
-
-*/
 import articleService from "@/services/articleService";
 import commentService from "@/services/commentService";
 import * as moment from "moment";
 
 export default {
   data() {
-    //  console.log("1");
     return {
       article: null,
       comment: {
@@ -57,7 +47,6 @@ export default {
     };
   },
   async created() {
-    //console.log("2");
     //let url = new URL(window.location.href);
     //let articleId = url.searchParams.get("articleId");
     //console.log("route", this.$route.params.articleId);
@@ -65,7 +54,7 @@ export default {
     //const articleId = url.searchParams.get("articleId");
     //console.log(await articleService.getOneArticle());
     this.article = (
-      await articleService.getOneArticle(this.$route.params.articleId)
+      await articleService.getOneArticle(this.$route.params.id)
     ).data;
     //console.log("this.art...", this.article);
   },
@@ -78,7 +67,7 @@ export default {
       await commentService.post(this.comment);
     },
     catch(err) {
-      console.log("erreur erreur");
+      console.log("erreur");
     },
   },
 };

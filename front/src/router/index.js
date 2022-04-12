@@ -23,7 +23,7 @@ const routes = [
     component: ArticlesView,
   },
   {
-    path: "/article/:articleId",
+    path: "/article/:id",
     name: "article",
     component: ArticleView,
   },
