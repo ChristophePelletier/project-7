@@ -21,8 +21,19 @@
       Article rédigé le :
       {{ getFormattedDate(article.createdAt) }}
     </p>
+    <div>
+      <textarea
+        type="textarea"
+        name="content"
+        v-model="comment.content"
+        placeholder=""
+      />
+      <p>
+        {{ comment.content }}
+      </p>
 
-    <button @click="poster">Poster</button>
+      <v-btn @click="create"><button>Envoyer mon commentaire</button></v-btn>
+    </div>
   </div>
 </template>
 
@@ -31,6 +42,7 @@
 
 */
 import articleService from "@/services/articleService";
+import commentService from "@/services/commentService";
 import * as moment from "moment";
 
 export default {
@@ -38,6 +50,10 @@ export default {
     //  console.log("1");
     return {
       article: null,
+      comment: {
+        userId: this.$store.state.userId,
+        email: this.$store.state.email,
+      },
     };
   },
   async created() {
@@ -57,6 +73,12 @@ export default {
     getFormattedDate(date) {
       //  console.log("3");
       return moment(date).format("Do MMMM YYYY");
+    },
+    async create() {
+      await commentService.post(this.comment);
+    },
+    catch(err) {
+      console.log("erreur erreur");
     },
   },
 };
