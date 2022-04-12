@@ -1,13 +1,39 @@
 const db = require('../models')
 const Comment = db.comment
 
+const createComment = async (req, res) => {
+  //const id = req.body.id
+  //console.log(req.body.id)
+  const id = req.params.id
+  let data = {
+    article_id: id,
+    title: req.body.title,
+    content: req.body.content,
+    userId: req.body.userId,
+  }
+  const comment = await Comment.create(data)
+  res.status(200).send(comment)
+}
+
+module.exports = {
+  createComment,
+}
+// 2. Get All Reviews
+/*
+const getAllReviews = async (req, res) => {
+  const reviews = await Review.findAll({})
+  res.status(200).send(reviews)
+}
+
+
+*/
+/*
 exports.createComment = (req, res) => {
-  /*
   if (!req.body.userId) {
     console.log("on ne peut pas envoyer de commentaires sans être identifié")
   }
-  */
   Comment.create({
+    article_id: req.params.id,
     title: req.body.title,
     content: req.body.content,
     userId: req.body.userId,
@@ -45,3 +71,4 @@ exports.getComments = (req, res, next) => {
       })
     })
 }
+*/

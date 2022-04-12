@@ -6,6 +6,7 @@ module.exports = function (sequelize, Sequelize) {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
+      /*
       articleId: {
         autoIncrement: true,
         primaryKey: true,
@@ -13,6 +14,7 @@ module.exports = function (sequelize, Sequelize) {
         allowNull: false,
         unique: true,
       },
+      */
       title: { type: Sequelize.STRING },
       author: { type: Sequelize.STRING },
       content: { type: Sequelize.STRING },
