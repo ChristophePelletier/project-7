@@ -14,19 +14,14 @@ const createComment = async (req, res) => {
   const comment = await Comment.create(data)
   res.status(200).send(comment)
 }
-
+const getComments = async (req, res) => {
+  const comments = await Comment.findAll({})
+  res.status(200).send(comments)
+}
 module.exports = {
   createComment,
+  getComments,
 }
-// 2. Get All Reviews
-/*
-const getAllReviews = async (req, res) => {
-  const reviews = await Review.findAll({})
-  res.status(200).send(reviews)
-}
-
-
-*/
 /*
 exports.createComment = (req, res) => {
   if (!req.body.userId) {

@@ -72,7 +72,7 @@ exports.getAllArticles = (req, res, next) => {
 
 exports.getOneArticle = (req, res, next) => {
   console.log('getOneArticle')
-  Article.findByPk(req.params.articleId)
+  Article.findByPk(req.params.id)
     .then((article) => {
       console.log(article)
       res.status(200).json(article)
@@ -84,6 +84,26 @@ exports.getOneArticle = (req, res, next) => {
     })
 }
 
+exports.getArticleComments = (req, res, next) => {
+  const id = req.params.id
+  Article.findOne({
+    include: [
+      {
+        model: Commment,
+        as: 'comment',
+      },
+    ],
+    where: { id: id },
+  })
+    .then((comments) => {
+      res.status(200).send(comments)
+    })
+    .catch((error) => {
+      res.status(404).json({
+        error: error,
+      })
+    })
+}
 /*
 exports.updateArticle = (req, res, next) => {
   Article.findOne({ _id: req.params.id })

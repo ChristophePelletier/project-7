@@ -11,10 +11,9 @@
       Rédiger un nouvel article
     </button>
 
-    <div v-for="article in articles" :key="article.articleId">
+    <div v-for="article in articles" :key="article.id">
       <h2>
-        <router-link :to="'/article/' + article.articleId">Article</router-link
-        >|
+        <router-link :to="'/article/' + article.id">Article</router-link>|
 
         {{ article.title }}
       </h2>
