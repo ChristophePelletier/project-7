@@ -33,7 +33,7 @@ app.post('/signup', (req, res) => {
 })
 const db = require('./models')
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   console.log('Data base ok')
 })
 app.use('/api/auth', userRoutes)

@@ -16,9 +16,13 @@
 </template>
 
 <script>
-import loginService from "@/services/loginService";
+import HomeLink from "./components/Header.vue";
 
 export default {
+  name: "App",
+  components: {
+    HomeLink,
+  },
   methods: {
     logout() {
       this.$store.dispatch("setToken", null);

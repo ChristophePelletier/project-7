@@ -21,6 +21,8 @@
         name="content"
         v-model="article.content"
         placeholder=""
+        cols="40"
+        rows="30"
       />
       <p>
         {{ article.content }}
