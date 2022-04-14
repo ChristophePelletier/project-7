@@ -45,16 +45,14 @@ export default {
       },
     };
   },
-  methods: {
-    async create() {
-      await commentService.post(this.comment);
-      this.$router.push({
-        name: "articles",
-      });
-    },
-    catch(err) {
-      console.log("erreur erreur");
-    },
+  async created() {
+    await commentService.createComment(this.$route.params.id).data;
+    this.$router.push({
+      name: "articles",
+    });
+  },
+  catch(err) {
+    console.log("erreur erreur");
   },
 };
 </script>
