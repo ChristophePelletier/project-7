@@ -26,7 +26,21 @@ exports.createArticle = (req, res) => {
 }
 
 exports.getAllArticles = (req, res, next) => {
-  Article.findAll({ limit: 55 })
+  Article.findAll({ limit: 15, order: [['createdAt', 'DESC']] })
+    .then((articles) => {
+      res.send(articles)
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error: error,
+      })
+    })
+}
+
+exports.getRecentArticles = (req, res, next) => {
+  Article.findAll({
+    order: [['createdAt', 'DESC']],
+  })
     .then((articles) => {
       res.send(articles)
     })

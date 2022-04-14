@@ -8,18 +8,12 @@
     <router-link to="/about">À propos</router-link>
     <button v-if="$store.state.loggedIn" @click="logout">Logout</button>
   </nav>
-
   <router-view />
   <foot />
-  <!--
-  <footer>
-    <p>2022 -- Groupomania</p>
-  </footer>
-  -->
 </template>
 
 <script>
-import HomeLink from "./components/Header.vue";
+import HomeLink from "./views/Header.vue";
 import Foot from "./views/FootView";
 export default {
   name: "App",

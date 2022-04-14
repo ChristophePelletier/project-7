@@ -1,0 +1,20 @@
+h2,
+h2 a {
+  text-decoration: underline;
+  color: #fd2d01;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+p.auteur {
+  color: #fd2d01;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+button {
+  background-color: grey;
+  color: white;
+}

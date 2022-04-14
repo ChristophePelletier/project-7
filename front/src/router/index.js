@@ -33,13 +33,6 @@ const routes = [
     name: "article-create",
     component: createArticleView,
   },
-  /*
-  {
-    path: "/comment-create",
-    name: "comment-create",
-    component: createCommentView,
-  },
-  */
   {
     path: "/comment-create/:id",
     name: "comment-create",

@@ -17,6 +17,7 @@ const createComment = async (req, res) => {
   const comment = await Comment.create(data)
   res.status(200).send(comment)
 }
+
 exports.getComments = (req, res, next) => {
   console.log('getComments')
   console.log(req)

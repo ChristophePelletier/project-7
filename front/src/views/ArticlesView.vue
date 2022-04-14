@@ -1,7 +1,6 @@
 <template>
   <div class="article">
-    <img alt="" src="../assets/icon-above-font.png" />
-    <h1>Article</h1>
+    <h1>Les derniers article</h1>
     <!--
     <router-link :to="{ name: 'article-create' }">
       <p>Rédiger un nouvel article</p>
@@ -13,21 +12,20 @@
 
     <div v-for="article in articles" :key="article.id">
       <h2>
-        <router-link :to="'/article/' + article.id">Article</router-link>|
-
-        {{ article.title }}
+        <router-link :to="'/article/' + article.id">
+          {{ article.title }}</router-link
+        >
       </h2>
-      <p>
-        Auteur de l'article :
-        {{ $store.state.email }}
-      </p>
-      <p>
-        Contenu de l'article
-        {{ article.content }}
-      </p>
       <p>
         Article rédigé le :
         {{ getFormattedDate(article.createdAt) }}
+      </p>
+      <p>
+        {{ article.content }}
+      </p>
+      <p class="auteur">
+        Auteur de l'article :
+        {{ $store.state.email }}
       </p>
     </div>
     <button @click="poster">Poster</button>
