@@ -6,6 +6,7 @@
       Titre de l'article<br />
       {{ article.title }}
     </h2>
+    <input type="text" name="id" v-model="article.id" placeholder="titre" />
     <p>
       Auteur de l'article<br />
       {{ article.author }}
@@ -18,9 +19,11 @@
       Article rédigé le :
       {{ getFormattedDate(article.createdAt) }}
     </p>
-    <router-link :to="'/comment-create/' + article.id"
-      >Lien Lien vers post comment</router-link
-    >|
+    <v-btn @click="envoyer">
+      <router-link :to="'/comment-create/'"
+        >Envoyer un commentaire</router-link
+      ></v-btn
+    >
   </div>
 </template>
 
@@ -55,6 +58,10 @@ export default {
     getFormattedDate(date) {
       //  console.log("3");
       return moment(date).format("Do MMMM YYYY");
+    },
+    envoyer() {
+      console.log("3");
+      return this.id;
     },
     catch(err) {
       console.log("erreur");

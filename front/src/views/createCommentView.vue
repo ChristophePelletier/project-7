@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     async create() {
-      await commentService.post(this.comment, this.$route.params.id);
+      await commentService.post(this.comment);
       /*this.$router.push({
         name: "comments",
       })*/

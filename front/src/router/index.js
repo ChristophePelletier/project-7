@@ -34,7 +34,7 @@ const routes = [
     component: createArticleView,
   },
   {
-    path: "/comment-create/:id",
+    path: "/comment-create",
     name: "comment-create",
     component: createCommentView,
   },

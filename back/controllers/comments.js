@@ -3,14 +3,12 @@ const Comment = db.comment
 
 const createComment = async (req, res) => {
   //const id = req.body.id
-  //console.log(req.body.id)
+  console.log('req.body, ', req.body)
   console.log('1')
-  console.log('req.params', req.params)
-  console.log('req.params.id', req.params.id)
   //  console.log(req.id)
-  const id = req.params.id
+  //const id = req.params.id
   let data = {
-    article_id: id,
+    //article_id: id,
     title: req.body.title,
     content: req.body.content,
     userId: req.body.userId,

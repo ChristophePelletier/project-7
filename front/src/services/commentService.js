@@ -1,8 +1,8 @@
 import api from "@/services/api";
 
 export default {
-  post(comment, articleId) {
+  post(comment) {
     console.log("commentService");
-    return api().post("./api/comment/", articleId);
+    return api().post("./api/comment/", comment);
   },
 };
