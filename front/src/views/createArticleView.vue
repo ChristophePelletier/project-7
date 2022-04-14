@@ -42,10 +42,8 @@ export default {
       article: {
         userId: this.$store.state.userId,
         email: this.$store.state.email,
-        articleId: null,
         title: null,
         content: null,
-        articleIllustration: null,
       },
     };
   },

@@ -21,11 +21,16 @@
         name="content"
         v-model="comment.content"
         placeholder=""
+        cols="40"
+        rows="30"
       />
       <p>
         {{ comment.content }}
       </p>
-
+      <p class="auteur">
+        Auteur du commentaire :
+        {{ $store.state.email }}
+      </p>
       <button @click="create">Envoyer mon commentaire</button>
     </div>
   </div>
@@ -38,10 +43,10 @@ export default {
   data() {
     return {
       comment: {
-        userId: this.$store.state.userId,
-        email: this.$store.state.email,
         title: null,
         content: null,
+        userId: this.$store.state.userId,
+        email: this.$store.state.email,
       },
     };
   },
@@ -54,4 +59,6 @@ export default {
     },
   },
 };
+
+//id: localStorage.getItem("idToSave"),
 </script>

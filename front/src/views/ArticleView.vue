@@ -19,8 +19,10 @@
       Article rédigé le :
       {{ getFormattedDate(article.createdAt) }}
     </p>
-    <button @click="persist">test</button>
-    <router-link :to="'/comment-create/'">Envoyer un commentaire</router-link>
+
+    <router-link :to="'/comment-create/'" @click="persist"
+      >Envoyer un commentaire</router-link
+    >
   </div>
 </template>
 

@@ -12,6 +12,7 @@ const createComment = async (req, res) => {
     title: req.body.title,
     content: req.body.content,
     userId: req.body.userId,
+    email: req.body.email,
   }
   const comment = await Comment.create(data)
   res.status(200).send(comment)
