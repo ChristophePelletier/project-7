@@ -26,7 +26,7 @@
         {{ comment.content }}
       </p>
 
-      <v-btn @click="create"><button>Envoyer mon commentaire</button></v-btn>
+      <button @click="create">Envoyer mon commentaire</button>
     </div>
   </div>
 </template>
@@ -48,9 +48,6 @@ export default {
   methods: {
     async create() {
       await commentService.post(this.comment);
-      /*this.$router.push({
-        name: "comments",
-      })*/
     },
     catch(err) {
       console.log("erreur erreur");

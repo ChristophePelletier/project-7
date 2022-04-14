@@ -28,7 +28,7 @@
         {{ article.content }}
       </p>
 
-      <v-btn @click="create"><button>Envoyer mon article</button></v-btn>
+      <button @click="create">Envoyer mon article</button>
     </div>
   </div>
 </template>

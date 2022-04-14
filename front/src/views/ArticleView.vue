@@ -19,11 +19,8 @@
       Article rédigé le :
       {{ getFormattedDate(article.createdAt) }}
     </p>
-    <v-btn @click="envoyer">
-      <router-link :to="'/comment-create/'"
-        >Envoyer un commentaire</router-link
-      ></v-btn
-    >
+    <button @click="persist">test</button>
+    <router-link :to="'/comment-create/'">Envoyer un commentaire</router-link>
   </div>
 </template>
 
@@ -43,25 +40,26 @@ export default {
     };
   },
   async created() {
-    //let url = new URL(window.location.href);
-    //let articleId = url.searchParams.get("articleId");
-    //console.log("route", this.$route.params.articleId);
-    //const apiUrlArticleId = "http://localhost:3000/api/article/" + id;
-    //const articleId = url.searchParams.get("articleId");
-    //console.log(await articleService.getOneArticle());
     this.article = (
       await articleService.getOneArticle(this.$route.params.id)
     ).data;
-    console.log("this.article", this.article);
   },
   methods: {
     getFormattedDate(date) {
-      //  console.log("3");
       return moment(date).format("Do MMMM YYYY");
     },
-    envoyer() {
-      console.log("3");
-      return this.id;
+    persist() {
+      console.log("id article :", this.$route.params.id);
+      const idToSave = this.$route.params.id;
+      console.log("idToSave", idToSave);
+      //console.log("this.article", this.article);
+      //console.log("this.article.id", this.article.id);
+      //console.log("id", id);
+      localStorage.setItem("idToSave", idToSave);
+      //iii = this.article.id;
+      //console.log(iii);
+      //localStorage.setItem("id", this.article.id);
+      //localStorage.articleId = this.article.id;
     },
     catch(err) {
       console.log("erreur");
