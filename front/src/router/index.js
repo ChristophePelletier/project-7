@@ -28,6 +28,7 @@ const routes = [
     name: "article",
     component: ArticleView,
   },
+
   {
     path: "/article-create",
     name: "article-create",

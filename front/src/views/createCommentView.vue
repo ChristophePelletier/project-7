@@ -1,7 +1,5 @@
 <template>
   <div>
-    <img alt="" src="../assets/icon-above-font.png" />
-
     <h1>Post Comment</h1>
     <div>
       <input
@@ -48,9 +46,6 @@ export default {
   methods: {
     async create() {
       await commentService.post(this.comment);
-      this.$router.push({
-        name: "articles",
-      });
     },
     catch(err) {
       console.log("erreur erreur");

@@ -26,21 +26,7 @@ exports.createArticle = (req, res) => {
 }
 
 exports.getAllArticles = (req, res, next) => {
-  Article.findAll({ limit: 15, order: [['createdAt', 'DESC']] })
-    .then((articles) => {
-      res.send(articles)
-    })
-    .catch((error) => {
-      res.status(500).json({
-        error: error,
-      })
-    })
-}
-
-exports.getRecentArticles = (req, res, next) => {
-  Article.findAll({
-    order: [['createdAt', 'DESC']],
-  })
+  Article.findAll({ limit: 5, order: [['createdAt', 'DESC']] })
     .then((articles) => {
       res.send(articles)
     })
@@ -57,7 +43,6 @@ exports.getOneArticle = (req, res, next) => {
     .then((article) => {
       console.log('article dans get One :', article)
       console.log('req.params.id :', req.params.id)
-
       res.status(200).json(article)
     })
     .catch((error) => {
@@ -87,13 +72,3 @@ exports.getArticleComments = (req, res, next) => {
       })
     })
 }
-
-//delete articleObject.id
-/*
-  if (articleObject.userId !== req.auth.userId) {
-    console.log('non autorisé')
-    return res.status(401).json({
-      message: 'unauthorized',
-    })
-  }
-  */

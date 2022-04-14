@@ -8,12 +8,6 @@ module.exports = (sequelize, DataTypes) => {
       author: {
         type: DataTypes.STRING,
       },
-      /*
-      articleId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      */
       content: {
         type: DataTypes.STRING,
       },
@@ -22,6 +16,5 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'comments',
     }
   )
-
   return Comment
 }

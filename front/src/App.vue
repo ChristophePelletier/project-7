@@ -6,7 +6,8 @@
     <router-link to="/signup">Signup</router-link>|
     <router-link to="/login">Login</router-link> |
     <router-link to="/about">À propos</router-link>
-    <button v-if="$store.state.loggedIn" @click="logout">Logout</button>
+    <br />
+    <button v-if="$store.state.loggedIn" @click="logout">Déconnexion</button>
   </nav>
   <router-view />
   <foot />

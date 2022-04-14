@@ -42,6 +42,7 @@ export default {
         //this.$store.dispatch("setToken", response.data.token);
         //this.$store.dispatch("setUser", response.data.user);
         console.log(response.data);
+        this.$router.push({ name: "login" });
       } catch (error) {
         this.error = error.response.data.error;
       }

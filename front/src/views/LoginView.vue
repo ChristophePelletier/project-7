@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <img alt="" src="../assets/icon-above-font.png" />
-    <h1>Login</h1>
+    <h1>Se connecter</h1>
     <div>
       <input type="email" name="email" v-model="email" placeholder="email" />
       <p>{{ email }}</p>
@@ -41,15 +41,19 @@ export default {
         // store --> setToken method
         this.$store.dispatch("setUserId", response.data.userId);
         this.$store.dispatch("setUserEmail", response.data.email);
-        console.log("response.data :", response.data);
-        console.log("response.data.message :", response.data.message);
-        console.log("response.data.userId :", response.data.userId);
-        console.log("response.data.token :", response.data.token);
+        this.$router.push({
+          name: "articles",
+        });
+        //console.log("response.data :", response.data);
+        //console.log("response.data.message :", response.data.message);
+        //console.log("response.data.userId :", response.data.userId);
+        //console.log("response.data.token :", response.data.token);
       } catch (error) {
         console.log("error");
         //this.error = error.response.data.error;
       }
     },
+    redirect() {},
   },
 };
 </script>
