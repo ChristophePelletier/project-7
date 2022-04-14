@@ -1,7 +1,9 @@
 import api from "@/services/api";
+import { withParams } from "vuelidate";
 //
 export default {
   post(comment) {
-    return api().post("./api/comment/" + id, comment);
+    console.log("commentService");
+    return api().post("./api/comment/" + params.id);
   },
 };

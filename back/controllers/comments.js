@@ -17,15 +17,6 @@ const createComment = async (req, res) => {
   const comment = await Comment.create(data)
   res.status(200).send(comment)
 }
-const getComments = async (req, res) => {
-  const comments = await Comment.findAll({})
-  res.status(200).send(comments)
-}
-module.exports = {
-  createComment,
-  getComments,
-}
-
 exports.getComments = (req, res, next) => {
   console.log('getComments')
   console.log(req)
@@ -41,4 +32,7 @@ exports.getComments = (req, res, next) => {
         error: error,
       })
     })
+}
+module.exports = {
+  createComment,
 }

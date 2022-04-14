@@ -8,20 +8,27 @@
     <router-link to="/about">À propos</router-link>
     <button v-if="$store.state.loggedIn" @click="logout">Logout</button>
   </nav>
-  <router-view />
 
+  <router-view />
+  <foot />
+  <!--
   <footer>
     <p>2022 -- Groupomania</p>
   </footer>
+  -->
 </template>
 
 <script>
 import HomeLink from "./components/Header.vue";
-
+import Foot from "./views/FootView";
 export default {
   name: "App",
   components: {
     HomeLink,
+  },
+  name: "App",
+  components: {
+    Foot,
   },
   methods: {
     logout() {
@@ -37,6 +44,9 @@ export default {
 /*on l'ajoutera à la fin afin de ne pas masquer de suite dynamiquement les menus
 v-if="!$store.state.loggedIn"
 */
+body {
+  background-color: rgb(231, 231, 231);
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
