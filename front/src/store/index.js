@@ -1,5 +1,7 @@
 import { createStore } from "vuex";
 
+//let user = localstorage.getItem(token);
+
 export default createStore({
   state: {
     token: null,

@@ -23,6 +23,7 @@
 
 <script>
 import signupService from "@/services/signupService";
+import loginService from "@/services/loginService";
 
 export default {
   data() {
@@ -39,11 +40,15 @@ export default {
           email: this.email,
           password: this.password,
         });
-        //this.$store.dispatch("setToken", response.data.token);
-        //this.$store.dispatch("setUser", response.data.user);
-        console.log(response.data);
+        this.$store.dispatch("setToken", response.data.token);
+        this.$store.dispatch("setUser", response.data.user);
+        loginService.login({
+          email: this.email,
+          password: this.password,
+        });
+        console.log("resp 1", response);
       } catch (error) {
-        this.error = error.response.data.error;
+        error;
       }
     } /*
     redirect() {
