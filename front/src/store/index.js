@@ -1,4 +1,15 @@
 import { createStore } from "vuex";
+const axios = require("axios");
+
+/*
+const instance = axios.create({
+  baseURL: "http://localhost:3000",
+});
+*/
+//test
+const instance = axios.create({
+  baseURL: "https://www.wawasensei.dev/api/demo-auth/",
+});
 
 export default createStore({
   state: {},
@@ -7,7 +18,10 @@ export default createStore({
   actions: {
     createAccount: ({ commit }, userInfos) => {
       commit;
-      console.log("userInfos", userInfos);
+      //console.log("userInfos", userInfos);
+      instance.post("/createAccount", userInfos).then(function (response) {
+        console.log("response : ", response);
+      });
     },
   },
 });
