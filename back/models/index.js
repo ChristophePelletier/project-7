@@ -26,14 +26,19 @@ db.user = require('../models/userModel.js')(sequelize, Sequelize)
 db.article = require('../models/articleModel.js')(sequelize, Sequelize)
 db.comment = require('../models/commentModel.js')(sequelize, Sequelize)
 
+/*
 db.article.hasMany(db.comment, {
   foreignKey: 'article_id',
   as: 'comment',
 })
+*/
+db.article.hasMany(db.comment, {
+  as: 'comments',
+})
 
 db.comment.belongsTo(db.article, {
-  foreignKey: 'article_id',
-  as: 'article',
+  foreignKey: 'id',
+  as: 'articles',
   onDelete: 'cascade',
 })
 

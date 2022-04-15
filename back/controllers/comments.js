@@ -8,7 +8,7 @@ const createComment = async (req, res) => {
   //  console.log(req.id)
   //const id = req.params.id
   let data = {
-    //article_id: id,
+    articleId: req.body.article,
     title: req.body.title,
     content: req.body.content,
     userId: req.body.userId,
