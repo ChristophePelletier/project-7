@@ -24,6 +24,37 @@ export default createStore({
       state.email = email;
     },
   },
+  actions: {},
+  modules: {},
+});
+
+/*
+import { createStore } from "vuex";
+
+export default createStore({
+  state: {
+    token: null,
+    userId: null,
+    loggedIn: false,
+    email: null,
+  },
+  getters: {},
+  mutations: {
+    setToken(state, token) {
+      state.token = token;
+      if (token) {
+        state.loggedIn = true;
+      } else {
+        state.loggedIn = false;
+      }
+    },
+    setUserId(state, userId) {
+      state.userId = userId;
+    },
+    setUserEmail(state, email) {
+      state.email = email;
+    },
+  },
   actions: {
     setToken({ commit }, token) {
       commit("setToken", token);
@@ -37,3 +68,4 @@ export default createStore({
   },
   modules: {},
 });
+*/

@@ -41,7 +41,17 @@ export default {
         });
         //this.$store.dispatch("setToken", response.data.token);
         //this.$store.dispatch("setUser", response.data.user);
-        console.log(response.data);
+        console.log("email, password :", this.email, this.password);
+        console.log("response.data (signup) :", response.data);
+
+        //
+        /*
+        this$store.dispatch("signup", {
+          email: this.email,
+          password: this.password,
+        });
+        */
+        //
       } catch (error) {
         this.error = error.response.data.error;
       }
