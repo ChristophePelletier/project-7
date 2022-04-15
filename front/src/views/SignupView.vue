@@ -35,10 +35,19 @@ export default {
   },
   methods: {
     createAccount: function () {
-      this.$store.dispatch("createAccount", {
-        email: this.email,
-        password: this.password,
-      });
+      this.$store
+        .dispatch("createAccount", {
+          email: this.email,
+          password: this.password,
+        })
+        .then(
+          function (response) {
+            console.log(response);
+          },
+          function (error) {
+            console.log(error);
+          }
+        );
     },
     async signup() {
       try {

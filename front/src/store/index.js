@@ -17,10 +17,17 @@ export default createStore({
   mutations: {},
   actions: {
     createAccount: ({ commit }, userInfos) => {
-      commit;
-      //console.log("userInfos", userInfos);
-      instance.post("/createAccount", userInfos).then(function (response) {
-        console.log("response : ", response);
+      return new Promise((resolve, reject) => {
+        commit;
+        //console.log("userInfos", userInfos);
+        instance
+          .post("/createAccount", userInfos)
+          .then(function (response) {
+            resolve(response);
+          })
+          .catch(function (error) {
+            reject(error);
+          });
       });
     },
   },
