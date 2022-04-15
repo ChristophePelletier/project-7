@@ -1,31 +1,15 @@
 import { createStore } from "vuex";
 
 export default createStore({
-  state: {
-    token: null,
-    userId: null,
-    loggedIn: false,
-    email: null,
-  },
+  state: {},
   getters: {},
-  mutations: {
-    setToken(state, token) {
-      state.token = token;
-      if (token) {
-        state.loggedIn = true;
-      } else {
-        state.loggedIn = false;
-      }
-    },
-    setUserId(state, userId) {
-      state.userId = userId;
-    },
-    setUserEmail(state, email) {
-      state.email = email;
+  mutations: {},
+  actions: {
+    createAccount: ({ commit }, userInfos) => {
+      commit;
+      console.log("userInfos", userInfos);
     },
   },
-  actions: {},
-  modules: {},
 });
 
 /*

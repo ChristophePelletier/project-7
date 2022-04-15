@@ -19,6 +19,7 @@
   </div>
 
   <button @click="signup">S'inscrire</button>
+  <button @click="createAccount">createAccount</button>
 </template>
 
 <script>
@@ -33,6 +34,12 @@ export default {
     };
   },
   methods: {
+    createAccount: function () {
+      this.$store.dispatch("createAccount", {
+        email: this.email,
+        password: this.password,
+      });
+    },
     async signup() {
       try {
         const response = await signupService.signup({
@@ -55,7 +62,8 @@ export default {
       } catch (error) {
         this.error = error.response.data.error;
       }
-    } /*
+    },
+    /*
     redirect() {
       if (xhr.readyState === 4) {
         // Checking status codes
@@ -68,7 +76,7 @@ export default {
           onError();
         }
       }
-    },*/,
+    },*/
   },
 };
 </script>
