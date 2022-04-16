@@ -31,10 +31,7 @@ const store = createStore({
     status: "",
     user: user,
     userInfos: {
-      nom: "",
-      prenom: "",
       email: "",
-      photo: "",
     },
   },
   mutations: {
