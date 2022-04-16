@@ -11,8 +11,8 @@ exports.signup = (req, res) => {
   //console.log('User :', User)
   // Enregistrer l'utilisateur dans la base de données
   User.create({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    //firstName: req.body.firstName,
+    //  lastName: req.body.lastName,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
   })

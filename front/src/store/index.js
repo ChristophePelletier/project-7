@@ -11,17 +11,15 @@ export default createStore({
   mutations: {},
   actions: {
     createAccount: ({ commit }, userInfos) => {
-      commit("setStatus", "loading");
       return new Promise((resolve, reject) => {
         commit;
+        console.log("userInfos", userInfos);
         instance
-          .post("/signup", userInfos)
+          .post("api/auth/signup", userInfos)
           .then(function (response) {
-            commit("setStatus", "created");
             resolve(response);
           })
           .catch(function (error) {
-            commit("setStatus", "error_create");
             reject(error);
           });
       });
