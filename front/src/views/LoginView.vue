@@ -40,7 +40,7 @@ export default {
         console.log("login login");
 
         this.$store.dispatch("setToken", response.data.token);
-        localStorage.setItem("token", response.data.token);
+        //localStorage.setItem("token", response.data.token);
         // store --> setToken method
         this.$store.dispatch("setUserId", response.data.userId);
         this.$store.dispatch("setUserEmail", response.data.email);
