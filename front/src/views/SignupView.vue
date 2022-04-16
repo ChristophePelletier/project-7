@@ -1,30 +1,49 @@
 <template>
-  <div class="signup">
-    <img alt="" src="../assets/icon-above-font.png" />
-    <h1>Signup</h1>
+  <div class="card">
+    <h1 v-if="mode == 'login'">Login</h1>
+    <h1 v-else>Signup</h1>
+    <p v-if="mode == 'login'">
+      Vous n'avez pas de compte
+      <span @click="switchToSignup()">Créer un compte</span>
+    </p>
+    <p v-else>
+      Tu as déjà un compte ?
+      <span @click="switchToLogin()">Se connecter</span>
+    </p>
     <div>
-      <input type="email" name="email" v-model="email" placeholder="email" />
-      <p>{{ email }}</p>
+      <input v-model="email" type="text" placeholder="Adresse mail" />
     </div>
     <div>
-      <input
-        type="password"
-        name="password"
-        v-model="password"
-        placeholder="password"
-      />
-      <p>{{ password }}</p>
+      <input v-model="password" type="password" placeholder="Mot de passe" />
     </div>
-    <div class="alert" v-html="error" />
+    <div v-if="mode == 'login' && status == 'error_login'">
+      Adresse mail et/ou mot de passe invalide
+    </div>
+    <div v-if="mode == 'create' && status == 'error_create'">
+      Adresse mail déjà utilisée
+    </div>
+    <div>
+      <button
+        @click="login()"
+        :class="{ 'button--disabled': !validatedFields }"
+        v-if="mode == 'login'"
+      >
+        <span v-if="status == 'loading'">Connexion en cours...</span>
+        <span v-else>Connexion</span>
+      </button>
+      <button
+        @click="signup()"
+        :class="{ 'button--disabled': !validatedFields }"
+        v-else
+      >
+        <span v-if="status == 'loading'">Création en cours...</span>
+        <span v-else>Créer mon compte</span>
+      </button>
+    </div>
   </div>
-
-  <button @click="signup">S'inscrire</button>
-  <button @click="createAccount">createAccount</button>
 </template>
 
 <script>
-import signupService from "@/services/signupService";
-
 export default {
   data() {
     return {
@@ -34,9 +53,15 @@ export default {
     };
   },
   methods: {
-    createAccount: function () {
+    switchToSignup: function () {
+      this.mode = "signup";
+    },
+    switchToLogin: function () {
+      this.mode = "login";
+    },
+    signup: function () {
       this.$store
-        .dispatch("createAccount", {
+        .dispatch("signup", {
           email: this.email,
           password: this.password,
         })
@@ -49,43 +74,6 @@ export default {
           }
         );
     },
-    async signup() {
-      try {
-        const response = await signupService.signup({
-          email: this.email,
-          password: this.password,
-        });
-        //this.$store.dispatch("setToken", response.data.token);
-        //this.$store.dispatch("setUser", response.data.user);
-        console.log("email, password :", this.email, this.password);
-        console.log("response.data (signup) :", response.data);
-
-        //
-        /*
-        this$store.dispatch("signup", {
-          email: this.email,
-          password: this.password,
-        });
-        */
-        //
-      } catch (error) {
-        this.error = error.response.data.error;
-      }
-    },
-    /*
-    redirect() {
-      if (xhr.readyState === 4) {
-        // Checking status codes
-        if (xhr.status === 200) {
-          // user logged in
-          window.location = "/index";
-        } else {
-          // login failed
-          console.log(xhr.status);
-          onError();
-        }
-      }
-    },*/
   },
 };
 </script>
@@ -97,5 +85,25 @@ div.alert li {
   color: red;
   text-align: center;
   list-style-type: none !important;
+}
+.form-row {
+  display: flex;
+  margin: 16px 0px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.form-row__input {
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #f2f2f2;
+  font-weight: 500;
+  font-size: 16px;
+  flex: 1;
+  min-width: 100px;
+  color: black;
+}
+.form-row__input::placeholder {
+  color: #aaaaaa;
 }
 </style>
