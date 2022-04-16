@@ -1,14 +1,8 @@
 import { createStore } from "vuex";
 const axios = require("axios");
 
-/*
 const instance = axios.create({
   baseURL: "http://localhost:3000",
-});
-*/
-//test
-const instance = axios.create({
-  baseURL: "https://www.wawasensei.dev/api/demo-auth/",
 });
 
 export default createStore({
@@ -17,15 +11,17 @@ export default createStore({
   mutations: {},
   actions: {
     createAccount: ({ commit }, userInfos) => {
+      commit("setStatus", "loading");
       return new Promise((resolve, reject) => {
         commit;
-        //console.log("userInfos", userInfos);
         instance
-          .post("/createAccount", userInfos)
+          .post("/signup", userInfos)
           .then(function (response) {
+            commit("setStatus", "created");
             resolve(response);
           })
           .catch(function (error) {
+            commit("setStatus", "error_create");
             reject(error);
           });
       });
