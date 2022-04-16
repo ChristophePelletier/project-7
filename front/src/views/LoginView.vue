@@ -1,30 +1,44 @@
 <template>
   <div class="card">
-    <h1 v-if="mode == 'login'">Login</h1>
-    <h1 v-else>Signup</h1>
-    <p v-if="mode == 'login'">
-      Vous n'avez pas de compte
-      <span @click="switchToSignup()">Créer un compte</span>
+    <h1 class="card__title" v-if="mode == 'login'">Connexion</h1>
+    <h1 class="card__title" v-else>Inscription</h1>
+    <p class="card__subtitle" v-if="mode == 'login'">
+      Créer un compte
+      <span class="card__action" @click="switchToCreateAccount()"
+        >Créer un compte</span
+      >
     </p>
-    <p v-else>
-      Tu as déjà un compte ?
-      <span @click="switchToLogin()">Se connecter</span>
+    <p class="card__subtitle" v-else>
+      S'identifier
+      <span class="card__action" @click="switchToLogin()">Se connecter</span>
     </p>
-    <div>
-      <input v-model="email" type="text" placeholder="Adresse mail" />
+    <div class="form-row">
+      <input
+        v-model="email"
+        class="form-row__input"
+        type="text"
+        placeholder="Adresse mail"
+      />
     </div>
-    <div>
-      <input v-model="password" type="password" placeholder="Mot de passe" />
+
+    <div class="form-row">
+      <input
+        v-model="password"
+        class="form-row__input"
+        type="password"
+        placeholder="Mot de passe"
+      />
     </div>
-    <div v-if="mode == 'login' && status == 'error_login'">
+    <div class="form-row" v-if="mode == 'login' && status == 'error_login'">
       Adresse mail et/ou mot de passe invalide
     </div>
-    <div v-if="mode == 'create' && status == 'error_create'">
+    <div class="form-row" v-if="mode == 'create' && status == 'error_create'">
       Adresse mail déjà utilisée
     </div>
-    <div>
+    <div class="form-row">
       <button
         @click="login()"
+        class="button"
         :class="{ 'button--disabled': !validatedFields }"
         v-if="mode == 'login'"
       >
@@ -32,7 +46,8 @@
         <span v-else>Connexion</span>
       </button>
       <button
-        @click="signup()"
+        @click="createAccount()"
+        class="button"
         :class="{ 'button--disabled': !validatedFields }"
         v-else
       >
@@ -44,17 +59,43 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
-  data() {
+  name: "Login",
+  data: function () {
     return {
+      mode: "login",
       email: "",
       password: "",
-      error: null,
     };
   },
+  mounted: function () {
+    if (this.$store.state.user.userId != -1) {
+      this.$router.push("/login");
+      return;
+    }
+  },
+  computed: {
+    validatedFields: function () {
+      if (this.mode == "create") {
+        if (this.email != "" && this.password != "") {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        if (this.email != "" && this.password != "") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    ...mapState(["status"]),
+  },
   methods: {
-    switchToSignup: function () {
-      this.mode = "signup";
+    switchToCreateAccount: function () {
+      this.mode = "create";
     },
     switchToLogin: function () {
       this.mode = "login";
@@ -68,22 +109,23 @@ export default {
         })
         .then(
           function () {
-            self.$router.push("/home");
+            self.$router.push("/profile");
           },
           function (error) {
             console.log(error);
           }
         );
     },
-    signup: function () {
+    createAccount: function () {
+      const self = this;
       this.$store
-        .dispatch("signup", {
+        .dispatch("createAccount", {
           email: this.email,
           password: this.password,
         })
         .then(
-          function (response) {
-            console.log(response);
+          function () {
+            self.login();
           },
           function (error) {
             console.log(error);
@@ -95,13 +137,6 @@ export default {
 </script>
 
 <style scoped>
-div.alert ol,
-div.alert,
-div.alert li {
-  color: red;
-  text-align: center;
-  list-style-type: none !important;
-}
 .form-row {
   display: flex;
   margin: 16px 0px;

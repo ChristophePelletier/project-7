@@ -1,22 +1,42 @@
 import { createStore } from "vuex";
+
 const axios = require("axios");
 
 const instance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "http://localhost:3000/",
 });
 
-//
-//http://localhost:3000/api/auth/signup
-//
-export default createStore({
+let user = localStorage.getItem("user");
+if (!user) {
+  user = {
+    userId: -1,
+    token: "",
+  };
+} else {
+  try {
+    user = JSON.parse(user);
+    instance.defaults.headers.common["Authorization"] = user.token;
+    //instance.defaults.headers.common["Authorization"] = `Bearer ${user.token}`;
+  } catch (ex) {
+    user = {
+      userId: -1,
+      token: "",
+    };
+  }
+}
+
+// Create a new store instance.
+const store = createStore({
   state: {
     status: "",
     user: user,
     userInfos: {
+      nom: "",
+      prenom: "",
       email: "",
+      photo: "",
     },
   },
-  getters: {},
   mutations: {
     setStatus: function (state, status) {
       state.status = status;
@@ -42,7 +62,7 @@ export default createStore({
       commit("setStatus", "loading");
       return new Promise((resolve, reject) => {
         instance
-          .post('"/api/auth/login', userInfos)
+          .post("/api/auth/login", userInfos)
           .then(function (response) {
             commit("setStatus", "");
             commit("logUser", response.data);
@@ -54,8 +74,7 @@ export default createStore({
           });
       });
     },
-    //
-    signup: ({ commit }, userInfos) => {
+    createAccount: ({ commit }, userInfos) => {
       commit("setStatus", "loading");
       return new Promise((resolve, reject) => {
         commit;
@@ -71,47 +90,15 @@ export default createStore({
           });
       });
     },
+    getUserInfos: ({ commit }) => {
+      instance
+        .post("/infos")
+        .then(function (response) {
+          commit("userInfos", response.data.infos);
+        })
+        .catch(function () {});
+    },
   },
 });
 
-/*
-import { createStore } from "vuex";
-
-export default createStore({
-  state: {
-    token: null,
-    userId: null,
-    loggedIn: false,
-    email: null,
-  },
-  getters: {},
-  mutations: {
-    setToken(state, token) {
-      state.token = token;
-      if (token) {
-        state.loggedIn = true;
-      } else {
-        state.loggedIn = false;
-      }
-    },
-    setUserId(state, userId) {
-      state.userId = userId;
-    },
-    setUserEmail(state, email) {
-      state.email = email;
-    },
-  },
-  actions: {
-    setToken({ commit }, token) {
-      commit("setToken", token);
-    },
-    setUserId({ commit }, userId) {
-      commit("setUserId", userId);
-    },
-    setUserEmail({ commit }, email) {
-      commit("setUserEmail", email);
-    },
-  },
-  modules: {},
-});
-*/
+export default store;
