@@ -25,7 +25,11 @@
       </p>
       <p class="auteur">
         Auteur de l'article :
-        {{ $store.state.email }}
+        {{ $store.state.user.email }}
+      </p>
+      <p class="auteur">
+        Mail de l'auteur :
+        {{ $store.state.user.email }}
       </p>
     </div>
     <button @click="poster">Poster</button>

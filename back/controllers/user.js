@@ -9,10 +9,9 @@ dotenv.config()
 
 exports.signup = (req, res) => {
   //console.log('User :', User)
+  console.log('firstName', req.body.firstName)
   // Enregistrer l'utilisateur dans la base de données
   User.create({
-    //firstName: req.body.firstName,
-    //  lastName: req.body.lastName,
     email: req.body.email,
     firstName: req.body.firstName,
     password: bcrypt.hashSync(req.body.password, 8),
@@ -52,6 +51,7 @@ exports.login = (req, res, next) => {
           res.status(200).json({
             userId: user.userId,
             email: user.email,
+            firstName: user.firstName,
             password: user.password,
             admin: user.admin,
             // jwt -> sign function : --> 3 arguments

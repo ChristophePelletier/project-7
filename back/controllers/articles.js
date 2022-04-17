@@ -10,6 +10,7 @@ exports.createArticle = (req, res) => {
   Article.create({
     title: req.body.title,
     author: req.body.email,
+    firstName: req.body.firstName,
     content: req.body.content,
     userId: req.body.userId,
   })
