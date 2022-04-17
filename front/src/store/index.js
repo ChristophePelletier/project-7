@@ -43,7 +43,7 @@ const store = createStore({
     },
     logUser: function (state, user) {
       //instance.defaults.headers.common["Authorization"] = `Bearer ${user.token}`;
-      instance.defaults.headers.common["Authorization"] = user.token;
+      //instance.defaults.headers.common["Authorization"] = user.token;
       localStorage.setItem("user", JSON.stringify(user));
       state.user = user;
     },

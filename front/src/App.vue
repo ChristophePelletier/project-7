@@ -6,7 +6,7 @@
     <router-link to="/signup">Signup</router-link>|
     <router-link to="/login">Login</router-link> |
     <router-link to="/about">À propos</router-link>
-    <button v-if="$store.state.loggedIn" @click="logout">Logout</button>
+    <button @click="logout">Logout</button>
   </nav>
   <router-view />
   <foot />
@@ -25,16 +25,19 @@ export default {
     Foot,
   },
   methods: {
-    logout() {
-      this.$store.dispatch("setToken", null);
-      this.$store.dispatch("setUserId", null);
-      this.$router.push({ name: "home" });
+    logout: function () {
+      this.$store.commit("logout");
+      this.$router.push("/articles");
     },
   },
 };
 </script>
 
 <style>
+/*
+  <button v-if="$store.state.loggedIn" @click="logout">Logout</button>
+  */
+)
 /*on l'ajoutera à la fin afin de ne pas masquer de suite dynamiquement les menus
 v-if="!$store.state.loggedIn"
 */
