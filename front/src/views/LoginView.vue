@@ -1,49 +1,32 @@
 <template>
-  <div class="card">
-    <h1 class="card__title" v-if="mode == 'login'">Connexion</h1>
-    <h1 class="card__title" v-else>Inscription</h1>
-    <p class="card__subtitle" v-if="mode == 'login'">
+  <div>
+    <h1 v-if="mode == 'login'">Connexion</h1>
+    <h1 v-else>Inscription</h1>
+    <p v-if="mode == 'login'">
       Créer un compte
-      <span class="card__action" @click="switchToCreateAccount()"
-        >Créer un compte</span
-      >
+      <span @click="switchToCreateAccount()">Créer un compte</span>
     </p>
-    <p class="card__subtitle" v-else>
+    <p v-else>
       S'identifier
-      <span class="card__action" @click="switchToLogin()">Se connecter</span>
+      <span @click="switchToLogin()">Se connecter</span>
     </p>
-    <div class="form-row" v-if="mode == 'create'">
-      <input
-        v-model="firstName"
-        class="form-row__input"
-        type="text"
-        placeholder="Prénom"
-      />
+    <div v-if="mode == 'create'">
+      <input v-model="firstName" type="text" placeholder="Prénom" />
     </div>
-    <div class="form-row">
-      <input
-        v-model="email"
-        class="form-row__input"
-        type="text"
-        placeholder="Adresse mail"
-      />
+    <div>
+      <input v-model="email" type="text" placeholder="Adresse mail" />
     </div>
 
-    <div class="form-row">
-      <input
-        v-model="password"
-        class="form-row__input"
-        type="password"
-        placeholder="Mot de passe"
-      />
+    <div>
+      <input v-model="password" type="password" placeholder="Mot de passe" />
     </div>
-    <div class="form-row" v-if="mode == 'login' && status == 'error_login'">
+    <div v-if="mode == 'login' && status == 'error_login'">
       Adresse mail et/ou mot de passe invalide
     </div>
-    <div class="form-row" v-if="mode == 'create' && status == 'error_create'">
+    <div v-if="mode == 'create' && status == 'error_create'">
       Adresse mail déjà utilisée
     </div>
-    <div class="form-row">
+    <div>
       <button
         @click="login()"
         class="button"
@@ -55,7 +38,6 @@
       </button>
       <button
         @click="createAccount()"
-        class="button"
         :class="{ 'button--disabled': !validatedFields }"
         v-else
       >
