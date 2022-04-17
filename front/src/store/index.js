@@ -17,15 +17,7 @@ if (!user) {
   try {
     user = JSON.parse(user);
     console.log("user : 2", user);
-    /*
-    axios.create({
-      baseURL: "http://localhost:3000",
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-    });
-    */
-    instance.defaults.headers.common["Authorization"] = user.token;
+    //instance.defaults.headers.common["Authorization"] = user.token;
     //instance.defaults.headers.common["Authorization"] = `Bearer ${user.token}`;
   } catch (ex) {
     user = {
@@ -83,7 +75,7 @@ const store = createStore({
           });
       });
     },
-    createAccount: ({ commit }, userInfos) => {
+    signup: ({ commit }, userInfos) => {
       commit("setStatus", "loading");
       return new Promise((resolve, reject) => {
         commit;

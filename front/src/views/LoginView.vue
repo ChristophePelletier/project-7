@@ -3,14 +3,12 @@
     <h1 v-if="mode == 'login'">Connexion</h1>
     <h1 v-else>Inscription</h1>
     <p v-if="mode == 'login'">
-      Créer un compte
-      <span @click="switchToCreateAccount()">Créer un compte</span>
+      <span @click="switchToSignup()">Créer un compte</span>
     </p>
     <p v-else>
-      S'identifier
       <span @click="switchToLogin()">Se connecter</span>
     </p>
-    <div v-if="mode == 'create'">
+    <div v-if="mode == 'signup'">
       <input v-model="firstName" type="text" placeholder="Prénom" />
     </div>
     <div>
@@ -23,7 +21,7 @@
     <div v-if="mode == 'login' && status == 'error_login'">
       Adresse mail et/ou mot de passe invalide
     </div>
-    <div v-if="mode == 'create' && status == 'error_create'">
+    <div v-if="mode == 'signup' && status == 'error_signup'">
       Adresse mail déjà utilisée
     </div>
     <div>
@@ -37,7 +35,7 @@
         <span v-else>Connexion</span>
       </button>
       <button
-        @click="createAccount()"
+        @click="signup()"
         :class="{ 'button--disabled': !validatedFields }"
         v-else
       >
@@ -62,13 +60,13 @@ export default {
   },
   mounted: function () {
     if (this.$store.state.user.userId != -1) {
-      this.$router.push("/login");
+      this.$router.push("/articles");
       return;
     }
   },
   computed: {
     validatedFields: function () {
-      if (this.mode == "create") {
+      if (this.mode == "signup") {
         if (this.email != "" && this.password != "") {
           return true;
         } else {
@@ -85,8 +83,8 @@ export default {
     ...mapState(["status"]),
   },
   methods: {
-    switchToCreateAccount: function () {
-      this.mode = "create";
+    switchToSignup: function () {
+      this.mode = "signup";
     },
     switchToLogin: function () {
       this.mode = "login";
@@ -107,10 +105,10 @@ export default {
           }
         );
     },
-    createAccount: function () {
+    signup: function () {
       const self = this;
       this.$store
-        .dispatch("createAccount", {
+        .dispatch("signup", {
           email: this.email,
           password: this.password,
           firstName: this.firstName,
