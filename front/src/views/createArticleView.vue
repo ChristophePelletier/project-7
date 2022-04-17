@@ -40,8 +40,8 @@ export default {
   data() {
     return {
       article: {
-        userId: this.$store.state.userId,
-        email: this.$store.state.email,
+        userId: this.$store.state.user.userId,
+        email: this.$store.state.user.email,
         title: null,
         content: null,
       },
