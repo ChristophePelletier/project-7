@@ -7,6 +7,7 @@ const instance = axios.create({
 });
 
 let user = localStorage.getItem("user");
+console.log("user : 1", user);
 if (!user) {
   user = {
     userId: -1,
@@ -15,6 +16,15 @@ if (!user) {
 } else {
   try {
     user = JSON.parse(user);
+    console.log("user : 2", user);
+    /*
+    axios.create({
+      baseURL: "http://localhost:3000",
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
+    */
     instance.defaults.headers.common["Authorization"] = user.token;
     //instance.defaults.headers.common["Authorization"] = `Bearer ${user.token}`;
   } catch (ex) {
@@ -31,6 +41,7 @@ const store = createStore({
     status: "",
     user: user,
     userInfos: {
+      firstName: "",
       email: "",
     },
   },
@@ -39,6 +50,7 @@ const store = createStore({
       state.status = status;
     },
     logUser: function (state, user) {
+      //instance.defaults.headers.common["Authorization"] = `Bearer ${user.token}`;
       instance.defaults.headers.common["Authorization"] = user.token;
       localStorage.setItem("user", JSON.stringify(user));
       state.user = user;
@@ -87,6 +99,7 @@ const store = createStore({
           });
       });
     },
+    /*
     getUserInfos: ({ commit }) => {
       instance
         .post("/infos")
@@ -95,6 +108,7 @@ const store = createStore({
         })
         .catch(function () {});
     },
+    */
   },
 });
 

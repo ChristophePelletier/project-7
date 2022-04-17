@@ -1,6 +1,6 @@
 <template>
   <div class="article">
-    <h1>Les derniers article</h1>
+    <h1>Les derniers articles</h1>
     <!--
     <router-link :to="{ name: 'article-create' }">
       <p>Rédiger un nouvel article</p>

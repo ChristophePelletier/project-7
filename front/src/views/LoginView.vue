@@ -12,6 +12,14 @@
       S'identifier
       <span class="card__action" @click="switchToLogin()">Se connecter</span>
     </p>
+    <div class="form-row" v-if="mode == 'create'">
+      <input
+        v-model="firstName"
+        class="form-row__input"
+        type="text"
+        placeholder="Prénom"
+      />
+    </div>
     <div class="form-row">
       <input
         v-model="email"
@@ -67,6 +75,7 @@ export default {
       mode: "login",
       email: "",
       password: "",
+      firstName: "",
     };
   },
   mounted: function () {
@@ -109,7 +118,7 @@ export default {
         })
         .then(
           function () {
-            self.$router.push("/profile");
+            self.$router.push("/articles");
           },
           function (error) {
             console.log(error);
@@ -122,6 +131,7 @@ export default {
         .dispatch("createAccount", {
           email: this.email,
           password: this.password,
+          firstName: this.firstName,
         })
         .then(
           function () {
