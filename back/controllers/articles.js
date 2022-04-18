@@ -7,24 +7,44 @@ exports.createArticle = (req, res) => {
     console.log("on ne peut plus envoyer d'articles sans être loggé")
   }
   */
-  Article.create({
-    title: req.body.title,
-    author: req.body.email,
-    firstName: req.body.firstName,
-    content: req.body.content,
-    userId: req.body.userId,
-    image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
-  })
-    .then((article) => {
-      console.log('article bien créé')
-      res.status(200)
-      res.send(article.toJSON())
+  if (req.file) {
+    Article.create({
+      title: req.body.title,
+      author: req.body.email,
+      firstName: req.body.firstName,
+      content: req.body.content,
+      userId: req.body.userId,
+      image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
     })
-    .catch((err) => {
-      console.log('Erreur')
-      res.status(500)
-      res.send({ message: err.message })
+      .then((article) => {
+        console.log('article bien créé')
+        res.status(200)
+        res.send(article.toJSON())
+      })
+      .catch((err) => {
+        console.log('Erreur')
+        res.status(500)
+        res.send({ message: err.message })
+      })
+  } else {
+    Article.create({
+      title: req.body.title,
+      author: req.body.email,
+      firstName: req.body.firstName,
+      content: req.body.content,
+      userId: req.body.userId,
     })
+      .then((article) => {
+        console.log('article bien créé')
+        res.status(200)
+        res.send(article.toJSON())
+      })
+      .catch((err) => {
+        console.log('Erreur')
+        res.status(500)
+        res.send({ message: err.message })
+      })
+  }
 }
 
 exports.getAllArticles = (req, res, next) => {
