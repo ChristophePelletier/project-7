@@ -11,8 +11,6 @@
           v-model="article.title"
           placeholder="titre"
         />
-      </div>
-      <div>
         <p>
           {{ article.title }}
         </p>
@@ -26,17 +24,18 @@
           cols="40"
           rows="30"
         />
+        <p>
+          {{ article.content }}
+        </p>
       </div>
-      <div>
-        <button @click="onUpload">
-          <input type="file" @change="onFileChanged" />
-        </button>
-      </div>
-      <p>
-        {{ article.content }}
-      </p>
+      <input type="file" />
+
+      <hr />
+      <hr />
+      <hr />
+      <hr />
+      <button @click="create">Envoyer mon article</button>
     </form>
-    <button @click="create">Envoyer mon article</button>
   </div>
 </template>
 
@@ -52,16 +51,11 @@ export default {
         title: null,
         content: null,
       },
-      image: null,
     };
   },
   methods: {
-    onFileChanged(event) {
-      this.file = event.target.files[0];
-      image = this.file;
-    },
     async create() {
-      await articleService.post(this.article, image);
+      await articleService.post(this.article);
       this.$router.push({
         name: "articles",
       });
