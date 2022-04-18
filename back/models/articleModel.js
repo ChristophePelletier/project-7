@@ -9,6 +9,9 @@ module.exports = function (sequelize, Sequelize) {
       title: { type: Sequelize.STRING },
       author: { type: Sequelize.STRING },
       content: { type: Sequelize.STRING },
+      image: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
