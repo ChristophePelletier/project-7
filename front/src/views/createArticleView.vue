@@ -28,8 +28,9 @@
         />
       </div>
       <div>
-        <input type="file" @change="onFileChanged" />
-        <button @click="onUpload">Upload!</button>
+        <button @click="onUpload">
+          <input type="file" @change="onFileChanged" />
+        </button>
       </div>
       <p>
         {{ article.content }}
@@ -50,13 +51,17 @@ export default {
         email: this.$store.state.user.email,
         title: null,
         content: null,
-        selectedFile: null,
       },
+      image: null,
     };
   },
   methods: {
+    onFileChanged(event) {
+      this.file = event.target.files[0];
+      image = this.file;
+    },
     async create() {
-      await articleService.post(this.article);
+      await articleService.post(this.article, image);
       this.$router.push({
         name: "articles",
       });
