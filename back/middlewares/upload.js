@@ -1,21 +1,23 @@
-// méthode :
-//https://www.bezkoder.com/node-js-upload-image-mysql/
-
 const multer = require('multer')
-const imageFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith('image')) {
-    cb(null, true)
-  } else {
-    cb('Merci de télécharger une image.', false)
-  }
+
+const MIME_TYPES = {
+  'image/jpg': 'jpg',
+  'image/jpeg': 'jpg',
+  'image/png': 'png',
 }
-var storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, __basedir + '/uploads/')
+
+// SET STORAGE
+const storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+    callback(null, 'images')
   },
-  filename: (req, file, cb) => {
-    cb(null, `${Date.now()}-groupomania-${file.originalname}`)
+  filename: (req, file, callback) => {
+    //const name = file.originalname.split(" ").join("_");
+    const extension = MIME_TYPES[file.mimetype]
+    //callback(null, name + Date.now() + "." + extension);
+    //null -> no error
+    callback(null, Date.now() + '.' + extension)
   },
 })
-var uploadFile = multer({ storage: storage, fileFilter: imageFilter })
-module.exports = uploadFile
+
+module.exports = multer({ storage: storage }).single('image')
