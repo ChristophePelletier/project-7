@@ -3,33 +3,46 @@
     <img alt="" src="../assets/icon-above-font.png" />
 
     <h1>Post Article</h1>
-    <div>
-      <input
-        type="text"
-        name="title"
-        v-model="article.title"
-        placeholder="titre"
-      />
-    </div>
-    <p>
-      {{ article.title }}
-    </p>
-
-    <div>
-      <textarea
-        type="textarea"
-        name="content"
-        v-model="article.content"
-        placeholder=""
-        cols="40"
-        rows="30"
-      />
+    <form class="mt-4" method="POST" enctype="multipart/form-data">
+      <div>
+        <input
+          type="text"
+          name="title"
+          v-model="article.title"
+          placeholder="titre"
+        />
+      </div>
+      <div>
+        <p>
+          {{ article.title }}
+        </p>
+      </div>
+      <div>
+        <textarea
+          type="textarea"
+          name="content"
+          v-model="article.content"
+          placeholder=""
+          cols="40"
+          rows="30"
+        />
+      </div>
+      <!--
+      <div>
+        <input
+          type="file"
+          name="file"
+          id="input-files"
+          class="form-control-file border"
+        />
+      </div>
+      -->
       <p>
         {{ article.content }}
       </p>
 
       <button @click="create">Envoyer mon article</button>
-    </div>
+    </form>
   </div>
 </template>
 
