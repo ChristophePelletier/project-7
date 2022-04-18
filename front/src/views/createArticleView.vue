@@ -3,31 +3,30 @@
     <img alt="" src="../assets/icon-above-font.png" />
 
     <h1>Post Article</h1>
-    <form class="mt-4" method="POST" enctype="multipart/form-data">
-      <div>
-        <input
-          type="text"
-          name="title"
-          v-model="article.title"
-          placeholder="titre"
-        />
-      </div>
-      <div>
-        <p>
-          {{ article.title }}
-        </p>
-      </div>
-      <div>
-        <textarea
-          type="textarea"
-          name="content"
-          v-model="article.content"
-          placeholder=""
-          cols="40"
-          rows="30"
-        />
-      </div>
-      <!--
+    <div>
+      <input
+        type="text"
+        name="title"
+        v-model="article.title"
+        placeholder="titre"
+      />
+    </div>
+    <div>
+      <p>
+        {{ article.title }}
+      </p>
+    </div>
+    <div>
+      <textarea
+        type="textarea"
+        name="content"
+        v-model="article.content"
+        placeholder=""
+        cols="40"
+        rows="30"
+      />
+    </div>
+    <!--
       <div>
         <input
           type="file"
@@ -37,12 +36,11 @@
         />
       </div>
       -->
-      <p>
-        {{ article.content }}
-      </p>
+    <p>
+      {{ article.content }}
+    </p>
 
-      <button @click="create">Envoyer mon article</button>
-    </form>
+    <button @click="create">Envoyer mon article</button>
   </div>
 </template>
 
