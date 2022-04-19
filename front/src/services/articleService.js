@@ -8,7 +8,7 @@ export default {
     //console.log("testart id :", id);
     return api().get("./api/article/" + id);
   },
-  post(article) {
-    return api().post("./api/article", article);
+  post(article, formData) {
+    return api().post("./api/article", article, formData);
   },
 };
