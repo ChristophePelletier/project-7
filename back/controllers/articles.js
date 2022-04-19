@@ -2,6 +2,8 @@ const db = require('../models')
 const Article = db.article
 
 exports.createArticle = (req, res) => {
+  console.log('***req.body :***', req.body)
+  console.log('***req.file :***', req.file)
   /*
   if (!req.body.userId) {
     console.log("on ne peut plus envoyer d'articles sans être loggé")
