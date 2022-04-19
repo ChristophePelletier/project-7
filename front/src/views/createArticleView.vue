@@ -32,8 +32,8 @@
         {{ article.content }}
       </p>
       <div>
-        <label for="file" class="label">Télécharger votre image</label>
-        <input type="file" name="image" ref="file" @change="selectFile" />
+        <label for="image" class="label">Télécharger votre image</label>
+        <input type="file" name="image" @change="selectFile" />
       </div>
     </form>
     <button @click="create">Envoyer mon article</button>
@@ -64,7 +64,7 @@ export default {
     },
     async create() {
       const formData = new FormData();
-      formData.append("file", this.file);
+      formData.append("image", this.file);
       await articleService.post(this.article, formData);
       console.log("this.file :", this.file);
       console.log("formaData :", formData);
