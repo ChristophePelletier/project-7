@@ -3,7 +3,7 @@
     <img alt="" src="../assets/icon-above-font.png" />
 
     <h1>Post Article</h1>
-    <form action="/profile" method="post" enctype="multipart/form-data">
+    <form @submit.prevent="create" method="post" enctype="multipart/form-data">
       <div>
         <input
           type="text"
@@ -31,7 +31,10 @@
       <p>
         {{ article.content }}
       </p>
-      <simpleUpload />
+      <div>
+        <label for="file" class="label">Télécharger votre image</label>
+        <input type="file" ref="file" @change="selectFile" />
+      </div>
     </form>
     <button @click="create">Envoyer mon article</button>
   </div>
@@ -40,12 +43,9 @@
 <script>
 // Take special note of the enctype="multipart/form-data"
 // and name="" fields
-import simpleUpload from "./simpleUploadView";
 import articleService from "@/services/articleService";
 
 export default {
-  name: "App",
-  components: { simpleUpload },
   data() {
     return {
       article: {
@@ -58,12 +58,14 @@ export default {
     };
   },
   methods: {
-    onSelect() {
-      const file = this.$refs.file.files[0];
-      this.file = file;
+    selectFile() {
+      this.file = this.$refs.file.files[0];
     },
     async create() {
-      await articleService.post(this.article);
+      const formData = new FormData();
+      formData.append("file", this.file);
+      formData.append("article", this.article);
+      await articleService.post(formData);
       this.$router.push({
         name: "articles",
       });
