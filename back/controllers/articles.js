@@ -4,7 +4,15 @@ const Article = db.article
 exports.createArticle = (req, res) => {
   console.log('***req :***', req)
   console.log('***req.body :***', req.body)
+  let parsed = JSON.stringify(req.body)
+  console.log('parsed', parsed)
   console.log('***req.file :***', req.file)
+  console.log('req.body', req.body)
+  console.log('req.body.article', req.body.article)
+  let parsed2 = JSON.parse(req.body.article)
+  console.log('parsed2', parsed2)
+  console.log('req.body.article.title', req.body.article.title)
+  //  console.log('***req.body.article.title', JSON.parse(req.body))
   /*
   if (!req.body.userId) {
     console.log("on ne peut plus envoyer d'articles sans être loggé")
@@ -12,11 +20,11 @@ exports.createArticle = (req, res) => {
   */
   if (req.file) {
     Article.create({
-      title: req.body.title,
-      author: req.body.email,
-      firstName: req.body.firstName,
+      title: parsed2.title,
+      author: req.body.article.email,
+      firstName: req.body.article.firstName,
       content: req.body.content,
-      userId: req.body.userId,
+      userId: req.body.article.userId,
       image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
     })
       .then((article) => {
