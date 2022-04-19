@@ -65,12 +65,14 @@ export default {
     async create() {
       const formData = new FormData();
       //formData.append("art", this.article);
-      formData.append("art", this.article);
+      let testArt = JSON.stringify(this.article);
+      console.log("testArt", testArt);
+      formData.append("article", testArt);
       formData.append("image", this.file);
-      console.log("this.article :", this.article);
-      await articleService.post(formData, this.article);
-      console.log("this.file :", this.file);
-      console.log("formaData :", formData);
+      //console.log("this.article :", this.article);
+      await articleService.post(formData);
+      //console.log("this.file :", this.file);
+      //console.log("formaData :", formData);
       this.$router.push({
         name: "articles",
       });

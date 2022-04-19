@@ -2,6 +2,7 @@ const db = require('../models')
 const Article = db.article
 
 exports.createArticle = (req, res) => {
+  console.log('***req :***', req)
   console.log('***req.body :***', req.body)
   console.log('***req.file :***', req.file)
   /*
