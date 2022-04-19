@@ -3,12 +3,16 @@
     <!--méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s-->
     <h1 v-if="mode == 'login'">Connexion</h1>
     <h1 v-else>Inscription</h1>
-    <p v-if="mode == 'login'">
-      <span @click="switchToSignup()">Créer un compte</span>
-    </p>
-    <p v-else>
-      <span @click="switchToLogin()">Se connecter</span>
-    </p>
+    <button>
+      <p v-if="mode == 'login'">
+        <span @click="switchToSignup()"
+          >Pas encore inscrit ? Je crée un compte<br
+        /></span>
+      </p>
+      <p v-else>
+        <span @click="switchToLogin()">Déjà inscrit ? Je me connecte</span>
+      </p>
+    </button>
     <div v-if="mode == 'signup'">
       <input v-model="firstName" type="text" placeholder="Prénom" />
     </div>
@@ -43,6 +47,7 @@
         <span v-if="status == 'loading'">Création en cours...</span>
         <span v-else>Créer mon compte</span>
       </button>
+      <div v-html="error" />
     </div>
   </div>
 </template>
@@ -57,6 +62,7 @@ export default {
       email: "",
       password: "",
       firstName: "",
+      error: null,
     };
   },
   mounted: function () {
@@ -119,7 +125,8 @@ export default {
             self.login();
           },
           function (error) {
-            console.log(error);
+            console.log(error.response.data.error);
+            this.error = error.response.data.error;
           }
         );
     },

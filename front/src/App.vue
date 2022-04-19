@@ -3,7 +3,7 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/articles">Articles</router-link> |
     <router-link to="/article-create">Rédiger</router-link> |
-    <router-link to="/login">Login</router-link> |
+    <router-link to="/login">Connexion</router-link> |
     <router-link to="/about">À propos</router-link>
     <button v-if="$store.state.user.userId !== -1" @click="logout">
       Logout
