@@ -39,7 +39,7 @@ exports.createArticle = (req, res) => {
       })
   } else {
     Article.create({
-      title: req.body.title,
+      title: parsed2.title,
       author: req.body.email,
       firstName: req.body.firstName,
       content: req.body.content,
