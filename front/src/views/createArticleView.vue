@@ -27,12 +27,11 @@
           rows="30"
         />
       </div>
-      <div>
-        <input type="file" name="image" @change="onSelect" />
-      </div>
+
       <p>
         {{ article.content }}
       </p>
+      <simpleUpload />
     </form>
     <button @click="create">Envoyer mon article</button>
   </div>
@@ -41,9 +40,12 @@
 <script>
 // Take special note of the enctype="multipart/form-data"
 // and name="" fields
+import simpleUpload from "./simpleUploadView";
 import articleService from "@/services/articleService";
 
 export default {
+  name: "App",
+  components: { simpleUpload },
   data() {
     return {
       article: {
