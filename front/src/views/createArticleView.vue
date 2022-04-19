@@ -3,7 +3,7 @@
     <img alt="" src="../assets/icon-above-font.png" />
 
     <h1>Post Article</h1>
-    <form enctype="multipart/form-data">
+    <form action="/profile" method="post" enctype="multipart/form-data">
       <div>
         <input
           type="text"
@@ -28,8 +28,7 @@
         />
       </div>
       <div>
-        <input type="file" @change="onFileChanged" />
-        <button @click="onUpload">Upload!</button>
+        <input type="file" name="image" @change="onSelect" />
       </div>
       <p>
         {{ article.content }}
@@ -40,6 +39,8 @@
 </template>
 
 <script>
+// Take special note of the enctype="multipart/form-data"
+// and name="" fields
 import articleService from "@/services/articleService";
 
 export default {
@@ -50,11 +51,15 @@ export default {
         email: this.$store.state.user.email,
         title: null,
         content: null,
-        selectedFile: null,
       },
+      file: "",
     };
   },
   methods: {
+    onSelect() {
+      const file = this.$refs.file.files[0];
+      this.file = file;
+    },
     async create() {
       await articleService.post(this.article);
       this.$router.push({

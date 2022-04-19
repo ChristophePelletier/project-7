@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!--méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s-->
     <h1 v-if="mode == 'login'">Connexion</h1>
     <h1 v-else>Inscription</h1>
     <p v-if="mode == 'login'">
