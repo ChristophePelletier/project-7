@@ -1,3 +1,6 @@
+//méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s
+//
+
 import { createStore } from "vuex";
 const axios = require("axios");
 const instance = axios.create({

@@ -47,7 +47,7 @@
         <span v-if="status == 'loading'">Création en cours...</span>
         <span v-else>Créer mon compte</span>
       </button>
-      <div v-html="error" />
+      <div v-html="erreur" />
     </div>
   </div>
 </template>
@@ -62,7 +62,7 @@ export default {
       email: "",
       password: "",
       firstName: "",
-      error: null,
+      erreur: null,
     };
   },
   mounted: function () {
@@ -125,8 +125,9 @@ export default {
             self.login();
           },
           function (error) {
-            console.log(error.response.data.error);
-            this.error = error.response.data.error;
+            const self = this;
+            console.log("error.response.data.error", error.response.data.error);
+            self.erreur = error.response.data.error;
           }
         );
     },
