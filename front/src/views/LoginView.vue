@@ -21,20 +21,11 @@
       Adresse mail déjà utilisée
     </div>
     <div>
-      <button
-        @click="login()"
-        class="button"
-        :class="{ 'button--disabled': !validatedFields }"
-        v-if="mode == 'login'"
-      >
+      <button v-if="mode == 'login'" @click="login()" class="button">
         <span v-if="status == 'loading'">Connexion en cours...</span>
         <span v-else>Connexion</span>
       </button>
-      <button
-        @click="signup()"
-        :class="{ 'button--disabled': !validatedFields }"
-        v-else
-      >
+      <button v-else @click="signup()">
         <span v-if="status == 'loading'">Création en cours...</span>
         <span v-else>Créer mon compte</span>
       </button>
@@ -128,9 +119,8 @@ export default {
             self.login();
           },
           function (error) {
-            const self = this;
             console.log("error.response.data.error", error.response.data.error);
-            self.erreur = error.response.data.error;
+            self.error = error.response.data.error;
           }
         );
     },

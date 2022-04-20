@@ -87,7 +87,7 @@ const store = createStore({
             resolve(response);
           })
           .catch(function (error) {
-            commit("setStatus", "error_create");
+            commit("setStatus", "error_signup");
             reject(error);
           });
       });
