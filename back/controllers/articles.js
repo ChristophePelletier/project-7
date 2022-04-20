@@ -21,10 +21,10 @@ exports.createArticle = (req, res) => {
   if (req.file) {
     Article.create({
       title: parsed2.title,
-      author: req.body.article.email,
-      firstName: req.body.article.firstName,
-      content: req.body.content,
-      userId: req.body.article.userId,
+      author: parsed2.email,
+      firstName: parsed2.firstName,
+      content: parsed2.content,
+      userId: parsed2.userId,
       image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
     })
       .then((article) => {
@@ -40,10 +40,10 @@ exports.createArticle = (req, res) => {
   } else {
     Article.create({
       title: parsed2.title,
-      author: req.body.email,
-      firstName: req.body.firstName,
-      content: req.body.content,
-      userId: req.body.userId,
+      author: parsed2.email,
+      firstName: parsed2.firstName,
+      content: parsed2.content,
+      userId: parsed2.userId,
     })
       .then((article) => {
         console.log('article bien créé')
