@@ -3,16 +3,7 @@
     <!--méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s-->
     <h1 v-if="mode == 'login'">Connexion</h1>
     <h1 v-else>Inscription</h1>
-    <button>
-      <p v-if="mode == 'login'">
-        <span @click="switchToSignup()"
-          >Pas encore inscrit ? Je crée un compte<br
-        /></span>
-      </p>
-      <p v-else>
-        <span @click="switchToLogin()">Déjà inscrit ? Je me connecte</span>
-      </p>
-    </button>
+
     <div v-if="mode == 'signup'">
       <input v-model="firstName" type="text" placeholder="Prénom" />
     </div>
@@ -48,6 +39,18 @@
         <span v-else>Créer mon compte</span>
       </button>
       <div v-html="erreur" />
+      <hr />
+
+      <p v-if="mode == 'login'">Vous n'êtes pas déjà inscrit(e)</p>
+      <p v-else>Déjà inscrit ?</p>
+      <button>
+        <p v-if="mode == 'login'">
+          <span @click="switchToSignup()">Je crée un compte<br /></span>
+        </p>
+        <p v-else>
+          <span @click="switchToLogin()"> Je me connecte</span>
+        </p>
+      </button>
     </div>
   </div>
 </template>
