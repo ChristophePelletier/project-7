@@ -4,7 +4,6 @@ const Comment = db.comment
 const createComment = async (req, res) => {
   //const id = req.body.id
   console.log('req.body, ', req.body)
-  console.log('req.body.article, ', req.body.article)
   console.log('1')
   //  console.log(req.id)
   //const id = req.params.id
@@ -16,10 +15,14 @@ const createComment = async (req, res) => {
     email: req.body.email,
   }
   const comment = await Comment.create(data)
-  console.log('comment', comment)
   res.status(200).send(comment)
 }
 
+module.exports = {
+  createComment,
+}
+
+/*
 const getComments = async (req, res) => {
   console.log('getComments')
   console.log(req)
@@ -41,7 +44,7 @@ module.exports = {
   getComments,
 }
 
-/*
+
 const getComments = async (req, res) => {
   console.log('getComments')
   console.log(req)
