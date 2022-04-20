@@ -29,7 +29,7 @@
         <span v-if="status == 'loading'">Création en cours...</span>
         <span v-else>Créer mon compte</span>
       </button>
-      <div v-html="erreur" />
+      <div v-html="error" />
       <hr />
 
       <p v-if="mode == 'login'">Vous n'êtes pas déjà inscrit(e)</p>
@@ -56,7 +56,7 @@ export default {
       email: "",
       password: "",
       firstName: "",
-      erreur: null,
+      error: null,
     };
   },
   mounted: function () {
