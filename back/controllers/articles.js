@@ -90,6 +90,7 @@ exports.getOneArticle = (req, res, next) => {
     .then((article) => {
       console.log('article dans get One :', article)
       console.log('req.params.id :', req.params.id)
+      console.log('*********req.body.article***************', req.body.article)
 
       res.status(200).json(article)
     })

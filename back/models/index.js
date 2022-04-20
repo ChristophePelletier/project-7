@@ -40,7 +40,7 @@ db.article.hasMany(db.comment, {
 db.comment.belongsTo(db.article, {
   foreignKey: 'id',
   as: 'articles',
-  onDelete: 'cascade',
+  //onDelete: 'cascade',
 })
 
 module.exports = db

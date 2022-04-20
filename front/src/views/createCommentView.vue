@@ -54,6 +54,7 @@ export default {
   methods: {
     async create() {
       await commentService.post(this.comment);
+      //this.$router.push(`/article/${articleId}`);
     },
     catch(err) {
       console.log("erreur erreur");
