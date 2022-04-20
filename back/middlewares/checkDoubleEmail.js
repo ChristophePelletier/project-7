@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
     if (user) {
       console.log('check double : email déjà utilisé')
       res.status(400).send({
-        error: `<p>Mail déjà utilisé</p>`,
+        error: `<p>Ce mail a déjà utilisé, merci d'en choisir un autre ou de vous identifier</p>`,
       })
       return
     }
