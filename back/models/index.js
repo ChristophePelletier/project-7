@@ -29,11 +29,6 @@ db.images = require('./imageModel.js')(sequelize, Sequelize)
 
 /*
 db.article.hasMany(db.comment, {
-  foreignKey: 'article_id',
-  as: 'comment',
-})
-*/
-db.article.hasMany(db.comment, {
   as: 'comments',
 })
 
@@ -42,5 +37,5 @@ db.comment.belongsTo(db.article, {
   as: 'articles',
   //onDelete: 'cascade',
 })
-
+*/
 module.exports = db
