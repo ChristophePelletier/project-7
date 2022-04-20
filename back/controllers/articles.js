@@ -1,7 +1,7 @@
 const { article } = require('../models')
 const db = require('../models')
 const Article = db.article
-
+const Comment = db.comment
 exports.createArticle = (req, res) => {
   console.log('***req :***', req)
   console.log('***req.body :***', req.body)
@@ -86,9 +86,17 @@ exports.getRecentArticles = (req, res, next) => {
 }
 
 exports.getCom = (req, res, next) => {
-  console.log('getcom')
-  console.log(req.body.id)
-  res.send(res.body.id)
+  console.log('req.body', req.body)
+  const articleId = req.body.id
+  Comment.findByPk(articleId)
+    .then((comment) => {
+      res.status(200).json(comment)
+    })
+    .catch((error) => {
+      res.status(404).json({
+        error: error,
+      })
+    })
 }
 
 exports.getOneArticle = (req, res, next) => {
