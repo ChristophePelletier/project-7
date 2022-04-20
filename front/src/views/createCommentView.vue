@@ -47,13 +47,18 @@ export default {
         content: null,
         userId: this.$store.state.userId,
         email: this.$store.state.email,
+        //pass id
         article: localStorage.getItem("idToSave"),
+        //
       },
     };
   },
   methods: {
     async create() {
+      let articleId = localStorage.getItem("idToSave");
+      console.log("article", articleId);
       await commentService.post(this.comment);
+      this.$router.push(`/article/${articleId}`);
     },
     catch(err) {
       console.log("erreur erreur");

@@ -9,5 +9,5 @@ router.get('/articles', articleCtrl.getAllArticles)
 router.get('/article/:id', articleCtrl.getOneArticle)
 router.post('/article', multer, articleCtrl.createArticle)
 router.get('/getArticleComments/:id', articleCtrl.getArticleComments)
-
+router.get('/getCom', articleCtrl.getCom)
 module.exports = router

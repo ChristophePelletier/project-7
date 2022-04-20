@@ -1,3 +1,4 @@
+const { article } = require('../models')
 const db = require('../models')
 const Article = db.article
 
@@ -84,6 +85,12 @@ exports.getRecentArticles = (req, res, next) => {
     })
 }
 
+exports.getCom = (req, res, next) => {
+  console.log('getcom')
+  console.log(req.body.id)
+  res.send(res.body.id)
+}
+
 exports.getOneArticle = (req, res, next) => {
   console.log('getOneArticle')
   Article.findByPk(req.params.id)
@@ -101,7 +108,7 @@ exports.getOneArticle = (req, res, next) => {
 }
 
 exports.getArticleComments = (req, res, next) => {
-  const id = req.params.id
+  const id = localStorage.getItem(idToSave)
   Article.findOne({
     include: [
       {

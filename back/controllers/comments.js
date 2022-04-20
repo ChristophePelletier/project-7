@@ -15,6 +15,7 @@ const createComment = async (req, res) => {
     email: req.body.email,
   }
   const comment = await Comment.create(data)
+  console.log('comment', comment)
   res.status(200).send(comment)
 }
 
