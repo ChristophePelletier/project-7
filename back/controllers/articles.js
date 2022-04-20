@@ -86,8 +86,7 @@ exports.getRecentArticles = (req, res, next) => {
 }
 
 exports.getCom = (req, res, next) => {
-  console.log('req.body', req.body)
-  const articleId = req.body.id
+  const articleId = 1
   Comment.findByPk(articleId)
     .then((comment) => {
       res.status(200).json(comment)

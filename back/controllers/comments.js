@@ -4,6 +4,7 @@ const Comment = db.comment
 const createComment = async (req, res) => {
   //const id = req.body.id
   console.log('req.body, ', req.body)
+  console.log('req.body.article, ', req.body.article)
   console.log('1')
   //  console.log(req.id)
   //const id = req.params.id
@@ -19,7 +20,29 @@ const createComment = async (req, res) => {
   res.status(200).send(comment)
 }
 
-exports.getComments = (req, res, next) => {
+const getComments = async (req, res) => {
+  console.log('getComments')
+  console.log(req)
+  const artId = req.body.articleId
+  console.log(artId)
+  Comment.findAll()
+    .then((comment) => {
+      console.log(comment)
+      res.status(200).json(comment)
+    })
+    .catch((error) => {
+      res.status(404).json({
+        error: error,
+      })
+    })
+}
+module.exports = {
+  createComment,
+  getComments,
+}
+
+/*
+const getComments = async (req, res) => {
   console.log('getComments')
   console.log(req)
   const artId = req.body.articleId
@@ -35,6 +58,4 @@ exports.getComments = (req, res, next) => {
       })
     })
 }
-module.exports = {
-  createComment,
-}
+*/
