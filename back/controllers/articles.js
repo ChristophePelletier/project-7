@@ -1,18 +1,18 @@
 const { article } = require('../models')
 const db = require('../models')
 const Article = db.article
-const Comment = db.comment
 exports.createArticle = (req, res) => {
-  console.log('***req :***', req)
-  console.log('***req.body :***', req.body)
-  let parsed = JSON.stringify(req.body)
-  console.log('parsed', parsed)
-  console.log('***req.file :***', req.file)
-  console.log('req.body', req.body)
-  console.log('req.body.article', req.body.article)
+  //console.log('***req :***', req)
+  //console.log('***req.body :***', req.body)
+  //let parsed = JSON.stringify(req.body)
+  //console.log('parsed', parsed)
+  //console.log('***req.file :***', req.file)
+  //console.log('req.body', req.body)
+  //console.log('req.body.article', req.body.article)
+  //console.log('req.body.article', req.body.article)
   let parsed2 = JSON.parse(req.body.article)
-  console.log('parsed2', parsed2)
-  console.log('req.body.article.title', req.body.article.title)
+  //console.log('parsed2', parsed2)
+  //console.log('req.body.article.title', req.body.article.title)
   //  console.log('***req.body.article.title', JSON.parse(req.body))
   /*
   if (!req.body.userId) {
