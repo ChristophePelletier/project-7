@@ -1,7 +1,7 @@
 const db = require('../models')
 const Comment = db.comment
 
-const createComment = async (req, res) => {
+exports.createComment = (req, res) => {
   //const id = req.body.id
   console.log('req.body, ', req.body)
   console.log('1')
@@ -14,10 +14,30 @@ const createComment = async (req, res) => {
     userId: req.body.userId,
     email: req.body.email,
   }
-  const comment = await Comment.create(data)
+  const comment = Comment.create(data)
   res.status(200).send(comment)
 }
 
-module.exports = {
-  createComment,
+exports.getAllComments = (req, res, next) => {
+  Comment.findAll({ limit: 15, order: [['createdAt', 'DESC']] })
+    .then((comments) => {
+      res.send(comments)
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error: error,
+      })
+    })
+}
+
+exports.getArticleComments = (req, res, next) => {
+  Comment.findAll({ limit: 15, order: [['createdAt', 'DESC']] })
+    .then((comments) => {
+      res.send(comments)
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error: error,
+      })
+    })
 }

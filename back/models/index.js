@@ -25,7 +25,6 @@ db.sequelize = sequelize
 db.user = require('../models/userModel.js')(sequelize, Sequelize)
 db.article = require('../models/articleModel.js')(sequelize, Sequelize)
 db.comment = require('../models/commentModel.js')(sequelize, Sequelize)
-db.images = require('./imageModel.js')(sequelize, Sequelize)
 
 /*
 db.article.hasMany(db.comment, {
