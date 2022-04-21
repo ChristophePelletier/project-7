@@ -81,3 +81,17 @@ exports.getAllUsers = (req, res, next) => {
       })
     })
 }
+
+exports.deleteOneUser = (req, res, next) => {
+  User.findByPk(req.params.id)
+    .then((user) => {
+      user.destroy
+      console.log('ok')
+      return res.status(200).json({ ok: 'suppression' })
+    })
+    .catch((error) => {
+      res.status(404).json({
+        error: error,
+      })
+    })
+}
