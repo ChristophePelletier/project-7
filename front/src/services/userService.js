@@ -8,4 +8,8 @@ export default {
     //console.log("testart id :", id);
     return api().get("./api/auth/user/" + id);
   },
+  deleteOneUser(id) {
+    //console.log("testart id :", id);
+    return api().delete("./api/auth/user/" + id);
+  },
 };
