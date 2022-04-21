@@ -19,7 +19,7 @@
       Article rédigé le :
       {{ getFormattedDate(article.createdAt) }}
     </p>
-
+    <img v-bind:src="article.image" />
     <router-link :to="'/comment-create/'" @click="persist"
       >Envoyer un commentaire</router-link
     >

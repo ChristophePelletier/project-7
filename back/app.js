@@ -11,6 +11,8 @@ let corsOptions = {
 }
 app.use(cors())
 app.use(express.json())
+///https://expressjs.com/fr/starter/static-files.html
+app.use(express.static('images'))
 //app.use(bodyParser.urlencoded({ extended: true }))
 //Data base connection
 //require('./database/connection')
