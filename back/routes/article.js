@@ -8,6 +8,5 @@ const articleCtrl = require('../controllers/articles')
 router.get('/articles', articleCtrl.getAllArticles)
 router.get('/article/:id', articleCtrl.getOneArticle)
 router.post('/article', multer, articleCtrl.createArticle)
-router.get('/getArticleComments/:id', articleCtrl.getArticleComments)
 
 module.exports = router

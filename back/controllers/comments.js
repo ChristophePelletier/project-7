@@ -31,7 +31,7 @@ exports.getAllComments = (req, res, next) => {
 }
 
 exports.getArticleComments = (req, res, next) => {
-  Comment.findAll({ where: { articleId: req.params.id } })
+  Comment.findAll({ where: { articleId: req.params.articleId } })
     .then((comments) => {
       res.send(comments)
     })
