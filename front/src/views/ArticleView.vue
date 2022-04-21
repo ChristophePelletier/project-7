@@ -26,13 +26,21 @@
     <h3>Tous les commentaires</h3>
 
     <div v-for="comment in comments" :key="comment">
+      <hr />
       <p>
-        Titre du commentaire<br />
+        Titre<br />
         {{ comment.title }}
       </p>
       <p>
-        Contenu du commentaire<br />
         {{ comment.content }}
+      </p>
+      <p>
+        Auteur
+        {{ comment.email }}
+      </p>
+      <p>
+        Commentaire du :
+        {{ getFormattedDate(comment.createdAt) }}
       </p>
     </div>
   </div>
@@ -47,11 +55,7 @@ export default {
   data() {
     return {
       article: {},
-      comments: {
-        //  userId: this.$store.state.userId,
-        //  email: this.$store.state.email,
-        //  id: this.$route.params.id,
-      },
+      comments: {},
     };
   },
   async mounted() {

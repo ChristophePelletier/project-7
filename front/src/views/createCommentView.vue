@@ -29,7 +29,7 @@
       </p>
       <p class="auteur">
         Auteur du commentaire :
-        {{ $store.state.email }}
+        {{ $store.state.user.email }}
       </p>
       <button @click="create">Envoyer mon commentaire</button>
     </div>
@@ -45,8 +45,8 @@ export default {
       comment: {
         title: null,
         content: null,
-        userId: this.$store.state.userId,
-        email: this.$store.state.email,
+        userId: this.$store.state.user.userId,
+        email: this.$store.state.user.email,
         article: localStorage.getItem("idToSave"),
       },
     };
