@@ -21,9 +21,9 @@ export default {
       user: {},
     };
   },
-  async mounted() {
+  async created() {
     this.user = (await userService.getOneUser(this.$route.params.id)).data;
-    console.log(this.article);
+    console.log(this.user);
   },
 
   methods: {
