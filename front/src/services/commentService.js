@@ -8,4 +8,7 @@ export default {
   getArticleComments(articleId) {
     return api().get("./api/comment/" + articleId);
   },
+  getAllComments() {
+    return api().get("./api/comment/");
+  },
 };

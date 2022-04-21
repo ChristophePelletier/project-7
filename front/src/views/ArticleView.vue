@@ -25,9 +25,12 @@
     >
     <h3>Commentaires</h3>
 
-    <div v-for="comment in comments" :key="comment.id">
+    <div v-for="comment in comments" :key="comment">
       <p>
         {{ comment.title }}
+      </p>
+      <p>
+        {{ comment.content }}
       </p>
     </div>
   </div>
@@ -42,22 +45,23 @@ export default {
   data() {
     return {
       article: {},
-      comment: {
+      comments: {
         //  userId: this.$store.state.userId,
         //  email: this.$store.state.email,
         //  id: this.$route.params.id,
       },
     };
   },
-  async created() {
+  async mounted() {
     this.article = (
       await articleService.getOneArticle(this.$route.params.id)
     ).data;
+    console.log(this.article);
+    //  const articleId = this.$route.params.id;
+    this.comments = (await commentService.getAllComments()).data;
+    console.log(this.comments);
   },
-  async mounted() {
-    const articleId = this.$route.params.id;
-    this.comments = (await commentService.getArticleComments(articleId)).data;
-  },
+
   methods: {
     getFormattedDate(date) {
       return moment(date).format("Do MMMM YYYY");
