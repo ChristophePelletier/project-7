@@ -31,7 +31,7 @@ exports.getAllComments = (req, res, next) => {
 }
 
 exports.getArticleComments = (req, res, next) => {
-  Comment.findAll({ limit: 15, order: [['createdAt', 'DESC']] })
+  Comment.findAll({ where: { articleId: req.params.id } })
     .then((comments) => {
       res.send(comments)
     })

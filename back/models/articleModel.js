@@ -2,6 +2,12 @@ module.exports = function (sequelize, Sequelize) {
   const Article = sequelize.define(
     'article',
     {
+      id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true,
+      },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: true,
