@@ -2,7 +2,7 @@
   <div>
     <img alt="" src="../assets/icon-above-font.png" />
 
-    <h1>Post Comment</h1>
+    <h1>Commenter l'article</h1>
     <div>
       <input
         type="text"
@@ -54,7 +54,8 @@ export default {
   methods: {
     async create() {
       await commentService.post(this.comment);
-      //this.$router.push(`/article/${articleId}`);
+      let ide = localStorage.getItem("idToSave");
+      this.$router.push(`/article/${ide}`);
     },
     catch(err) {
       console.log("erreur erreur");
