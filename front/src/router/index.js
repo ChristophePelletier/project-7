@@ -7,6 +7,7 @@ import createArticleView from "../views/createArticleView.vue";
 import createCommentView from "../views/createCommentView.vue";
 import LoginView from "../views/LoginView.vue";
 import AdminView from "../views/AdminView.vue";
+import UserView from "../views/UserView.vue";
 
 const routes = [
   {
@@ -53,6 +54,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: LoginView,
+  },
+  {
+    path: "/user/id",
+    name: "user",
+    component: UserView,
   },
   {
     path: "/about",

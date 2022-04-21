@@ -87,7 +87,19 @@ exports.deleteOneUser = (req, res, next) => {
     .then((user) => {
       user.destroy
       console.log('ok')
-      return res.status(200).json({ ok: 'suppression' })
+      return res.status(200).json({ ok: 'suppression du compte utilisateur' })
+    })
+    .catch((error) => {
+      res.status(404).json({
+        error: error,
+      })
+    })
+}
+exports.getOneUser = (req, res, next) => {
+  User.findByPk(req.params.id)
+    .then((user) => {
+      //console.log('article dans get One :', article)
+      res.status(200).json(user)
     })
     .catch((error) => {
       res.status(404).json({
