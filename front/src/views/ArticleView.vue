@@ -54,9 +54,9 @@ export default {
       await articleService.getOneArticle(this.$route.params.id)
     ).data;
   },
-  async mounted() {
-    const articleId = this.$route.params.id;
-    this.comments = (await commentService.getArticleComments(articleId)).data;
+  async created() {
+    //const articleId = this.$route.params.id;
+    this.comments = (await commentService.getAllComments()).data;
   },
   methods: {
     getFormattedDate(date) {
