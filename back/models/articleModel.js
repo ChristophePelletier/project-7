@@ -12,7 +12,7 @@ module.exports = function (sequelize, Sequelize) {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      title: { type: Sequelize.STRING },
+      title: { type: Sequelize.STRING, allowNull: false },
       author: { type: Sequelize.STRING },
       content: { type: Sequelize.STRING },
       image: {

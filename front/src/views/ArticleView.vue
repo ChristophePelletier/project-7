@@ -23,13 +23,15 @@
     <router-link :to="'/comment-create/'" @click="persist"
       >Envoyer un commentaire</router-link
     >
-    <h3>Commentaires</h3>
+    <h3>Tous les commentaires</h3>
 
     <div v-for="comment in comments" :key="comment">
       <p>
+        Titre du commentaire<br />
         {{ comment.title }}
       </p>
       <p>
+        Contenu du commentaire<br />
         {{ comment.content }}
       </p>
     </div>
@@ -57,8 +59,13 @@ export default {
       await articleService.getOneArticle(this.$route.params.id)
     ).data;
     console.log(this.article);
-    //  const articleId = this.$route.params.id;
+    const articleId = this.$route.params.id;
+    //Get all comments
+    /*
     this.comments = (await commentService.getAllComments()).data;
+    console.log(this.comments);
+*/
+    this.comments = (await commentService.getArticleComments(articleId)).data;
     console.log(this.comments);
   },
 
