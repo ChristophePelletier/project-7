@@ -7,4 +7,5 @@ const authPolicy = require('../middlewares/authPolicy')
 //
 router.post('/signup', authPolicy, checkDoubleEmail, userCtrl.signup)
 router.post('/login', userCtrl.login)
+router.get('/users', userCtrl.getAllUsers)
 module.exports = router

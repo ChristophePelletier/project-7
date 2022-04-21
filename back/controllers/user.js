@@ -69,3 +69,15 @@ exports.login = (req, res, next) => {
     })
     .catch((error) => res.status(500).json({ error }))
 }
+
+exports.getAllUsers = (req, res, next) => {
+  User.findAll({ order: [['createdAt', 'DESC']] })
+    .then((user) => {
+      res.send(user)
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error: error,
+      })
+    })
+}
