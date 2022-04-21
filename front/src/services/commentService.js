@@ -5,4 +5,7 @@ export default {
     console.log("commentService");
     return api().post("./api/comment/", comment);
   },
+  getArticleComments(articleId) {
+    return api().get("./api/comment/" + articleId);
+  },
 };

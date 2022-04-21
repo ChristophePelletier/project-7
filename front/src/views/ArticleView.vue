@@ -23,21 +23,29 @@
     <router-link :to="'/comment-create/'" @click="persist"
       >Envoyer un commentaire</router-link
     >
+    <h3>Commentaires</h3>
+
+    <div v-for="comment in comments" :key="comment.id">
+      <p>
+        {{ comment.title }}
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
 import articleService from "@/services/articleService";
+import commentService from "@/services/commentService";
 import * as moment from "moment";
-
+import "moment/locale/fr";
 export default {
   data() {
     return {
       article: {},
       comment: {
-        userId: this.$store.state.userId,
-        email: this.$store.state.email,
-        id: this.$route.params.id,
+        //  userId: this.$store.state.userId,
+        //  email: this.$store.state.email,
+        //  id: this.$route.params.id,
       },
     };
   },
@@ -45,6 +53,10 @@ export default {
     this.article = (
       await articleService.getOneArticle(this.$route.params.id)
     ).data;
+  },
+  async mounted() {
+    const articleId = this.$route.params.id;
+    this.comments = (await commentService.getArticleComments(articleId)).data;
   },
   methods: {
     getFormattedDate(date) {
