@@ -99,27 +99,6 @@ exports.getOneArticle = (req, res, next) => {
     })
 }
 
-exports.getArticleComments = (req, res, next) => {
-  const id = req.params.id
-  Article.findOne({
-    include: [
-      {
-        model: Commment,
-        as: 'comment',
-      },
-    ],
-    where: { id: id },
-  })
-    .then((comments) => {
-      res.status(200).send(comments)
-    })
-    .catch((error) => {
-      res.status(404).json({
-        error: error,
-      })
-    })
-}
-
 //delete articleObject.id
 /*
   if (articleObject.userId !== req.auth.userId) {

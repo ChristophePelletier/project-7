@@ -31,8 +31,12 @@ exports.getAllComments = (req, res, next) => {
 }
 
 exports.getArticleComments = (req, res, next) => {
-  Comment.findAll({ where: { articleId: req.params.articleId } })
+  console.log('select comments')
+  //
+  Comment.findAll()
+    //  Comment.findAll({ where: { articleId: req.params.id } })
     .then((comments) => {
+      console.log('comments :', comments)
       res.send(comments)
     })
     .catch((error) => {

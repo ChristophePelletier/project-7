@@ -26,16 +26,16 @@
     <h3>Commentaires</h3>
 
     <div v-for="comment in comments" :key="comment.id">
-      <p>
+      <!--  <p>
         {{ comment.title }}
-      </p>
+      </p>-->
     </div>
   </div>
 </template>
 
 <script>
 import articleService from "@/services/articleService";
-import commentService from "@/services/commentService";
+//import commentService from "@/services/commentService";
 import * as moment from "moment";
 import "moment/locale/fr";
 export default {
@@ -55,7 +55,8 @@ export default {
     ).data;
   },
   async mounted() {
-    const articleId = this.$route.params.id;
+    let articleId = localStorage.getItem("idToSave");
+    //const articleId = this.$route.params.id;
     this.comments = (await commentService.getArticleComments(articleId)).data;
   },
   methods: {
