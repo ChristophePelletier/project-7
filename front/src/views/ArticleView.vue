@@ -1,8 +1,7 @@
 <template>
   <div>
-    <modal></modal>
     <img alt="" src="../assets/icon-above-font.png" />
-
+    <modal></modal>
     <h2>
       Titre de l'article<br />
       {{ article.title }}
