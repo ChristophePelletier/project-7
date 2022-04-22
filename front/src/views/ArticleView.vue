@@ -1,7 +1,17 @@
+
 <template>
   <div>
     <img alt="" src="../assets/icon-above-font.png" />
+    <div id="App">
+      <p>test</p>
+      <Modal v-show="isModalVisible" @close="closeModal">
+        <template v-slot:header> This is a new modal header. </template>
 
+        <template v-slot:body> This is a new modal body. </template>
+
+        <template v-slot:footer> This is a new modal footer. </template>
+      </Modal>
+    </div>
     <h2>
       Titre de l'article<br />
       {{ article.title }}

@@ -10,13 +10,23 @@
     </button>
   </nav>
   <router-view />
+  <div id="app">
+    <button type="button" class="btn" @click="showModal">Open Modal!</button>
+
+    <Modal v-show="isModalVisible" @close="closeModal" />
+  </div>
   <foot />
 </template>
 
 <script>
 import HomeLink from "./views/Header.vue";
 import Foot from "./views/FootView";
+import Modal from "./components/Modal.vue";
 export default {
+  name: "App",
+  components: {
+    Modal,
+  },
   name: "App",
   components: {
     HomeLink,
@@ -25,7 +35,18 @@ export default {
   components: {
     Foot,
   },
+  data() {
+    return {
+      isModalVisible: false,
+    };
+  },
   methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
     logout: function () {
       this.$store.commit("logout");
       this.$router.push("/articles");

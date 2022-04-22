@@ -1,3 +1,14 @@
+<script>
+export default {
+  name: "Modal",
+  methods: {
+    close() {
+      this.$emit("close");
+    },
+  },
+};
+</script>
+
 
 <template>
   <div class="modal-backdrop">
@@ -21,16 +32,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Modal",
-  methods: {
-    close() {
-      this.$emit("close");
-    },
-  },
-};
-</script>
+
 
 
 <style>
