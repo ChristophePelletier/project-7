@@ -111,6 +111,7 @@ export default {
   methods: {
     async create() {
       await commentService.post(this.comment);
+      window.location.reload();
     },
     catch(err) {
       console.log("erreur erreur");
