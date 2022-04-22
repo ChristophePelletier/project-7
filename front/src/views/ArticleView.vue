@@ -1,7 +1,8 @@
 <template>
   <div>
     <img alt="" src="../assets/icon-above-font.png" />
-    <modal></modal>
+    <modal :revele="revele" :toggleModal="toggleModal"></modal>
+    <div v-on:click="toggleModal">Ouvre la modale</div>
     <h2>
       Titre de l'article<br />
       {{ article.title }}
@@ -86,6 +87,7 @@ import "moment/locale/fr";
 export default {
   data() {
     return {
+      revele: false,
       article: {},
       comments: {},
       comment: {
@@ -113,6 +115,9 @@ export default {
   },
 
   methods: {
+    toggleModal: function () {
+      this.revele = !this.revele;
+    },
     async create() {
       await commentService.post(this.comment);
       window.location.reload();

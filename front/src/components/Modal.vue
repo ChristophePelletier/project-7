@@ -1,8 +1,8 @@
 <template>
-  <div class="bloc-modal">
-    <div class="filter">
-      <div class="modal">
-        <div class="btn-modal">XXXX</div>
+  <div class="bloc-modal" v-if="revele">
+    <div class="filter" v-on:click="toggleModal">
+      <div class="modal" v-on:click="toggleModal">
+        <div v-on:click="toggleModal" class="btn-modal">Xxxxxxxx</div>
         <h2>Le contenu de la modale</h2>
       </div>
     </div>
@@ -13,6 +13,7 @@
 <script>
 export default {
   name: "Modal",
+  props: ["revele", "toggleModal"],
 };
 </script>
 
@@ -39,7 +40,8 @@ export default {
 }
 
 .modal {
-  background: #f1f1f1;
+  position: relative;
+  background: pink;
   color: #333;
   padding: 50px;
   width: 80%;
@@ -49,8 +51,9 @@ export default {
 }
 
 .btn-modal {
-  position: relative;
-  top: 10px;
-  right: 10px;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  color: black;
 }
 </style>
