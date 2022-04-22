@@ -45,6 +45,40 @@
         {{ getFormattedDate(comment.createdAt) }}
       </p>
     </div>
+
+    <div>
+      <h1>Commenter l'article</h1>
+      <div>
+        <input
+          type="text"
+          name="title"
+          v-model="comment.title"
+          placeholder="titre"
+        />
+      </div>
+      <p>
+        {{ comment.title }}
+      </p>
+
+      <div>
+        <textarea
+          type="textarea"
+          name="content"
+          v-model="comment.content"
+          placeholder=""
+          cols="40"
+          rows="30"
+        />
+        <p>
+          {{ comment.content }}
+        </p>
+        <p class="auteur">
+          Auteur du commentaire :
+          {{ $store.state.user.email }}
+        </p>
+        <button @click="create">Envoyer mon commentaire</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -58,6 +92,13 @@ export default {
     return {
       article: {},
       comments: {},
+      comment: {
+        title: null,
+        content: null,
+        userId: this.$store.state.user.userId,
+        email: this.$store.state.user.email,
+        article: localStorage.getItem("idToSave"),
+      },
     };
   },
   async mounted() {
@@ -76,6 +117,14 @@ export default {
   },
 
   methods: {
+    async create() {
+      await commentService.post(this.comment);
+      let ide = localStorage.getItem("idToSave");
+      this.$router.push(`/article/${ide}`);
+    },
+    catch(err) {
+      console.log("erreur erreur");
+    },
     getFormattedDate(date) {
       return moment(date).format("Do MMMM YYYY");
     },
