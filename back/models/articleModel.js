@@ -14,7 +14,7 @@ module.exports = function (sequelize, Sequelize) {
       },
       title: { type: Sequelize.STRING, allowNull: false },
       author: { type: Sequelize.STRING },
-      content: { type: Sequelize.STRING },
+      content: { type: Sequelize.STRING, allowNull: false },
       image: {
         type: Sequelize.STRING,
       },
