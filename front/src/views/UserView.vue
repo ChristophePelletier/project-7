@@ -22,19 +22,11 @@ export default {
       user: {},
     };
   },
-  async delete() {
-    this.user = (await userService.deleteOneUser(this.$route.params.id)).data;
+  async created() {
+    this.user = (await userService.getOneUser(this.$route.params.id)).data;
     console.log(this.user);
   },
-
   methods: {
-    async delete() {
-      try {
-        userService.login;
-      } catch (error) {
-        this.error = error.response.data.error;
-      }
-    },
     getFormattedDate(date) {
       return moment(date).format("Do MMMM YYYY");
     },
@@ -43,4 +35,12 @@ export default {
     },
   },
 };
+
+/*
+
+async print() {
+    this.user = (await userService.deleteOneUser(this.$route.params.id)).data;
+    console.log(this.user);
+  },
+*/
 </script>
