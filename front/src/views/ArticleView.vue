@@ -22,30 +22,7 @@
     <div>
       <img class="illustration" v-bind:src="article.image" />
     </div>
-    <router-link :to="'/comment-create/'" @click="persist"
-      >Envoyer un commentaire</router-link
-    >
     <h3>Tous les commentaires</h3>
-
-    <div v-for="comment in comments" :key="comment">
-      <hr />
-      <p>
-        Titre<br />
-        {{ comment.title }}
-      </p>
-      <p>
-        {{ comment.content }}
-      </p>
-      <p>
-        Auteur
-        {{ comment.email }}
-      </p>
-      <p>
-        Commentaire du :
-        {{ getFormattedDate(comment.createdAt) }}
-      </p>
-    </div>
-
     <div>
       <h1>Commenter l'article</h1>
       <div>
@@ -79,6 +56,24 @@
         <button @click="create">Envoyer mon commentaire</button>
       </div>
     </div>
+    <div v-for="comment in comments" :key="comment">
+      <hr />
+      <p>
+        Titre<br />
+        {{ comment.title }}
+      </p>
+      <p>
+        {{ comment.content }}
+      </p>
+      <p>
+        Auteur
+        {{ comment.email }}
+      </p>
+      <p>
+        Commentaire du :
+        {{ getFormattedDate(comment.createdAt) }}
+      </p>
+    </div>
   </div>
 </template>
 
@@ -97,21 +92,18 @@ export default {
         content: null,
         userId: this.$store.state.user.userId,
         email: this.$store.state.user.email,
-        article: localStorage.getItem("idToSave"),
+        articleId: this.$route.params.id,
       },
     };
   },
-  async mounted() {
+  async created() {
     this.article = (
       await articleService.getOneArticle(this.$route.params.id)
     ).data;
     console.log(this.article);
     const articleId = this.$route.params.id;
-    //Get all comments
-    /*
-    this.comments = (await commentService.getAllComments()).data;
-    console.log(this.comments);
-*/
+    //this.comments = (await commentService.getAllComments()).data;
+    //console.log(this.comments);
     this.comments = (await commentService.getArticleComments(articleId)).data;
     console.log(this.comments);
   },
@@ -119,8 +111,6 @@ export default {
   methods: {
     async create() {
       await commentService.post(this.comment);
-      let ide = localStorage.getItem("idToSave");
-      this.$router.push(`/article/${ide}`);
     },
     catch(err) {
       console.log("erreur erreur");

@@ -8,7 +8,7 @@ exports.createComment = (req, res) => {
   //  console.log(req.id)
   //const id = req.params.id
   let data = {
-    articleId: req.body.article,
+    articleId: req.body.articleId,
     title: req.body.title,
     content: req.body.content,
     userId: req.body.userId,
