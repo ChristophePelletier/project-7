@@ -19,8 +19,9 @@
       Article rédigé le :
       {{ getFormattedDate(article.createdAt) }}
     </p>
-    <img v-bind:src="article.image" />
-
+    <div>
+      <img class="illustration" v-bind:src="article.image" />
+    </div>
     <router-link :to="'/comment-create/'" @click="persist"
       >Envoyer un commentaire</router-link
     >
@@ -97,3 +98,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+img.illustration {
+  width: 250px;
+}
+</style>
