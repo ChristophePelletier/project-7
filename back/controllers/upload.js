@@ -1,6 +1,6 @@
 // méthode :
 //https://www.bezkoder.com/node-js-upload-image-mysql/
-
+/*
 const fs = require('fs')
 const db = require('../models')
 const Image = db.images
@@ -26,3 +26,4 @@ const uploadFiles = async (req, res) => {
 module.exports = {
   uploadFiles,
 }
+*/
