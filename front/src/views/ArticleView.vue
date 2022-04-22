@@ -1,5 +1,6 @@
 <template>
   <div>
+    <modal></modal>
     <img alt="" src="../assets/icon-above-font.png" />
 
     <h2>
@@ -80,6 +81,7 @@
 <script>
 import articleService from "@/services/articleService";
 import commentService from "@/services/commentService";
+import Modal from "../components/Modal.vue";
 import * as moment from "moment";
 import "moment/locale/fr";
 export default {
@@ -95,6 +97,9 @@ export default {
         articleId: this.$route.params.id,
       },
     };
+  },
+  components: {
+    modal: Modal,
   },
   async created() {
     this.article = (
