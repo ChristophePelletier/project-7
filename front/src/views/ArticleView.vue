@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :key="refreshing">
     <img alt="" src="../assets/icon-above-font.png" />
 
     <h2>
@@ -27,7 +27,7 @@
     >
     <h3>Tous les commentaires</h3>
 
-    <div v-for="comment in comments" :key="comment">
+    <div id="commentaires" v-for="comment in comments" :key="comment">
       <hr />
       <p>
         Titre<br />
@@ -49,6 +49,7 @@
 </template>
 
 <script>
+//window.location.reload();
 import articleService from "@/services/articleService";
 import commentService from "@/services/commentService";
 import * as moment from "moment";
@@ -58,23 +59,29 @@ export default {
     return {
       article: {},
       comments: {},
+      refreshing: 0,
     };
   },
-  async mounted() {
+  async created() {
     this.article = (
       await articleService.getOneArticle(this.$route.params.id)
     ).data;
     console.log(this.article);
-    const articleId = this.$route.params.id;
     //Get all comments
     /*
     this.comments = (await commentService.getAllComments()).data;
     console.log(this.comments);
 */
+  },
+  async mounted() {
+    const articleId = this.$route.params.id;
     this.comments = (await commentService.getArticleComments(articleId)).data;
     console.log(this.comments);
   },
-
+  /*
+  beforeUnmount() {
+    
+  },*/
   methods: {
     getFormattedDate(date) {
       return moment(date).format("Do MMMM YYYY");
@@ -92,6 +99,7 @@ export default {
       //localStorage.setItem("id", this.article.id);
       //localStorage.articleId = this.article.id;
     },
+
     catch(err) {
       console.log("erreur");
     },
