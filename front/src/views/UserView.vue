@@ -9,7 +9,8 @@
       {{ getFormattedDate(user.createdAt) }}
     </p>
   </div>
-  <button @click="delete">Supprimer le compte</button>
+
+  <button @click="deleted">Supprimer le compte</button>
 </template>
 
 <script>
@@ -27,6 +28,12 @@ export default {
     console.log(this.user);
   },
   methods: {
+    async deleted() {
+      await userService.deleteOneUser(this.$route.params.id);
+    },
+    catch(err) {
+      console.log("erreur erreur");
+    },
     getFormattedDate(date) {
       return moment(date).format("Do MMMM YYYY");
     },
