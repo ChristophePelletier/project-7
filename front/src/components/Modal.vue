@@ -4,6 +4,14 @@
       <div class="modal" v-on:click="toggleModal">
         <div v-on:click="toggleModal" class="btn-modal">Xxxxxxxx</div>
         <h2>Le contenu de la modale</h2>
+        <input type="text" placeholder="titre" />
+        <textarea
+          type="textarea"
+          name="content"
+          placeholder=""
+          cols="40"
+          rows="30"
+        />
       </div>
     </div>
   </div>
