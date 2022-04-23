@@ -32,7 +32,6 @@
         {{ $store.state.user.email }}
       </p>
     </div>
-    <button @click="poster">Poster</button>
   </div>
 </template>
 
