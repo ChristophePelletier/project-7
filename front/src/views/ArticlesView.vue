@@ -25,11 +25,11 @@
       </p>
       <p class="auteur">
         Auteur de l'article :
-        {{ $store.state.user.email }}
+        {{ article.firstName }} {{ article.secondName }}
       </p>
       <p class="auteur">
         Mail de l'auteur :
-        {{ $store.state.user.email }}
+        {{ article.email }}
       </p>
     </div>
   </div>

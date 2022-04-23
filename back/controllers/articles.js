@@ -21,8 +21,9 @@ exports.createArticle = (req, res) => {
   if (req.file) {
     Article.create({
       title: parsed2.title,
-      author: parsed2.email,
+      email: parsed2.email,
       firstName: parsed2.firstName,
+      secondName: parsed2.secondName,
       content: parsed2.content,
       userId: parsed2.userId,
       image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
@@ -40,8 +41,9 @@ exports.createArticle = (req, res) => {
   } else {
     Article.create({
       title: parsed2.title,
-      author: parsed2.email,
+      email: parsed2.email,
       firstName: parsed2.firstName,
+      secondName: parsed2.secondName,
       content: parsed2.content,
       userId: parsed2.userId,
     })

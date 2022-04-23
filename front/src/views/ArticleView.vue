@@ -8,7 +8,7 @@
     <input type="text" name="id" v-model="article.id" placeholder="titre" />
     <p>
       Auteur de l'article<br />
-      {{ article.author }}
+      {{ article.firstName }} {{ article.secondName }}
     </p>
     <p>
       Contenu de l'article :<br />
@@ -54,7 +54,7 @@
           </p>
           <p class="auteur">
             Auteur du commentaire :
-            {{ $store.state.user.email }}
+            {{ $store.state.user.firstName }} {{ $store.state.user.secondName }}
           </p>
           <button @click="create">Envoyer mon commentaire</button>
         </div>
@@ -97,6 +97,8 @@ export default {
         title: null,
         content: null,
         userId: this.$store.state.user.userId,
+        firstName: this.$store.state.user.firstName,
+        secondName: this.$store.state.user.secondName,
         email: this.$store.state.user.email,
         articleId: this.$route.params.id,
       },

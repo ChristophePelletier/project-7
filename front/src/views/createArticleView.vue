@@ -51,6 +51,8 @@ export default {
       article: {
         userId: this.$store.state.user.userId,
         email: this.$store.state.user.email,
+        firstName: this.$store.state.user.firstName,
+        secondName: this.$store.state.user.secondName,
         title: null,
         content: null,
       },

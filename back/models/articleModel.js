@@ -13,7 +13,11 @@ module.exports = function (sequelize, Sequelize) {
         allowNull: true,
       },
       title: { type: Sequelize.STRING, allowNull: false },
-      author: { type: Sequelize.STRING },
+      secondName: { type: Sequelize.STRING },
+      firstName: { type: Sequelize.STRING, notEmpty: true },
+      email: {
+        type: Sequelize.STRING,
+      },
       content: { type: Sequelize.STRING, allowNull: false },
       image: {
         type: Sequelize.STRING,

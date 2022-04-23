@@ -9,6 +9,8 @@ module.exports = function (sequelize, Sequelize) {
       content: { type: Sequelize.STRING, default: '' },
       userId: { type: Sequelize.INTEGER, default: '' },
       email: { type: Sequelize.STRING, default: '' },
+      secondName: { type: Sequelize.STRING },
+      firstName: { type: Sequelize.STRING, notEmpty: true },
     },
     {
       tableName: 'comments',
