@@ -71,9 +71,7 @@ exports.getAllArticles = (req, res, next) => {
 }
 
 exports.getRecentArticles = (req, res, next) => {
-  Article.findAll({
-    order: [['createdAt', 'DESC']],
-  })
+  Article.findAll({ limit: 5, order: [['createdAt', 'DESC']] })
     .then((articles) => {
       res.send(articles)
     })
@@ -98,7 +96,7 @@ exports.getOneArticle = (req, res, next) => {
       })
     })
 }
-
+/*
 exports.getArticleComments = (req, res, next) => {
   const id = req.params.id
   Article.findOne({
@@ -119,7 +117,7 @@ exports.getArticleComments = (req, res, next) => {
       })
     })
 }
-
+*/
 //delete articleObject.id
 /*
   if (articleObject.userId !== req.auth.userId) {

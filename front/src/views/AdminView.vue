@@ -4,22 +4,18 @@
     <div v-for="user in users" :key="user.userId">
       <ul>
         <li>
-          {{ user.firstName }}
           <router-link :to="'/user/' + user.userId">
-            {{ user.firstName }}</router-link
+            {{ user.firstName }} {{ user.secondName }}</router-link
           >
         </li>
         <li>
           {{ user.id }}
-          <router-link :to="'/user/' + user.userId">
-            {{ user.userId }}</router-link
+          <router-link :to="'/user/' + user.userId"
+            >Id : {{ user.userId }}</router-link
           >
         </li>
         <li>
           {{ user.email }}
-          <router-link :to="'/user/' + user.userId">
-            {{ user.userId }}</router-link
-          >
         </li>
       </ul>
     </div>

@@ -1,16 +1,17 @@
 <template>
   <div>
-    <h2>
-      Utilisateur
-      {{ user.email }}
-    </h2>
+    <h2>{{ user.firstName }} {{ user.secondName }}</h2>
     <p>
       Compte créé le
       {{ getFormattedDate(user.createdAt) }}
     </p>
+    <p>
+      Mail :
+      {{ user.email }}
+    </p>
   </div>
 
-  <button @click="deleted">Supprimer le compte</button>
+  <button @click="deleted">Supprimer le compte de {{ user.firstName }}</button>
 </template>
 
 <script>
