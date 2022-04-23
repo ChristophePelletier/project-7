@@ -3,7 +3,7 @@ module.exports = function (sequelize, Sequelize) {
     'comment',
     {
       //normlament à ne pas mettre...
-      articleId: { type: Sequelize.INTEGER },
+      //articleId: { type: Sequelize.INTEGER },
       //
       title: { type: Sequelize.STRING, default: '' },
       content: { type: Sequelize.STRING, default: '' },
