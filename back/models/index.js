@@ -26,6 +26,8 @@ db.user = require('../models/userModel.js')(sequelize, Sequelize)
 db.article = require('../models/articleModel.js')(sequelize, Sequelize)
 db.comment = require('../models/commentModel.js')(sequelize, Sequelize)
 
+//à supprimer en cas de bug pour revenir à du non relationnel
+// penser alor à remettre articleId dans le commentModel...
 db.article.hasMany(db.comment, {
   as: 'comments',
 })
