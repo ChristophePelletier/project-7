@@ -10,6 +10,8 @@ exports.createComment = (req, res) => {
   let data = {
     articleId: req.body.articleId,
     title: req.body.title,
+    firstName: req.body.firstName,
+    secondName: req.body.secondName,
     content: req.body.content,
     userId: req.body.userId,
     email: req.body.email,

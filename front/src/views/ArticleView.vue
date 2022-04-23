@@ -71,7 +71,7 @@
         {{ comment.content }}
       </p>
       <p>
-        Auteur
+        par {{ comment.firstName }}
         {{ comment.email }}
       </p>
       <p>
