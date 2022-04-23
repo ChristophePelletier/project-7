@@ -6,6 +6,7 @@
 
     <div v-if="mode == 'signup'">
       <input v-model="firstName" type="text" placeholder="Prénom" />
+      <input v-model="secondName" type="text" placeholder="Nom" />
     </div>
     <div>
       <input v-model="email" type="text" placeholder="Adresse mail" />
@@ -56,6 +57,7 @@ export default {
       email: "",
       password: "",
       firstName: "",
+      secondname: "",
       error: null,
     };
   },
@@ -112,6 +114,7 @@ export default {
         .dispatch("signup", {
           email: this.email,
           password: this.password,
+          secondName: this.secondName,
           firstName: this.firstName,
         })
         .then(

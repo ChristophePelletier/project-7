@@ -13,6 +13,7 @@ exports.signup = (req, res) => {
   // Enregistrer l'utilisateur dans la base de données
   User.create({
     email: req.body.email,
+    secondName: req.body.secondName,
     firstName: req.body.firstName,
     password: bcrypt.hashSync(req.body.password, 8),
   })
@@ -52,6 +53,7 @@ exports.login = (req, res, next) => {
             userId: user.userId,
             email: user.email,
             firstName: user.firstName,
+            secondName: user.secondName,
             password: user.password,
             admin: user.admin,
             // jwt -> sign function : --> 3 arguments

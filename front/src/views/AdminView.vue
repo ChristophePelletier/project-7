@@ -2,12 +2,26 @@
   <div>
     <h1>Liste des inscrits</h1>
     <div v-for="user in users" :key="user.userId">
-      <h2>
-        {{ user.id }}
-        <router-link :to="'/user/' + user.userId">
-          {{ user.userId }}</router-link
-        >
-      </h2>
+      <ul>
+        <li>
+          {{ user.firstName }}
+          <router-link :to="'/user/' + user.userId">
+            {{ user.firstName }}</router-link
+          >
+        </li>
+        <li>
+          {{ user.id }}
+          <router-link :to="'/user/' + user.userId">
+            {{ user.userId }}</router-link
+          >
+        </li>
+        <li>
+          {{ user.email }}
+          <router-link :to="'/user/' + user.userId">
+            {{ user.userId }}</router-link
+          >
+        </li>
+      </ul>
     </div>
   </div>
 </template>
