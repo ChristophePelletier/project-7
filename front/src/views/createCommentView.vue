@@ -47,7 +47,9 @@ export default {
         content: null,
         userId: this.$store.state.user.userId,
         email: this.$store.state.user.email,
-        article: localStorage.getItem("idToSave"),
+        firstName: this.$store.state.user.firstName,
+        secondName: this.$store.state.user.secondName,
+        //article: localStorage.getItem("idToSave"),
       },
     };
   },
