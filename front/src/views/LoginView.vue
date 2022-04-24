@@ -19,7 +19,7 @@
         <label for="email">Votre adresse mail</label>
         <input
           v-model="email"
-          type="text"
+          type="email"
           placeholder="Adresse mail"
           id="email"
         />
