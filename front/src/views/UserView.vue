@@ -12,6 +12,7 @@
   </div>
 
   <button @click="deleted">Supprimer le compte de {{ user.firstName }}</button>
+  <div v-html="confirmation" />
 </template>
 
 <script>
@@ -22,6 +23,7 @@ export default {
   data() {
     return {
       user: {},
+      confirmation: null,
     };
   },
   async created() {

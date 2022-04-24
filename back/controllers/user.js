@@ -89,7 +89,10 @@ exports.deleteOneUser = (req, res, next) => {
     .then((user) => {
       User.destroy({ where: { userId: user.userId } })
       console.log('ok')
-      return res.status(200).json({ ok: 'suppression du compte utilisateur' })
+      res.status(200).send({
+        resp: `<p>Suppression du compte ok</p>`,
+      })
+      //return res.status(200).json({ ok: 'suppression du compte utilisateur' })
     })
     .catch((error) => {
       res.status(404).json({
