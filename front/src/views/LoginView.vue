@@ -3,21 +3,41 @@
     <!--méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s-->
     <h1 v-if="mode == 'login'">Connexion</h1>
     <h1 v-else>Inscription</h1>
+    <form>
+      <div v-if="mode == 'signup'">
+        <label for="prénom">Votre prénom</label>
+        <input
+          v-model="firstName"
+          type="text"
+          placeholder="Prénom"
+          od="prénom"
+        />
+        <label for="nom">Votre nom</label>
+        <input v-model="secondName" type="text" placeholder="Nom" id="nom" />
+      </div>
+      <div>
+        <label for="email">Votre adresse mail</label>
+        <input
+          v-model="email"
+          type="text"
+          placeholder="Adresse mail"
+          id="email"
+        />
+      </div>
 
-    <div v-if="mode == 'signup'">
-      <input v-model="firstName" type="text" placeholder="Prénom" />
-      <input v-model="secondName" type="text" placeholder="Nom" />
-    </div>
-    <div>
-      <input v-model="email" type="text" placeholder="Adresse mail" />
-    </div>
-
-    <div>
-      <input v-model="password" type="password" placeholder="Mot de passe" />
-    </div>
-    <div v-if="mode == 'login' && status == 'error_login'">
-      Adresse mail et/ou mot de passe invalide
-    </div>
+      <div>
+        <label for="password">Votre mot de passe</label>
+        <input
+          v-model="password"
+          type="password"
+          placeholder="Mot de passe"
+          id="password"
+        />
+      </div>
+      <div v-if="mode == 'login' && status == 'error_login'">
+        Adresse mail et/ou mot de passe invalide
+      </div>
+    </form>
     <!--
     <div v-if="mode == 'signup' && status == 'error_signup'">
       Adresse mail déjà utilisée
@@ -59,7 +79,7 @@ export default {
       email: "",
       password: "",
       firstName: "",
-      secondname: "",
+      secondName: "",
       error: null,
     };
   },
@@ -134,24 +154,4 @@ export default {
 </script>
 
 <style scoped>
-.form-row {
-  display: flex;
-  margin: 16px 0px;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.form-row__input {
-  padding: 8px;
-  border: none;
-  border-radius: 8px;
-  background: #f2f2f2;
-  font-weight: 500;
-  font-size: 16px;
-  flex: 1;
-  min-width: 100px;
-  color: black;
-}
-.form-row__input::placeholder {
-  color: #aaaaaa;
-}
 </style>

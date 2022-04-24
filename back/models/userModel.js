@@ -9,8 +9,8 @@ module.exports = function (sequelize, Sequelize) {
         allowNull: false,
         unique: true,
       },
-      secondName: { type: Sequelize.STRING },
-      firstName: { type: Sequelize.STRING, notEmpty: true },
+      secondName: { type: Sequelize.STRING, allowNull: false },
+      firstName: { type: Sequelize.STRING, notEmpty: true, allowNull: false },
       email: {
         type: Sequelize.STRING,
         validate: { isEmail: true },
