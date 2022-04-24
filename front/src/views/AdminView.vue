@@ -30,7 +30,7 @@ export default {
       users: null,
     };
   },
-  async mounted() {
+  async created() {
     this.users = (await userService.getAllUsers()).data;
   },
 };

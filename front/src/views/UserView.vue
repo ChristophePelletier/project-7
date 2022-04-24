@@ -33,6 +33,7 @@ export default {
   methods: {
     async deleted() {
       await userService.deleteOneUser(this.$route.params.id);
+      this.$router.push("/admin");
     },
     catch(err) {
       console.log("erreur erreur");
