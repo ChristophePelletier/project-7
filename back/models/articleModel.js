@@ -8,10 +8,12 @@ module.exports = function (sequelize, Sequelize) {
         allowNull: false,
         primaryKey: true,
       },
+      /*
       userId: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
+      */
       title: { type: Sequelize.STRING, allowNull: false },
       secondName: { type: Sequelize.STRING },
       firstName: { type: Sequelize.STRING, notEmpty: true },
