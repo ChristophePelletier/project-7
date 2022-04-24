@@ -38,6 +38,12 @@
         Adresse mail et/ou mot de passe invalide
       </div>
     </form>
+      <p v-if="erreurs.length">
+    <b>Please correct the following error(s):</b>
+    <ul>
+      <li v-for="erreur in erreurs">{{ erreur }}</li>
+    </ul>
+  </p>
     <!--
     <div v-if="mode == 'signup' && status == 'error_signup'">
       Adresse mail déjà utilisée
@@ -81,6 +87,7 @@ export default {
       firstName: "",
       secondName: "",
       error: null,
+      erreurs: [],
     };
   },
   mounted: function () {
@@ -108,6 +115,21 @@ export default {
     ...mapState(["status"]),
   },
   methods: {
+    checkForm: function (e) {
+      if (this.mode == "signup") {
+        if (this.firstName && this.secondName) {
+          return true;
+        }
+        this.erreurs = [];
+        if (!this.firstName) {
+          this.erreurs.push("Name required.");
+        }
+        if (!this.secondName) {
+          this.erreurs.push("SedondName required.");
+        }
+        e.preventDefault();
+      }
+    },
     switchToSignup: function () {
       this.mode = "signup";
     },

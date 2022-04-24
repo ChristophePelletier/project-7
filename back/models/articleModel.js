@@ -15,7 +15,7 @@ module.exports = function (sequelize, Sequelize) {
       },
       */
       title: { type: Sequelize.STRING, allowNull: false },
-      secondName: { type: Sequelize.STRING },
+      secondName: { type: Sequelize.STRING, notEmpty: true },
       firstName: { type: Sequelize.STRING, notEmpty: true },
       email: {
         type: Sequelize.STRING,
