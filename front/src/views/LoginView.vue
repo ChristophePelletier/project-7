@@ -38,12 +38,7 @@
         Adresse mail et/ou mot de passe invalide
       </div>
     </form>
-      <p v-if="erreurs.length">
-    <b>Please correct the following error(s):</b>
-    <ul>
-      <li v-for="erreur in erreurs">{{ erreur }}</li>
-    </ul>
-  </p>
+
     <!--
     <div v-if="mode == 'signup' && status == 'error_signup'">
       Adresse mail déjà utilisée
@@ -62,6 +57,10 @@
       <hr />
 
       <p v-if="mode == 'login'">Vous n'êtes pas déjà inscrit(e)</p>
+      <div v-if="mode == 'signup'">
+        <p v-if="firstName == ''">Merci de remplir un prénom</p>
+        <p v-if="secondName == ''">Merci de remplir un Nom</p>
+      </div>
       <p v-else>Déjà inscrit ?</p>
       <button>
         <p v-if="mode == 'login'">
