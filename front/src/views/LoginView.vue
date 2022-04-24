@@ -18,9 +18,11 @@
     <div v-if="mode == 'login' && status == 'error_login'">
       Adresse mail et/ou mot de passe invalide
     </div>
+    <!--
     <div v-if="mode == 'signup' && status == 'error_signup'">
       Adresse mail déjà utilisée
     </div>
+    -->
     <div>
       <button v-if="mode == 'login'" @click="login()" class="button">
         <span v-if="status == 'loading'">Connexion en cours...</span>
