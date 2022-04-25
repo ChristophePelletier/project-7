@@ -1,7 +1,4 @@
 const jwt = require('jsonwebtoken')
-const dotenv = require('dotenv')
-dotenv.config()
-
 const db = require('../models')
 const User = db.user
 
@@ -10,13 +7,14 @@ module.exports = (req, res, next) => {
     //we get the authorization in the req.headers and get the token
     // array [bearer token(crypted)] --> we get the token
     const token = req.headers.authorization.split(' ')[1]
+    console.log('token', token)
     const decodedToken = jwt.verify(token, 'RANDOM_TOKEN_SECRET')
+    console.log('decodedToken', decodedToken)
     //
     //jwt.verify(token, process.env.RTS)
     //if error --> catch
-    // OK : we pass it in env variable
-    const userId = decodedToken.userId
-    console.log('decodedToken.userId', decodedToken.userId)
+    const userId = decodedToken.id
+    console.log('decodedToken.id', decodedToken.id)
     console.log('userId', userId)
     // prevent delete object from someone else
     //req.userId = userId;
@@ -36,7 +34,6 @@ module.exports = (req, res, next) => {
       throw 'User ID not valid'
     } else {
       console.log('Middleware auth : token ok')
-
       next()
     }
   } catch {

@@ -5,7 +5,7 @@ const articleCtrl = require('../controllers/articles')
 const auth = require('../middlewares/auth')
 //const authConsult = require('../middlewares/authConsult')
 
-router.get('/articles', auth, articleCtrl.getAllArticles)
+router.get('/articles', articleCtrl.getAllArticles)
 router.get('/article/:id', auth, articleCtrl.getOneArticle)
 router.post('/article', auth, multer, articleCtrl.createArticle)
 
