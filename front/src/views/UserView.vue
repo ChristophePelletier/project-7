@@ -1,17 +1,21 @@
 <template>
   <div>
-    <h2>{{ user.firstName }} {{ user.secondName }}</h2>
-    <p>
-      Compte créé le
-      {{ getFormattedDate(user.createdAt) }}
-    </p>
-    <p>
-      Mail :
-      {{ user.email }}
-    </p>
+    <div v-if="$store.state.user.userId !== -1">
+      <h2>{{ user.firstName }} {{ user.secondName }}</h2>
+      <p>
+        Compte créé le
+        {{ getFormattedDate(user.createdAt) }}
+      </p>
+      <p>
+        Mail :
+        {{ user.email }}
+      </p>
+      <button @click="deleted">Supprimer mon compte</button>
+    </div>
+    <div v-if="$store.state.user.userId == -1">
+      <p>Compte bien supprimé</p>
+    </div>
   </div>
-
-  <button @click="deleted">Supprimer mon compte</button>
 </template>
 
 <script>
