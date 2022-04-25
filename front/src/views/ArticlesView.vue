@@ -35,6 +35,10 @@
           Mail de l'auteur :
           {{ article.email }}
         </p>
+
+        <p v-if="$store.state.user.admin == true" class="auteur">
+          Supprimer l'article
+        </p>
       </div>
     </div>
   </div>
