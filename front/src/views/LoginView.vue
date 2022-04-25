@@ -4,41 +4,49 @@
     <h1 v-if="mode == 'login'">Connexion</h1>
     <h1 v-else>Inscription</h1>
     <form>
+      <div v-if="mode == 'signup'" class="form-group">
+        <label for="prénom">Votre prénom</label>
+        <input
+          v-model="firstName"
+          type="text"
+          placeholder="Prénom"
+          id="prénom"
+          class="form-control"
+        />
+      </div>
+      <div v-if="mode == 'signup'" class="form-group">
+        <label for="nom">Votre nom</label>
+        <input
+          v-model="secondName"
+          type="text"
+          placeholder="Nom"
+          id="nom"
+          class="form-control"
+        />
+      </div>
       <div class="form-group">
-        <div v-if="mode == 'signup'">
-          <label for="prénom">Votre prénom</label>
-          <input
-            v-model="firstName"
-            type="text"
-            placeholder="Prénom"
-            od="prénom"
-          />
-          <label for="nom">Votre nom</label>
-          <input v-model="secondName" type="text" placeholder="Nom" id="nom" />
-        </div>
-        <div>
-          <label for="email">Votre adresse mail</label>
-          <input
-            v-model="email"
-            type="email"
-            placeholder="Adresse mail"
-            id="email"
-            class="form-control"
-          />
-        </div>
+        <label for="email">Votre adresse mail</label>
+        <input
+          v-model="email"
+          type="email"
+          placeholder="Adresse mail"
+          id="email"
+          class="form-control"
+        />
+      </div>
 
-        <div>
-          <label for="password">Votre mot de passe</label>
-          <input
-            v-model="password"
-            type="password"
-            placeholder="Mot de passe"
-            id="password"
-          />
-        </div>
-        <div v-if="mode == 'login' && status == 'error_login'">
-          Adresse mail et/ou mot de passe invalide
-        </div>
+      <div class="form-group">
+        <label for="password">Votre mot de passe</label>
+        <input
+          v-model="password"
+          type="password"
+          placeholder="Mot de passe"
+          id="password"
+          class="form-control"
+        />
+      </div>
+      <div v-if="mode == 'login' && status == 'error_login'">
+        Adresse mail et/ou mot de passe invalide
       </div>
     </form>
 
@@ -48,7 +56,12 @@
     </div>
     -->
     <div>
-      <button v-if="mode == 'login'" @click="login()" class="button">
+      <button
+        v-if="mode == 'login'"
+        @click="login()"
+        class="button btn btn-primary"
+      >
+        >
         <span v-if="status == 'loading'">Connexion en cours...</span>
         <span v-else>Connexion</span>
       </button>
@@ -65,13 +78,11 @@
         <p v-if="secondName == ''">Merci de remplir un Nom</p>
       </div>
       <p v-else>Déjà inscrit ?</p>
-      <button>
-        <p v-if="mode == 'login'">
-          <span @click="switchToSignup()">Je crée un compte<br /></span>
-        </p>
-        <p v-else>
-          <span @click="switchToLogin()"> Je me connecte</span>
-        </p>
+      <button class="btn-primary">
+        <span v-if="mode == 'login'" @click="switchToSignup()"
+          >Je crée un compte<br
+        /></span>
+        <span v-else @click="switchToLogin()"> Je me connecte</span>
       </button>
     </div>
   </div>
