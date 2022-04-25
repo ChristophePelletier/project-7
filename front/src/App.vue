@@ -1,13 +1,40 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/articles">Articles</router-link> |
-    <router-link to="/article-create">Rédiger</router-link> |
-    <router-link to="/login">Connexion</router-link> |
-    <router-link to="/admin">Admin</router-link>
-    <button v-if="$store.state.user.userId !== -1" @click="logout">
-      Logout
-    </button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <router-link to="/" class="navbar-brand">GROUPOFORUM</router-link>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <router-link to="/" class="nav-link active">Accueil</router-link>
+          <router-link to="/articles" class="nav-link active">
+            Les articles
+          </router-link>
+          <router-link to="/article-create" class="nav-link active">
+            Rédiger un article
+          </router-link>
+          <router-link v-if="!userData" to="/login" class="nav-link active">
+            Login
+          </router-link>
+          <a
+            v-if="$store.state.user.userId !== -1"
+            v-on:click="logout()"
+            class="nav-link active pointer"
+          >
+            Déconnexion
+          </a>
+        </div>
+      </div>
+    </div>
   </nav>
   <router-view />
   <foot />
