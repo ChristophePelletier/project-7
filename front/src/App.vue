@@ -22,15 +22,27 @@
           <router-link to="/article-create" class="nav-link active">
             Rédiger un article
           </router-link>
-          <router-link v-if="!userData" to="/login" class="nav-link active">
+          <router-link
+            v-if="$store.state.user.userId == -1"
+            to="/login"
+            class="nav-link active"
+          >
             Login
           </router-link>
+          <router-link to="/admin" class="nav-link active"> Admin </router-link>
           <a
             v-if="$store.state.user.userId !== -1"
             v-on:click="logout()"
             class="nav-link active pointer"
           >
             Déconnexion
+          </a>
+          <a
+            v-if="$store.state.user.userId !== -1"
+            v-on:click="monCompte()"
+            class="nav-link active pointer"
+          >
+            Mon compte
           </a>
         </div>
       </div>
@@ -56,6 +68,9 @@ export default {
     logout: function () {
       this.$store.commit("logout");
       this.$router.push("/articles");
+    },
+    monCompte: function () {
+      this.$router.push("/user/" + this.$store.state.user.userId);
     },
   },
 };
@@ -101,8 +116,12 @@ nav a.router-link-exact-active {
 nav.navbar,
 nav.navbar-expand-lg,
 nav.navbar-dark,
-nav.bg-primary {
+nav.bg-primary,
+button.btn-primary,
+.btn,
+.btn-primary {
   background-color: #fd2d01 !important;
+  border: 0;
 }
 $bg-primary: red !important;
 $body-color: red !important;
