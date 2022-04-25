@@ -51,7 +51,6 @@
           id="administration"
           name="nonAdmin"
           value="true"
-          checked
         />
         <label for="administration">Admin</label>
         <input
