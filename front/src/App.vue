@@ -19,7 +19,11 @@
           <router-link to="/articles" class="nav-link active">
             Les articles
           </router-link>
-          <router-link to="/article-create" class="nav-link active">
+          <router-link
+            v-if="$store.state.user.userId !== -1"
+            to="/article-create"
+            class="nav-link active"
+          >
             Rédiger un article
           </router-link>
           <router-link

@@ -1,36 +1,41 @@
 <template>
-  <div class="article">
-    <h1>Les derniers articles</h1>
-    <!--
+  <div>
+    <div v-if="$store.state.user.userId == -1" class="article">
+      <p>S'inscrire pour consulter les articles</p>
+    </div>
+    <div v-if="$store.state.user.userId !== -1" class="article">
+      <h1>Les derniers articles</h1>
+      <!--
     <router-link :to="{ name: 'article-create' }">
       <p>Rédiger un nouvel article</p>
     </router-link>
     -->
-    <button @click="navigateTo({ name: 'article-create' })">
-      Rédiger un nouvel article
-    </button>
+      <button @click="navigateTo({ name: 'article-create' })">
+        Rédiger un nouvel article
+      </button>
 
-    <div v-for="article in articles" :key="article.id">
-      <h2>
-        <router-link :to="'/article/' + article.id">
-          {{ article.title }}</router-link
-        >
-      </h2>
-      <p>
-        Article rédigé le :
-        {{ getFormattedDate(article.createdAt) }}
-      </p>
-      <p>
-        {{ article.content }}
-      </p>
-      <p class="auteur">
-        Auteur de l'article :
-        {{ article.firstName }} {{ article.secondName }}
-      </p>
-      <p class="auteur">
-        Mail de l'auteur :
-        {{ article.email }}
-      </p>
+      <div v-for="article in articles" :key="article.id">
+        <h2>
+          <router-link :to="'/article/' + article.id">
+            {{ article.title }}</router-link
+          >
+        </h2>
+        <p>
+          Article rédigé le :
+          {{ getFormattedDate(article.createdAt) }}
+        </p>
+        <p>
+          {{ article.content }}
+        </p>
+        <p class="auteur">
+          Auteur de l'article :
+          {{ article.firstName }} {{ article.secondName }}
+        </p>
+        <p class="auteur">
+          Mail de l'auteur :
+          {{ article.email }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
