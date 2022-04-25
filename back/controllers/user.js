@@ -110,9 +110,11 @@ exports.deleteOneUser = (req, res, next) => {
 }
 
 exports.delOneUser = (req, res, next) => {
-  User.findByPk(id)
+  User.findByPk(req.params.id)
     .then((user) => {
-      User.destroy({ where: { userId: id } })
+      User.destroy({ where: { userId: user.userId } })
+      console.log('id :', id)
+      console.log('user.userId :', user.userId)
       console.log('ok')
       res.status(200).send({
         resp: `<p>Suppression du compte ok</p>`,

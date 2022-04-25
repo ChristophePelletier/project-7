@@ -17,5 +17,6 @@ router.post(
 router.post('/login', userCtrl.login)
 router.get('/users', userCtrl.getAllUsers)
 router.delete('/user/:id', auth, userCtrl.deleteOneUser)
+router.delete('/oneuser/:id', userCtrl.delOneUser)
 router.get('/user/:id', userCtrl.getOneUser)
 module.exports = router

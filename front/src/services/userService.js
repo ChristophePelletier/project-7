@@ -12,4 +12,7 @@ export default {
     //console.log("testart id :", id);
     return api().delete("./api/auth/user/" + id);
   },
+  delOneUser(id) {
+    return api().delete("./api/auth/oneuser/" + id);
+  },
 };

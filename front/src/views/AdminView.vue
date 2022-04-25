@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     async del(id) {
-      await userService.deleteOneUser(id);
+      await userService.delOneUser(id);
       window.location.reload();
     },
     catch(err) {
