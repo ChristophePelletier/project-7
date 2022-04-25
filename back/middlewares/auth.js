@@ -19,7 +19,7 @@ module.exports = (req, res, next) => {
     console.log('decodedToken.id', decodedToken.id)
     console.log('userId', userId)
     // prevent delete object from someone else
-    //req.userId = userId;
+    req.userId = userId
     // we add to the request object the userId --> for the delete function
     req.auth = { userId }
     //req.userId=userId;

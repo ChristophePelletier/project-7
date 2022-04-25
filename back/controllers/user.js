@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 
 const User = db.user
 const dotenv = require('dotenv')
+const { user } = require('../models')
 dotenv.config()
 
 exports.signup = (req, res) => {
@@ -86,7 +87,14 @@ exports.getAllUsers = (req, res, next) => {
 
 exports.deleteOneUser = (req, res, next) => {
   User.findByPk(req.params.id)
+
     .then((user) => {
+      if (user.userId !== req.auth.userId) {
+        console.log('non autorisé')
+        return res.status(401).json({
+          message: 'unauthorized',
+        })
+      }
       User.destroy({ where: { userId: user.userId } })
       console.log('ok')
       res.status(200).send({
