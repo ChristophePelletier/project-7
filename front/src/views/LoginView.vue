@@ -4,38 +4,41 @@
     <h1 v-if="mode == 'login'">Connexion</h1>
     <h1 v-else>Inscription</h1>
     <form>
-      <div v-if="mode == 'signup'">
-        <label for="prénom">Votre prénom</label>
-        <input
-          v-model="firstName"
-          type="text"
-          placeholder="Prénom"
-          od="prénom"
-        />
-        <label for="nom">Votre nom</label>
-        <input v-model="secondName" type="text" placeholder="Nom" id="nom" />
-      </div>
-      <div>
-        <label for="email">Votre adresse mail</label>
-        <input
-          v-model="email"
-          type="email"
-          placeholder="Adresse mail"
-          id="email"
-        />
-      </div>
+      <div class="form-group">
+        <div v-if="mode == 'signup'">
+          <label for="prénom">Votre prénom</label>
+          <input
+            v-model="firstName"
+            type="text"
+            placeholder="Prénom"
+            od="prénom"
+          />
+          <label for="nom">Votre nom</label>
+          <input v-model="secondName" type="text" placeholder="Nom" id="nom" />
+        </div>
+        <div>
+          <label for="email">Votre adresse mail</label>
+          <input
+            v-model="email"
+            type="email"
+            placeholder="Adresse mail"
+            id="email"
+            class="form-control"
+          />
+        </div>
 
-      <div>
-        <label for="password">Votre mot de passe</label>
-        <input
-          v-model="password"
-          type="password"
-          placeholder="Mot de passe"
-          id="password"
-        />
-      </div>
-      <div v-if="mode == 'login' && status == 'error_login'">
-        Adresse mail et/ou mot de passe invalide
+        <div>
+          <label for="password">Votre mot de passe</label>
+          <input
+            v-model="password"
+            type="password"
+            placeholder="Mot de passe"
+            id="password"
+          />
+        </div>
+        <div v-if="mode == 'login' && status == 'error_login'">
+          Adresse mail et/ou mot de passe invalide
+        </div>
       </div>
     </form>
 
