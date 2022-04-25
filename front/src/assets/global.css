@@ -27,3 +27,7 @@ button {
   background-color: grey;
   color: white;
 }
+
+.nav-link {
+  cursor: pointer;
+}

@@ -11,7 +11,7 @@
     </p>
   </div>
 
-  <button @click="deleted">Supprimer mon compte</button>
+  <button @click="deleted">Supprimer le compte de {{ user.firstName }}</button>
 </template>
 
 <script>
