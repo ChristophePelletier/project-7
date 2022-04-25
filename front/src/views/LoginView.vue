@@ -69,15 +69,15 @@
         <span v-if="status == 'loading'">Création en cours...</span>
         <span v-else>Créer mon compte</span>
       </button>
-      <div v-html="error" />
-      <hr />
-
-      <p v-if="mode == 'login'">Vous n'êtes pas déjà inscrit(e)</p>
       <div v-if="mode == 'signup'">
         <p v-if="firstName == ''">Merci de remplir un prénom</p>
         <p v-if="secondName == ''">Merci de remplir un Nom</p>
       </div>
+      <div v-html="error" />
+
+      <p v-if="mode == 'login'">Vous n'êtes pas déjà inscrit(e)</p>
       <p v-else>Déjà inscrit ?</p>
+
       <button class="btn-primary">
         <span v-if="mode == 'login'" @click="switchToSignup()"
           >Je crée un compte<br

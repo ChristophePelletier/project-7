@@ -69,6 +69,9 @@ export default {
 /*on l'ajoutera à la fin afin de ne pas masquer de suite dynamiquement les menus
 v-if="!$store.state.loggedIn"
 */
+nav.navbar, nav.navbar-expand-lg, nav.navbar-dark, nav.bg-primary {
+  background-color: lightgreen !important;
+}
 body {
   background-color: rgb(231, 231, 231);
 }
@@ -94,3 +97,14 @@ nav a.router-link-exact-active {
 }
 </style>
 
+<style lang="scss">
+nav.navbar,
+nav.navbar-expand-lg,
+nav.navbar-dark,
+nav.bg-primary {
+  background-color: #fd2d01 !important;
+}
+$bg-primary: red !important;
+$body-color: red !important;
+// ...
+</style>
