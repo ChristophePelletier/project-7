@@ -33,7 +33,7 @@
           >
             Login
           </router-link>
-          <router-link to="/admin" class="nav-link active"> Admin </router-link>
+
           <a
             v-if="$store.state.user.userId !== -1"
             v-on:click="logout()"
@@ -48,6 +48,9 @@
           >
             Mon compte
           </a>
+          <router-link to="/admin" class="nav-link active">
+            Administration
+          </router-link>
         </div>
       </div>
     </div>
