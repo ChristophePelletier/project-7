@@ -18,6 +18,11 @@
           {{ user.email }}
         </li>
       </ul>
+      <button @click="del(user.userId)">Supprimer ce compte</button>
+      <p>
+        {{ idToDelete }}
+      </p>
+      <hr />
     </div>
   </div>
 </template>
@@ -28,10 +33,20 @@ export default {
   data() {
     return {
       users: null,
+      idToDelete: null,
     };
   },
   async mounted() {
     this.users = (await userService.getAllUsers()).data;
+  },
+  methods: {
+    async del(id) {
+      await userService.deleteOneUser(id);
+      window.location.reload();
+    },
+    catch(err) {
+      console.log("erreur erreur");
+    },
   },
 };
 </script>
