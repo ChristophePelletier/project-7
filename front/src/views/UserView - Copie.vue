@@ -1,15 +1,51 @@
 <template>
-  <div>
-    <h2>{{ user.firstName }} {{ user.secondName }}</h2>
-    <p>
-      Compte créé le
-      {{ getFormattedDate(user.createdAt) }}
-    </p>
-    <p>
-      Mail :
-      {{ user.email }}
-    </p>
-  </div>
+  <h1>Création admin</h1>
+  <form>
+    <div v-if="mode == 'signup'" class="form-group">
+      <label for="prénom">Votre prénom</label>
+      <input
+        v-model="firstName"
+        type="text"
+        placeholder="Prénom"
+        id="prénom"
+        class="form-control"
+      />
+    </div>
+    <div v-if="mode == 'signup'" class="form-group">
+      <label for="nom">Votre nom</label>
+      <input
+        v-model="secondName"
+        type="text"
+        placeholder="Nom"
+        id="nom"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Votre adresse mail</label>
+      <input
+        v-model="email"
+        type="email"
+        placeholder="Adresse mail"
+        id="email"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Votre mot de passe</label>
+      <input
+        v-model="password"
+        type="password"
+        placeholder="Mot de passe"
+        id="password"
+        class="form-control"
+      />
+    </div>
+    <div v-if="mode == 'login' && status == 'error_login'">
+      Adresse mail et/ou mot de passe invalide
+    </div>
+  </form>
 
   <button @click="deleted">Supprimer le compte de {{ user.firstName }}</button>
 </template>
