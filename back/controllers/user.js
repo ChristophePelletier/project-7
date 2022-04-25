@@ -17,6 +17,7 @@ exports.signup = (req, res) => {
     secondName: req.body.secondName,
     firstName: req.body.firstName,
     password: bcrypt.hashSync(req.body.password, 8),
+    admin: false,
   })
     .then((user) => {
       console.log("L'utilisateur a été enregistré avec succès!")
@@ -138,5 +139,29 @@ exports.getOneUser = (req, res, next) => {
       res.status(404).json({
         error: error,
       })
+    })
+}
+
+exports.signupAdmin = (req, res) => {
+  //console.log('User :', User)
+  console.log('firstName', req.body.firstName)
+  // Enregistrer l'utilisateur dans la base de données
+  User.create({
+    email: req.body.email,
+    secondName: req.body.secondName,
+    firstName: req.body.firstName,
+    password: bcrypt.hashSync(req.body.password, 8),
+    admin: req.body.admin,
+  })
+    .then((user) => {
+      console.log("L'utilisateur a été enregistré avec succès!")
+      res.status(200)
+      res.send(user.toJSON())
+      //res.send({ message: "L'utilisateur a été enregistré avec succès!" })
+    })
+    .catch((err) => {
+      console.log('Erreur')
+      res.status(500)
+      res.send({ message: err.message })
     })
 }

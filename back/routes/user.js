@@ -15,6 +15,7 @@ router.post(
   userCtrl.signup
 )
 router.post('/login', userCtrl.login)
+router.post('/signupadmin', userCtrl.signupAdmin)
 router.get('/users', userCtrl.getAllUsers)
 router.delete('/user/:id', auth, userCtrl.deleteOneUser)
 router.delete('/oneuser/:id', userCtrl.delOneUser)
