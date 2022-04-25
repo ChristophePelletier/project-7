@@ -1,4 +1,13 @@
-h2,
+@import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
+
+* {
+  font-family: 'Roboto' !important;
+}
+h2 {
+  color: #fd2d01;
+  font-weight: bold;
+}
+
 h2 a {
   text-decoration: underline;
   color: #fd2d01;

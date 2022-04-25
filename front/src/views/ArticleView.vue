@@ -1,85 +1,86 @@
 <template>
-  <div>
-    <img alt="" src="../assets/icon-above-font.png" />
-    <h2>
-      Titre de l'article<br />
-      {{ article.title }}
-    </h2>
-    <input type="text" name="id" v-model="article.id" placeholder="titre" />
-    <p>
-      Auteur de l'article<br />
-      {{ article.firstName }} {{ article.secondName }}
-    </p>
-    <p>
-      Contenu de l'article :<br />
-      {{ article.content }}
-    </p>
-    <p>
-      Article rédigé le :
-      {{ getFormattedDate(article.createdAt) }}
-    </p>
+  <article>
     <div>
-      <img class="illustration" v-bind:src="article.image" />
-    </div>
+      <img alt="" src="../assets/icon-above-font.png" />
+      <h2>
+        {{ article.title }}
+      </h2>
+      <p>
+        articlé rédigé par<br />
+        {{ article.firstName }} {{ article.secondName }}
+      </p>
+      <p>
+        Contenu de l'article :<br />
+        {{ article.content }}
+      </p>
+      <p>
+        Article rédigé le :
+        {{ getFormattedDate(article.createdAt) }}
+      </p>
+      <div>
+        <img class="illustration" v-bind:src="article.image" />
+      </div>
 
-    <div>
-      <button @click="showForm = !showForm">Commenter l'article</button>
-      <div v-show="showForm">
-        <div>
-          <input
-            type="text"
-            name="title"
-            v-model="comment.title"
-            placeholder="titre"
-          />
-        </div>
-        <p>
-          {{ comment.title }}
-        </p>
-
-        <div>
-          <textarea
-            type="textarea"
-            name="content"
-            v-model="comment.content"
-            placeholder=""
-            cols="40"
-            rows="30"
-          />
-        </div>
-
-        <div>
+      <div>
+        <button @click="showForm = !showForm">Commenter l'article</button>
+        <div v-show="showForm">
+          <div>
+            <input
+              type="text"
+              name="title"
+              v-model="comment.title"
+              placeholder="titre"
+            />
+          </div>
           <p>
-            {{ comment.content }}
+            {{ comment.title }}
           </p>
-          <p class="auteur">
-            Auteur du commentaire :
-            {{ $store.state.user.firstName }} {{ $store.state.user.secondName }}
-          </p>
-          <button @click="create">Envoyer mon commentaire</button>
+
+          <div>
+            <textarea
+              type="textarea"
+              name="content"
+              v-model="comment.content"
+              placeholder=""
+              cols="40"
+              rows="30"
+            />
+          </div>
+
+          <div>
+            <p>
+              {{ comment.content }}
+            </p>
+            <p class="auteur">
+              Auteur du commentaire :
+              {{ $store.state.user.firstName }}
+              {{ $store.state.user.secondName }}
+            </p>
+            <button @click="create">Envoyer mon commentaire</button>
+          </div>
         </div>
       </div>
+      <h3>Tous les commentaires</h3>
+      <div v-for="comment in comments" :key="comment">
+        <hr />
+        <p>
+          Titre<br />
+          {{ comment.title }}
+        </p>
+        <p>
+          {{ comment.content }}
+        </p>
+        <p>
+          par {{ comment.firstName }}
+          {{ comment.email }}
+        </p>
+        <p>
+          Commentaire du :
+          {{ getFormattedDate(comment.createdAt) }}
+        </p>
+      </div>
     </div>
-    <h3>Tous les commentaires</h3>
-    <div v-for="comment in comments" :key="comment">
-      <hr />
-      <p>
-        Titre<br />
-        {{ comment.title }}
-      </p>
-      <p>
-        {{ comment.content }}
-      </p>
-      <p>
-        par {{ comment.firstName }}
-        {{ comment.email }}
-      </p>
-      <p>
-        Commentaire du :
-        {{ getFormattedDate(comment.createdAt) }}
-      </p>
-    </div>
-  </div>
+  </article>
 </template>
 
 <script>

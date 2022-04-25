@@ -13,6 +13,7 @@ $grid-breakpoints: (
 $bv-enable-table-stacked: false;
 
 // Include Bootstrap and BootstrapVue SCSS files
+@import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~bootstrap-vue/src/index.scss';
 
@@ -20,7 +21,10 @@ $bv-enable-table-stacked: false;
 body {
   margin: 0;
 }
-
+* {
+  --bs-font-sans-serif: 'Roboto' !important;
+  --bs-font-monospace: 'Roboto' !important;
+}
 .my-widget {
   color: var(--danger);
 }
