@@ -8,6 +8,7 @@ import createCommentView from "../views/createCommentView.vue";
 import LoginView from "../views/LoginView.vue";
 import AdminView from "../views/AdminView.vue";
 import UserView from "../views/UserView.vue";
+import createAdminView from "../views/createAdmin.vue";
 
 const routes = [
   {
@@ -49,6 +50,11 @@ const routes = [
     path: "/admin",
     name: "admin",
     component: AdminView,
+  },
+  {
+    path: "/createAdmin",
+    name: "createAdmin",
+    component: createAdminView,
   },
   {
     path: "/login",

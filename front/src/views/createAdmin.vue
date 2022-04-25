@@ -53,7 +53,7 @@
           value="true"
           checked
         />
-        <label for="admininstration">Admin</label>
+        <label for="administration">Admin</label>
         <input
           v-model="admin"
           type="radio"
@@ -72,30 +72,6 @@
     <button class="btn-primary">
       <span @click="signup">Je crée un compte<br /></span>
     </button>
-    <h1>Liste des inscrits</h1>
-    <div v-for="user in users" :key="user.userId">
-      <ul>
-        <li>
-          <router-link :to="'/user/' + user.userId">
-            {{ user.firstName }} {{ user.secondName }}</router-link
-          >
-        </li>
-        <li>
-          {{ user.id }}
-          <router-link :to="'/user/' + user.userId"
-            >Id : {{ user.userId }}</router-link
-          >
-        </li>
-        <li>
-          {{ user.email }}
-        </li>
-      </ul>
-      <button @click="del(user.userId)">Supprimer ce compte</button>
-      <p>
-        {{ idToDelete }}
-      </p>
-      <hr />
-    </div>
   </div>
 </template>
 
@@ -104,16 +80,12 @@ import userService from "@/services/signupService";
 export default {
   data() {
     return {
-      users: null,
       email: "",
       password: "",
       secondName: "",
       firstName: "",
       admin: "",
     };
-  },
-  async mounted() {
-    this.users = (await userService.getAllUsers()).data;
   },
   methods: {
     async signup() {
@@ -128,10 +100,6 @@ export default {
       } catch (error) {
         this.error = error.response.data.error;
       }
-    },
-    async del(id) {
-      await userService.delOneUser(id);
-      window.location.reload();
     },
     catch(err) {
       console.log("erreur erreur");
