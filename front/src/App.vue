@@ -16,9 +16,6 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <router-link to="/" class="nav-link active">Accueil</router-link>
-          <router-link to="/articles" class="nav-link active">
-            Les articles
-          </router-link>
           <router-link
             v-if="$store.state.user.userId !== -1"
             to="/article-create"
