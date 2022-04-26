@@ -35,23 +35,25 @@
       <p>
         {{ article.content }}
       </p>
-      <p class="auteur">
+      <p v-if="$store.state.user.userId !== article.userId" class="auteur">
         Auteur de l'article :
         {{ article.firstName }} {{ article.secondName }}
       </p>
-      <p class="auteur">
+      <p v-if="$store.state.user.userId !== article.userId" class="auteur">
         Mail de l'auteur :
         {{ article.email }}
       </p>
     </div>
     <h3>Commentaires</h3>
     <div v-for="comment in comments" :key="comment">
-      <p>
-        Titre<br />
-        {{ comment.title }}
-      </p>
+      <h2>{{ comment.title }}</h2>
       <p>
         {{ comment.content }}
+      </p>
+      <p>
+        <router-link :to="'/article/' + comment.articleId"
+          >Lire l'article
+        </router-link>
       </p>
     </div>
   </div>
