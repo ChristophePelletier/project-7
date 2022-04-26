@@ -71,3 +71,19 @@ exports.deleteOneComment = (req, res, next) => {
       })
     })
 }
+
+exports.userRecentComments = (req, res, next) => {
+  Comment.findAll({
+    where: { userId: req.params.userId },
+    commentlimit: 5,
+    order: [['createdAt', 'DESC']],
+  })
+    .then((comments) => {
+      res.send(comments)
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error: error,
+      })
+    })
+}

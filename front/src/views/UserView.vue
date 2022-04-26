@@ -45,12 +45,22 @@
       </p>
     </div>
     <h3>Commentaires</h3>
+    <div v-for="comment in comments" :key="comment">
+      <p>
+        Titre<br />
+        {{ comment.title }}
+      </p>
+      <p>
+        {{ comment.content }}
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
 import userService from "@/services/userService";
 import articleService from "@/services/articleService";
+import commentService from "@/services/commentService";
 import * as moment from "moment";
 import "moment/locale/fr";
 export default {
@@ -58,6 +68,7 @@ export default {
     return {
       user: {},
       articles: {},
+      comments: {},
     };
   },
   async created() {
@@ -67,6 +78,9 @@ export default {
   async mounted() {
     this.articles = (
       await articleService.getuserRecentArticles(this.$route.params.id)
+    ).data;
+    this.comments = (
+      await commentService.getuserRecentComments(this.$route.params.id)
     ).data;
   },
   methods: {

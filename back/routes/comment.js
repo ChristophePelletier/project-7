@@ -10,4 +10,5 @@ router.post('/comment', commentCtrl.createComment)
 router.get('/comment', commentCtrl.getAllComments)
 router.get('/comment/:articleId', commentCtrl.getArticleComments)
 router.delete('/comment/:id', commentCtrl.deleteOneComment)
+router.get('/usercomment/:userId', commentCtrl.userRecentComments)
 module.exports = router

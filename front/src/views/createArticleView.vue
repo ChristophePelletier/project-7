@@ -2,10 +2,11 @@
   <div>
     <img alt="" src="../assets/icon-above-font.png" />
 
-    <h1>Post Article</h1>
+    <h1>Rédiger un nouvel article</h1>
     <form @submit.prevent="create" enctype="multipart/form-data">
       <div>
         <input
+          class="form-control w-75 p-3"
           type="text"
           name="title"
           v-model="article.title"
@@ -19,12 +20,13 @@
       </div>
       <div>
         <textarea
+          class="form-control"
+          id="exampleFormControlTextarea1"
+          rows="5"
           type="textarea"
           name="content"
           v-model="article.content"
-          placeholder=""
-          cols="40"
-          rows="30"
+          placeholder="mon article"
         />
       </div>
 

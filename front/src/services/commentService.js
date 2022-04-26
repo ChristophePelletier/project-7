@@ -14,4 +14,7 @@ export default {
   deleteOneComment(id) {
     return api().delete("./api/comment/" + id);
   },
+  getuserRecentComments(userId) {
+    return api().get("./api/usercomment/" + userId);
+  },
 };
