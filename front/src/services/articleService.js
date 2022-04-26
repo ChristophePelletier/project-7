@@ -14,4 +14,7 @@ export default {
   post(formData) {
     return api().post("./api/article", formData);
   },
+  getuserRecentArticles(userId) {
+    return api().get("./api/userarticle/" + userId);
+  },
 };

@@ -169,19 +169,3 @@ exports.signupAdmin = (req, res) => {
       res.send({ message: err.message })
     })
 }
-
-exports.userRecentArticles = (req, res, next) => {
-  Article.findAll({
-    where: { articleId: req.params.id },
-    articlelimit: 5,
-    order: [['createdAt', 'DESC']],
-  })
-    .then((articles) => {
-      res.send(articles)
-    })
-    .catch((error) => {
-      res.status(500).json({
-        error: error,
-      })
-    })
-}
