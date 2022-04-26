@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-      <router-link to="/" class="navbar-brand">GROUPOFORUM</router-link>
+      <router-link to="/" class="navbar-brand">GROUPOMANIA</router-link>
       <button
         class="navbar-toggler"
         type="button"

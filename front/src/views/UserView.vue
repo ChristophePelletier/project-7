@@ -10,7 +10,12 @@
         Mail :
         {{ user.email }}
       </p>
-      <button @click="deleted">Supprimer mon compte</button>
+      <button
+        v-if="$store.state.user.userId == this.$route.params.id"
+        @click="deleted"
+      >
+        Supprimer mon compte
+      </button>
     </div>
     <div v-if="$store.state.user.userId == -1">
       <p>Compte bien supprimé</p>
