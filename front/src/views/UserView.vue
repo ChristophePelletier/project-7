@@ -57,7 +57,7 @@ export default {
   data() {
     return {
       user: {},
-      article: {},
+      articles: {},
     };
   },
   async created() {
@@ -68,8 +68,6 @@ export default {
     this.articles = (
       await articleService.getuserRecentArticles(this.$route.params.id)
     ).data;
-    //console.log("data", data);
-    //  console.log
   },
   methods: {
     async deleted() {
