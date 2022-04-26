@@ -101,16 +101,14 @@ exports.getOneArticle = (req, res, next) => {
 
 exports.userRecentArticles = (req, res, next) => {
   Article.findAll({
-    where: { articleId: 1 },
+    where: { userId: req.params.userId },
     articlelimit: 5,
     order: [['createdAt', 'DESC']],
   })
     .then((articles) => {
-      console.log('articleId', articles.articleId)
       res.send(articles)
     })
     .catch((error) => {
-      console.log('pb get user articles')
       res.status(500).json({
         error: error,
       })

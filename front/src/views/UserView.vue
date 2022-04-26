@@ -64,7 +64,7 @@ export default {
     this.user = (await userService.getOneUser(this.$route.params.id)).data;
     console.log(this.user);
   },
-  async created() {
+  async mounted() {
     this.articles = (
       await articleService.getuserRecentArticles(this.$route.params.id)
     ).data;
