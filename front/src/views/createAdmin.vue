@@ -69,7 +69,13 @@
       </div>
     </form>
     <button class="btn-primary">
-      <span @click="signup">Je crée un compte<br /></span>
+      <span
+        @click="
+          signup();
+          navigateTo({ name: 'admin' });
+        "
+        >Je crée un compte<br
+      /></span>
     </button>
   </div>
 </template>
@@ -88,20 +94,17 @@ export default {
   },
   methods: {
     async signup() {
-      try {
-        const response = await userService.signupAdmin({
-          email: this.email,
-          password: this.password,
-          secondName: this.secondName,
-          firstName: this.firstName,
-          admin: this.admin,
-        });
-      } catch (error) {
-        this.error = error.response.data.error;
-      }
+      await userService.signupAdmin({
+        email: this.email,
+        password: this.password,
+        secondName: this.secondName,
+        firstName: this.firstName,
+        admin: this.admin,
+      });
+      this.$router.push({ name: "admin" });
     },
-    catch(err) {
-      console.log("erreur erreur");
+    catch(error) {
+      this.error = error.response.data.error;
     },
   },
 };

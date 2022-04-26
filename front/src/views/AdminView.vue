@@ -24,6 +24,10 @@
       </p>
       <hr />
     </div>
+    <div>
+      <h2>Créer un nouveau compte administrateur</h2>
+      <router-link to="/createAdmin" class="navbar-brand">Créer</router-link>
+    </div>
   </div>
 </template>
 
