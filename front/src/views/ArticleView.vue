@@ -172,6 +172,7 @@ export default {
     },
     async deleteOneComment(id) {
       await commentService.deleteOneComment(id);
+      //alerte
       window.location.reload();
     },
     catch(err) {

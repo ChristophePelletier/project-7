@@ -117,11 +117,23 @@ exports.userRecentArticles = (req, res, next) => {
 }
 
 exports.getArticlesWithComments = (req, res, next) => {
-  Article.findAll({
-    include: [{ model: Comment }],
-  })
+  Article.findAll({ include: [{ all: true, nested: true }] })
     .then((articles) => {
-      res.send(articles)
+      //res.send(articles)
+      /*
+      articles.map(article =>{
+        let comments = Comment.findAll({ 
+          where: { articleId : article.articleId },
+          include: [
+            {
+              model: User,
+              attributes: ["prenom", "nom", "id", "avatar"],
+            }
+          ]
+        })
+        article.comments = comments;
+      }) */
+      res.json(articles)
     })
     .catch((error) => {
       res.status(500).json({
@@ -146,9 +158,7 @@ exports.deleteOneArticle = (req, res, next) => {
       Article.destroy({ where: { id: article.id } })
       console.log('req.params.id', req.params.id)
       console.log('ok')
-      res.status(200).send({
-        resp: `<p>Suppression de l'article ok</p>`,
-      })
+      res.status(200).json('ok : article bien supprimé')
       //return res.status(200).json({ ok: 'suppression du du commentaire' })
     })
     .catch((error) => {
