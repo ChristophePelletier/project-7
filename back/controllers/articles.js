@@ -1,5 +1,6 @@
 const db = require('../models')
 const Article = db.article
+const Comment = db.comment
 
 exports.createArticle = (req, res) => {
   //console.log('***req :***', req)
@@ -115,13 +116,17 @@ exports.userRecentArticles = (req, res, next) => {
     })
 }
 
-exports.getArticleWithComments = (articleId) => {
-  return Article.findByPk(articleId, { include: ['comments'] })
-    .then((article) => {
-      return article
+exports.getArticlesWithComments = (req, res, next) => {
+  Article.findAll({
+    include: [{ model: Comment }],
+  })
+    .then((articles) => {
+      res.send(articles)
     })
-    .catch((err) => {
-      console.log('Erreur ', err)
+    .catch((error) => {
+      res.status(500).json({
+        error: error,
+      })
     })
 }
 
@@ -146,13 +151,14 @@ exports.getArticleComments = (req, res, next) => {
       })
     })
 }
-*/
-//delete articleObject.id
-/*
+
+delete articleObject.id
+
   if (articleObject.userId !== req.auth.userId) {
     console.log('non autorisé')
     return res.status(401).json({
       message: 'unauthorized',
     })
   }
-  */
+
+*/

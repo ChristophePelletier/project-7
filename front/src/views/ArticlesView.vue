@@ -44,7 +44,7 @@
 
 <script>
 import articleService from "@/services/articleService";
-import commentService from "@/services/commentService";
+//import commentService from "@/services/commentService";
 import * as moment from "moment";
 import "moment/locale/fr";
 export default {

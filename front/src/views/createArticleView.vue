@@ -14,11 +14,6 @@
         />
       </div>
       <div>
-        <p>
-          {{ article.title }}
-        </p>
-      </div>
-      <div>
         <textarea
           class="form-control"
           id="exampleFormControlTextarea1"
@@ -29,16 +24,22 @@
           placeholder="mon article"
         />
       </div>
-
-      <p>
-        {{ article.content }}
-      </p>
       <div>
-        <label for="file" class="label">Télécharger votre image</label>
-        <input type="file" ref="image" name="image" @change="selectFile" />
+        <p>
+          <label for="file" class="label">Télécharger votre image</label>
+        </p>
+        <input
+          class="btn btn-primary"
+          type="file"
+          ref="image"
+          name="image"
+          @change="selectFile"
+        />
       </div>
     </form>
-    <button @click="create">Envoyer mon article</button>
+    <button type="button" class="btn btn-primary" @click="create">
+      Envoyer mon article
+    </button>
   </div>
 </template>
 

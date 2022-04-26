@@ -98,13 +98,3 @@ exports.getOneComment = (req, res, next) => {
       })
     })
 }
-
-exports.findArticlesById = (articleId) => {
-  return Articles.findByPk(articleId, { include: ['comments'] })
-    .then((article) => {
-      return article
-    })
-    .catch((err) => {
-      console.log('>> Erreur ', err)
-    })
-}
