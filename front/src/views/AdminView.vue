@@ -19,9 +19,7 @@
         </li>
       </ul>
       <button @click="del(user.userId)">Supprimer ce compte</button>
-      <p>
-        {{ idToDelete }}
-      </p>
+
       <hr />
     </div>
     <div>

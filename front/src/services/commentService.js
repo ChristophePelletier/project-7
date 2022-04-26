@@ -11,4 +11,7 @@ export default {
   getAllComments() {
     return api().get("./api/comment/");
   },
+  deleteOneComment(id) {
+    return api().delete("./api/comment/" + id);
+  },
 };

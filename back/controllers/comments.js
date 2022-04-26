@@ -43,3 +43,31 @@ exports.getArticleComments = (req, res, next) => {
       })
     })
 }
+
+exports.deleteOneComment = (req, res, next) => {
+  Comment.findByPk(req.params.id)
+    .then((comment) => {
+      /*
+      if (req.auth.userId !== true) {
+        console.log('non autorisé')
+        console.log('req.params.id', req.params.id)
+        return res.status(401).json({
+          message:
+            'non autorisé ; seuls les administrateurs peuvent modérer les commentaires ; contacter un administrateur',
+        })
+      }
+      */
+      Comment.destroy({ where: { id: comment.id } })
+      console.log('req.params.id', req.params.id)
+      console.log('ok')
+      res.status(200).send({
+        resp: `<p>Suppression du commentaire ok</p>`,
+      })
+      //return res.status(200).json({ ok: 'suppression du du commentaire' })
+    })
+    .catch((error) => {
+      res.status(404).json({
+        error: error,
+      })
+    })
+}

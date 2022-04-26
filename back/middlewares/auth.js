@@ -24,7 +24,7 @@ module.exports = (req, res, next) => {
     req.userId = userId
     req.admin = admin
     // we add to the request object the userId --> for the delete function
-    req.auth = { userId: userId, admin }
+    req.auth = { userId: userId, admin: admin }
     console.log('req.auth', req.auth)
     //req.userId=userId;
     //req.auth = { userId: userId }

@@ -78,6 +78,9 @@
           Commentaire du :
           {{ getFormattedDate(comment.createdAt) }}
         </p>
+        <button @click="deleteOneComment(comment.id)">
+          Supprimer ce commentaire
+        </button>
       </div>
     </div>
   </article>
@@ -141,9 +144,16 @@ export default {
       //localStorage.setItem("id", this.article.id);
       //localStorage.articleId = this.article.id;
     },
-    catch(err) {
-      console.log("erreur");
+    async deleteOneComment(id) {
+      await commentService.deleteOneComment(id);
+      window.location.reload();
     },
+    catch(err) {
+      console.log("erreur erreur");
+    },
+  },
+  catch(err) {
+    console.log("erreur");
   },
 };
 </script>
