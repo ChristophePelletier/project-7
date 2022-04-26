@@ -30,12 +30,13 @@ db.comment = require('../models/commentModel.js')(sequelize, Sequelize)
 // penser alor à remettre articleId dans le commentModel...
 db.article.hasMany(db.comment, {
   as: 'comments',
+  onDelete: 'cascade',
 })
 
 db.comment.belongsTo(db.article, {
   foreignKey: 'articleId',
   as: 'articles',
-  //onDelete: 'cascade',
+  onDelete: 'cascade',
 })
 /*
 db.user.hasMany(db.article, {
