@@ -18,7 +18,9 @@
           {{ user.email }}
         </li>
       </ul>
-      <button @click="del(user.userId)">Supprimer ce compte</button>
+      <button type="button" class="btn btn-warning" @click="del(user.userId)">
+        Supprimer ce compte
+      </button>
 
       <hr />
     </div>

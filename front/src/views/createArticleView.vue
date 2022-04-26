@@ -1,7 +1,5 @@
 <template>
   <div>
-    <img alt="" src="../assets/icon-above-font.png" />
-
     <h1>Rédiger un nouvel article</h1>
     <form @submit.prevent="create" enctype="multipart/form-data">
       <div>

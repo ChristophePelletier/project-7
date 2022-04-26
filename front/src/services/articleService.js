@@ -17,4 +17,7 @@ export default {
   getuserRecentArticles(userId) {
     return api().get("./api/userarticle/" + userId);
   },
+  deleteOneArticle(id) {
+    return api().delete("./api/article/" + id);
+  },
 };

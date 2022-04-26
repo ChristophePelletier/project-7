@@ -4,7 +4,7 @@ const multer = require('../middlewares/multer')
 const articleCtrl = require('../controllers/articles')
 const auth = require('../middlewares/auth')
 //const authConsult = require('../middlewares/authConsult')
-
+router.delete('/article/:id', articleCtrl.deleteOneArticle)
 router.get('/articles', auth, articleCtrl.getAllArticles)
 router.get('/article/:id', auth, articleCtrl.getOneArticle)
 router.post('/article', auth, multer, articleCtrl.createArticle)

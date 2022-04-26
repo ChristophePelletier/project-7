@@ -1,5 +1,6 @@
 <template>
   <div>
+    <img alt="" src="../assets/icon-above-font.png" />
     <div v-if="$store.state.user.userId == -1" class="article">
       <p>S'inscrire pour consulter les articles</p>
     </div>
@@ -35,7 +36,11 @@
           {{ article.email }}
         </p>
       </div>
-      <button @click="navigateTo({ name: 'article-create' })">
+      <button
+        type="button"
+        class="btn btn-primary"
+        @click="navigateTo({ name: 'article-create' })"
+      >
         Rédiger un nouvel article
       </button>
     </div>

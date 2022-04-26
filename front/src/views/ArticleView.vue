@@ -20,33 +20,49 @@
       <div>
         <img class="illustration" v-bind:src="article.image" />
       </div>
-
       <div>
-        <button @click="showForm = !showForm">Commenter l'article</button>
+        <button
+          type="button"
+          class="btn btn-warning"
+          @click="deleteOneArticle(article.id)"
+        >
+          Supprimer cet article
+        </button>
+      </div>
+      <div>
+        <button
+          type="button"
+          class="btn btn-primary"
+          @click="showForm = !showForm"
+        >
+          Commenter l'article
+        </button>
         <div v-show="showForm">
           <div>
             <input
+              class="form-control"
               type="text"
               name="title"
               v-model="comment.title"
               placeholder="titre"
             />
           </div>
+
           <p>
             {{ comment.title }}
           </p>
 
           <div>
             <textarea
+              class="form-control"
               type="textarea"
               name="content"
               v-model="comment.content"
-              placeholder=""
-              cols="40"
-              rows="30"
+              placeholder="mon commentaire"
+              cols="10"
+              rows="10"
             />
           </div>
-
           <div>
             <p>
               {{ comment.content }}
@@ -56,7 +72,9 @@
               {{ $store.state.user.firstName }}
               {{ $store.state.user.secondName }}
             </p>
-            <button @click="create">Envoyer mon commentaire</button>
+            <button type="button" class="btn btn-primary" @click="create">
+              Envoyer mon commentaire
+            </button>
           </div>
         </div>
       </div>
@@ -78,7 +96,11 @@
           Commentaire du :
           {{ getFormattedDate(comment.createdAt) }}
         </p>
-        <button @click="deleteOneComment(comment.id)">
+        <button
+          type="button"
+          class="btn btn-warning"
+          @click="deleteOneComment(comment.id)"
+        >
           Supprimer ce commentaire
         </button>
       </div>
@@ -143,6 +165,10 @@ export default {
       //console.log(iii);
       //localStorage.setItem("id", this.article.id);
       //localStorage.articleId = this.article.id;
+    },
+    async deleteOneArticle(id) {
+      await articleService.deleteOneArticle(id);
+      window.location.reload();
     },
     async deleteOneComment(id) {
       await commentService.deleteOneComment(id);
