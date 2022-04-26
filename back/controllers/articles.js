@@ -118,7 +118,11 @@ exports.userRecentArticles = (req, res, next) => {
 
 exports.getArticlesWithComments = (req, res, next) => {
   Article.findAll({
-    include: [{ model: Comment }],
+    where: {
+      articlelimit: 5,
+    },
+    include: Comment,
+    //https://sequelize.org/docs/v6/core-concepts/assocs/
   })
     .then((articles) => {
       res.send(articles)
