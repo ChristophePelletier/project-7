@@ -18,10 +18,14 @@ module.exports = (req, res, next) => {
     const userId = decodedToken.id
     console.log('decodedToken.id', decodedToken.id)
     console.log('userId', userId)
+    const admin = decodedToken.admin
+    console.log('admin', admin)
     // prevent delete object from someone else
     req.userId = userId
+    req.admin = admin
     // we add to the request object the userId --> for the delete function
-    req.auth = { userId }
+    req.auth = { userId: userId, admin }
+    console.log('req.auth', req.auth)
     //req.userId=userId;
     //req.auth = { userId: userId }
     //
