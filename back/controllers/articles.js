@@ -115,6 +115,16 @@ exports.userRecentArticles = (req, res, next) => {
     })
 }
 
+exports.getArticleWithComments = (articleId) => {
+  return Article.findByPk(articleId, { include: ['comments'] })
+    .then((article) => {
+      return article
+    })
+    .catch((err) => {
+      console.log('Erreur ', err)
+    })
+}
+
 /*
 exports.getArticleComments = (req, res, next) => {
   const id = req.params.id

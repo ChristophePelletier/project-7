@@ -10,9 +10,6 @@
       <p>Rédiger un nouvel article</p>
     </router-link>
     -->
-      <button @click="navigateTo({ name: 'article-create' })">
-        Rédiger un nouvel article
-      </button>
 
       <div v-for="article in articles" :key="article.id">
         <h2>
@@ -28,30 +25,42 @@
           {{ article.content }}
         </p>
         <p class="auteur">
-          Auteur de l'article :
-          {{ article.firstName }} {{ article.secondName }}
+          <router-link :to="'/user/' + article.userId">
+            Auteur de l'article :
+            {{ article.firstName }} {{ article.secondName }}</router-link
+          >
         </p>
         <p class="auteur">
           Mail de l'auteur :
           {{ article.email }}
         </p>
       </div>
+      <button @click="navigateTo({ name: 'article-create' })">
+        Rédiger un nouvel article
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 import articleService from "@/services/articleService";
+import commentService from "@/services/commentService";
 import * as moment from "moment";
 import "moment/locale/fr";
 export default {
   data() {
     return {
       articles: null,
+      comments: {},
     };
   },
   async mounted() {
     this.articles = (await articleService.getRecentArticles()).data;
+    /*
+    this.comments = (
+      await commentService.getOneComment(article.articleId)
+    ).data;
+    */
     //console.log("data", data);
     //  console.log("this.article : ", this.articles.data);
   },

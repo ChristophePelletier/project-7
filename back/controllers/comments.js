@@ -87,3 +87,24 @@ exports.userRecentComments = (req, res, next) => {
       })
     })
 }
+exports.getOneComment = (req, res, next) => {
+  Comment.findByPk(req.params.id)
+    .then((comment) => {
+      res.status(200).json(comment)
+    })
+    .catch((error) => {
+      res.status(404).json({
+        error: error,
+      })
+    })
+}
+
+exports.findArticlesById = (articleId) => {
+  return Articles.findByPk(articleId, { include: ['comments'] })
+    .then((article) => {
+      return article
+    })
+    .catch((err) => {
+      console.log('>> Erreur ', err)
+    })
+}
