@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="$store.state.user.admin == true">
     <h1>Liste des inscrits</h1>
     <div v-for="user in users" :key="user.userId">
       <ul>
@@ -29,6 +29,7 @@
       <router-link to="/createAdmin" class="navbar-brand">Créer</router-link>
     </div>
   </div>
+  <div v-else>Cette page est réservée aux administrateurs</div>
 </template>
 
 <script>

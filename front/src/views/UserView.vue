@@ -90,7 +90,8 @@ export default {
     async deleted() {
       await userService.deleteOneUser(this.$route.params.id);
       localStorage.clear();
-      window.location.reload();
+      window.alert("Suppression de votre compte en cours");
+      window.location.href = "/";
     },
     catch(err) {
       console.log("erreur erreur");
