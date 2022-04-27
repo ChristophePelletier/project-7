@@ -217,5 +217,6 @@ p.info {
 
 .button--disabled {
   background-color: black !important;
+  cursor: not-allowed;
 }
 </style>
