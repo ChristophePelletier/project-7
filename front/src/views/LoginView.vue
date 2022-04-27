@@ -22,7 +22,7 @@
         <p v-if="mode == 'signup'">
           <label for="prénom">Votre prénom</label>
           <input
-            :class="{ vide: !enteredFirstName }"
+            :class="{ vide: enteredFirstName }"
             v-model="firstName"
             type="text"
             placeholder="Votre prénom"
@@ -33,7 +33,7 @@
         <p v-if="mode == 'signup'">
           <label for="nom">Votre nom</label>
           <input
-            :class="{ vide: !enteredSecondName }"
+            :class="{ vide: enteredSecondName }"
             v-model="secondName"
             type="text"
             placeholder="Votre nom"
@@ -47,7 +47,7 @@
         <p>
           <label for="email">Votre adresse mail</label>
           <input
-            :class="{ vide: !enteredEmail }"
+            :class="{ vide: enteredEmail }"
             v-model="email"
             type="email"
             placeholder="Votre adresse mail"
@@ -59,7 +59,7 @@
         <p>
           <label for="password">Votre mot de passe</label>
           <input
-            :class="{ vide: !enteredPassword }"
+            :class="{ vide: enteredPassword }"
             v-model="password"
             type="password"
             placeholder="Votre mot de passe"
