@@ -118,7 +118,10 @@ exports.userRecentArticles = (req, res, next) => {
 
 exports.getArticlesWithComments = (req, res, next) => {
   console.log('testgetartcomment')
-  Article.findAll({ include: [{ all: true, nested: true }] })
+  Article.findAll({
+    include: [{ all: true, nested: true }],
+    order: [['createdAt', 'DESC']],
+  })
     .then((articles) => {
       res.send(articles)
       //res.send(articles)
