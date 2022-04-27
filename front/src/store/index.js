@@ -1,4 +1,6 @@
-//méthode d'après Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s
+//méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s
+//
+
 import { createStore } from "vuex";
 const axios = require("axios");
 const instance = axios.create({
@@ -31,9 +33,13 @@ const store = createStore({
   state: {
     status: "",
     user: user,
+    userInfos: {
+      firstName: "",
+      name: "",
+      email: "",
+    },
   },
   mutations: {
-    //https://vuex.vuejs.org/guide/mutations.html#object-style-commit
     setStatus: function (state, status) {
       state.status = status;
     },
@@ -57,14 +63,11 @@ const store = createStore({
   actions: {
     login: ({ commit }, userInfos) => {
       commit("setStatus", "loading");
-      //we commit "setStatus" in mode "loading" at login
       return new Promise((resolve, reject) => {
         instance
           .post("/api/auth/login", userInfos)
           .then(function (response) {
-            //we passe the status to "" when the user si logged in
             commit("setStatus", "");
-            //commit("setStatus", "");
             commit("logUser", response.data);
             resolve(response);
           })
@@ -81,15 +84,25 @@ const store = createStore({
         instance
           .post("/api/auth/signup", userInfos)
           .then(function (response) {
-            commit("setStatus", "error_create");
+            commit("setStatus", "created");
             resolve(response);
           })
           .catch(function (error) {
-            commit("setStatus", "erreur dans l'inscription");
+            commit("setStatus", "error_signup");
             reject(error);
           });
       });
     },
+    /*
+    getUserInfos: ({ commit }) => {
+      instance
+        .post("/infos")
+        .then(function (response) {
+          commit("userInfos", response.data.infos);
+        })
+        .catch(function () {});
+    },
+    */
   },
 });
 
