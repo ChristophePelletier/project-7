@@ -60,7 +60,9 @@ export default {
     };
   },
   async mounted() {
-    this.articles = (await articleService.getRecentArticles()).data;
+    //this.articles = (await articleService.getRecentArticles()).data;
+    this.articles = (await articleService.getArticlesWithComments()).data;
+    console.log("this.articles", this.articles);
     /*
     this.comments = (
       await commentService.getOneComment(article.articleId)

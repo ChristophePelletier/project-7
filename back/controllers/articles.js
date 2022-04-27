@@ -117,8 +117,10 @@ exports.userRecentArticles = (req, res, next) => {
 }
 
 exports.getArticlesWithComments = (req, res, next) => {
+  console.log('testgetartcomment')
   Article.findAll({ include: [{ all: true, nested: true }] })
     .then((articles) => {
+      res.send(articles)
       //res.send(articles)
       /*
       articles.map(article =>{
@@ -133,7 +135,9 @@ exports.getArticlesWithComments = (req, res, next) => {
         })
         article.comments = comments;
       }) */
-      res.json(articles)
+
+      //fonctionne avec :
+      //res.json(articles)
     })
     .catch((error) => {
       res.status(500).json({

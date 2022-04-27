@@ -20,4 +20,7 @@ export default {
   deleteOneArticle(id) {
     return api().delete("./api/article/" + id);
   },
+  getArticlesWithComments() {
+    return api().get("./api/articleswithcomments/");
+  },
 };

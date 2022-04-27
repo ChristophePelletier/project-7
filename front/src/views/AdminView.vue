@@ -43,12 +43,20 @@ export default {
     this.users = (await userService.getAllUsers()).data;
   },
   methods: {
+    del(id) {
+      userService.delOneUser(id);
+      window.alert("suppression du compte");
+      window.location.href = "/admin";
+      //window.location.reload();
+    },
+    /*
     async del(id) {
       await userService.delOneUser(id);
-      //alerte
-      //windw.location.href
-      window.location.reload();
+      window.alert("suppression du compte");
+      window.location.href = "/admin";
+      //window.location.reload();
     },
+    */
     catch(err) {
       console.log("erreur erreur");
     },
