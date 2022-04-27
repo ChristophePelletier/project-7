@@ -4,6 +4,35 @@
 *::before {
   box-sizing: border-box;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: yellowgreen;
+}
+
+form > div > p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input {
+  width: 250px;
+}
+
+@media (max-width: 600px) {
+  form p {
+    display: block;
+  }
+  label {
+    display: block;
+    text-align: left;
+  }
+}
+
 body {
   max-width: 375px;
   margin-left: auto;

@@ -17,90 +17,87 @@
 
     <!--FORMULAIRE-->
     <form>
-      <p v-if="mode == 'signup'">
-        <label for="prénom">Votre prénom</label>
-        <input
-          v-model="firstName"
-          type="text"
-          placeholder="Prénom"
-          id="prénom"
-          class="form-control"
-        />
-      </p>
-      <p v-if="mode == 'signup'">
-        <label for="nom">Votre nom</label>
-        <input
-          v-model="secondName"
-          type="text"
-          placeholder="Nom"
-          id="nom"
-          class="form-control"
-        />
-      </p>
-      <p>
-        <label for="email">Votre adresse mail</label>
-        <input
-          v-model="email"
-          type="email"
-          placeholder="Adresse mail"
-          id="email"
-          class="form-control"
-        />
-      </p>
+      <div>
+        <p v-if="mode == 'signup'">
+          <label for="prénom">Votre prénom</label>
+          <input
+            v-model="firstName"
+            type="text"
+            placeholder="Prénom"
+            id="prénom"
+            class="form-control"
+          />
+        </p>
+        <p v-if="mode == 'signup'">
+          <label for="nom">Votre nom</label>
+          <input
+            v-model="secondName"
+            type="text"
+            placeholder="Nom"
+            id="nom"
+            class="form-control"
+          />
+        </p>
+      </div>
+      <div>
+        <p>
+          <label for="email">Votre adresse mail</label>
+          <input
+            v-model="email"
+            type="email"
+            placeholder="Adresse mail"
+            id="email"
+            class="form-control"
+          />
+        </p>
 
-      <p>
-        <label for="password">Votre mot de passe</label>
-        <input
-          v-model="password"
-          type="password"
-          placeholder="Mot de passe"
-          id="password"
-          class="form-control"
-        />
-      </p>
-      <p v-if="mode == 'login' && status == 'error_login'">
-        Adresse mail et/ou mot de passe invalide
-      </p>
-
-      <!--
-    <div v-if="mode == 'signup' && status == 'error_signup'">
-      Adresse mail déjà utilisée
-    </div>
-    -->
-
-      <button
-        :class="{ 'button--disabled': !validatedFields }"
-        class="button btn btn-primary"
-        v-if="mode == 'login'"
-        @click="login()"
-      >
+        <p>
+          <label for="password">Votre mot de passe</label>
+          <input
+            v-model="password"
+            type="password"
+            placeholder="Mot de passe"
+            id="password"
+            class="form-control"
+          />
+        </p>
+        <p v-if="mode == 'login' && status == 'error_login'">
+          Adresse mail et/ou mot de passe invalide
+        </p>
+        <ul v-if="mode == 'login'">
+          <li v-if="email == ''">Merci de remplir votre mail</li>
+          <li v-if="password == ''">Merci saisir votre mot de passe</li>
+        </ul>
+        <ul v-if="mode == 'signup'">
+          <li v-if="firstName == ''">Merci de remplir votre prénom</li>
+          <li v-if="secondName == ''">Merci de remplir votre nom</li>
+          <li v-if="email == ''">Merci de remplir votre mail</li>
+          <li v-if="password == ''">Merci de choisir un mot de passe</li>
+        </ul>
+        <p v-html="error" />
+        <button
+          :class="{ 'button--disabled': !validatedFields }"
+          class="button btn btn-primary"
+          v-if="mode == 'login'"
+          @click="login()"
         >
-        <span v-if="status == 'loading'">Connexion au forum en cours</span>
-        <span v-else>Se connecter</span>
-      </button>
-      <button
-        :class="{ 'button--disabled': !validatedFields }"
-        class="button btn btn-primary"
-        v-else
-        @click="signup()"
-      >
-        <span v-if="status == 'loading'">Création en cours</span>
-        <span v-else>Créer mon compte</span>
-      </button>
-      <div v-if="mode == 'login'">
-        <p v-if="email == ''">Merci de remplir votre mail</p>
-        <p v-if="password == ''">Merci saisir votre mot de passe</p>
+          >
+          <span v-if="status == 'loading'">Connexion au forum en cours</span>
+          <span v-else>Se connecter</span>
+        </button>
+        <button
+          :class="{ 'button--disabled': !validatedFields }"
+          class="button btn btn-primary"
+          v-else
+          @click="signup()"
+        >
+          <span v-if="status == 'loading'">Création en cours</span>
+          <span v-else>Créer mon compte</span>
+        </button>
       </div>
-      <div v-if="mode == 'signup'">
-        <p v-if="firstName == ''">Merci de remplir votre prénom</p>
-        <p v-if="secondName == ''">Merci de remplir votre nom</p>
-        <p v-if="email == ''">Merci de remplir votre mail</p>
-        <p v-if="password == ''">Merci de choisir un mot de passe</p>
-      </div>
-      <div v-html="error" />
     </form>
-    <!--FIN DU FORMULAIRE-->
   </div>
+  <!--FIN DU FORMULAIRE-->
 </template>
 
 <script>
