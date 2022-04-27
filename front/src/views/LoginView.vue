@@ -21,6 +21,7 @@
         <p v-if="mode == 'signup'">
           <label for="prénom">Votre prénom</label>
           <input
+            :class="{ vide: !enteredFirstName }"
             v-model="firstName"
             type="text"
             placeholder="Votre prénom"
@@ -31,6 +32,7 @@
         <p v-if="mode == 'signup'">
           <label for="nom">Votre nom</label>
           <input
+            :class="{ vide: !enteredSecondName }"
             v-model="secondName"
             type="text"
             placeholder="Votre nom"
@@ -43,6 +45,7 @@
         <p>
           <label for="email">Votre adresse mail</label>
           <input
+            :class="{ vide: !enteredEmail }"
             v-model="email"
             type="email"
             placeholder="Votre adresse mail"
@@ -54,6 +57,7 @@
         <p>
           <label for="password">Votre mot de passe</label>
           <input
+            :class="{ vide: !enteredPassword }"
             v-model="password"
             type="password"
             placeholder="Votre mot de passe"
@@ -137,6 +141,86 @@ export default {
         //mode login
       } else {
         if (this.email != "" && this.password != "") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    enteredEmail: function () {
+      if (this.mode == "signup") {
+        if (this.email != "") {
+          return true;
+        } else {
+          return false;
+        }
+        //mode login
+      } else {
+        if (this.email != "") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    enteredPassword: function () {
+      if (this.mode == "signup") {
+        if (this.password != "") {
+          return true;
+        } else {
+          return false;
+        }
+        //mode login
+      } else {
+        if (this.password != "") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    enteredSecondName: function () {
+      if (this.mode == "signup") {
+        if (this.secondName != "") {
+          return true;
+        } else {
+          return false;
+        }
+        //mode login
+      } else {
+        if (this.secondName != "") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    enteredFirstName: function () {
+      if (this.mode == "signup") {
+        if (this.firstName != "") {
+          return true;
+        } else {
+          return false;
+        }
+        //mode login
+      } else {
+        if (this.firstName != "") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    enteredPassword: function () {
+      if (this.mode == "signup") {
+        if (this.password != "") {
+          return true;
+        } else {
+          return false;
+        }
+        //mode login
+      } else {
+        if (this.password != "") {
           return true;
         } else {
           return false;
