@@ -21,8 +21,8 @@
         <img class="illustration" v-bind:src="article.image" />
       </div>
       <div>
+        <!--v-if="$store.state.user.admin == true" -->
         <button
-          v-if="$store.state.user.admin == true"
           type="button"
           class="btn btn-warning"
           @click="deleteOneArticle(article.id)"

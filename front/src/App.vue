@@ -45,6 +45,7 @@
           >
             Mon compte
           </a>
+          <!-- v-if="$store.state.user.admin == true" -->
           <router-link to="/admin" class="nav-link active">
             Administration
           </router-link>
