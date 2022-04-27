@@ -5,39 +5,22 @@
       <div>
         <router-link to="/" class="nav-link active">Accueil</router-link>
       </div>
-      <div>
-        <router-link
-          v-if="$store.state.user.userId !== -1"
-          to="/article-create"
-          class="nav-link active"
-        >
+      <div v-if="$store.state.user.userId !== -1">
+        <router-link to="/article-create" class="nav-link active">
+          <!--  :class="{ vide: enteredFirstName }"-->
           Rédiger un article
         </router-link>
       </div>
-      <div>
-        <router-link
-          v-if="$store.state.user.userId == -1"
-          to="/login"
-          class="nav-link active"
-        >
-          Login
-        </router-link>
+      <div v-if="$store.state.user.userId == -1">
+        <router-link to="/login" class="nav-link active"> Login </router-link>
       </div>
-      <div>
-        <a
-          v-if="$store.state.user.userId !== -1"
-          v-on:click="logout()"
-          class="nav-link active pointer"
-        >
+      <div v-if="$store.state.user.userId !== -1">
+        <a v-on:click="logout()" class="nav-link active pointer">
           Déconnexion
         </a>
       </div>
-      <div>
-        <a
-          v-if="$store.state.user.userId !== -1"
-          v-on:click="monCompte()"
-          class="nav-link active pointer"
-        >
+      <div v-if="$store.state.user.userId !== -1">
+        <a v-on:click="monCompte()" class="nav-link active pointer">
           Mon compte
         </a>
       </div>

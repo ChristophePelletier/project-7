@@ -48,15 +48,19 @@ Menu
 */
 nav {
   display: flex;
+  flex-direction: row;
   align-items: center;
   background-color: #ffcccc;
   width: 100%;
   padding: 0;
+  justify-content: flex-start;
   margin: 0;
 }
 
 nav > div {
   padding: 15px;
+  width: 275px;
+  background-color: aquamarine;
 }
 
 form > div > p {
