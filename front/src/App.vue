@@ -1,12 +1,10 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container-fluid">
-        <router-link to="/" class="navbar-brand">GROUPOMANIA</router-link>
-        <button type="button">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <nav>
+      <div>
+        <router-link to="/">GROUPOMANIA</router-link>
+        <button type="button"></button>
+        <div>
           <div class="navbar-nav">
             <router-link to="/" class="nav-link active">Accueil</router-link>
             <router-link

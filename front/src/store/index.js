@@ -56,7 +56,7 @@ const store = createStore({
   },
   actions: {
     login: ({ commit }, userInfos) => {
-      commit("setStatus", "chargement");
+      commit("setStatus", "loading");
       //we commit "setStatus" in mode "loading" at login
       return new Promise((resolve, reject) => {
         instance
@@ -69,7 +69,7 @@ const store = createStore({
             resolve(response);
           })
           .catch(function (error) {
-            commit("setStatus", "erreur d'identification");
+            commit("setStatus", "error_login");
             reject(error);
           });
       });
@@ -81,7 +81,7 @@ const store = createStore({
         instance
           .post("/api/auth/signup", userInfos)
           .then(function (response) {
-            commit("setStatus", "compte créé");
+            commit("setStatus", "error_create");
             resolve(response);
           })
           .catch(function (error) {
