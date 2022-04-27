@@ -90,16 +90,6 @@ const store = createStore({
           });
       });
     },
-    /*
-    getUserInfos: ({ commit }) => {
-      instance
-        .post("/infos")
-        .then(function (response) {
-          commit("userInfos", response.data.infos);
-        })
-        .catch(function () {});
-    },
-    */
   },
 });
 
