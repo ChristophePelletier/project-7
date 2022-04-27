@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!--méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s-->
+    <!--méthode d'après Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s-->
     <h1 v-if="mode == 'login'">Connexion</h1>
     <h1 v-else>Inscription</h1>
     <p class="info" v-if="mode == 'login'">Vous n'êtes pas déjà inscrit(e) :</p>
@@ -89,7 +89,7 @@
     </div>
     <div v-if="mode == 'signup'">
       <p v-if="firstName == ''">Merci de remplir votre prénom</p>
-      <p v-if="secondName == ''">Merci de remplir votre</p>
+      <p v-if="secondName == ''">Merci de remplir votre nom</p>
       <p v-if="email == ''">Merci de remplir votre mail</p>
       <p v-if="password == ''">Merci de choisir un mot de passe</p>
     </div>

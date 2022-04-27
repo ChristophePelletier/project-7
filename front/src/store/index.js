@@ -1,6 +1,4 @@
-//méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s
-//
-
+//méthode d'après Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s
 import { createStore } from "vuex";
 const axios = require("axios");
 const instance = axios.create({
@@ -40,6 +38,7 @@ const store = createStore({
     },
   },
   mutations: {
+    //https://vuex.vuejs.org/guide/mutations.html#object-style-commit
     setStatus: function (state, status) {
       state.status = status;
     },
@@ -63,11 +62,14 @@ const store = createStore({
   actions: {
     login: ({ commit }, userInfos) => {
       commit("setStatus", "loading");
+      //we commit "setStatus" in mode "loading" at login
       return new Promise((resolve, reject) => {
         instance
           .post("/api/auth/login", userInfos)
           .then(function (response) {
-            commit("setStatus", "");
+            //we passe the status to "connecté" when the user si logged in
+            commit("setStatus", "connecté");
+            //commit("setStatus", "");
             commit("logUser", response.data);
             resolve(response);
           })
