@@ -72,7 +72,17 @@
         Adresse mail et/ou mot de passe invalide
       </div>
     </form>
-
+    <ul v-if="mode == 'login'">
+      <li v-if="email == ''">Merci de remplir votre mail</li>
+      <li v-if="password == ''">Merci saisir votre mot de passe</li>
+    </ul>
+    <ul v-if="mode == 'signup'">
+      <li v-if="firstName == ''">Merci de remplir votre prénom</li>
+      <li v-if="secondName == ''">Merci de remplir votre nom</li>
+      <li v-if="email == ''">Merci de remplir votre mail</li>
+      <li v-if="password == ''">Merci de choisir un mot de passe</li>
+    </ul>
+    <p v-html="error" />
     <div>
       <button
         v-if="mode == 'login'"
@@ -87,11 +97,6 @@
         <span v-if="status == 'loading'">Création en cours...</span>
         <span v-else>Créer mon compte</span>
       </button>
-      <div v-if="mode == 'signup'">
-        <p v-if="firstName == ''">Merci de remplir un prénom</p>
-        <p v-if="secondName == ''">Merci de remplir un Nom</p>
-      </div>
-      <div v-html="error" />
     </div>
   </div>
 </template>
