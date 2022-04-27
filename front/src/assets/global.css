@@ -4,7 +4,10 @@
 *::before {
   box-sizing: border-box;
 }
-
+header {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 body {
   max-width: 1280px;
   margin-left: auto;
@@ -38,6 +41,22 @@ form {
   align-items: center;
   width: 100%;
   background-color: #ffcccc;
+}
+
+/*
+Menu
+*/
+nav {
+  display: flex;
+  align-items: center;
+  background-color: #ffcccc;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+nav > div {
+  padding: 15px;
 }
 
 form > div > p {
