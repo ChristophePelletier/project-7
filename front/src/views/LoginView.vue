@@ -1,8 +1,12 @@
 <template>
   <div>
     <!--méthode d'après Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s-->
+
+    <!--TITRE-->
     <h1 v-if="mode == 'login'">Connexion</h1>
     <h1 v-else>Inscription</h1>
+    <!--FIN TITRE-->
+
     <p class="info" v-if="mode == 'login'">Vous n'êtes pas déjà inscrit(e) :</p>
     <p class="info" v-else>Vous êtes déjà inscrit(e) :</p>
 
@@ -11,8 +15,9 @@
     </p>
     <p class="lien" v-else @click="switchToLogin()">Je me connecte</p>
 
+    <!--FORMULAIRE-->
     <form>
-      <div v-if="mode == 'signup'" class="form-group">
+      <p v-if="mode == 'signup'">
         <label for="prénom">Votre prénom</label>
         <input
           v-model="firstName"
@@ -21,8 +26,8 @@
           id="prénom"
           class="form-control"
         />
-      </div>
-      <div v-if="mode == 'signup'" class="form-group">
+      </p>
+      <p v-if="mode == 'signup'">
         <label for="nom">Votre nom</label>
         <input
           v-model="secondName"
@@ -31,8 +36,8 @@
           id="nom"
           class="form-control"
         />
-      </div>
-      <div class="form-group">
+      </p>
+      <p>
         <label for="email">Votre adresse mail</label>
         <input
           v-model="email"
@@ -41,9 +46,9 @@
           id="email"
           class="form-control"
         />
-      </div>
+      </p>
 
-      <div class="form-group">
+      <p>
         <label for="password">Votre mot de passe</label>
         <input
           v-model="password"
@@ -52,48 +57,49 @@
           id="password"
           class="form-control"
         />
-      </div>
-      <div v-if="mode == 'login' && status == 'error_login'">
+      </p>
+      <p v-if="mode == 'login' && status == 'error_login'">
         Adresse mail et/ou mot de passe invalide
-      </div>
-    </form>
+      </p>
 
-    <!--
+      <!--
     <div v-if="mode == 'signup' && status == 'error_signup'">
       Adresse mail déjà utilisée
     </div>
     -->
 
-    <button
-      :class="{ 'button--disabled': !validatedFields }"
-      class="button btn btn-primary"
-      v-if="mode == 'login'"
-      @click="login()"
-    >
+      <button
+        :class="{ 'button--disabled': !validatedFields }"
+        class="button btn btn-primary"
+        v-if="mode == 'login'"
+        @click="login()"
       >
-      <span v-if="status == 'loading'">Connexion au forum en cours</span>
-      <span v-else>Se connecter</span>
-    </button>
-    <button
-      :class="{ 'button--disabled': !validatedFields }"
-      class="button btn btn-primary"
-      v-else
-      @click="signup()"
-    >
-      <span v-if="status == 'loading'">Création en cours</span>
-      <span v-else>Créer mon compte</span>
-    </button>
-    <div v-if="mode == 'login'">
-      <p v-if="email == ''">Merci de remplir votre mail</p>
-      <p v-if="password == ''">Merci saisir votre mot de passe</p>
-    </div>
-    <div v-if="mode == 'signup'">
-      <p v-if="firstName == ''">Merci de remplir votre prénom</p>
-      <p v-if="secondName == ''">Merci de remplir votre nom</p>
-      <p v-if="email == ''">Merci de remplir votre mail</p>
-      <p v-if="password == ''">Merci de choisir un mot de passe</p>
-    </div>
-    <div v-html="error" />
+        >
+        <span v-if="status == 'loading'">Connexion au forum en cours</span>
+        <span v-else>Se connecter</span>
+      </button>
+      <button
+        :class="{ 'button--disabled': !validatedFields }"
+        class="button btn btn-primary"
+        v-else
+        @click="signup()"
+      >
+        <span v-if="status == 'loading'">Création en cours</span>
+        <span v-else>Créer mon compte</span>
+      </button>
+      <div v-if="mode == 'login'">
+        <p v-if="email == ''">Merci de remplir votre mail</p>
+        <p v-if="password == ''">Merci saisir votre mot de passe</p>
+      </div>
+      <div v-if="mode == 'signup'">
+        <p v-if="firstName == ''">Merci de remplir votre prénom</p>
+        <p v-if="secondName == ''">Merci de remplir votre nom</p>
+        <p v-if="email == ''">Merci de remplir votre mail</p>
+        <p v-if="password == ''">Merci de choisir un mot de passe</p>
+      </div>
+      <div v-html="error" />
+    </form>
+    <!--FIN DU FORMULAIRE-->
   </div>
 </template>
 

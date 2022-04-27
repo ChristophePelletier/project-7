@@ -1,4 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  max-width: 375px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Roboto', sans-serif;
+  color: black;
+}
+
+@media all and (min-width: 768px) {
+  body {
+    max-width: 750px;
+    background-color: #99e2d0;
+  }
+}
+@media all and (min-width: 993px) {
+  body {
+    max-width: 1280px;
+    background-color: #99e2d0;
+  }
+}
+@media all and (max-width: 370px) {
+  body {
+    max-width: 290px;
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 35px 35px 35px;
+  height: 110px;
+}
 
 body > div {
   max-width: 1280px;
