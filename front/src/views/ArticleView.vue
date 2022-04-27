@@ -30,8 +30,8 @@
           Supprimer cet article
         </button>
         <p>
-          Attention, la suppression de l'article supprimera également les
-          commentaires associés
+          Attention, la suppression de l'article entraînera également la
+          suppression de l'ensemble des commentaires associés.
         </p>
       </div>
       <div>

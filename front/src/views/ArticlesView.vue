@@ -18,6 +18,7 @@
             {{ article.title }}</router-link
           >
         </h2>
+        <img class="illustration" v-bind:src="article.image" />
         <p>
           Article rédigé le :
           {{ getFormattedDate(article.createdAt) }}
@@ -89,3 +90,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+img.illustration {
+  width: 250px;
+}
+</style>
