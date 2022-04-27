@@ -26,6 +26,10 @@
       </div>
       <div>
         <!-- v-if="$store.state.user.admin == true" -->
+        <router-link to="/user/id" class="nav-link active"> User </router-link>
+      </div>
+      <div>
+        <!-- v-if="$store.state.user.admin == true" -->
         <router-link to="/admin" class="nav-link active">
           Administration
         </router-link>
@@ -93,6 +97,6 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #fd2d01;
 }
 </style>

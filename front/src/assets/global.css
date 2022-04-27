@@ -60,7 +60,10 @@ nav {
 nav > div {
   padding: 15px;
   width: 275px;
-  background-color: aquamarine;
+}
+
+nav > div a {
+  text-decoration: none;
 }
 
 form > div > p {
