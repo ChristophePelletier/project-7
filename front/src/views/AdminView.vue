@@ -45,6 +45,8 @@ export default {
   methods: {
     async del(id) {
       await userService.delOneUser(id);
+      //alerte
+      //windw.location.href
       window.location.reload();
     },
     catch(err) {

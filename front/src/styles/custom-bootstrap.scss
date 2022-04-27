@@ -3,6 +3,7 @@ $theme-colors: (
   'primary': black,
   'danger': pink,
 );
+
 @import 'node_modules/bootstrap/scss/functions';
 // Our custom variables file
 @import './variables';
