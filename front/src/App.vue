@@ -75,54 +75,6 @@ export default {
 };
 </script>
 
-<style>
-/*
-  <button v-if="$store.state.loggedIn" @click="logout">Logout</button>
-  */
-)
-/*on l'ajoutera à la fin afin de ne pas masquer de suite dynamiquement les menus
-v-if="!$store.state.loggedIn"
-*/
-nav.navbar, nav.navbar-expand-lg, nav.navbar-dark, nav.bg-primary {
-  background-color: lightgreen !important;
-}
-body {
-  background-color: rgb(231, 231, 231);
-}
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-nav {
-  padding: 30px;
-}
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
-
-<style lang="scss">
-nav.navbar,
-nav.navbar-expand-lg,
-nav.navbar-dark,
-nav.bg-primary,
-button.btn-primary,
-.btn,
-.btn-primary {
-  background-color: #fd2d01 !important;
-  border: 0;
-}
-$bg-primary: red !important;
-$body-color: red !important;
-// ...
-</style>
