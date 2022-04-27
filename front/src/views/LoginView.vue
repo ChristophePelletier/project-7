@@ -23,7 +23,7 @@
           <input
             v-model="firstName"
             type="text"
-            placeholder="Prénom"
+            placeholder="Votre prénom"
             id="prénom"
             class="form-control"
           />
@@ -33,7 +33,7 @@
           <input
             v-model="secondName"
             type="text"
-            placeholder="Nom"
+            placeholder="Votre nom"
             id="nom"
             class="form-control"
           />
@@ -45,7 +45,7 @@
           <input
             v-model="email"
             type="email"
-            placeholder="Adresse mail"
+            placeholder="Votre adresse mail"
             id="email"
             class="form-control"
           />
@@ -56,7 +56,7 @@
           <input
             v-model="password"
             type="password"
-            placeholder="Mot de passe"
+            placeholder="Votre mot de passe"
             id="password"
             class="form-control"
           />

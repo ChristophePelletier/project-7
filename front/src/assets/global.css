@@ -5,12 +5,27 @@
   box-sizing: border-box;
 }
 
+* {
+  font-family: 'Roboto' !important;
+}
+
+@media all and (min-width: 768px) {
+  body {
+    max-width: 1280px;
+  }
+}
+
+p,
+input[placeholder] {
+  font-size: 20px !important;
+}
+
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background-color: yellowgreen;
+  background-color: #ffcccc;
 }
 
 form > div > p {
@@ -19,8 +34,23 @@ form > div > p {
   align-items: center;
 }
 
-form input {
-  width: 250px;
+form input,
+textarea {
+  width: 450px;
+  height: 45px;
+  border-radius: 5px;
+  background-color: FFFFFF;
+}
+
+button {
+  background-color: dimgray;
+  min-width: 80px;
+  height: 55px;
+  border-radius: 15px;
+}
+
+ul li {
+  list-style-type: none;
 }
 
 @media (max-width: 600px) {
@@ -38,25 +68,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-family: 'Roboto', sans-serif;
-  color: black;
-}
-
-@media all and (min-width: 768px) {
-  body {
-    max-width: 750px;
-    background-color: #99e2d0;
-  }
-}
-@media all and (min-width: 993px) {
-  body {
-    max-width: 1280px;
-    background-color: #99e2d0;
-  }
-}
-@media all and (max-width: 370px) {
-  body {
-    max-width: 290px;
-  }
 }
 
 header {
@@ -73,10 +84,6 @@ body > div {
   margin-left: auto;
   margin-right: auto;
   background-color: rgb(231, 231, 231);
-}
-
-* {
-  font-family: 'Roboto' !important;
 }
 
 h2 {
@@ -97,11 +104,6 @@ p.auteur {
   color: #fd2d01;
   font-size: 14px;
   font-weight: bold;
-}
-
-button {
-  background-color: grey;
-  color: white;
 }
 
 .nav-link {
