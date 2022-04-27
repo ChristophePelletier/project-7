@@ -38,7 +38,9 @@
 
         <p>
           test affichage commentaire 1<br />
-          {{ article.comments[0] }}
+          {{ article.comments[0] }}<br />
+          TITLE
+          {{ article.comments[0].title }}
         </p>
       </div>
       <button
