@@ -29,6 +29,10 @@
         >
           Supprimer cet article
         </button>
+        <p>
+          Attention, la suppression de l'article supprimera également les
+          commentaires associés
+        </p>
       </div>
       <div>
         <button
@@ -170,12 +174,14 @@ export default {
     },
     async deleteOneArticle(id) {
       await articleService.deleteOneArticle(id);
-      window.location.reload();
+      window.alert("suppresssion de l'article et de ses commentaires en cours");
+      window.location.href = "/";
     },
     async deleteOneComment(id) {
       await commentService.deleteOneComment(id);
-      //alerte
-      window.location.reload();
+      window.alert("suppresssion du commentaire en cours");
+      //window.location.reload();
+      window.location.href = "/";
     },
     catch(err) {
       console.log("erreur erreur");
