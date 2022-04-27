@@ -71,8 +71,8 @@
       @click="login()"
     >
       >
-      <span v-if="status == 'loading'">Connexion en cours</span>
-      <span v-else>Connexion</span>
+      <span v-if="status == 'loading'">Connexion au forum en cours</span>
+      <span v-else>Se connecter</span>
     </button>
     <button
       :class="{ 'button--disabled': !validatedFields }"
@@ -141,6 +141,8 @@ export default {
       }
     },
     ...mapState(["status"]),
+    //we import mapState status from store
+    // generates computed getter functions
   },
   methods: {
     checkForm: function (e) {
@@ -189,6 +191,7 @@ export default {
           secondName: this.secondName,
           firstName: this.firstName,
         })
+        //we choose to log directly the user after signup
         .then(
           function () {
             self.login();

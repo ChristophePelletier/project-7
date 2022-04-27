@@ -31,11 +31,6 @@ const store = createStore({
   state: {
     status: "",
     user: user,
-    userInfos: {
-      firstName: "",
-      name: "",
-      email: "",
-    },
   },
   mutations: {
     //https://vuex.vuejs.org/guide/mutations.html#object-style-commit
@@ -61,20 +56,20 @@ const store = createStore({
   },
   actions: {
     login: ({ commit }, userInfos) => {
-      commit("setStatus", "loading");
+      commit("setStatus", "chargement");
       //we commit "setStatus" in mode "loading" at login
       return new Promise((resolve, reject) => {
         instance
           .post("/api/auth/login", userInfos)
           .then(function (response) {
-            //we passe the status to "connecté" when the user si logged in
-            commit("setStatus", "connecté");
+            //we passe the status to "" when the user si logged in
+            commit("setStatus", "");
             //commit("setStatus", "");
             commit("logUser", response.data);
             resolve(response);
           })
           .catch(function (error) {
-            commit("setStatus", "error_login");
+            commit("setStatus", "erreur d'identification");
             reject(error);
           });
       });
@@ -86,11 +81,11 @@ const store = createStore({
         instance
           .post("/api/auth/signup", userInfos)
           .then(function (response) {
-            commit("setStatus", "created");
+            commit("setStatus", "compte créé");
             resolve(response);
           })
           .catch(function (error) {
-            commit("setStatus", "error_signup");
+            commit("setStatus", "erreur dans l'inscription");
             reject(error);
           });
       });
