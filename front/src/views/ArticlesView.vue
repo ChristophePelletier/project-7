@@ -23,8 +23,9 @@
           Article rédigé le :
           {{ getFormattedDate(article.createdAt) }}
         </p>
-        <p>
+        <p class="article--content">
           {{ article.content }}
+          <!--| truncate(5)-->
         </p>
         <p class="auteur">
           <router-link :to="'/user/' + article.userId">
@@ -95,5 +96,14 @@ export default {
 <style scoped>
 img.illustration {
   width: 250px;
+}
+
+p.article--content {
+  width: 500px !important;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
