@@ -35,6 +35,11 @@
           Mail de l'auteur :
           {{ article.email }}
         </p>
+
+        <p>
+          test affichage commentaire 1<br />
+          {{ article.comments[0] }}
+        </p>
       </div>
       <button
         type="button"
