@@ -3,18 +3,21 @@
     <!--méthode d'après Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s-->
 
     <!--TITRE-->
-    <h1 v-if="mode == 'login'">Connexion</h1>
-    <h1 v-else>Inscription</h1>
-    <!--FIN TITRE-->
+    <div>
+      <h1 v-if="mode == 'login'">Connexion</h1>
+      <h1 v-else>Inscription</h1>
+      <!--FIN TITRE-->
 
-    <p class="info" v-if="mode == 'login'">Vous n'êtes pas déjà inscrit(e) :</p>
-    <p class="info" v-else>Vous êtes déjà inscrit(e) :</p>
+      <p class="info" v-if="mode == 'login'">
+        Vous n'êtes pas encore inscrit(e) :
+      </p>
+      <p class="info" v-else>Vous êtes déjà inscrit(e) :</p>
 
-    <p class="lien" v-if="mode == 'login'" @click="switchToSignup()">
-      Je crée un compte
-    </p>
-    <p class="lien" v-else @click="switchToLogin()">Je me connecte</p>
-
+      <p class="lien" v-if="mode == 'login'" @click="switchToSignup()">
+        Je crée un compte
+      </p>
+      <p class="lien" v-else @click="switchToLogin()">Je me connecte</p>
+    </div>
     <!--FORMULAIRE-->
     <form>
       <div>
@@ -300,6 +303,7 @@ p.lien {
   padding-top: 0;
   margin-bottom: 0;
   padding-bottom: 3em;
+  text-align: center;
 }
 p.lien:hover {
   cursor: pointer;
@@ -309,6 +313,7 @@ p.info {
   padding-top: 0;
   margin-bottom: 0;
   padding-bottom: 0;
+  text-align: center;
 }
 
 .button--disabled {
