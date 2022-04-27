@@ -63,31 +63,37 @@
       Adresse mail déjà utilisée
     </div>
     -->
-    <div>
-      <button
-        class="button btn btn-primary"
-        v-if="mode == 'login'"
-        @click="login()"
+
+    <button
+      :class="{ 'button--disabled': !validatedFields }"
+      class="button btn btn-primary"
+      v-if="mode == 'login'"
+      @click="login()"
+    >
       >
-        >
-        <span v-if="status == 'loading'">Connexion en cours</span>
-        <span v-else>Connexion</span>
-      </button>
-      <button
-        :class="{ 'button--disabled': !validatedFields }"
-        class="button btn btn-primary"
-        v-else
-        @click="signup()"
-      >
-        <span v-if="status == 'loading'">Création en cours</span>
-        <span v-else>Créer mon compte</span>
-      </button>
-      <div v-if="mode == 'signup'">
-        <p v-if="firstName == ''">Merci de remplir un prénom</p>
-        <p v-if="secondName == ''">Merci de remplir un Nom</p>
-      </div>
-      <div v-html="error" />
+      <span v-if="status == 'loading'">Connexion en cours</span>
+      <span v-else>Connexion</span>
+    </button>
+    <button
+      :class="{ 'button--disabled': !validatedFields }"
+      class="button btn btn-primary"
+      v-else
+      @click="signup()"
+    >
+      <span v-if="status == 'loading'">Création en cours</span>
+      <span v-else>Créer mon compte</span>
+    </button>
+    <div v-if="mode == 'login'">
+      <p v-if="email == ''">Merci de remplir votre mail</p>
+      <p v-if="password == ''">Merci saisir votre mot de passe</p>
     </div>
+    <div v-if="mode == 'signup'">
+      <p v-if="firstName == ''">Merci de remplir votre prénom</p>
+      <p v-if="secondName == ''">Merci de remplir votre</p>
+      <p v-if="email == ''">Merci de remplir votre mail</p>
+      <p v-if="password == ''">Merci de choisir un mot de passe</p>
+    </div>
+    <div v-html="error" />
   </div>
 </template>
 
