@@ -1,60 +1,78 @@
 <template>
   <div>
-    <!--méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s-->
+    <!--méthode d'après Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s-->
+    <!--TITRE-->
     <h1 v-if="mode == 'login'">Connexion</h1>
     <h1 v-else>Inscription</h1>
-    <form>
-      <div v-if="mode == 'signup'" class="form-group">
-        <label for="prénom">Votre prénom</label>
-        <input
-          v-model="firstName"
-          type="text"
-          placeholder="Prénom"
-          id="prénom"
-          class="form-control"
-        />
-      </div>
-      <div v-if="mode == 'signup'" class="form-group">
-        <label for="nom">Votre nom</label>
-        <input
-          v-model="secondName"
-          type="text"
-          placeholder="Nom"
-          id="nom"
-          class="form-control"
-        />
-      </div>
-      <div class="form-group">
-        <label for="email">Votre adresse mail</label>
-        <input
-          v-model="email"
-          type="email"
-          placeholder="Adresse mail"
-          id="email"
-          class="form-control"
-        />
-      </div>
+    <!--FIN TITRE-->
+    <p class="info" v-if="mode == 'login'">
+      Vous n'êtes pas encore inscrit(e) :
+    </p>
+    <p class="info" v-else>Vous êtes déjà inscrit(e) :</p>
 
+    <p class="lien" v-if="mode == 'login'" @click="switchToSignup()">
+      Je crée un compte
+    </p>
+    <p class="lien" v-else @click="switchToLogin()">Je me connecte</p>
+
+    <!--FORMULAIRE-->
+    <form>
+      <!--PARTIE 1-->
+      <div>
+        <p v-if="mode == 'signup'">
+          <label for="prénom">Votre prénom</label>
+          <input
+            :class="{ vide: !enteredFirstName }"
+            v-model="firstName"
+            type="text"
+            placeholder="Votre prénom"
+            id="prénom"
+            class="form-control"
+          />
+        </p>
+        <p v-if="mode == 'signup'">
+          <label for="nom">Votre nom</label>
+          <input
+            :class="{ vide: !enteredSecondName }"
+            v-model="secondName"
+            type="text"
+            placeholder="Votre nom"
+            id="nom"
+            class="form-control"
+          />
+        </p>
+      </div>
+      <!--PARTIE 2-->
       <div class="form-group">
-        <label for="password">Votre mot de passe</label>
-        <input
-          v-model="password"
-          type="password"
-          placeholder="Mot de passe"
-          id="password"
-          class="form-control"
-        />
+        <p>
+          <label for="email">Votre adresse mail</label>
+          <input
+            :class="{ vide: !enteredEmail }"
+            v-model="email"
+            type="email"
+            placeholder="Votre adresse mail"
+            id="email"
+            class="form-control"
+          />
+        </p>
+
+        <p>
+          <label for="password">Votre mot de passe</label>
+          <input
+            :class="{ vide: !enteredPassword }"
+            v-model="password"
+            type="password"
+            placeholder="Votre mot de passe"
+            id="password"
+            class="form-control"
+          />
+        </p>
       </div>
       <div v-if="mode == 'login' && status == 'error_login'">
         Adresse mail et/ou mot de passe invalide
       </div>
     </form>
 
-    <!--
-    <div v-if="mode == 'signup' && status == 'error_signup'">
-      Adresse mail déjà utilisée
-    </div>
-    -->
     <div>
       <button
         v-if="mode == 'login'"
@@ -74,16 +92,6 @@
         <p v-if="secondName == ''">Merci de remplir un Nom</p>
       </div>
       <div v-html="error" />
-
-      <p v-if="mode == 'login'">Vous n'êtes pas déjà inscrit(e)</p>
-      <p v-else>Déjà inscrit ?</p>
-
-      <button class="btn-primary">
-        <span v-if="mode == 'login'" @click="switchToSignup()"
-          >Je crée un compte<br
-        /></span>
-        <span v-else @click="switchToLogin()"> Je me connecte</span>
-      </button>
     </div>
   </div>
 </template>
@@ -141,6 +149,86 @@ export default {
           this.erreurs.push("SedondName required.");
         }
         e.preventDefault();
+      }
+    },
+    enteredEmail: function () {
+      if (this.mode == "signup") {
+        if (this.email != "") {
+          return true;
+        } else {
+          return false;
+        }
+        //mode login
+      } else {
+        if (this.email != "") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    enteredPassword: function () {
+      if (this.mode == "signup") {
+        if (this.password != "") {
+          return true;
+        } else {
+          return false;
+        }
+        //mode login
+      } else {
+        if (this.password != "") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    enteredSecondName: function () {
+      if (this.mode == "signup") {
+        if (this.secondName != "") {
+          return true;
+        } else {
+          return false;
+        }
+        //mode login
+      } else {
+        if (this.secondName != "") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    enteredFirstName: function () {
+      if (this.mode == "signup") {
+        if (this.firstName != "") {
+          return true;
+        } else {
+          return false;
+        }
+        //mode login
+      } else {
+        if (this.firstName != "") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    enteredPassword: function () {
+      if (this.mode == "signup") {
+        if (this.password != "") {
+          return true;
+        } else {
+          return false;
+        }
+        //mode login
+      } else {
+        if (this.password != "") {
+          return true;
+        } else {
+          return false;
+        }
       }
     },
     switchToSignup: function () {
