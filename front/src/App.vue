@@ -3,9 +3,8 @@
     <nav>
       <div>
         <router-link to="/">GROUPOMANIA</router-link>
-        <button type="button"></button>
         <div>
-          <div class="navbar-nav">
+          <div>
             <router-link to="/" class="nav-link active">Accueil</router-link>
             <router-link
               v-if="$store.state.user.userId !== -1"
