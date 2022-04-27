@@ -22,6 +22,7 @@
       </div>
       <div>
         <button
+          v-if="$store.state.user.admin == true"
           type="button"
           class="btn btn-warning"
           @click="deleteOneArticle(article.id)"
@@ -97,6 +98,7 @@
           {{ getFormattedDate(comment.createdAt) }}
         </p>
         <button
+          v-if="$store.state.user.admin == true"
           type="button"
           class="btn btn-warning"
           @click="deleteOneComment(comment.id)"

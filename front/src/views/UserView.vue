@@ -22,7 +22,10 @@
     <div v-if="$store.state.user.userId == -1">
       <p>Compte bien supprimé</p>
     </div>
-    <h2>Dernières contributions</h2>
+    <h2 v-if="$store.state.user.userId == this.$route.params.id">
+      Mes dernières contributions
+    </h2>
+    <h2 v-else>Les dernières contributions</h2>
     <h3>Articles</h3>
     <div v-for="article in articles" :key="article.id">
       <h2>
