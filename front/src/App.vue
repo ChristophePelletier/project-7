@@ -75,3 +75,35 @@ export default {
 
 
 
+<style>
+/*
+  <button v-if="$store.state.loggedIn" @click="logout">Logout</button>
+  */
+)
+/*on l'ajoutera à la fin afin de ne pas masquer de suite dynamiquement les menus
+v-if="!$store.state.loggedIn"
+*/
+body {
+  background-color: rgb(231, 231, 231);
+}
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #fd2d01;
+}
+</style>
