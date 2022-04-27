@@ -20,7 +20,6 @@
             >
               Login
             </router-link>
-
             <a
               v-if="$store.state.user.userId !== -1"
               v-on:click="logout()"
@@ -104,6 +103,6 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #fd2d01;
+  color: #42b983;
 }
 </style>
