@@ -35,6 +35,14 @@
           Mail de l'auteur :
           {{ article.email }}
         </p>
+        <p v-if="article.comments[0]">
+          Le dernier commentaire<br />
+          {{ article.comments[0].title }}
+          <br />
+          {{ article.comments[0].content }}
+          <br />rédigé par {{ article.comments[0].firstName }}
+          {{ article.comments[0].secondName }}
+        </p>
       </div>
       <button
         type="button"
