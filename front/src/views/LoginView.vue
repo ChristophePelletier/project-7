@@ -3,6 +3,14 @@
     <!--méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s-->
     <h1 v-if="mode == 'login'">Connexion</h1>
     <h1 v-else>Inscription</h1>
+    <p class="info" v-if="mode == 'login'">Vous n'êtes pas déjà inscrit(e) :</p>
+    <p class="info" v-else>Vous êtes déjà inscrit(e) :</p>
+
+    <p class="lien" v-if="mode == 'login'" @click="switchToSignup()">
+      Je crée un compte
+    </p>
+    <p class="lien" v-else @click="switchToLogin()">Je me connecte</p>
+
     <form>
       <div v-if="mode == 'signup'" class="form-group">
         <label for="prénom">Votre prénom</label>
@@ -57,16 +65,21 @@
     -->
     <div>
       <button
+        class="button btn btn-primary"
         v-if="mode == 'login'"
         @click="login()"
-        class="button btn btn-primary"
       >
         >
-        <span v-if="status == 'loading'">Connexion en cours...</span>
+        <span v-if="status == 'loading'">Connexion en cours</span>
         <span v-else>Connexion</span>
       </button>
-      <button v-else @click="signup()">
-        <span v-if="status == 'loading'">Création en cours...</span>
+      <button
+        :class="{ 'button--disabled': !validatedFields }"
+        class="button btn btn-primary"
+        v-else
+        @click="signup()"
+      >
+        <span v-if="status == 'loading'">Création en cours</span>
         <span v-else>Créer mon compte</span>
       </button>
       <div v-if="mode == 'signup'">
@@ -74,16 +87,6 @@
         <p v-if="secondName == ''">Merci de remplir un Nom</p>
       </div>
       <div v-html="error" />
-
-      <p v-if="mode == 'login'">Vous n'êtes pas déjà inscrit(e)</p>
-      <p v-else>Déjà inscrit ?</p>
-
-      <button class="btn-primary">
-        <span v-if="mode == 'login'" @click="switchToSignup()"
-          >Je crée un compte<br
-        /></span>
-        <span v-else @click="switchToLogin()"> Je me connecte</span>
-      </button>
     </div>
   </div>
 </template>
@@ -112,11 +115,17 @@ export default {
   computed: {
     validatedFields: function () {
       if (this.mode == "signup") {
-        if (this.email != "" && this.password != "") {
+        if (
+          this.email != "" &&
+          this.password != "" &&
+          this.firstName != "" &&
+          this.secondName != ""
+        ) {
           return true;
         } else {
           return false;
         }
+        //mode login
       } else {
         if (this.email != "" && this.password != "") {
           return true;
@@ -189,4 +198,24 @@ export default {
 </script>
 
 <style scoped>
+p.lien {
+  text-decoration: underline;
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 3em;
+}
+p.lien:hover {
+  cursor: pointer;
+}
+p.info {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.button--disabled {
+  background-color: black !important;
+}
 </style>
