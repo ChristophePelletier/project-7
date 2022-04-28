@@ -43,6 +43,20 @@ form {
   background-color: #ffcccc;
 }
 
+p.lien {
+  text-decoration: underline;
+  transition: 0.2s;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  transition: background-color 0.5s;
+}
+p.lien:hover {
+  cursor: pointer;
+  background-color: #ffcccc;
+}
+
 /*
 Menu
 */
