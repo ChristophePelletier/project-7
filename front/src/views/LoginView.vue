@@ -19,7 +19,7 @@
     <form>
       <!--PARTIE 1-->
       <div>
-        <p v-if="mode == 'signup'">
+        <p class="formulaire" v-if="mode == 'signup'">
           <label for="prénom">Votre prénom</label>
           <input
             :class="{ vide: enteredFirstName }"
@@ -30,7 +30,7 @@
             class="form-control"
           />
         </p>
-        <p v-if="mode == 'signup'">
+        <p class="formulaire" v-if="mode == 'signup'">
           <label for="nom">Votre nom</label>
           <input
             :class="{ vide: enteredSecondName }"
@@ -44,7 +44,7 @@
       </div>
       <!--PARTIE 2-->
       <div class="form-group">
-        <p>
+        <p class="formulaire">
           <label for="email">Votre adresse mail</label>
           <input
             :class="{ vide: enteredEmail }"
@@ -56,7 +56,7 @@
           />
         </p>
 
-        <p>
+        <p class="formulaire">
           <label for="password">Votre mot de passe</label>
           <input
             :class="{ vide: enteredPassword }"
@@ -89,7 +89,6 @@
         @click="login()"
         class="button btn btn-primary"
       >
-        >
         <span v-if="status == 'loading'">Connexion en cours...</span>
         <span v-else>Connexion</span>
       </button>

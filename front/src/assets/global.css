@@ -43,18 +43,41 @@ form {
   background-color: #ffcccc;
 }
 
+button {
+  transition: 0.2s;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: lightgray;
+  transition: background-color 0.5s;
+  border: none;
+  width: 250px;
+  height: 55px;
+}
+
 p.lien {
   text-decoration: underline;
   transition: 0.2s;
   width: 250px;
+  height: 55px;
   margin-left: auto;
   margin-right: auto;
-  padding: 5px;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: lightgray;
   transition: background-color 0.5s;
 }
-p.lien:hover {
+p.lien:hover,
+button:hover {
   cursor: pointer;
   background-color: #ffcccc;
+}
+
+p.formulaire {
+  margin-bottom: 15px;
+}
+
+p.formulaire input {
+  margin-top: 8px;
 }
 
 /*
@@ -92,13 +115,6 @@ textarea {
   height: 45px;
   border-radius: 5px;
   background-color: FFFFFF;
-}
-
-button {
-  background-color: dimgray;
-  min-width: 80px;
-  height: 55px;
-  border-radius: 15px;
 }
 
 ul li {
