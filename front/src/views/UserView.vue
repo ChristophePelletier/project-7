@@ -1,9 +1,9 @@
 <template>
   <div>
     <div v-if="$store.state.user.userId !== -1">
-      <h2>{{ user.firstName }} {{ user.secondName }}</h2>
+      <h1>{{ user.firstName }} {{ user.secondName }}</h1>
       <p>
-        Compte créé le
+        Membre depuis le
         {{ getFormattedDate(user.createdAt) }}
       </p>
       <p>
@@ -12,7 +12,7 @@
       </p>
       <!--  v-if="$store.state.user.userId == this.$route.params.id" -->
       <button type="button" class="btn btn-warning" @click="deleted">
-        Supprimer mon compte
+        <span>Supprimer mon compte</span>
       </button>
     </div>
     <div v-if="$store.state.user.userId == -1">
@@ -23,44 +23,50 @@
     </h2>
     <h2 v-else>Les dernières contributions</h2>
 
-    <!--articles
+    <div id="contributions">
+      <!--articles
     -->
-    <h3>Articles</h3>
-    <div v-for="article in articles" :key="article.id">
-      <h2>
-        <router-link :to="'/article/' + article.id">
-          {{ article.title }}</router-link
-        >
-      </h2>
-      <p>
-        Article rédigé le :
-        {{ getFormattedDate(article.createdAt) }}
-      </p>
-      <p>
-        {{ article.content }}
-      </p>
-      <p v-if="$store.state.user.userId !== article.userId" class="auteur">
-        Auteur de l'article :
-        {{ article.firstName }} {{ article.secondName }}
-      </p>
-      <p v-if="$store.state.user.userId !== article.userId" class="auteur">
-        Mail de l'auteur :
-        {{ article.email }}
-      </p>
-    </div>
-    <!--articles
+      <div>
+        <h3>Articles</h3>
+        <div v-for="article in articles" :key="article.id">
+          <h2>
+            <router-link :to="'/article/' + article.id">
+              {{ article.title }}</router-link
+            >
+          </h2>
+          <p>
+            Article rédigé le :
+            {{ getFormattedDate(article.createdAt) }}
+          </p>
+          <p>
+            {{ article.content }}
+          </p>
+          <p v-if="$store.state.user.userId !== article.userId" class="auteur">
+            Auteur de l'article :
+            {{ article.firstName }} {{ article.secondName }}
+          </p>
+          <p v-if="$store.state.user.userId !== article.userId" class="auteur">
+            Mail de l'auteur :
+            {{ article.email }}
+          </p>
+        </div>
+      </div>
+      <!--articles
     -->
-    <h3>Commentaires</h3>
-    <div v-for="comment in comments" :key="comment">
-      <h2>{{ comment.title }}</h2>
-      <p>
-        {{ comment.content }}
-      </p>
-      <p>
-        <router-link :to="'/article/' + comment.articleId"
-          >Lire l'article
-        </router-link>
-      </p>
+      <div>
+        <h3>Commentaires</h3>
+        <div v-for="comment in comments" :key="comment">
+          <h2>{{ comment.title }}</h2>
+          <p>
+            {{ comment.content }}
+          </p>
+          <p>
+            <router-link :to="'/article/' + comment.articleId"
+              >Lire l'article
+            </router-link>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>

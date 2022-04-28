@@ -278,6 +278,15 @@ article p.comment-content {
   text-align: justify;
   font-size: 16px !important;
 }
+
+/*
+Utilisateurs
+*/
+#contributions {
+  display: flex;
+  flex-direction: row;
+}
+
 /*
 Responsive
 */
