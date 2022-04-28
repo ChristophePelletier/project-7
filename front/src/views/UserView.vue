@@ -38,7 +38,7 @@
             Article rédigé le :
             {{ getFormattedDate(article.createdAt) }}
           </p>
-          <p>
+          <p class="article-content">
             {{ article.content }}
           </p>
           <p v-if="$store.state.user.userId !== article.userId" class="auteur">
@@ -55,9 +55,11 @@
     -->
       <div id="user-comments">
         <h3>Commentaires</h3>
+
         <div class="user-comment" v-for="comment in comments" :key="comment">
           <h2>{{ comment.title }}</h2>
-          <p>
+          <p>Sur l'article</p>
+          <p class="article-content">
             {{ comment.content }}
           </p>
           <p>

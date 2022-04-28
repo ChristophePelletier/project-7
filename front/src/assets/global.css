@@ -325,13 +325,29 @@ Responsive
     width: 275px;
   }
   div.news {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
     flex-direction: column;
+    align-items: center;
   }
   article.principal {
-    width: 100%;
+    width: 96%;
   }
 
   article.comment {
-    width: 100%;
+    width: 96%;
+  }
+  #contributions {
+    flex-direction: column;
+    align-items: center;
+  }
+  #user-articles {
+    width: 90%;
+    align-items: center;
+  }
+
+  #user-comments {
+    width: 90%;
   }
 }
