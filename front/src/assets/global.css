@@ -49,10 +49,22 @@ nav {
 
 nav > div {
   padding: 15px;
+  height: 45px;
   width: 275px;
+  transition: 0.5s;
+  background-color: #ffcccc;
+}
+
+nav > div:hover {
+  background-color: white;
 }
 
 nav > div a {
+  text-decoration: none;
+  transition: none;
+}
+
+nav > div a:hover {
   text-decoration: none;
 }
 
