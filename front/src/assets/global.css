@@ -213,11 +213,17 @@ div.news {
   width: 100%;
 }
 
-p.article--content {
+div.article-container {
+  background-color: #381515;
+  position: relative;
+  margin: 15px;
+  padding: 15px;
+}
+p.article-content {
   background-color: #ffcccc;
   text-align: justify;
-  padding: 15px;
-  text-overflow: hidden;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 article.principal {

@@ -39,9 +39,11 @@
           <!--
     https://vuejsexamples.com/truncating-multiple-lines-text-element-with-vuejs/
     -->
-          <p v-snip="3">
-            {{ article.content }}
-          </p>
+          <div>
+            <p v-snip="3" class="article-content">
+              {{ article.content }}
+            </p>
+          </div>
         </article>
         <article class="comment">
           <p v-if="article.comments[0]">
