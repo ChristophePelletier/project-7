@@ -1,57 +1,64 @@
 <template>
   <header>
+    <!--LOGO-->
+    <div>
+      <img alt="" src="./assets/icon-above-font.png" />
+    </div>
     <!--MENU-->
-    <nav>
-      <!--ACCUEIL-->
-      <div>
-        <router-link to="/" class="nav-link active">Accueil</router-link>
-      </div>
-      <!--****************-->
-      <!--****************-->
-      <!--RÉDIGER UN ARTICLE-->
-      <div v-if="$store.state.user.userId !== -1">
-        <router-link to="/article-create" class="nav-link active">
-          <!--  :class="{ vide: enteredFirstName }"-->
-          Rédiger un article
-        </router-link>
-      </div>
-      <!--****************-->
-      <!--****************-->
-      <!--LOGIN-->
-      <div v-if="$store.state.user.userId == -1">
-        <router-link to="/login" class="nav-link active"> Login </router-link>
-      </div>
-      <!--****************-->
-      <!--****************-->
-      <!--DÉCONNEXION-->
-      <div v-if="$store.state.user.userId !== -1">
-        <a v-on:click="logout()" class="nav-link active pointer">
-          Déconnexion
-        </a>
-      </div>
-      <!--****************-->
-      <!--****************-->
-      <!--MON COMPTE-->
-      <div v-if="$store.state.user.userId !== -1">
-        <a v-on:click="monCompte()" id="user" class="nav-link active pointer">
-          Mon compte
-        </a>
-      </div>
-      <!--****************-->
-      <!--****************-->
-      <!--ADMINISTRATION-->
-      <div>
-        <!-- v-if="$store.state.user.admin == true" -->
-        <router-link to="/admin" class="nav-link active">
-          Administration
-        </router-link>
-      </div>
-      <!--****************-->
-      <!--****************-->
-    </nav>
+    <div>
+      <nav>
+        <!--ACCUEIL-->
+        <div>
+          <router-link to="/" class="nav-link active">Accueil</router-link>
+        </div>
+        <!--****************-->
+        <!--****************-->
+        <!--RÉDIGER UN ARTICLE-->
+        <div v-if="$store.state.user.userId !== -1">
+          <router-link to="/article-create" class="nav-link active">
+            <!--  :class="{ vide: enteredFirstName }"-->
+            Rédiger un article
+          </router-link>
+        </div>
+        <!--****************-->
+        <!--****************-->
+        <!--LOGIN-->
+        <div v-if="$store.state.user.userId == -1">
+          <router-link to="/login" class="nav-link active"> Login </router-link>
+        </div>
+        <!--****************-->
+        <!--****************-->
+        <!--DÉCONNEXION-->
+        <div v-if="$store.state.user.userId !== -1">
+          <a v-on:click="logout()" class="nav-link active pointer">
+            Déconnexion
+          </a>
+        </div>
+        <!--****************-->
+        <!--****************-->
+        <!--MON COMPTE-->
+        <div v-if="$store.state.user.userId !== -1">
+          <a v-on:click="monCompte()" id="user" class="nav-link active pointer">
+            Mon compte
+          </a>
+        </div>
+        <!--****************-->
+        <!--****************-->
+        <!--ADMINISTRATION-->
+        <div>
+          <!-- v-if="$store.state.user.admin == true" -->
+          <router-link to="/admin" class="nav-link active">
+            Administration
+          </router-link>
+        </div>
+        <!--****************-->
+        <!--****************-->
+      </nav>
+    </div>
     <!--FIN DU MENU-->
   </header>
   <router-view />
+
   <foot />
 </template>
 

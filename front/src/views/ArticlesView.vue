@@ -1,9 +1,10 @@
 <template>
   <div>
-    <img alt="" src="../assets/icon-above-font.png" />
-    <div v-if="$store.state.user.userId == -1" class="article">
-      <p>S'inscrire pour consulter les articles</p>
-    </div>
+    <button v-if="$store.state.user.userId == -1" class="article">
+      <router-link to="/login">
+        <span>S'inscrire pour consulter le site</span>
+      </router-link>
+    </button>
     <div v-if="$store.state.user.userId !== -1" class="article">
       <h1>Les derniers articles</h1>
       <!--
@@ -51,7 +52,7 @@
         class="btn btn-primary"
         @click="navigateTo({ name: 'article-create' })"
       >
-        Rédiger un nouvel article
+        <span>Rédiger un nouvel article</span>
       </button>
     </div>
   </div>

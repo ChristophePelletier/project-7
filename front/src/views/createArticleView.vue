@@ -4,7 +4,7 @@
     <form @submit.prevent="create" enctype="multipart/form-data">
       <div>
         <input
-          class="form-control w-75 p-3"
+          id="titleArticle"
           type="text"
           name="title"
           v-model="article.title"
@@ -14,8 +14,8 @@
       <div>
         <textarea
           class="form-control"
-          id="exampleFormControlTextarea1"
-          rows="5"
+          id="completeArticle"
+          rows="55"
           type="textarea"
           name="content"
           v-model="article.content"
@@ -23,20 +23,22 @@
         />
       </div>
       <div>
-        <p>
-          <label for="file" class="label">Télécharger votre image</label>
+        <p class="lien">
+          <label for="file">Télécharger votre image</label>
         </p>
+        <!--https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/-->
         <input
-          class="btn btn-primary"
+          class="btn inputfile"
           type="file"
           ref="image"
           name="image"
+          id="file"
           @change="selectFile"
         />
       </div>
     </form>
-    <button type="button" class="btn btn-primary" @click="create">
-      Envoyer mon article
+    <button type="button" class="btn" @click="create">
+      <span>Envoyer mon article</span>
     </button>
   </div>
 </template>
