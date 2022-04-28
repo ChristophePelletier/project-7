@@ -1,6 +1,10 @@
 /*
 Styles généraux
 */
+* {
+  font-family: 'Roboto' !important;
+}
+
 *,
 *::after,
 *::before {
@@ -15,8 +19,81 @@ body {
   color: darkslategrey;
 }
 
+h1,
+h2,
+h3 {
+  text-align: center;
+  color: darkslategrey;
+}
+
 img.brand {
   width: 25%;
+}
+p.imageOk {
+  background-color: red;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+h2 {
+  color: #fd2d01;
+  font-weight: bold;
+}
+
+h2 a {
+  text-decoration: underline;
+  color: #fd2d01;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/*
+Liens
+*/
+p.lien {
+  text-decoration: underline;
+  transition: 0.2s;
+  width: 250px;
+  height: 55px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: lightgray;
+  transition: background-color 0.5s;
+  cursor: pointer;
+}
+p.lien:hover,
+button:hover {
+  cursor: pointer;
+  background-color: #ffcccc;
+}
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+.nav-link {
+  cursor: pointer;
+}
+.coldInfo {
+  font-size: 15px;
+}
+/*
+Boutons
+*/
+button {
+  transition: 0.2s;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: lightgray;
+  transition: background-color 0.5s;
+  border: none;
+  margin-top: 15px;
+  width: 320px;
+  height: 55px;
 }
 
 /*
@@ -68,24 +145,22 @@ nav > div a:hover {
   text-decoration: none;
 }
 
-h1,
-h2,
-h3 {
-  text-align: center;
-  color: darkslategrey;
-}
-
-p,
-textarea {
-  font-size: 20px;
-  color: darkslategrey;
-}
-
+/*
+Articles
+*/
 p.date {
   font-size: 14px !important;
   color: darkslategrey;
 }
 
+/*
+Formulaires
+*/
+p,
+textarea {
+  font-size: 20px;
+  color: darkslategrey;
+}
 input#titleArticle {
   min-height: 50px;
   padding: 15px;
@@ -96,11 +171,6 @@ textarea#completeArticle {
   min-height: 250px;
   padding: 15px;
 }
-
-* {
-  font-family: 'Roboto' !important;
-}
-
 p,
 input[placeholder] {
   font-size: 20px !important;
@@ -118,23 +188,6 @@ form {
   width: 100%;
   background-color: #ffcccc;
 }
-
-button {
-  transition: 0.2s;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: lightgray;
-  transition: background-color 0.5s;
-  border: none;
-  margin-top: 15px;
-  width: 320px;
-  height: 55px;
-}
-
-p.imageOk {
-  background-color: red;
-}
-
 .inputfile {
   width: 0.1px;
   height: 0.1px;
@@ -142,25 +195,6 @@ p.imageOk {
   overflow: hidden;
   position: absolute;
   z-index: -1;
-}
-
-p.lien {
-  text-decoration: underline;
-  transition: 0.2s;
-  width: 250px;
-  height: 55px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 15px;
-  border-radius: 8px;
-  background-color: lightgray;
-  transition: background-color 0.5s;
-  cursor: pointer;
-}
-p.lien:hover,
-button:hover {
-  cursor: pointer;
-  background-color: #ffcccc;
 }
 
 label:hover {
@@ -191,35 +225,8 @@ textarea {
   background-color: #ffffff;
 }
 
-ul li {
-  list-style-type: none;
-}
-
-h2 {
-  color: #fd2d01;
-  font-weight: bold;
-}
-
-h2 a {
-  text-decoration: underline;
-  color: #fd2d01;
-  margin-top: 0;
-  padding-top: 0;
-}
-
-a {
-  color: black;
-  text-decoration: underline;
-}
-
-.nav-link {
-  cursor: pointer;
-}
-.coldInfo {
-  font-size: 15px;
-}
 /*
-News
+News and comments
 */
 div.news {
   border: #fd2d01 1px dotted;
@@ -272,7 +279,7 @@ article p.comment-content {
   font-size: 16px !important;
 }
 /*
-Menu
+Responsive
 */
 @media screen and (max-width: 768px) {
   nav {

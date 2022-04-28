@@ -22,6 +22,9 @@
       Mes dernières contributions
     </h2>
     <h2 v-else>Les dernières contributions</h2>
+
+    <!--articles
+    -->
     <h3>Articles</h3>
     <div v-for="article in articles" :key="article.id">
       <h2>
@@ -45,6 +48,8 @@
         {{ article.email }}
       </p>
     </div>
+    <!--articles
+    -->
     <h3>Commentaires</h3>
     <div v-for="comment in comments" :key="comment">
       <h2>{{ comment.title }}</h2>
