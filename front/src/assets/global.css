@@ -22,17 +22,25 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-family: 'Roboto', sans-serif;
+  color: darkslategrey;
 }
 
 h1,
 h2,
 h3 {
   text-align: center;
+  color: darkslategrey;
 }
 
 p,
 textarea {
   font-size: 20px;
+  color: darkslategrey;
+}
+
+p.date {
+  font-size: 14px !important;
+  color: darkslategrey;
 }
 
 input#titleArticle {
@@ -183,9 +191,34 @@ a {
 p.auteur {
   color: #fd2d01;
   font-size: 14px;
-  font-weight: bold;
 }
 
 .nav-link {
   cursor: pointer;
+}
+.coldInfo {
+  font-size: 15px;
+}
+/*
+News
+*/
+div.news {
+  border: #fd2d01 1px dotted;
+  background-color: white;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 15px 0;
+  width: 100%;
+}
+
+p.article--content {
+  max-width: 80%;
+  padding: 25px 15px 15px 15px;
+  height: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffcccc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -13,14 +13,24 @@
     </router-link>
     -->
 
-      <div v-for="article in articles" :key="article.id">
+      <div class="news" v-for="article in articles" :key="article.id">
         <h2>
           <router-link :to="'/article/' + article.id">
             {{ article.title }}</router-link
           >
         </h2>
+        <p class="auteur">
+          <router-link :to="'/user/' + article.userId">
+            <span class="coldInfo">par :</span>
+            {{ article.firstName }} {{ article.secondName }} <br /><span
+              class="coldInfo"
+            >
+              {{ article.email }}</span
+            ></router-link
+          >
+        </p>
         <img class="illustration" v-bind:src="article.image" />
-        <p>
+        <p class="date">
           Article rédigé le :
           {{ getFormattedDate(article.createdAt) }}
         </p>
@@ -28,16 +38,7 @@
           {{ article.content }}
           <!--| truncate(5)-->
         </p>
-        <p class="auteur">
-          <router-link :to="'/user/' + article.userId">
-            Auteur de l'article :
-            {{ article.firstName }} {{ article.secondName }}</router-link
-          >
-        </p>
-        <p class="auteur">
-          Mail de l'auteur :
-          {{ article.email }}
-        </p>
+
         <p v-if="article.comments[0]">
           Le dernier commentaire<br />
           {{ article.comments[0].title }}
@@ -96,15 +97,7 @@ export default {
 
 <style scoped>
 img.illustration {
-  width: 250px;
-}
-
-p.article--content {
-  width: 500px !important;
-  margin-left: auto;
-  margin-right: auto;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  max-width: 200px;
+  max-height: 150px;
 }
 </style>
