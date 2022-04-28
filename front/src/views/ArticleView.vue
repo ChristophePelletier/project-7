@@ -1,7 +1,6 @@
 <template>
   <article>
     <div>
-      <img alt="" src="../assets/icon-above-font.png" />
       <h2>
         {{ article.title }}
       </h2>

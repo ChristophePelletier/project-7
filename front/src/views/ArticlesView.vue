@@ -39,9 +39,14 @@
           <!--
     https://vuejsexamples.com/truncating-multiple-lines-text-element-with-vuejs/
     -->
-          <div>
+          <div class="article-container">
             <p v-snip="3" class="article-content">
               {{ article.content }}
+            </p>
+            <p class="coldInfo">
+              <router-link :to="'/article/' + article.id">
+                Lire la suite de l'article</router-link
+              >
             </p>
           </div>
         </article>
@@ -107,5 +112,7 @@ export default {
 img.illustration {
   max-width: 200px;
   max-height: 150px;
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px lightgray;
 }
 </style>

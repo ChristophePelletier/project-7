@@ -88,6 +88,10 @@ button {
   height: 55px;
 }
 
+p.imageOk {
+  background-color: red;
+}
+
 .inputfile {
   width: 0.1px;
   height: 0.1px;
@@ -167,7 +171,7 @@ textarea {
   width: 450px;
   height: 45px;
   border-radius: 5px;
-  background-color: FFFFFF;
+  background-color: #ffffff;
 }
 
 ul li {
@@ -214,10 +218,11 @@ div.news {
 }
 
 div.article-container {
-  background-color: #381515;
-  position: relative;
+  background-color: #ffcccc;
   margin: 15px;
   padding: 15px;
+  border-radius: 15px;
+  box-shadow: 10px 5px 5px lightgray;
 }
 p.article-content {
   background-color: #ffcccc;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Rédiger un nouvel article</h1>
+    <h1>Rédiger un article</h1>
     <form @submit.prevent="create" enctype="multipart/form-data">
       <div>
         <input
@@ -26,6 +26,7 @@
         <p class="lien">
           <label for="file">Télécharger votre image</label>
         </p>
+        <p v-if="this.file !== ''">Fichier bien ajouté</p>
         <!--https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/-->
         <input
           class="btn inputfile"
