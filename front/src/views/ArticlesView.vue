@@ -14,39 +14,43 @@
     -->
 
       <div class="news" v-for="article in articles" :key="article.id">
-        <h2>
-          <router-link :to="'/article/' + article.id">
-            {{ article.title }}</router-link
-          >
-        </h2>
-        <p class="auteur">
-          <router-link :to="'/user/' + article.userId">
-            <span class="coldInfo">par :</span>
-            {{ article.firstName }} {{ article.secondName }} <br /><span
-              class="coldInfo"
+        <article class="principal">
+          <h2>
+            <router-link :to="'/article/' + article.id">
+              {{ article.title }}</router-link
             >
-              {{ article.email }}</span
-            ></router-link
-          >
-        </p>
-        <img class="illustration" v-bind:src="article.image" />
-        <p class="date">
-          Article rédigé le :
-          {{ getFormattedDate(article.createdAt) }}
-        </p>
-        <p class="article--content">
-          {{ article.content }}
-          <!--| truncate(5)-->
-        </p>
+          </h2>
+          <p class="auteur">
+            <router-link :to="'/user/' + article.userId">
+              <span class="coldInfo">par :</span>
+              {{ article.firstName }} {{ article.secondName }} <br /><span
+                class="coldInfo"
+              >
+                {{ article.email }}</span
+              ></router-link
+            >
+          </p>
+          <img class="illustration" v-bind:src="article.image" />
+          <p class="date">
+            Article rédigé le :
+            {{ getFormattedDate(article.createdAt) }}
+          </p>
 
-        <p v-if="article.comments[0]">
-          Le dernier commentaire<br />
-          {{ article.comments[0].title }}
-          <br />
-          {{ article.comments[0].content }}
-          <br />rédigé par {{ article.comments[0].firstName }}
-          {{ article.comments[0].secondName }}
-        </p>
+          <p class="article--content">
+            {{ article.content }}
+            <!--| truncate(5)-->
+          </p>
+        </article>
+        <article class="comment">
+          <p v-if="article.comments[0]">
+            Le dernier commentaire<br />
+            {{ article.comments[0].title }}
+            <br />
+            {{ article.comments[0].content }}
+            <br />rédigé par {{ article.comments[0].firstName }}
+            {{ article.comments[0].secondName }}
+          </p>
+        </article>
       </div>
       <button
         type="button"
