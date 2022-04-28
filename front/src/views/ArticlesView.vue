@@ -21,8 +21,6 @@
             >
           </h2>
 
-          <span>{{ article.content }}</span>
-
           <p class="auteur">
             <router-link :to="'/user/' + article.userId">
               <span class="coldInfo">par :</span>
@@ -39,10 +37,8 @@
             {{ getFormattedDate(article.createdAt) }}
           </p>
 
-          <p id="chapo" class="article--content">
+          <p v-snip:js="1" id="chapo" class="article--content">
             {{ article.content }}
-
-            <!--| truncate(5)-->
           </p>
         </article>
         <article class="comment">

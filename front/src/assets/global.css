@@ -214,11 +214,7 @@ div.news {
 }
 
 p.article--content {
-  height: 100px;
   background-color: #ffcccc;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
 }
 
 article.principal {
