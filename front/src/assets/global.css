@@ -97,6 +97,10 @@ button {
   height: 55px;
 }
 
+button.alert {
+  background-color: darkorange;
+}
+
 /*
 Menu
 */

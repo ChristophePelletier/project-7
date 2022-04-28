@@ -1,15 +1,30 @@
 <template>
   <article>
     <div>
-      <h2>
+      <!--article -->
+      <h1>
         {{ article.title }}
-      </h2>
-      <p>
-        articlé rédigé par<br />
-        {{ article.firstName }} {{ article.secondName }}
+      </h1>
+      <p class="auteur">
+        <router-link :to="'/user/' + article.userId">
+          <span class="coldInfo">par</span>
+          {{ article.firstName }} {{ article.secondName }} <br /><span
+            class="coldInfo"
+          >
+            {{ article.email }}</span
+          ></router-link
+        >
       </p>
-      <p>
-        Contenu de l'article :<br />
+      <img
+        v-if="article.image"
+        class="illustration"
+        v-bind:src="article.image"
+      />
+      <p class="date">
+        Article rédigé le :
+        {{ getFormattedDate(article.createdAt) }}
+      </p>
+      <p class="article-content">
         {{ article.content }}
       </p>
       <p>
@@ -17,29 +32,24 @@
         {{ getFormattedDate(article.createdAt) }}
       </p>
       <div>
-        <img class="illustration" v-bind:src="article.image" />
-      </div>
-      <div>
         <!--v-if="$store.state.user.admin == true" -->
         <button
           type="button"
-          class="btn btn-warning"
+          class="alert"
           @click="deleteOneArticle(article.id)"
         >
-          Supprimer cet article
+          <span> Supprimer cet article</span>
         </button>
         <p>
           Attention, la suppression de l'article entraînera également la
           suppression de l'ensemble des commentaires associés.
         </p>
       </div>
+      <!--fin de l'article -->
+      <!--commenter l'article -->
       <div>
-        <button
-          type="button"
-          class="btn btn-primary"
-          @click="showForm = !showForm"
-        >
-          Commenter l'article
+        <button type="button" @click="showForm = !showForm">
+          <span> Commenter l'article</span>
         </button>
         <div v-show="showForm">
           <div>
@@ -82,6 +92,9 @@
           </div>
         </div>
       </div>
+      <!--fin commenter l'article -->
+
+      <!--commentaires -->
       <h3>Tous les commentaires</h3>
       <div v-for="comment in comments" :key="comment">
         <hr />
@@ -109,6 +122,7 @@
           Supprimer ce commentaire
         </button>
       </div>
+      <!--fin des commentaires -->
     </div>
   </article>
 </template>

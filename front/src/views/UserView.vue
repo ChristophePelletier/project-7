@@ -11,7 +11,7 @@
         {{ user.email }}
       </p>
       <!--  v-if="$store.state.user.userId == this.$route.params.id" -->
-      <button type="button" class="btn btn-warning" @click="deleted">
+      <button type="button" class="alert" @click="deleted">
         <span>Supprimer mon compte</span>
       </button>
     </div>
