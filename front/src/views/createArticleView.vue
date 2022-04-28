@@ -27,6 +27,7 @@
           <label for="file">Télécharger votre image</label>
         </p>
         <p v-if="this.file !== ''">Fichier bien ajouté</p>
+        <p>{{ this.file.name }}</p>
         <!--https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/-->
         <input
           class="btn inputfile"
