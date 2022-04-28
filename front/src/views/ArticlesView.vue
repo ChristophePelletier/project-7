@@ -23,7 +23,7 @@
 
           <p class="auteur">
             <router-link :to="'/user/' + article.userId">
-              <span class="coldInfo">par :</span>
+              <span class="coldInfo">par</span>
               {{ article.firstName }} {{ article.secondName }} <br /><span
                 class="coldInfo"
               >
@@ -57,13 +57,23 @@
         <article class="comment">
           <div v-if="article.comments[0]">
             <h3>Commentaires</h3>
-            <p class="comment-title">{{ article.comments[0].title }}</p>
-            <p>
-              par {{ article.comments[0].firstName }}
-              {{ article.comments[0].secondName }}
+            <p class="comment-title">
+              {{ article.comments[0].title }}
+            </p>
+            <p class="auteur">
+              <span class="coldInfo">par </span>
+              <router-link :to="'/user/' + article.comments[0].userId">
+                {{ article.comments[0].firstName }}
+                {{ article.comments[0].secondName }}
+              </router-link>
             </p>
             <p class="comment-content" v-snip="5">
               {{ article.comments[0].content }}
+            </p>
+            <p class="coldInfo">
+              <router-link :to="'/article/' + article.id">
+                Lire la suite</router-link
+              >
             </p>
           </div>
           <div v-if="article.comments[1]">
@@ -73,7 +83,8 @@
               {{ article.comments[1].content }}
             </p>
             <p>
-              rédigé par {{ article.comments[1].firstName }}
+              <span class="coldInfo">par</span>
+              {{ article.comments[1].firstName }}
               {{ article.comments[1].secondName }}
             </p>
           </div>

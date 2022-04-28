@@ -186,15 +186,13 @@ h2 {
 h2 a {
   text-decoration: underline;
   color: #fd2d01;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 a {
   color: black;
   text-decoration: underline;
-}
-p.auteur {
-  color: #fd2d01;
-  font-size: 14px;
 }
 
 .nav-link {
@@ -210,6 +208,7 @@ div.news {
   border: #fd2d01 1px dotted;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   background-color: white;
   border-radius: 15px;
   padding: 10px;
@@ -219,7 +218,6 @@ div.news {
 
 div.article-container {
   background-color: #ffcccc;
-  margin: 15px;
   padding: 15px;
   border-radius: 15px;
   box-shadow: 10px 5px 5px lightgray;
@@ -232,12 +230,19 @@ p.article-content {
 }
 
 article.principal {
-  width: 65%;
+  width: 55%;
 }
 
 article.comment {
-  width: 30%;
-  align-self: center;
+  width: 39%;
+}
+
+article.comment > div {
+  background-color: #ffcccc;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 5%;
+  box-shadow: 10px 5px 5px lightgray;
 }
 
 p.comment-title {
@@ -248,4 +253,17 @@ p.comment-title {
 article p.comment-content {
   text-align: justify;
   font-size: 16px !important;
+}
+
+@media screen and (max-width: 768px) {
+  div.news {
+    flex-direction: column;
+  }
+  article.principal {
+    width: 100%;
+  }
+
+  article.comment {
+    width: 100%;
+  }
 }
