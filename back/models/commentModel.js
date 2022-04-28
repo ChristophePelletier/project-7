@@ -6,7 +6,7 @@ module.exports = function (sequelize, Sequelize) {
       //articleId: { type: Sequelize.INTEGER },
       //
       title: { type: Sequelize.STRING, default: '' },
-      content: { type: Sequelize.STRING, default: '' },
+      content: { type: Sequelize.STRING(8000), default: '' },
       userId: { type: Sequelize.INTEGER, default: '' },
       email: { type: Sequelize.STRING, default: '' },
       secondName: { type: Sequelize.STRING },
