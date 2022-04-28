@@ -10,5 +10,6 @@ router.get('/article/:id', auth, articleCtrl.getOneArticle)
 router.post('/article', auth, multer, articleCtrl.createArticle)
 router.get('/userarticle/:userId', auth, articleCtrl.userRecentArticles)
 router.get('/articleswithcomments', auth, articleCtrl.getArticlesWithComments)
+router.get('/allArticleswithcomments', articleCtrl.getAllArticlesWithComments)
 //router.get('/articlecomments/:articleId', articleCtrl.getArticleWithComments)
 module.exports = router
