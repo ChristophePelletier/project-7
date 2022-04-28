@@ -1,4 +1,4 @@
-//méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s
+//d'après méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s
 //
 
 import { createStore } from "vuex";
@@ -93,16 +93,6 @@ const store = createStore({
           });
       });
     },
-    /*
-    getUserInfos: ({ commit }) => {
-      instance
-        .post("/infos")
-        .then(function (response) {
-          commit("userInfos", response.data.infos);
-        })
-        .catch(function () {});
-    },
-    */
   },
 });
 

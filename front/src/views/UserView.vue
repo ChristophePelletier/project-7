@@ -113,3 +113,9 @@ async print() {
   },
 */
 </script>
+
+<style>
+a#user:visited {
+  color: pink;
+}
+</style>
