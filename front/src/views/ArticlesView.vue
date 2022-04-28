@@ -55,7 +55,12 @@
           </div>
         </article>
         <article class="comment">
-          <h3 v-if="article.comments[0]">Commentaires</h3>
+          <h3 v-if="article.comments[0] && !article.comments[1]">
+            Commentaire
+          </h3>
+          <h3 v-if="article.comments[0] && article.comments[1]">
+            Commentaires
+          </h3>
           <h3 v-if="!article.comments[0]">
             <router-link :to="'/article/' + article.id"> Commenter</router-link>
           </h3>
