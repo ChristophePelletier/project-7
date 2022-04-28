@@ -78,8 +78,9 @@ a {
 .nav-link {
   cursor: pointer;
 }
-.coldInfo {
-  font-size: 15px;
+.coldInfo,
+p.coldInfo {
+  font-size: 15px !important;
 }
 /*
 Boutons
@@ -285,6 +286,24 @@ Utilisateurs
 #contributions {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+#user-articles {
+  width: 62%;
+}
+
+#user-comments {
+  width: 32%;
+}
+
+div.user-comment,
+div.user-article {
+  background-color: #ffcccc;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  box-shadow: 10px 5px 5px lightgray;
 }
 
 /*

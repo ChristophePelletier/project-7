@@ -26,15 +26,15 @@
     <div id="contributions">
       <!--articles
     -->
-      <div>
+      <div id="user-articles">
         <h3>Articles</h3>
-        <div v-for="article in articles" :key="article.id">
+        <div class="user-article" v-for="article in articles" :key="article.id">
           <h2>
             <router-link :to="'/article/' + article.id">
               {{ article.title }}</router-link
             >
           </h2>
-          <p>
+          <p class="coldInfo">
             Article rédigé le :
             {{ getFormattedDate(article.createdAt) }}
           </p>
@@ -53,9 +53,9 @@
       </div>
       <!--articles
     -->
-      <div>
+      <div id="user-comments">
         <h3>Commentaires</h3>
-        <div v-for="comment in comments" :key="comment">
+        <div class="user-comment" v-for="comment in comments" :key="comment">
           <h2>{{ comment.title }}</h2>
           <p>
             {{ comment.content }}
