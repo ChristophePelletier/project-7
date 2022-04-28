@@ -51,14 +51,26 @@
           </div>
         </article>
         <article class="comment">
-          <p v-if="article.comments[0]">
-            Le dernier commentaire<br />
-            {{ article.comments[0].title }}
-            <br />
-            {{ article.comments[0].content }}
-            <br />rédigé par {{ article.comments[0].firstName }}
-            {{ article.comments[0].secondName }}
-          </p>
+          <div v-if="article.comments[0]">
+            <p>Les derniers commentaires</p>
+            <p>{{ article.comments[0].title }}</p>
+
+            <p v-snip="5">{{ article.comments[0].content }}</p>
+            <p>
+              rédigé par {{ article.comments[0].firstName }}
+              {{ article.comments[0].secondName }}
+            </p>
+          </div>
+          <div v-if="article.comments[1]">
+            <p>Les derniers commentaires</p>
+            <p>{{ article.comments[1].title }}</p>
+
+            <p v-snip="5">{{ article.comments[1].content }}</p>
+            <p>
+              rédigé par {{ article.comments[1].firstName }}
+              {{ article.comments[1].secondName }}
+            </p>
+          </div>
         </article>
       </div>
       <button
