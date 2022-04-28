@@ -2,11 +2,11 @@
   <div>
     <button v-if="$store.state.user.userId == -1" class="article">
       <router-link to="/login">
-        <span>S'inscrire pour consulter le site</span>
+        <span>S'inscrire / se connecter</span>
       </router-link>
     </button>
     <div v-if="$store.state.user.userId !== -1" class="article">
-      <h1>Les derniers articles</h1>
+      <h1>Derniers posts</h1>
       <!--
     <router-link :to="{ name: 'article-create' }">
       <p>Rédiger un nouvel article</p>
@@ -31,7 +31,11 @@
               ></router-link
             >
           </p>
-          <img class="illustration" v-bind:src="article.image" />
+          <img
+            v-if="article.image"
+            class="illustration"
+            v-bind:src="article.image"
+          />
           <p class="date">
             Article rédigé le :
             {{ getFormattedDate(article.createdAt) }}
@@ -45,27 +49,29 @@
             </p>
             <p class="coldInfo">
               <router-link :to="'/article/' + article.id">
-                Lire la suite de l'article</router-link
+                Lire la suite</router-link
               >
             </p>
           </div>
         </article>
         <article class="comment">
           <div v-if="article.comments[0]">
-            <p>Les derniers commentaires</p>
-            <p>{{ article.comments[0].title }}</p>
-
-            <p v-snip="5">{{ article.comments[0].content }}</p>
+            <h3>Commentaires</h3>
+            <p class="comment-title">{{ article.comments[0].title }}</p>
             <p>
-              rédigé par {{ article.comments[0].firstName }}
+              par {{ article.comments[0].firstName }}
               {{ article.comments[0].secondName }}
+            </p>
+            <p class="comment-content" v-snip="5">
+              {{ article.comments[0].content }}
             </p>
           </div>
           <div v-if="article.comments[1]">
-            <p>Les derniers commentaires</p>
-            <p>{{ article.comments[1].title }}</p>
+            <p class="comment-title">{{ article.comments[1].title }}</p>
 
-            <p v-snip="5">{{ article.comments[1].content }}</p>
+            <p class="comment-content" v-snip="5">
+              {{ article.comments[1].content }}
+            </p>
             <p>
               rédigé par {{ article.comments[1].firstName }}
               {{ article.comments[1].secondName }}

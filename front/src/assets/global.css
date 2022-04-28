@@ -239,3 +239,13 @@ article.comment {
   width: 30%;
   align-self: center;
 }
+
+p.comment-title {
+  color: #fd2d01;
+  font-weight: bold;
+}
+
+article p.comment-content {
+  text-align: justify;
+  font-size: 16px !important;
+}

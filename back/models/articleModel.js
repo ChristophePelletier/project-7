@@ -20,7 +20,7 @@ module.exports = function (sequelize, Sequelize) {
       email: {
         type: Sequelize.STRING,
       },
-      content: { type: Sequelize.STRING(5000), allowNull: false },
+      content: { type: Sequelize.STRING(8000), allowNull: false },
       image: {
         type: Sequelize.STRING,
       },
