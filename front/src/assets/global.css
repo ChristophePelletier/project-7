@@ -214,11 +214,11 @@ div.news {
 }
 
 p.article--content {
-  padding: 25px 15px 15px 15px;
-  height: 75px;
+  height: 100px;
   background-color: #ffcccc;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 article.principal {
@@ -227,4 +227,5 @@ article.principal {
 
 article.comment {
   width: 30%;
+  align-self: center;
 }

@@ -20,6 +20,9 @@
               {{ article.title }}</router-link
             >
           </h2>
+
+          <span>{{ article.content }}</span>
+
           <p class="auteur">
             <router-link :to="'/user/' + article.userId">
               <span class="coldInfo">par :</span>
@@ -36,8 +39,9 @@
             {{ getFormattedDate(article.createdAt) }}
           </p>
 
-          <p class="article--content">
+          <p id="chapo" class="article--content">
             {{ article.content }}
+
             <!--| truncate(5)-->
           </p>
         </article>
@@ -76,6 +80,7 @@ export default {
       comments: {},
     };
   },
+  created() {},
   async mounted() {
     //this.articles = (await articleService.getRecentArticles()).data;
     this.articles = (await articleService.getArticlesWithComments()).data;
@@ -98,7 +103,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 img.illustration {
   max-width: 200px;
