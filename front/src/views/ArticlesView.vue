@@ -49,14 +49,17 @@
             </p>
             <p class="coldInfo">
               <router-link :to="'/article/' + article.id">
-                Lire la suite</router-link
+                Lire la suite | Commenter</router-link
               >
             </p>
           </div>
         </article>
         <article class="comment">
+          <h3 v-if="article.comments[0]">Commentaires</h3>
+          <h3 v-if="!article.comments[0]">
+            <router-link :to="'/article/' + article.id"> Commenter</router-link>
+          </h3>
           <div v-if="article.comments[0]">
-            <h3>Commentaires</h3>
             <p class="comment-title">
               {{ article.comments[0].title }}
             </p>
