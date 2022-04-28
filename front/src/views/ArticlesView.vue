@@ -21,21 +21,6 @@
             >
           </h2>
 
-          <p class="auteur">
-            <router-link :to="'/user/' + article.userId">
-              <span class="coldInfo">par</span>
-              {{ article.firstName }} {{ article.secondName }} <br /><span
-                class="coldInfo"
-              >
-                {{ article.email }}</span
-              ></router-link
-            >
-          </p>
-
-          <p class="date">
-            Article rédigé le :
-            {{ getFormattedDate(article.createdAt) }}
-          </p>
           <!--
     https://vuejsexamples.com/truncating-multiple-lines-text-element-with-vuejs/
     -->
@@ -59,6 +44,21 @@
               />
             </div>
           </div>
+          <p class="auteur">
+            <router-link :to="'/user/' + article.userId">
+              <span class="coldInfo">par</span>
+              {{ article.firstName }} {{ article.secondName }} <br /><span
+                class="coldInfo"
+              >
+                {{ article.email }}</span
+              ></router-link
+            >
+          </p>
+
+          <p class="date">
+            Article rédigé le :
+            {{ getFormattedDate(article.createdAt) }}
+          </p>
         </article>
         <article class="comment">
           <h3 v-if="article.comments[0] && !article.comments[1]">
