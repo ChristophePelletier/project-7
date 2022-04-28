@@ -31,11 +31,7 @@
               ></router-link
             >
           </p>
-          <img
-            v-if="article.image"
-            class="illustration"
-            v-bind:src="article.image"
-          />
+
           <p class="date">
             Article rédigé le :
             {{ getFormattedDate(article.createdAt) }}
@@ -44,14 +40,24 @@
     https://vuejsexamples.com/truncating-multiple-lines-text-element-with-vuejs/
     -->
           <div class="article-container">
-            <p v-snip="3" class="article-content">
-              {{ article.content }}
-            </p>
-            <p class="coldInfo">
-              <router-link :to="'/article/' + article.id">
-                Lire la suite | Commenter</router-link
-              >
-            </p>
+            <div>
+              <p v-snip="3" class="article-content">
+                {{ article.content }}
+              </p>
+              <p class="coldInfo">
+                <router-link :to="'/article/' + article.id">
+                  Lire la suite | Commenter</router-link
+                >
+              </p>
+            </div>
+
+            <div>
+              <img
+                v-if="article.image"
+                class="illustration"
+                v-bind:src="article.image"
+              />
+            </div>
           </div>
         </article>
         <article class="comment">

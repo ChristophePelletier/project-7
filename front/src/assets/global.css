@@ -285,6 +285,14 @@ article p.comment-content {
 }
 
 /*
+oneArticle
+*/
+#one-item {
+  display: flex;
+  flex-direction: row;
+}
+
+/*
 Utilisateurs
 */
 #contributions {

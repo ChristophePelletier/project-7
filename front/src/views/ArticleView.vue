@@ -1,7 +1,7 @@
 <template>
-  <article>
-    <div>
-      <!--article -->
+  <article id="one-item">
+    <!--article -->
+    <div id="one-article">
       <h1>
         {{ article.title }}
       </h1>
@@ -93,7 +93,8 @@
         </div>
       </div>
       <!--fin commenter l'article -->
-
+    </div>
+    <div>
       <!--commentaires -->
       <h3>Tous les commentaires</h3>
       <div v-for="comment in comments" :key="comment">
@@ -122,8 +123,8 @@
           Supprimer ce commentaire
         </button>
       </div>
-      <!--fin des commentaires -->
     </div>
+    <!--fin des commentaires -->
   </article>
 </template>
 
