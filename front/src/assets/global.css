@@ -215,6 +215,9 @@ div.news {
 
 p.article--content {
   background-color: #ffcccc;
+  text-align: justify;
+  padding: 15px;
+  text-overflow: hidden;
 }
 
 article.principal {

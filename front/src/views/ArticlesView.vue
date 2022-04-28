@@ -36,8 +36,10 @@
             Article rédigé le :
             {{ getFormattedDate(article.createdAt) }}
           </p>
-
-          <p v-snip:js="1" id="chapo" class="article--content">
+          <!--
+    https://vuejsexamples.com/truncating-multiple-lines-text-element-with-vuejs/
+    -->
+          <p v-snip="3">
             {{ article.content }}
           </p>
         </article>
