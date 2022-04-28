@@ -1,8 +1,8 @@
 <template>
   <header>
     <!--LOGO-->
-    <div>
-      <img alt="" src="./assets/icon-above-font.png" />
+    <div class="brand">
+      <img class="brand" alt="" src="./assets/icon-above-font.png" />
     </div>
     <!--MENU-->
     <div>

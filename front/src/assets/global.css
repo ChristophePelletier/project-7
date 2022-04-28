@@ -1,20 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
+/*
+Styles généraux
+*/
 *,
 *::after,
 *::before {
   box-sizing: border-box;
-}
-
-header {
-  margin: 0 !important;
-  padding: 0 !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 35px 35px 35px;
-  height: 200px;
-  width: 100%;
 }
 
 body {
@@ -23,6 +13,47 @@ body {
   margin-right: auto;
   font-family: 'Roboto', sans-serif;
   color: darkslategrey;
+}
+
+img.brand {
+  width: 25%;
+}
+
+/*
+Menu
+*/
+header {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: top;
+  margin: 0 35px 35px 35px;
+  width: 100%;
+}
+
+header > div {
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #ffcccc;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+nav > div {
+  padding: 15px;
+  width: 275px;
+}
+
+nav > div a {
+  text-decoration: none;
 }
 
 h1,
@@ -134,32 +165,6 @@ p.formulaire input {
   margin-top: 8px;
 }
 
-/*
-Menu
-*/
-header > div {
-  width: 100%;
-}
-
-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: #ffcccc;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-nav > div {
-  padding: 15px;
-  width: 275px;
-}
-
-nav > div a {
-  text-decoration: none;
-}
-
 form > div > p {
   display: flex;
   flex-direction: column;
@@ -254,8 +259,24 @@ article p.comment-content {
   text-align: justify;
   font-size: 16px !important;
 }
-
+/*
+Menu
+*/
 @media screen and (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffcccc;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav > div {
+    padding: 15px;
+    width: 275px;
+  }
   div.news {
     flex-direction: column;
   }
