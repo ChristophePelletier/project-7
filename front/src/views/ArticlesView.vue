@@ -29,7 +29,7 @@
               <p v-snip="3" class="article-content">
                 {{ article.content }}
               </p>
-              <p class="coldInfo">
+              <p class="coldInfo middle">
                 <router-link :to="'/article/' + article.id">
                   Lire la suite | Commenter</router-link
                 >
@@ -44,21 +44,22 @@
               />
             </div>
           </div>
-          <p class="auteur">
-            <router-link :to="'/user/' + article.userId">
-              <span class="coldInfo">par</span>
-              {{ article.firstName }} {{ article.secondName }} <br /><span
-                class="coldInfo"
+          <div class="meta">
+            <p class="date">
+              Article rédigé le :
+              {{ getFormattedDate(article.createdAt) }}
+            </p>
+            <p class="auteur">
+              <router-link :to="'/user/' + article.userId">
+                <span class="coldInfo">par</span>
+                {{ article.firstName }} {{ article.secondName }} <br /><span
+                  class="coldInfo"
+                >
+                  {{ article.email }}</span
+                ></router-link
               >
-                {{ article.email }}</span
-              ></router-link
-            >
-          </p>
-
-          <p class="date">
-            Article rédigé le :
-            {{ getFormattedDate(article.createdAt) }}
-          </p>
+            </p>
+          </div>
         </article>
         <article class="comment">
           <h3 v-if="article.comments[0] && !article.comments[1]">
@@ -158,7 +159,7 @@ export default {
 img.illustration {
   max-width: 200px;
   max-height: 150px;
-  border-radius: 5px;
-  box-shadow: 10px 5px 5px lightgray;
+  border-radius: 7px;
+  box-shadow: 2px 1px 1px lightgray;
 }
 </style>
