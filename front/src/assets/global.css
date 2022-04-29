@@ -116,7 +116,7 @@ button {
   background-color: lightgray;
   transition: background-color 0.5s;
   border: none;
-  margin-top: 15px;
+  margin: 15px 15px 0px 15px;
   width: 320px;
   height: 55px;
 }
@@ -310,7 +310,8 @@ article.comment {
   width: 39%;
 }
 
-article.comment > div {
+article.comment > div,
+article.comment-one {
   background-color: #ffcccc;
   border-radius: 15px;
   padding: 15px;
@@ -334,6 +335,21 @@ oneArticle
 #one-item {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+#one-article {
+  width: 58%;
+}
+
+#one-article h1,
+#all-articles h2 {
+  margin-top: 55px;
+}
+
+#all-articles {
+  width: 38%;
 }
 
 /*
@@ -389,6 +405,9 @@ Responsive
   }
   div.meta {
     flex-direction: column;
+  }
+  div.meta p {
+    width: 100%;
   }
   article.principal {
     width: 96%;

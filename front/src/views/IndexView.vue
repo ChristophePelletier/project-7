@@ -113,11 +113,11 @@
         </article>
       </div>
       <button type="button" @click="navigateTo({ name: 'article-create' })">
-        <span>Rédiger un nouvel article</span>
+        <span>Rédiger un nouveau post</span>
       </button>
 
       <button type="button" @click="navigateTo({ name: 'articles' })">
-        <span>Consulter tous les articles</span>
+        <span>Consulter tous les posts</span>
       </button>
     </div>
   </div>

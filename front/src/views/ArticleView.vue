@@ -94,11 +94,10 @@
       </div>
       <!--fin commenter l'article -->
     </div>
-    <div>
+    <div id="all-articles">
       <!--commentaires -->
-      <h3>Tous les commentaires</h3>
-      <div v-for="comment in comments" :key="comment">
-        <hr />
+      <h2>Tous les commentaires</h2>
+      <article class="comment-one" v-for="comment in comments" :key="comment">
         <p>
           Titre<br />
           {{ comment.title }}
@@ -122,7 +121,7 @@
         >
           Supprimer ce commentaire
         </button>
-      </div>
+      </article>
     </div>
     <!--fin des commentaires -->
   </article>
