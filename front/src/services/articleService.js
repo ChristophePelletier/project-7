@@ -23,4 +23,7 @@ export default {
   getArticlesWithComments() {
     return api().get("./api/articleswithcomments/");
   },
+  getAllArticlesWithComments() {
+    return api().get("./api/allArticleswithcomments/");
+  },
 };

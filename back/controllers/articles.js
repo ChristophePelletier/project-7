@@ -120,7 +120,7 @@ exports.getAllArticlesWithComments = (req, res, next) => {
   console.log('testgetartcomment')
   Article.findAll({
     include: [{ all: true, nested: true }],
-    limit: 1,
+    limit: 50,
     order: [['createdAt', 'DESC']],
   })
     .then((articles) => {
@@ -137,6 +137,7 @@ exports.getArticlesWithComments = (req, res, next) => {
   console.log('testgetartcomment')
   Article.findAll({
     include: [{ all: true, nested: true }],
+    limit: 6,
     order: [['createdAt', 'DESC']],
   })
     .then((articles) => {
