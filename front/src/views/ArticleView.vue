@@ -14,7 +14,7 @@
               <!--ARTICLE -->
             </div>
 
-            <div>
+            <div id="containeur-1-1-1-1">
               <div>
                 <p>
                   Article rédigé le :
@@ -54,7 +54,7 @@
             Titre<br />
             {{ comment.title }}
           </p>
-          <p>
+          <p class="article-content">
             {{ comment.content }}
           </p>
           <p>
