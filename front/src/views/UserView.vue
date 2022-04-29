@@ -58,7 +58,7 @@
 
         <div class="user-comment" v-for="comment in comments" :key="comment">
           <h2>{{ comment.title }}</h2>
-          <p>Sur l'article</p>
+          <p>Sur l'article {{ comment.articles.title }}</p>
           <p class="article-content">
             {{ comment.content }}
           </p>
@@ -95,8 +95,15 @@ export default {
     this.articles = (
       await articleService.getuserRecentArticles(this.$route.params.id)
     ).data;
+    /*
     this.comments = (
       await commentService.getuserRecentComments(this.$route.params.id)
+    ).data;
+    */
+    this.comments = (
+      await commentService.getuserRecentCommentsWithArticles(
+        this.$route.params.id
+      )
     ).data;
   },
   methods: {
