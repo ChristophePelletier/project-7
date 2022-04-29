@@ -98,3 +98,20 @@ exports.getOneComment = (req, res, next) => {
       })
     })
 }
+
+exports.getAllCommentsWithArticles = (req, res, next) => {
+  console.log('getAllCommentsWithArticles')
+  Comment.findAll({
+    include: [{ all: true, nested: true }],
+    limit: 5,
+    order: [['createdAt', 'DESC']],
+  })
+    .then((comments) => {
+      res.send(comments)
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error: error,
+      })
+    })
+}
