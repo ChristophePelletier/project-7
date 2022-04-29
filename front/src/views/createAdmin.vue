@@ -9,18 +9,11 @@
           type="text"
           placeholder="Prénom"
           id="prénom"
-          class="form-control"
         />
       </div>
       <div>
         <label for="nom">Nom</label>
-        <input
-          v-model="secondName"
-          type="text"
-          placeholder="Nom"
-          id="nom"
-          class="form-control"
-        />
+        <input v-model="secondName" type="text" placeholder="Nom" id="nom" />
       </div>
       <div>
         <label for="email">Mail</label>
@@ -29,7 +22,6 @@
           type="email"
           placeholder="Adresse mail"
           id="email"
-          class="form-control"
         />
       </div>
 
@@ -40,7 +32,6 @@
           type="password"
           placeholder="Mot de passe"
           id="password"
-          class="form-control"
         />
       </div>
 

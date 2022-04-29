@@ -268,24 +268,34 @@ form#administration {
   background-color: white;
 }
 
+form#administration label {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
 form#administration > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 80%;
-  background-color: #fd2d01;
+  margin: 20px 0;
 }
 
 form#administration label {
   width: 150px;
-  background-color: #fd2d01;
+  text-align: center;
 }
 
 form#administration input {
   width: 450px;
-  background-color: aqua;
+  background-color: #ffcccc;
 }
 
 div#choice {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 div#choice input[type='radio'] {
@@ -468,7 +478,7 @@ Utilisateurs
 
 div.user-comment,
 div.user-article {
-  background-color: #ffcccc;
+  background-color: whitesmoke;
   padding: 15px;
   border-radius: 15px;
   margin-bottom: 25px;
