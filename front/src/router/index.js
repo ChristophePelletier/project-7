@@ -4,7 +4,6 @@ import SignupView from "../views/SignupView.vue";
 import ArticlesView from "../views/ArticlesView.vue";
 import ArticleView from "../views/ArticleView.vue";
 import createArticleView from "../views/createArticleView.vue";
-import createCommentView from "../views/createCommentView.vue";
 import LoginView from "../views/LoginView.vue";
 import AdminView from "../views/AdminView.vue";
 import UserView from "../views/UserView.vue";
@@ -35,11 +34,6 @@ const routes = [
     path: "/article-create",
     name: "article-create",
     component: createArticleView,
-  },
-  {
-    path: "/comment-create",
-    name: "comment-create",
-    component: createCommentView,
   },
   {
     path: "/tests",
