@@ -7,9 +7,6 @@ const userRoutes = require('./routes/user')
 const articleRoutes = require('./routes/article')
 const commentRoutes = require('./routes/comment')
 //var bodyParser = require('body-parser')
-let corsOptions = {
-  origin: 'http://localhost:3000',
-}
 app.use(cors())
 app.use(express.static('images'))
 app.use(express.json())
