@@ -20,6 +20,7 @@
           name="content"
           v-model="article.content"
           placeholder="mon article"
+          maxlength="8000"
         />
       </div>
       <div>

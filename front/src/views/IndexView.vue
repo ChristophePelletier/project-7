@@ -44,28 +44,30 @@
               />
             </div>
           </div>
-          <p class="auteur">
-            <router-link :to="'/user/' + article.userId">
-              <span class="coldInfo">par</span>
-              {{ article.firstName }} {{ article.secondName }} <br /><span
-                class="coldInfo"
+          <div class="meta">
+            <p class="auteur">
+              <router-link :to="'/user/' + article.userId">
+                <span class="coldInfo">par</span>
+                {{ article.firstName }} {{ article.secondName }} <br /><span
+                  class="coldInfo"
+                >
+                  {{ article.email }}</span
+                ></router-link
               >
-                {{ article.email }}</span
-              ></router-link
-            >
-          </p>
+            </p>
 
-          <p class="date">
-            Article rédigé le :
-            {{ getFormattedDate(article.createdAt) }}
-          </p>
+            <p class="date">
+              Post rédigé le :
+              {{ getFormattedDate(article.createdAt) }}
+            </p>
+          </div>
         </article>
         <article class="comment">
           <h3 v-if="article.comments[0] && !article.comments[1]">
             Commentaire
           </h3>
           <h3 v-if="article.comments[0] && article.comments[1]">
-            Commentaires
+            Derniers commentaires
           </h3>
           <h3 v-if="!article.comments[0]">
             <router-link :to="'/article/' + article.id"> Commenter</router-link>

@@ -6,7 +6,7 @@
       </router-link>
     </button>
     <div v-if="$store.state.user.userId !== -1" class="article">
-      <h1>Derniers posts</h1>
+      <h1>Tous les posts</h1>
       <!--
     <router-link :to="{ name: 'article-create' }">
       <p>Rédiger un nouvel article</p>
@@ -29,7 +29,7 @@
               <p v-snip="3" class="article-content">
                 {{ article.content }}
               </p>
-              <p class="coldInfo middle">
+              <p class="coldInfo">
                 <router-link :to="'/article/' + article.id">
                   Lire la suite | Commenter</router-link
                 >
@@ -46,7 +46,7 @@
           </div>
           <div class="meta">
             <p class="date">
-              Article rédigé le :
+              Post rédigé le :
               {{ getFormattedDate(article.createdAt) }}
             </p>
             <p class="auteur">
@@ -114,7 +114,7 @@
         </article>
       </div>
       <button type="button" @click="navigateTo({ name: 'article-create' })">
-        <span>Rédiger un nouvel article</span>
+        <span>Rédiger un nouveau post</span>
       </button>
     </div>
   </div>

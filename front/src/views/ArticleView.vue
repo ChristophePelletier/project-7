@@ -71,6 +71,7 @@
               v-model="comment.content"
               placeholder="mon commentaire"
               rows="155"
+              maxlength="8000"
             />
           </div>
           <div>
