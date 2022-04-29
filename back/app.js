@@ -42,7 +42,7 @@ app.post('/signup', (req, res) => {
 const db = require('./models')
 // for images -> gets the path of the files --> for the middleware for the images
 const path = require('path')
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
   console.log('Data base ok')
 })
 app.use('/api/auth', userRoutes)

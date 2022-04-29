@@ -147,8 +147,12 @@ exports.getOneUser = (req, res, next) => {
 }
 
 exports.signupAdmin = (req, res) => {
-  //console.log('User :', User)
-  console.log('firstName', req.body.firstName)
+  if (req.auth.admin != true) {
+    console.log('non autorisé')
+    return res.status(401).json({
+      message: 'unauthorized',
+    })
+  }
   // Enregistrer l'utilisateur dans la base de données
   User.create({
     email: req.body.email,
