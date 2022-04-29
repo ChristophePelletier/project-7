@@ -11,13 +11,22 @@
         <div>
           <router-link to="/" class="nav-link active">Accueil</router-link>
         </div>
+        <!--RÉDIGER UN ARTICLE-->
+        <div v-if="$store.state.user.userId !== -1">
+          <router-link to="/articles" class="nav-link active">
+            <!--  :class="{ vide: enteredFirstName }"-->
+            Tous les posts
+          </router-link>
+        </div>
+        <!--****************-->
+        <!--****************-->
         <!--****************-->
         <!--****************-->
         <!--RÉDIGER UN ARTICLE-->
         <div v-if="$store.state.user.userId !== -1">
           <router-link to="/article-create" class="nav-link active">
             <!--  :class="{ vide: enteredFirstName }"-->
-            Rédiger un article
+            Rédiger un post
           </router-link>
         </div>
         <!--****************-->

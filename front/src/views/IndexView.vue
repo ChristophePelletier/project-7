@@ -116,7 +116,7 @@
         <span>Rédiger un nouvel article</span>
       </button>
 
-      <button type="button" @click="navigateTo({ name: 'article-create' })">
+      <button type="button" @click="navigateTo({ name: 'articles' })">
         <span>Consulter tous les articles</span>
       </button>
     </div>
