@@ -51,20 +51,17 @@
         <button type="button" @click="showForm = !showForm">
           <span> Commenter l'article</span>
         </button>
-        <div v-show="showForm">
+        <form class="commentaire" v-show="showForm">
           <div>
             <input
               class="form-control"
+              id="titleComment"
               type="text"
               name="title"
               v-model="comment.title"
               placeholder="titre"
             />
           </div>
-
-          <p>
-            {{ comment.title }}
-          </p>
 
           <div>
             <textarea
@@ -73,24 +70,15 @@
               name="content"
               v-model="comment.content"
               placeholder="mon commentaire"
-              cols="10"
-              rows="10"
+              rows="155"
             />
           </div>
           <div>
-            <p>
-              {{ comment.content }}
-            </p>
-            <p class="auteur">
-              Auteur du commentaire :
-              {{ $store.state.user.firstName }}
-              {{ $store.state.user.secondName }}
-            </p>
             <button type="button" class="btn btn-primary" @click="create">
-              Envoyer mon commentaire
+              <span>Envoyer mon commentaire</span>
             </button>
           </div>
-        </div>
+        </form>
       </div>
       <!--fin commenter l'article -->
     </div>

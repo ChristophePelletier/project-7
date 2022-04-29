@@ -190,7 +190,8 @@ textarea {
   font-size: 20px;
   color: darkslategrey;
 }
-input#titleArticle {
+input#titleArticle,
+input#titleComment {
   min-height: 50px;
   padding: 15px;
   margin-top: 25px;
@@ -224,6 +225,11 @@ form {
   overflow: hidden;
   position: absolute;
   z-index: -1;
+}
+
+form.commentaire textarea {
+  min-height: 250px;
+  padding: 15px;
 }
 
 label:hover {
