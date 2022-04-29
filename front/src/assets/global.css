@@ -151,11 +151,11 @@ nav {
 }
 
 nav > div {
-  height: 45px;
+  height: 55px;
   width: 275px;
   transition: 0.5s;
   background-color: #ffcccc;
-  padding-top: 10px;
+  padding: 18px 0 15px 0;
 }
 
 nav > div:hover {
@@ -167,6 +167,7 @@ nav > div a {
   text-decoration: none;
   transition: none;
   font-size: 20px;
+  text-align: justify;
 }
 
 nav > div a:hover {
@@ -390,6 +391,18 @@ div.user-article {
 /*
 Responsive
 */
+@media screen and (max-width: 1200px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffcccc;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+
 @media screen and (max-width: 768px) {
   nav {
     display: flex;
