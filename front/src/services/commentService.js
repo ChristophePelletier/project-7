@@ -17,4 +17,7 @@ export default {
   getuserRecentComments(userId) {
     return api().get("./api/usercomment/" + userId);
   },
+  getuserRecentCommentsWithArticles(userId) {
+    return api().get("./api/usercommentswitharticles/" + userId);
+  },
 };
