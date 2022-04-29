@@ -277,14 +277,29 @@ div.news {
   width: 100%;
 }
 
-div.article-container,
-div#one-article {
-  background-color: #ffcccc;
+div.article-container {
+  background-color: white;
   padding: 15px;
+  margin: 15px;
   display: flex;
   justify-content: space-between;
   border-radius: 15px;
   box-shadow: 10px 5px 5px lightgray;
+}
+
+div#one-article {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: white;
+}
+div#one-article p.article-content {
+  background-color: white;
+}
+
+.cesure {
+  display: flex;
+  flex-direction: row;
 }
 
 div.meta {

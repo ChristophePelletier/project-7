@@ -1,17 +1,13 @@
 <template>
-  <article id="one-item">
-    <!--article -->
-    <div id="one-article">
-      <div>
+  <!--article -->
+  <div id="one-article">
+    <div>
+      <article>
         <div>
           <h1>
             {{ article.title }}
           </h1>
-          <p class="article-content">
-            {{ article.content }}
-          </p>
-        </div>
-        <div>
+
           <p>
             Article rédigé le :
             {{ getFormattedDate(article.createdAt) }}
@@ -32,6 +28,13 @@
             v-bind:src="article.image"
           />
         </div>
+        <div>
+          <p class="article-content">
+            {{ article.content }}
+          </p>
+        </div>
+      </article>
+      <div>
         <div>
           <button type="button" @click="showForm = !showForm">
             <span> Commenter l'article</span>
@@ -116,8 +119,8 @@
         </button>
       </article>
     </div>
-    <!--fin des commentaires -->
-  </article>
+  </div>
+  <!--fin des commentaires -->
 </template>
 
 <script>
