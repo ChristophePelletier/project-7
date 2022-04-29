@@ -261,6 +261,36 @@ textarea {
   border-radius: 5px;
   background-color: #ffffff;
 }
+/*
+Form admin
+*/
+form#administration {
+  background-color: white;
+}
+
+form#administration > div {
+  width: 80%;
+  background-color: #fd2d01;
+}
+
+form#administration label {
+  width: 150px;
+  background-color: #fd2d01;
+}
+
+form#administration input {
+  width: 450px;
+  background-color: aqua;
+}
+
+div#choice {
+  display: flex;
+  flex-direction: column;
+}
+
+div#choice input[type='radio'] {
+  margin-top: 30px;
+}
 
 /*
 News and comments
@@ -507,4 +537,16 @@ Responsive
   #user-comments {
     width: 90%;
   }
+}
+/*
+Admin
+*/
+
+ul li {
+  font-size: 20px;
+}
+
+ul li:first-child {
+  font-size: 26px;
+  font-weight: bold;
 }

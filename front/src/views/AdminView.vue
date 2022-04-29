@@ -1,7 +1,8 @@
 <template>
   <div>
     <!--v-if="$store.state.user.admin == true" -->
-    <h1>Liste des inscrits</h1>
+    <h1>Administration</h1>
+    <h2>Liste des inscrits</h2>
     <div v-for="user in users" :key="user.userId">
       <ul>
         <li>
@@ -11,23 +12,24 @@
         </li>
         <li>
           {{ user.id }}
-          <router-link :to="'/user/' + user.userId"
-            >Id : {{ user.userId }}</router-link
-          >
         </li>
         <li>
           {{ user.email }}
         </li>
       </ul>
       <button type="button" class="alert" @click="del(user.userId)">
-        Supprimer ce compte
+        <span>Supprimer ce compte</span>
       </button>
 
       <hr />
     </div>
     <div>
       <h2>Créer un nouveau compte administrateur</h2>
-      <router-link to="/createAdmin" class="navbar-brand">Créer</router-link>
+      <button type="button" class="alert" @click="del(user.userId)">
+        <router-link to="/createAdmin" class="navbar-brand"
+          ><span>Créer le compte</span></router-link
+        >
+      </button>
     </div>
   </div>
   <div>Cette page est réservée aux administrateurs</div>

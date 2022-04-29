@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>Créer un administrateur</h1>
-    <form>
-      <div class="form-group">
+    <form id="administration">
+      <div>
         <label for="prénom">Prénom</label>
         <input
           v-model="firstName"
@@ -12,7 +12,7 @@
           class="form-control"
         />
       </div>
-      <div class="form-group">
+      <div>
         <label for="nom">Nom</label>
         <input
           v-model="secondName"
@@ -22,7 +22,7 @@
           class="form-control"
         />
       </div>
-      <div class="form-group">
+      <div>
         <label for="email">Mail</label>
         <input
           v-model="email"
@@ -33,7 +33,7 @@
         />
       </div>
 
-      <div class="form-group">
+      <div>
         <label for="password">Mot de passe</label>
         <input
           v-model="password"
@@ -44,7 +44,7 @@
         />
       </div>
 
-      <div>
+      <div id="choice">
         <input
           v-model="admin"
           type="radio"
@@ -52,7 +52,7 @@
           name="nonAdmin"
           value="true"
         />
-        <label for="administration">Admin</label>
+        <label for="administration">Admininstrateur</label>
         <input
           v-model="admin"
           type="radio"
@@ -60,15 +60,15 @@
           name="nonAdmin"
           value="false"
         />
-        <label for="nonAdmin">Non admin</label>
-        <span>Choisi : {{ admin }}</span>
+        <label for="nonAdmin">Non administrateur</label>
+        <!--<span>Choisi : {{ admin }}</span>-->
       </div>
 
       <div v-if="mode == 'login' && status == 'error_login'">
         Adresse mail et/ou mot de passe invalide
       </div>
     </form>
-    <button class="btn-primary">
+    <button class="btn">
       <span
         @click="
           signup();
