@@ -5,7 +5,7 @@
       <img class="brand" alt="" src="./assets/icon-above-font.png" />
     </div>
     <!--MENU-->
-    <div>
+    <div id="hnav">
       <nav>
         <!--ACCUEIL-->
         <div>

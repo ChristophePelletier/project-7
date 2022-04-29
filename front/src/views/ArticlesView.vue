@@ -46,7 +46,7 @@
           </div>
           <div class="meta">
             <p class="date">
-              Post rédigé le :
+              Post rédigé le :<br />
               {{ getFormattedDate(article.createdAt) }}
             </p>
             <p class="auteur">
@@ -76,7 +76,7 @@
               {{ article.comments[0].title }}
             </p>
             <p class="auteur">
-              <span class="coldInfo">par </span>
+              par
               <router-link :to="'/user/' + article.comments[0].userId">
                 {{ article.comments[0].firstName }}
                 {{ article.comments[0].secondName }}

@@ -45,6 +45,10 @@
             </div>
           </div>
           <div class="meta">
+            <p class="date">
+              Post rédigé le :<br />
+              {{ getFormattedDate(article.createdAt) }}
+            </p>
             <p class="auteur">
               <router-link :to="'/user/' + article.userId">
                 <span class="coldInfo">par</span>
@@ -54,11 +58,6 @@
                   {{ article.email }}</span
                 ></router-link
               >
-            </p>
-
-            <p class="date">
-              Post rédigé le :
-              {{ getFormattedDate(article.createdAt) }}
             </p>
           </div>
         </article>

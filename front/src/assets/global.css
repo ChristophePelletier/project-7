@@ -1,6 +1,7 @@
 /*
 Styles généraux
 */
+
 * {
   font-family: 'Roboto' !important;
 }
@@ -143,11 +144,11 @@ header > div {
 nav {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  background-color: #ffcccc;
   width: 100%;
   padding: 0;
-  margin: 0;
+  border-radius: 55px;
 }
 
 nav > div {
@@ -156,6 +157,7 @@ nav > div {
   transition: 0.5s;
   background-color: #ffcccc;
   padding: 18px 0 15px 0;
+  border-radius: 85px;
 }
 
 nav > div:hover {
