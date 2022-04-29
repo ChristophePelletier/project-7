@@ -13,4 +13,8 @@ router.get('/comment/:articleId', commentCtrl.getArticleComments)
 router.delete('/comment/:id', commentCtrl.deleteOneComment)
 router.get('/usercomment/:userId', commentCtrl.userRecentComments)
 router.get('/allcommentswitharticles', commentCtrl.getAllCommentsWithArticles)
+router.get(
+  '/usercommentswitharticles/:userId',
+  commentCtrl.getUserCommentsWithArticles
+)
 module.exports = router
