@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div><p v-if="deletedAccount == true">test</p></div>
+    <div v-if="deletedAccount == false">
+      <p>
+        teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeest
+      </p>
+    </div>
     <div v-if="$store.state.user.userId !== -1">
       <h1>{{ user.firstName }} {{ user.secondName }}</h1>
 
@@ -120,22 +124,20 @@ export default {
   },
   methods: {
     async deleted() {
-      await userService.deleteOneUser(this.$route.params.id);
-      localStorage.clear();
-      window.alert("Suppression de votre compte en cours");
-      window.location.href = "/";
-    },
-    catch(err) {
-      console.log("erreur erreur");
+      try {
+        userService.deleteOneUser(this.$route.params.id);
+        localStorage.clear();
+        window.alert("Suppression de votre compte en cours");
+        window.location.href = "/";
+      } catch (err) {
+        console.log("erreur erreur");
+      }
     },
     getFormattedDate(date) {
       return moment(date).format("Do MMMM YYYY");
     },
-    catch(err) {
-      console.log("erreur");
-    },
     deletedAccount: function () {
-      if (this.user == null) {
+      if (this.user === null) {
         return true;
       } else {
         return false;
