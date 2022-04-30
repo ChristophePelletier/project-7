@@ -196,7 +196,7 @@ input#titleArticle,
 input#titleComment {
   min-height: 50px;
   padding: 15px;
-  margin-top: 25px;
+  margin-top: 5px;
   margin-bottom: 25px;
 }
 textarea#completeArticle {
@@ -314,6 +314,20 @@ div#choice input[type='radio'] {
   margin-top: 30px;
 }
 
+/*
+Form article
+*/
+label[for='titleArticle'],
+label[for='completeArticle'] {
+  display: block;
+  position: relative;
+  margin-top: 25px;
+  margin-bottom: 8px;
+}
+input#completeArticle {
+  position: absolute;
+  display: block;
+}
 /*
 News and comments
 */
