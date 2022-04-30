@@ -110,6 +110,7 @@ export default {
     }
     if (this.user == null) {
       window.alert("ce compte n'est plus actif");
+      window.location.href = "/";
     }
   },
   async mounted() {
