@@ -41,6 +41,7 @@
                 v-if="article.image"
                 class="illustration"
                 v-bind:src="article.image"
+                alt=""
               />
             </div>
           </div>
@@ -72,9 +73,9 @@
             <router-link :to="'/article/' + article.id"> Commenter</router-link>
           </h3>
           <div v-if="article.comments[0]">
-            <p class="comment-title">
+            <h4 class="comment-title">
               {{ article.comments[0].title }}
-            </p>
+            </h4>
             <p class="auteur">
               <span class="coldInfo">par </span>
               <router-link :to="'/user/' + article.comments[0].userId">
@@ -92,9 +93,9 @@
             </p>
           </div>
           <div v-if="article.comments[1]">
-            <p class="comment-title">
+            <h4 class="comment-title">
               {{ article.comments[1].title }}
-            </p>
+            </h4>
             <p class="auteur">
               <span class="coldInfo">par </span>
               <router-link :to="'/user/' + article.comments[1].userId">

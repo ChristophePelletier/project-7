@@ -41,6 +41,7 @@
                 v-if="article.image"
                 class="illustration"
                 v-bind:src="article.image"
+                alt=""
               />
             </div>
           </div>

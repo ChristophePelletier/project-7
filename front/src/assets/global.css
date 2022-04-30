@@ -169,7 +169,7 @@ nav > div a {
   text-decoration: none;
   transition: none;
   font-size: 20px;
-  text-align: justify;
+  text-align: left;
 }
 
 nav > div a:hover {
@@ -291,7 +291,19 @@ form#administration input {
   background-color: #ffcccc;
 }
 
-div#choice {
+input[type='radio'] {
+  margin: 0;
+  width: 25px;
+  height: 25px;
+  border: 3px;
+  border-color: #ff9999;
+}
+
+input[type='radio']:checked {
+  background-color: #fd2d01;
+}
+
+form#administration div#choice {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -401,7 +413,7 @@ div.meta p {
   padding: 0;
 }
 p.article-content {
-  text-align: justify;
+  text-align: left;
   padding-left: 0;
   padding-right: 15px;
 }
@@ -423,13 +435,14 @@ article.comment-one {
   box-shadow: 10px 5px 5px lightgray;
 }
 
-p.comment-title {
+h4.comment-title {
   color: #fd2d01;
   font-weight: bold;
+  font-size: 20px;
 }
 
 article p.comment-content {
-  text-align: justify;
+  text-align: left;
   font-size: 20px !important;
 }
 

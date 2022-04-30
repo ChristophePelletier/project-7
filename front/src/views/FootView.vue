@@ -16,6 +16,6 @@ export default {
 <style scoped>
 p {
   font-size: 16px;
-  color: grey;
+  color: darkslategrey;
 }
 </style>

@@ -1,8 +1,9 @@
 <template>
   <div>
-    <h1>Rédiger un article</h1>
+    <h1>Rédiger un post</h1>
     <form @submit.prevent="create" enctype="multipart/form-data">
       <div>
+        <label for="titleArticle">Titre de votre post</label>
         <input
           id="titleArticle"
           type="text"
@@ -12,6 +13,7 @@
         />
       </div>
       <div>
+        <label for="completeArticle">Contenu de votre post</label>
         <textarea
           class="form-control"
           id="completeArticle"
@@ -27,7 +29,7 @@
         <p class="lien">
           <label for="file">Télécharger votre image</label>
         </p>
-        <p v-if="this.file !== ''">Fichier bien ajouté</p>
+        <p v-if="this.file !== ''">Image bien ajoutée</p>
         <p>{{ this.file.name }}</p>
         <!--https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/-->
         <input

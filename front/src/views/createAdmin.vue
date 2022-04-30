@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Créer un administrateur</h1>
+    <h1>Créer un compte administrateur</h1>
     <form id="administration">
       <div>
         <label for="prénom">Prénom</label>
@@ -34,30 +34,34 @@
           id="password"
         />
       </div>
+      <fieldset>
+        <legend>Confirmer votre choix de créer un administrateur</legend>
+        <div id="choice">
+          <input
+            v-model="admin"
+            type="radio"
+            id="administration"
+            name="nonAdmin"
+            value="true"
+            class="form-control"
+          />
+          <label for="administration">Administrateur</label>
+          <input
+            v-model="admin"
+            type="radio"
+            id="nonAdmin"
+            name="nonAdmin"
+            value="false"
+            class="form-control"
+          />
+          <label for="nonAdmin">Non administrateur</label>
+          <!--<span>Choisi : {{ admin }}</span>-->
+        </div>
 
-      <div id="choice">
-        <input
-          v-model="admin"
-          type="radio"
-          id="administration"
-          name="nonAdmin"
-          value="true"
-        />
-        <label for="administration">Admininstrateur</label>
-        <input
-          v-model="admin"
-          type="radio"
-          id="nonAdmin"
-          name="nonAdmin"
-          value="false"
-        />
-        <label for="nonAdmin">Non administrateur</label>
-        <!--<span>Choisi : {{ admin }}</span>-->
-      </div>
-
-      <div v-if="mode == 'login' && status == 'error_login'">
-        Adresse mail et/ou mot de passe invalide
-      </div>
+        <div v-if="mode == 'login' && status == 'error_login'">
+          Adresse mail et/ou mot de passe invalide
+        </div>
+      </fieldset>
     </form>
     <button class="btn">
       <span
