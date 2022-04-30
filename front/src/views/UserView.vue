@@ -1,9 +1,7 @@
 <template>
   <div>
-    <div v-if="deletedAccount == true">
-      <p>
-        teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeest
-      </p>
+    <div v-if="accountDeleted == true">
+      <p>teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
     </div>
     <div v-if="$store.state.user.userId !== -1">
       <h1>{{ user.firstName }} {{ user.secondName }}</h1>
@@ -62,6 +60,7 @@
           </p>
         </div>
       </div>
+
       <!--articles
     -->
       <div id="user-comments">
@@ -98,6 +97,7 @@ export default {
       user: {},
       articles: {},
       comments: {},
+      accountDeleted: false,
     };
   },
   async created() {
@@ -109,8 +109,9 @@ export default {
       console.log("erreur", err);
     }
     if (this.user == null) {
-      window.alert("ce compte n'est plus actif");
-      window.location.href = "/";
+      this.accountDeleted = true;
+      //window.alert("ce contributeur ne dispose plus d'un compte actif");
+      //window.location.href = "/";
     }
   },
   async mounted() {
