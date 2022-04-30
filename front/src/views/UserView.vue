@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="deletedAccount == false">
+    <div v-if="deletedAccount == true">
       <p>
         teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeest
       </p>
@@ -101,11 +101,16 @@ export default {
     };
   },
   async created() {
-    this.user = (await userService.getOneUser(this.$route.params.id)).data;
-    console.log(this.user);
-  },
-  catch(err) {
-    console.log(err);
+    try {
+      this.user = (await userService.getOneUser(this.$route.params.id)).data;
+      console.log("this.user", this.user);
+      console.log("this.userId", this.user.userId);
+    } catch (err) {
+      console.log("erreur", err);
+    }
+    if (this.user == null) {
+      window.alert("ce compte n'est plus actif");
+    }
   },
   async mounted() {
     this.articles = (
@@ -137,7 +142,7 @@ export default {
       return moment(date).format("Do MMMM YYYY");
     },
     deletedAccount: function () {
-      if (this.user === null) {
+      if (!this.user.userId) {
         return true;
       } else {
         return false;
