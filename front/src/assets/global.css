@@ -573,3 +573,7 @@ ul li:first-child {
   font-size: 26px;
   font-weight: bold;
 }
+
+#wcag {
+  text-decoration: none;
+}

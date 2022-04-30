@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
 import IndexView from "../views/IndexView.vue";
-import SignupView from "../views/SignupView.vue";
 import ArticlesView from "../views/ArticlesView.vue";
 import ArticleView from "../views/ArticleView.vue";
 import createArticleView from "../views/createArticleView.vue";
@@ -14,50 +13,72 @@ const routes = [
     path: "/",
     name: "home",
     component: IndexView,
-  },
-  {
-    path: "/signup",
-    name: "signup",
-    component: SignupView,
+    meta: {
+      title: "Accueil",
+    },
   },
   {
     path: "/articles",
     name: "articles",
     component: ArticlesView,
+    meta: {
+      title: "Tous les posts",
+    },
   },
   {
     path: "/article/:id",
     name: "article",
     component: ArticleView,
+    meta: {
+      title: "Post",
+    },
   },
   {
     path: "/article-create",
     name: "article-create",
     component: createArticleView,
+    meta: {
+      title: "Rédiger un post",
+    },
   },
   {
     path: "/tests",
     name: "tests",
     component: LoginView,
+    meta: {
+      title: "Inscription | Connexion",
+    },
   },
   {
     path: "/admin",
     component: AdminView,
+    meta: {
+      title: "Admin",
+    },
   },
   {
     path: "/createAdmin",
     name: "createAdmin",
     component: createAdminView,
+    meta: {
+      title: "Création d'un administrateur",
+    },
   },
   {
     path: "/login",
     name: "login",
     component: LoginView,
+    meta: {
+      title: "Inscription | Connexion",
+    },
   },
   {
     path: "/user/:id",
     name: "user",
     component: UserView,
+    meta: {
+      title: "Mon compte",
+    },
   },
   {
     path: "/about",
@@ -72,6 +93,12 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+//change the title pour each page for the WCAG constraints described in the projetct
+router.beforeEach((to, from, next) => {
+  document.title = `${to.meta.title}`;
+  next();
 });
 
 export default router;

@@ -26,7 +26,7 @@
         />
       </div>
       <div>
-        <p class="lien">
+        <p class="lien" id="wcag">
           <label for="file">Télécharger votre image</label>
         </p>
         <p v-if="this.file !== ''">Image bien ajoutée</p>
