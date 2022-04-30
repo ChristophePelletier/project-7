@@ -1,7 +1,9 @@
 <template>
   <div>
+    <div><p v-if="deletedAccount == true">test</p></div>
     <div v-if="$store.state.user.userId !== -1">
       <h1>{{ user.firstName }} {{ user.secondName }}</h1>
+
       <p>
         Membre depuis le
         {{ getFormattedDate(user.createdAt) }}
@@ -84,7 +86,9 @@ import articleService from "@/services/articleService";
 import commentService from "@/services/commentService";
 import * as moment from "moment";
 import "moment/locale/fr";
+import AboutView from "./AboutView.vue";
 export default {
+  components: { AboutView },
   data() {
     return {
       user: {},
@@ -95,6 +99,9 @@ export default {
   async created() {
     this.user = (await userService.getOneUser(this.$route.params.id)).data;
     console.log(this.user);
+  },
+  catch(err) {
+    console.log(err);
   },
   async mounted() {
     this.articles = (
@@ -126,6 +133,13 @@ export default {
     },
     catch(err) {
       console.log("erreur");
+    },
+    deletedAccount: function () {
+      if (this.user == null) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 };
