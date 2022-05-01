@@ -69,7 +69,8 @@
         </div>
       </fieldset>
     </form>
-    <button v-if="$store.state.admin == true" class="btn">
+    <!--v-if="$store.state.admin == true"-->
+    <button class="btn">
       <span
         @click="
           signup();
@@ -106,6 +107,8 @@ export default {
           firstName: this.firstName,
           admin: this.admin,
         });
+        window.alert("Création du compte en cours");
+        window.location.href = "/admin";
       } catch (error) {
         this.error = error.response.data.error;
       }

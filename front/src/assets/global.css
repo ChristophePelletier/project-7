@@ -331,7 +331,8 @@ input#completeArticle {
 /*
 News and comments
 */
-div.news {
+div.news,
+#contributions {
   border: #fd2d01 1px dotted;
   display: flex;
   flex-direction: row;
@@ -343,7 +344,8 @@ div.news {
   width: 100%;
 }
 
-div.article-container {
+div.article-container,
+div.user-article {
   background-color: white;
   padding: 15px;
   display: flex;
@@ -503,13 +505,16 @@ Utilisateurs
   width: 32%;
 }
 
-div.user-comment,
-div.user-article {
+div.user-comment {
   background-color: whitesmoke;
   padding: 15px;
   border-radius: 15px;
   margin-bottom: 25px;
   box-shadow: 10px 5px 5px lightgray;
+}
+
+div.user-article {
+  margin-bottom: 25px;
 }
 
 /*

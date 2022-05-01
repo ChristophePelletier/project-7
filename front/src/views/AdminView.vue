@@ -32,8 +32,6 @@
       </button>
     </div>
   </div>
-  <div>Cette page est réservée aux administrateurs</div>
-  <!--v-else -->
 </template>
 
 <script>

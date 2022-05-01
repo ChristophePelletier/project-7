@@ -147,12 +147,14 @@ exports.getOneUser = (req, res, next) => {
 }
 
 exports.signupAdmin = (req, res) => {
+  /*
   if (req.auth.admin != true) {
     console.log('non autorisé')
     return res.status(401).json({
       message: 'non autorisé',
     })
   }
+  */
   // Enregistrer l'utilisateur dans la base de données
   User.create({
     email: req.body.email,
@@ -163,12 +165,12 @@ exports.signupAdmin = (req, res) => {
   })
     .then((user) => {
       console.log("L'utilisateur a été enregistré avec succès!")
-      res.status(200)
+      //res.status(200)
       res.send(user.toJSON())
       //res.send({ message: "L'utilisateur a été enregistré avec succès!" })
     })
     .catch((err) => {
-      console.log('Erreur')
+      console.log('Erreurs')
       res.status(500)
       res.send({ message: err.message })
     })

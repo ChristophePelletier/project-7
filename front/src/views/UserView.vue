@@ -1,8 +1,10 @@
 <template>
   <div>
+    <!--
     <div v-if="accountDeleted == true">
       <p>teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
     </div>
+    -->
     <div v-if="$store.state.user.userId !== -1">
       <h1>{{ user.firstName }} {{ user.secondName }}</h1>
 
