@@ -110,7 +110,7 @@ export default {
     }
     if (this.user == null) {
       this.accountDeleted = true;
-      window.alert("ce contributeur ne dispose plus d'un compte actif");
+      //window.alert("ce contributeur ne dispose plus d'un compte actif");
       window.location.href = "/";
     }
   },
