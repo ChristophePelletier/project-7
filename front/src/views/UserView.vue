@@ -103,31 +103,36 @@ export default {
   async created() {
     try {
       this.user = (await userService.getOneUser(this.$route.params.id)).data;
-      console.log("this.user", this.user);
+      console.log("$route.params", this.$route.params);
       console.log("this.userId", this.user.userId);
     } catch (err) {
       console.log("erreur", err);
     }
     if (this.user == null) {
       this.accountDeleted = true;
+
       //window.alert("ce contributeur ne dispose plus d'un compte actif");
       window.location.href = "/";
     }
   },
   async mounted() {
-    this.articles = (
-      await articleService.getuserRecentArticles(this.$route.params.id)
-    ).data;
+    try {
+      this.articles = (
+        await articleService.getuserRecentArticles(this.$route.params.id)
+      ).data;
+      this.comments = (
+        await commentService.getuserRecentCommentsWithArticles(
+          this.$route.params.id
+        )
+      ).data;
+    } catch (err) {
+      console.log("erreur", err);
+    }
     /*
     this.comments = (
       await commentService.getuserRecentComments(this.$route.params.id)
     ).data;
     */
-    this.comments = (
-      await commentService.getuserRecentCommentsWithArticles(
-        this.$route.params.id
-      )
-    ).data;
   },
   methods: {
     async deleted() {
