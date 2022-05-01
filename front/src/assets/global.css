@@ -153,11 +153,11 @@ nav {
 
 nav > div {
   height: 55px;
-  width: 275px;
+  width: 255px;
+  padding-top: 15px;
   transition: 0.5s;
   background-color: #ffd7d7;
-  padding: 18px 0 15px 0;
-  border-radius: 85px;
+  border-radius: 25px;
 }
 
 nav > div:hover {
@@ -169,7 +169,7 @@ nav > div a {
   text-decoration: none;
   transition: none;
   font-size: 20px;
-  text-align: left;
+  text-align: center;
 }
 
 nav > div a:hover {
@@ -520,26 +520,19 @@ Responsive
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffd7d7;
     width: 100%;
     padding: 0;
     margin: 0;
+  }
+  nav > div {
+    margin-bottom: 15px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #ffd7d7;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-
   nav > div {
     padding: 15px;
+    margin-bottom: 25px;
     width: 275px;
   }
   div.news {
