@@ -47,7 +47,12 @@
         <!--****************-->
         <!--MON COMPTE-->
         <div v-if="$store.state.user.userId !== -1">
-          <a v-on:click="monCompte()" id="user" class="nav-link active pointer">
+          <a
+            v-bind:class="{ actif: userUrl }"
+            v-on:click="monCompte()"
+            id="user"
+            class="nav-link active pointer"
+          >
             Mon compte
           </a>
         </div>
@@ -74,11 +79,11 @@
 <script>
 import HomeLink from "./views/Header.vue";
 import Foot from "./views/FootView";
+
 export default {
   data() {
     return {
       userId: this.$store.state.user.userId,
-      concatUrl: "",
     };
   },
   name: "App",
@@ -97,11 +102,14 @@ export default {
     monCompte: function () {
       this.$router.push("/user/" + this.$store.state.user.userId);
     },
-    writeUrl: function () {
-      let beginUrl = "/user/";
-      let endUrl = this.$store.state.user.userId;
-      concatUrl = beginUrl + endUrl;
-      return concatUrl;
+  },
+  computed: {
+    userUrl: function () {
+      if (window.location.href.indexOf("user") > -1) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 };
@@ -144,5 +152,13 @@ nav a {
 nav a.router-link-exact-active {
   color: darkslategrey;
   text-decoration: underline;
+}
+
+#user {
+  color: black !important;
+}
+
+.actif {
+  text-decoration: underline !important;
 }
 </style>

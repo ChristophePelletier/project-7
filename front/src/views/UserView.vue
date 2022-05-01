@@ -156,19 +156,21 @@ export default {
       }
     },
   },
-};
-
-/*
-
-async print() {
-    this.user = (await userService.deleteOneUser(this.$route.params.id)).data;
-    console.log(this.user);
+  /*
+  created: {
+    beforeMount: function () {
+      console.log("testtestest");
+      if (window.location.href.indexOf("user") > -1) {
+        window.alert("The web page contains the string 'user'");
+      }
+    },
   },
 */
+};
 </script>
 
 <style>
-a#user:visited {
-  color: pink;
+#user {
+  color: red;
 }
 </style>
