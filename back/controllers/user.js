@@ -150,7 +150,7 @@ exports.signupAdmin = (req, res) => {
   if (req.auth.admin != true) {
     console.log('non autorisé')
     return res.status(401).json({
-      message: 'unauthorized',
+      message: 'non autorisé',
     })
   }
   // Enregistrer l'utilisateur dans la base de données

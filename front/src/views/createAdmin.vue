@@ -3,12 +3,16 @@
     <h1>Créer un compte administrateur</h1>
     <form id="administration">
       <div>
+        <p v-if="$store.state.user.admin == false">
+          Seuls les administrateurs peuvent créer un compte
+        </p>
         <label for="prénom">Prénom</label>
         <input
           v-model="firstName"
           type="text"
           placeholder="Prénom"
           id="prénom"
+          required="required"
         />
       </div>
       <div>
@@ -22,6 +26,7 @@
           type="email"
           placeholder="Adresse mail"
           id="email"
+          required="required"
         />
       </div>
 
@@ -32,6 +37,7 @@
           type="password"
           placeholder="Mot de passe"
           id="password"
+          required="required"
         />
       </div>
       <fieldset>
@@ -63,7 +69,7 @@
         </div>
       </fieldset>
     </form>
-    <button class="btn">
+    <button v-if="$store.state.admin == true" class="btn">
       <span
         @click="
           signup();
@@ -72,6 +78,8 @@
         >Je crée un compte<br
       /></span>
     </button>
+
+    <p v-html="error" />
   </div>
 </template>
 
@@ -85,9 +93,25 @@ export default {
       secondName: "",
       firstName: "",
       admin: "",
+      error: null,
     };
   },
   methods: {
+    async signup() {
+      try {
+        const response = await userService.signupAdmin({
+          email: this.email,
+          password: this.password,
+          secondName: this.secondName,
+          firstName: this.firstName,
+          admin: this.admin,
+        });
+      } catch (error) {
+        this.error = error.response.data.error;
+      }
+    },
+
+    /*
     async signup() {
       await userService.signupAdmin({
         email: this.email,
@@ -101,6 +125,7 @@ export default {
     catch(error) {
       this.error = error.response.data.error;
     },
+    */
   },
 };
 </script>
