@@ -92,7 +92,6 @@ exports.getAllUsers = (req, res, next) => {
 
 exports.deleteOneUser = (req, res, next) => {
   User.findByPk(req.params.id)
-
     .then((user) => {
       if (user.userId !== req.auth.userId) {
         console.log('non autorisé')
@@ -117,6 +116,12 @@ exports.deleteOneUser = (req, res, next) => {
 exports.delOneUser = (req, res, next) => {
   User.findByPk(req.params.id)
     .then((user) => {
+      if (req.auth.admin != true) {
+        console.log('non autorisé')
+        return res.status(401).json({
+          message: 'non autorisé',
+        })
+      }
       User.destroy({ where: { userId: user.userId } })
       console.log('id :', id)
       console.log('user.userId :', user.userId)
@@ -147,14 +152,12 @@ exports.getOneUser = (req, res, next) => {
 }
 
 exports.signupAdmin = (req, res) => {
-  /*
   if (req.auth.admin != true) {
     console.log('non autorisé')
     return res.status(401).json({
       message: 'non autorisé',
     })
   }
-  */
   // Enregistrer l'utilisateur dans la base de données
   User.create({
     email: req.body.email,
