@@ -1,6 +1,6 @@
 
 <template>
-  <div>
+  <div id="one-user">
     <div v-if="$store.state.user.userId !== -1">
       <h1>{{ user.firstName }} {{ user.secondName }}</h1>
       <p>
