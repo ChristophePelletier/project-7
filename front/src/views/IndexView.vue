@@ -177,4 +177,14 @@ img.illustration {
   border-radius: 5px;
   box-shadow: 10px 5px 5px lightgray;
 }
+
+@media screen and (max-width: 768px) {
+  img.illustration {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px lightgray;
+  }
+}
 </style>

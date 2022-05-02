@@ -17,7 +17,7 @@
             <div id="containeur-1-1-1-1">
               <div>
                 <p>
-                  Article rédigé le :
+                  Article rédigé le :<br />
                   {{ getFormattedDate(article.createdAt) }}
                 </p>
                 <p class="auteur">
