@@ -49,6 +49,14 @@
             Mon compte
           </a>
         </div>
+        <!--ADMINISTRATION-->
+        <div v-if="$store.state.user.admin == true">
+          <router-link to="/admin" class="nav-link active">
+            Administration
+          </router-link>
+        </div>
+        <!--****************-->
+        <!--****************-->
         <!--****************-->
         <!--****************-->
         <!--DÉCONNEXION-->
@@ -56,14 +64,6 @@
           <a v-on:click="logout()" class="nav-link active pointer">
             Déconnexion
           </a>
-        </div>
-        <!--****************-->
-        <!--****************-->
-        <!--ADMINISTRATION-->
-        <div v-if="$store.state.user.admin == true">
-          <router-link to="/admin" class="nav-link active">
-            Administration
-          </router-link>
         </div>
         <!--****************-->
         <!--****************-->
