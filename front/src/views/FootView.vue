@@ -1,7 +1,10 @@
 <template>
-  <footer class="text-center text-lg-start bg-light text-muted mt-4">
-    <div class="text-center p-4">
-      <p>2022 -- Groupomania</p>
+  <footer>
+    <div>
+      <router-link to="/about" class="nav-link active">
+        <!--  :class="{ vide: enteredFirstName }"-->
+        <p>2022 -- Groupomania</p>
+      </router-link>
     </div>
   </footer>
 </template>
