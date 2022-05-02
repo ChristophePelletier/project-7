@@ -103,7 +103,6 @@ export default {
       user: {},
       articles: {},
       comments: {},
-      accountDeleted: false,
     };
   },
   async created() {
@@ -152,13 +151,6 @@ export default {
     },
     getFormattedDate(date) {
       return moment(date).format("Do MMMM YYYY");
-    },
-    deletedAccount: function () {
-      if (!this.user.userId) {
-        return true;
-      } else {
-        return false;
-      }
     },
   },
   /*
