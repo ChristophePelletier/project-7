@@ -141,6 +141,7 @@ exports.getArticlesWithComments = (req, res, next) => {
   })
     .then((articles) => {
       res.send(articles)
+      //vu avec Jérémie : méthode alternative
       //res.send(articles)
       /*
       articles.map(article =>{

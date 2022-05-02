@@ -1,10 +1,9 @@
 const express = require('express')
 const router = express.Router()
-
+//
 const userCtrl = require('../controllers/user')
 const checkDoubleEmail = require('../middlewares/checkDoubleEmail')
 const checkDoubleEmailAdmin = require('../middlewares/checkDoubleEmailAdmin')
-//const checkSignup = require('../middlewares/checkSignup')
 const authPolicy = require('../middlewares/authPolicy')
 const auth = require('../middlewares/auth')
 //
