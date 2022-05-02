@@ -171,9 +171,20 @@ export default {
 </script>
 <style scoped>
 img.illustration {
-  max-width: 200px;
-  max-height: 150px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 5px;
   box-shadow: 10px 5px 5px lightgray;
+}
+
+@media screen and (max-width: 768px) {
+  img.illustration {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px lightgray;
+  }
 }
 </style>

@@ -158,9 +158,33 @@ export default {
 </script>
 <style scoped>
 img.illustration {
-  max-width: 200px;
-  max-height: 150px;
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px lightgray;
   border-radius: 7px;
   box-shadow: 2px 1px 1px lightgray;
+}
+img.brand {
+  width: 83px;
+  opacity: 0.2;
+  transition: all 1s;
+}
+img.brand:hover {
+  width: 83px;
+  opacity: 1;
+}
+@media screen and (max-width: 768px) {
+  img.illustration {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 5px 2px 2px lightgray;
+  }
+  img.brand {
+    width: 50px;
+  }
 }
 </style>
