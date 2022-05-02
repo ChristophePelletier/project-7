@@ -17,8 +17,8 @@ router.post(
 )
 router.post('/login', userCtrl.login)
 router.post('/signupadmin', auth, checkDoubleEmailAdmin, userCtrl.signupAdmin)
-router.get('/users', userCtrl.getAllUsers)
+router.get('/users', auth, userCtrl.getAllUsers)
 router.delete('/user/:id', auth, userCtrl.deleteOneUser)
-router.delete('/oneuser/:id', userCtrl.delOneUser)
-router.get('/user/:id', userCtrl.getOneUser)
+router.delete('/oneuser/:id', auth, userCtrl.delOneUser)
+router.get('/user/:id', auth, userCtrl.getOneUser)
 module.exports = router

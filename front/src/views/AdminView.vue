@@ -4,7 +4,7 @@
     <h1>Administration</h1>
     <h2>Liste des inscrits</h2>
     <div v-for="user in users" :key="user.userId">
-      <ul>
+      <ul id="admin">
         <li>
           <router-link :to="'/user/' + user.userId">
             {{ user.firstName }} {{ user.secondName }}</router-link
@@ -52,14 +52,6 @@ export default {
       window.location.href = "/admin";
       //window.location.reload();
     },
-    /*
-    async del(id) {
-      await userService.delOneUser(id);
-      window.alert("suppression du compte");
-      window.location.href = "/admin";
-      //window.location.reload();
-    },
-    */
     catch(err) {
       console.log("erreur erreur");
     },

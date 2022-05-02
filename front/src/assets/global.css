@@ -132,7 +132,6 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: top;
   margin: 0 35px 35px 35px;
   width: 100%;
 }
@@ -209,9 +208,12 @@ input[placeholder] {
   border: 4px solid #fd2d01;
   border: 2px;
 }
-form input.vide {
-  border: 4px solid #fd2d01;
-  background-color: #ff9999;
+form input {
+  border: 4px solid black;
+}
+
+form input.rempli {
+  border: 4px solid #ffd7d7;
 }
 form {
   display: flex;
@@ -581,7 +583,7 @@ ul li {
   font-size: 20px;
 }
 
-ul li:first-child {
+#admin ul li:first-child {
   font-size: 26px;
   font-weight: bold;
 }

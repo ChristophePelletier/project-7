@@ -96,7 +96,7 @@ exports.deleteOneUser = (req, res, next) => {
       if (user.userId !== req.auth.userId) {
         console.log('non autorisé')
         return res.status(401).json({
-          message: 'unauthorized',
+          message: 'non autorisé',
         })
       }
       User.destroy({ where: { userId: user.userId } })
@@ -117,7 +117,7 @@ exports.delOneUser = (req, res, next) => {
   User.findByPk(req.params.id)
     .then((user) => {
       if (req.auth.admin != true) {
-        console.log('non autorisé')
+        console.log('non autorisé pour la suppression compte autre que le sien')
         return res.status(401).json({
           message: 'non autorisé',
         })

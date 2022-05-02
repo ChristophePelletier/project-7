@@ -68,10 +68,10 @@
           <button
             v-if="$store.state.user.admin == true"
             type="button"
-            class="btn btn-warning"
+            class="btn alert"
             @click="deleteOneComment(comment.id)"
           >
-            Supprimer ce commentaire
+            <span> Supprimer ce commentaire</span>
           </button>
         </article>
       </div>
@@ -120,13 +120,14 @@
       <div>
         <!--v-if="$store.state.user.admin == true" -->
         <button
+          v-if="$store.state.user.admin == true"
           type="button"
           class="alert"
           @click="deleteOneArticle(article.id)"
         >
           <span> Supprimer cet article</span>
         </button>
-        <p>
+        <p v-if="$store.state.user.admin == true">
           Attention, la suppression de l'article entraînera également la
           suppression de l'ensemble des commentaires associés.
         </p>
