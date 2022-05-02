@@ -22,10 +22,7 @@ module.exports = (req, res, next) => {
         break
 
       default:
-        next() /*
-        res.status(400).send({
-          error: 'Invalid registration information',
-        })*/
+        next()
     }
   } else {
     next()
