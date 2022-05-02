@@ -537,7 +537,7 @@ Utilisateurs
 #contributions {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 #user-articles {
@@ -545,7 +545,7 @@ Utilisateurs
 }
 
 #user-comments {
-  width: 32%;
+  width: 34%;
 }
 
 div.user-comment {
