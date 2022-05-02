@@ -17,7 +17,7 @@
             <div id="containeur-1-1-1-1">
               <div>
                 <p>
-                  Article rédigé le :
+                  Article rédigé le :<br />
                   {{ getFormattedDate(article.createdAt) }}
                 </p>
                 <p class="auteur">
@@ -30,16 +30,16 @@
                     ></router-link
                   >
                 </p>
-                <img
-                  v-if="article.image"
-                  class="illustration"
-                  v-bind:src="article.image"
-                />
               </div>
               <div>
                 <p class="article-content">
                   {{ article.content }}
                 </p>
+                <img
+                  v-if="article.image"
+                  class="illustration"
+                  v-bind:src="article.image"
+                />
               </div>
             </div>
           </div>
@@ -50,10 +50,10 @@
       <div id="containeur-1-2">
         <h2>Commentaires</h2>
         <article class="comment-one" v-for="comment in comments" :key="comment">
-          <p>
+          <h3>
             Titre<br />
             {{ comment.title }}
-          </p>
+          </h3>
           <p class="article-content">
             {{ comment.content }}
           </p>
@@ -83,7 +83,7 @@
       <div>
         <div>
           <button type="button" @click="showForm = !showForm">
-            <span> Commenter l'article</span>
+            <span> Commenter</span>
           </button>
           <form class="commentaire" v-show="showForm">
             <div>
@@ -125,7 +125,7 @@
           class="alert"
           @click="deleteOneArticle(article.id)"
         >
-          <span> Supprimer cet article</span>
+          <span> Supprimer ce post</span>
         </button>
         <p v-if="$store.state.user.admin == true">
           Attention, la suppression de l'article entraînera également la
@@ -170,7 +170,6 @@ export default {
     this.comments = (await commentService.getArticleComments(articleId)).data;
     console.log(this.comments);
   },
-
   methods: {
     create() {
       commentService.post(this.comment);
@@ -218,6 +217,9 @@ export default {
 
 <style scoped>
 img.illustration {
-  max-width: 200px;
+  width: 90%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 15px;
 }
 </style>
