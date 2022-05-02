@@ -117,7 +117,6 @@ exports.userRecentArticles = (req, res, next) => {
 }
 
 exports.getAllArticlesWithComments = (req, res, next) => {
-  console.log('testgetartcomment')
   Article.findAll({
     include: [{ all: true, nested: true }],
     limit: 50,
