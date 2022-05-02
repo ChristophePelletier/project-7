@@ -219,7 +219,7 @@ export default {
 <style scoped>
 img.illustration {
   width: 90%;
-  height: 300px;
+  height: 600px;
   object-fit: cover;
   border-radius: 15px;
 }
