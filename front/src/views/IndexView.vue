@@ -6,7 +6,7 @@
       </router-link>
     </button>
     <div v-if="$store.state.user.userId !== -1" class="article">
-      <h1>Derniers posts</h1>
+      <h1>Accueil : les derniers posts</h1>
       <!--
     <router-link :to="{ name: 'article-create' }">
       <p>Rédiger un nouvel article</p>
@@ -69,7 +69,7 @@
           <h3 v-if="article.comments[0] && article.comments[1]">
             Derniers commentaires
           </h3>
-          <h3 class="attente-comment">
+          <h3 v-if="!article.comments[0]" class="attente-comment">
             Personne n'a encore réagi à ce poste ;<br />
             <router-link :to="'/article/' + article.id">
               lire la suite et commenter...</router-link

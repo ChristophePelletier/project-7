@@ -125,7 +125,12 @@ button {
 }
 
 button.alert {
-  background-color: rgb(99, 64, 0);
+  background-color: #fd2d01;
+  transition: background-color color 0.5s;
+}
+
+button.alert:hover {
+  background-color: darkslategrey;
 }
 
 button.alert a,
@@ -179,6 +184,10 @@ nav > div.deconnect {
   border-radius: 25px;
 }
 
+nav > div.deconnect:hover {
+  transition: 0.5s;
+  background-color: darkslategrey;
+}
 nav > div.deconnect a {
   color: white;
 }
