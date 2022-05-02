@@ -89,8 +89,17 @@ export default {
     };
   },
   async created() {
-    this.user = (await userService.getOneUser(this.$route.params.id)).data;
-    console.log(this.user);
+    try {
+      this.user = (await userService.getOneUser(this.$route.params.id)).data;
+      console.log("this.user", this.user);
+      console.log("this.userId", this.user.userId);
+    } catch (err) {
+      console.log("erreur", err);
+    }
+    if (this.user == null) {
+      window.alert("ce compte n'est plus actif");
+      window.location.href = "/";
+    }
   },
   async mounted() {
     this.articles = (
