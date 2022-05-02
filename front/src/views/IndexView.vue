@@ -26,7 +26,7 @@
     -->
           <div class="article-container">
             <div>
-              <p v-snip="3" class="article-content">
+              <p v-snip="{ lines: 7 }" class="article-content">
                 {{ article.content }}
               </p>
               <p class="coldInfo">
