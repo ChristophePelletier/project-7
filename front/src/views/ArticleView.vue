@@ -83,7 +83,7 @@
       <div>
         <div>
           <button type="button" @click="showForm = !showForm">
-            <span> Commenter l'article</span>
+            <span> Commenter</span>
           </button>
           <form class="commentaire" v-show="showForm">
             <div>
@@ -125,7 +125,7 @@
           class="alert"
           @click="deleteOneArticle(article.id)"
         >
-          <span> Supprimer cet article</span>
+          <span> Supprimer ce post</span>
         </button>
         <p v-if="$store.state.user.admin == true">
           Attention, la suppression de l'article entraînera également la

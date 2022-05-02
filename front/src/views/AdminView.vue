@@ -25,7 +25,7 @@
     </div>
     <div>
       <h2>Créer un nouveau compte administrateur</h2>
-      <button type="button" class="alert" @click="del(user.userId)">
+      <button type="button" @click="del(user.userId)">
         <router-link to="/createAdmin" class="navbar-brand"
           ><span>Créer le compte</span></router-link
         >

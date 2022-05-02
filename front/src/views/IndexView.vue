@@ -31,7 +31,7 @@
               </p>
               <p class="coldInfo">
                 <router-link :to="'/article/' + article.id">
-                  Lire la suite | Commenter</router-link
+                  Lire la suite</router-link
                 >
               </p>
             </div>
@@ -72,7 +72,7 @@
           <h3 v-if="!article.comments[0]" class="attente-comment">
             Personne n'a encore réagi à ce poste ;<br />
             <router-link :to="'/article/' + article.id">
-              lire la suite et commenter...</router-link
+              lire la suite ou commenter...</router-link
             >
           </h3>
           <p v-if="!article.comments[0]">
@@ -171,8 +171,9 @@ export default {
 </script>
 <style scoped>
 img.illustration {
-  max-width: 200px;
-  max-height: 150px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 5px;
   box-shadow: 10px 5px 5px lightgray;
 }
