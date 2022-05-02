@@ -36,7 +36,7 @@
               </p>
             </div>
 
-            <div>
+            <div class="img-placement">
               <img
                 v-if="article.image"
                 class="illustration"
@@ -69,9 +69,18 @@
           <h3 v-if="article.comments[0] && article.comments[1]">
             Derniers commentaires
           </h3>
-          <h3 v-if="!article.comments[0]">
-            <router-link :to="'/article/' + article.id"> Commenter</router-link>
+          <h3 class="attente-comment">
+            Personne n'a encore réagi à ce poste ;<br />
+            <router-link :to="'/article/' + article.id">
+              lire la suite et commenter...</router-link
+            >
           </h3>
+          <p v-if="!article.comments[0]">
+            <router-link :to="'/article/' + article.id">
+              <img class="brand" alt="" src="../../public/images/chat.png" />
+            </router-link>
+          </p>
+
           <div v-if="article.comments[0]">
             <h4 class="comment-title">
               {{ article.comments[0].title }}

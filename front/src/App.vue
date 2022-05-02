@@ -37,14 +37,7 @@
         </div>
         <!--****************-->
         <!--****************-->
-        <!--DÉCONNEXION-->
-        <div v-if="$store.state.user.userId !== -1">
-          <a v-on:click="logout()" class="nav-link active pointer">
-            Déconnexion
-          </a>
-        </div>
-        <!--****************-->
-        <!--****************-->
+
         <!--MON COMPTE-->
         <div v-if="$store.state.user.userId !== -1">
           <a
@@ -58,9 +51,16 @@
         </div>
         <!--****************-->
         <!--****************-->
+        <!--DÉCONNEXION-->
+        <div class="deconnect" v-if="$store.state.user.userId !== -1">
+          <a v-on:click="logout()" class="nav-link active pointer">
+            Déconnexion
+          </a>
+        </div>
+        <!--****************-->
+        <!--****************-->
         <!--ADMINISTRATION-->
-        <div>
-          <!-- v-if="$store.state.user.admin == true" -->
+        <div v-if="$store.state.user.admin == true">
           <router-link to="/admin" class="nav-link active">
             Administration
           </router-link>
