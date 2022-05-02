@@ -1,10 +1,13 @@
 <template>
-  <div>
+  <div id="user-template">
     <!--
     <div v-if="accountDeleted == true">
       <p>teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</p>
     </div>
     -->
+    <div v-if="$store.state.user.userId == this.$route.params.id">
+      <p id="my-account">Mon compte</p>
+    </div>
     <div v-if="$store.state.user.userId !== -1">
       <h1>{{ user.firstName }} {{ user.secondName }}</h1>
 
@@ -40,6 +43,7 @@
       <div id="user-articles">
         <h3>Articles</h3>
         <div class="user-article" v-for="article in articles" :key="article.id">
+          <p v-if="!user.article[0]">test</p>
           <h2>
             <router-link :to="'/article/' + article.id">
               {{ article.title }}</router-link
