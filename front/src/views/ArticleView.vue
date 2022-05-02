@@ -30,16 +30,16 @@
                     ></router-link
                   >
                 </p>
-                <img
-                  v-if="article.image"
-                  class="illustration"
-                  v-bind:src="article.image"
-                />
               </div>
               <div>
                 <p class="article-content">
                   {{ article.content }}
                 </p>
+                <img
+                  v-if="article.image"
+                  class="illustration"
+                  v-bind:src="article.image"
+                />
               </div>
             </div>
           </div>
@@ -50,10 +50,10 @@
       <div id="containeur-1-2">
         <h2>Commentaires</h2>
         <article class="comment-one" v-for="comment in comments" :key="comment">
-          <p>
+          <h3>
             Titre<br />
             {{ comment.title }}
-          </p>
+          </h3>
           <p class="article-content">
             {{ comment.content }}
           </p>
@@ -218,6 +218,9 @@ export default {
 
 <style scoped>
 img.illustration {
-  max-width: 200px;
+  width: 90%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
 }
 </style>
