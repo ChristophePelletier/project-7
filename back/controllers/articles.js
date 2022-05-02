@@ -103,7 +103,7 @@ exports.getOneArticle = (req, res, next) => {
 exports.userRecentArticles = (req, res, next) => {
   Article.findAll({
     where: { userId: req.params.userId },
-    articlelimit: 5,
+    articlelimit: 25,
     order: [['createdAt', 'DESC']],
   })
     .then((articles) => {
@@ -186,6 +186,23 @@ exports.deleteOneArticle = (req, res, next) => {
     })
     .catch((error) => {
       res.status(404).json({
+        error: error,
+      })
+    })
+}
+
+exports.getUserArticlesWithComments = (req, res, next) => {
+  Article.findAll({
+    where: { userId: req.params.userId },
+    include: [{ all: true, nested: true }],
+    limit: 6,
+    order: [['createdAt', 'DESC']],
+  })
+    .then((articles) => {
+      res.send(articles)
+    })
+    .catch((error) => {
+      res.status(500).json({
         error: error,
       })
     })

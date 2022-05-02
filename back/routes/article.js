@@ -16,4 +16,9 @@ router.get(
   articleCtrl.getAllArticlesWithComments
 )
 //router.get('/articlecomments/:articleId', articleCtrl.getArticleWithComments)
+router.get(
+  '/userarticleswithcomments/:userId',
+  auth,
+  articleCtrl.getUserArticlesWithComments
+)
 module.exports = router

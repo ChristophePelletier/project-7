@@ -73,7 +73,7 @@ exports.deleteOneComment = (req, res, next) => {
 exports.userRecentComments = (req, res, next) => {
   Comment.findAll({
     where: { userId: req.params.userId },
-    commentlimit: 5,
+    commentlimit: 25,
     order: [['createdAt', 'DESC']],
   })
     .then((comments) => {
