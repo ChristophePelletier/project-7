@@ -33,12 +33,6 @@ sequelize
   .then(() => console.log('OK Database connected OK'))
   .catch((err) => console.log('Error: ' + err))
 */
-app.post('/signup', (req, res) => {
-  console.log('req.body : ', req.body)
-  res.send({
-    message: `Bonjour bonjour ${req.body.name}, ${req.body.email} utilisateur enregistré, votre mot de passe : ${req.body.password}`,
-  })
-})
 const db = require('./models')
 // for images -> gets the path of the files --> for the middleware for the images
 const path = require('path')

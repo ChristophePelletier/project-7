@@ -15,14 +15,17 @@ module.exports = (req, res, next) => {
     //jwt.verify(token, process.env.RTS)
     //if error --> catch
     // OK : we pass it in env variable
-    const userId = decodedToken.id
+
     console.log('decodedToken.id', decodedToken.id)
     console.log('userId', userId)
-    const admin = decodedToken.admin
+
     console.log('admin', admin)
     // prevent delete object from someone else
+    const userId = decodedToken.id
     req.userId = userId
+    const admin = decodedToken.admin
     req.admin = admin
+    req.auth = { userId: userId, admin: admin }
     // we add to the request object the userId --> for the delete function
     req.auth = { userId: userId, admin: admin }
     console.log('req.auth', req.auth)

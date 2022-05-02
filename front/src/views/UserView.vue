@@ -57,14 +57,14 @@
       <div id="user-comments">
         <h3>Commentaires</h3>
 
-        <div class="user-comment" v-for="comment in comments" :key="comment">
-          <h2>{{ comment.title }}</h2>
+        <div>
+          <h2>{{ article.comments.title }}</h2>
           <p>Sur l'article</p>
           <p class="article-content">
-            {{ comment.content }}
+            {{ article.comments.content }}
           </p>
           <p>
-            <router-link :to="'/article/' + comment.articleId"
+            <router-link :to="'/article/' + article.comments.articleId"
               >Lire l'article
             </router-link>
           </p>
@@ -77,7 +77,6 @@
 <script>
 import userService from "@/services/userService";
 import articleService from "@/services/articleService";
-import commentService from "@/services/commentService";
 import * as moment from "moment";
 import "moment/locale/fr";
 export default {
@@ -85,7 +84,6 @@ export default {
     return {
       user: {},
       articles: {},
-      comments: {},
     };
   },
   async created() {
@@ -103,10 +101,7 @@ export default {
   },
   async mounted() {
     this.articles = (
-      await articleService.getuserRecentArticles(this.$route.params.id)
-    ).data;
-    this.comments = (
-      await commentService.getuserRecentComments(this.$route.params.id)
+      await articleService.getUserArticlesWithComments(this.$route.params.id)
     ).data;
   },
   methods: {
