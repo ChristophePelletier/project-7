@@ -42,14 +42,6 @@ const routes = [
     },
   },
   {
-    path: "/tests",
-    name: "tests",
-    component: LoginView,
-    meta: {
-      title: "Inscription | Connexion",
-    },
-  },
-  {
     path: "/admin",
     component: AdminView,
     meta: {

@@ -117,7 +117,7 @@ export default {
   },
   mounted: function () {
     if (this.$store.state.user.userId != -1) {
-      this.$router.push("/articles");
+      this.$router.push("/");
       return;
     }
   },
@@ -279,6 +279,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-</style>
