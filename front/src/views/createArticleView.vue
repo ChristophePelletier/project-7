@@ -84,7 +84,7 @@ export default {
       //console.log("this.file :", this.file);
       //console.log("formaData :", formData);
       this.$router.push({
-        name: "articles",
+        name: "home",
       });
     },
     catch(err) {

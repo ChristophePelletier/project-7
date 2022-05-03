@@ -21,8 +21,9 @@
                   {{ getFormattedDate(article.createdAt) }}
                 </p>
                 <p class="auteur">
+                  par<br />
                   <router-link :to="'/user/' + article.userId">
-                    <span class="coldInfo">par</span>
+                    <span class="coldInfo"></span>
                     {{ article.firstName }} {{ article.secondName }} <br /><span
                       class="coldInfo"
                     >
@@ -51,16 +52,15 @@
         <h2>Commentaires</h2>
         <article class="comment-one" v-for="comment in comments" :key="comment">
           <h3>
-            Titre<br />
             {{ comment.title }}
           </h3>
           <p class="article-content">
             {{ comment.content }}
           </p>
-          <p>
-            par {{ comment.firstName }}
-            {{ comment.email }}
-          </p>
+          <router-link :to="'/user/' + comment.userId" class="nav-link active">
+            {{ comment.firstName }} {{ comment.email }}</router-link
+          >
+
           <p>
             Commentaire du :
             {{ getFormattedDate(comment.createdAt) }}

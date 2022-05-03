@@ -59,7 +59,6 @@
 
         <div class="user-comment" v-for="comment in comments" :key="comment">
           <h2>{{ comment.title }}</h2>
-          <p>Sur l'article</p>
           <p class="article-content">
             {{ comment.content }}
           </p>

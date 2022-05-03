@@ -31,7 +31,7 @@
               </p>
               <p class="coldInfo">
                 <router-link :to="'/article/' + article.id">
-                  Lire la suite | Commenter</router-link
+                  Lire la suite</router-link
                 >
               </p>
             </div>
@@ -72,7 +72,7 @@
           <h3 v-if="!article.comments[0]" class="attente-comment">
             Personne n'a encore réagi à ce poste ;<br />
             <router-link :to="'/article/' + article.id">
-              lire la suite et commenter...</router-link
+              lire la suite ou commenter...</router-link
             >
           </h3>
           <p v-if="!article.comments[0]">
