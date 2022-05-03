@@ -17,10 +17,10 @@
 ### Back
 
 - You can use the .env-model for the environment variables
-  --first rename the file : .env
-  -- then choose the RTS : the signature for the encoding of the jsonweboken
-  -- then choose the name of your database
-  -- theN add you DATABASEUSER and your DATABASEPASSWORD of your MYSQL database
+- [first rename the file : .env
+- [then choose the RTS : the signature for the encoding of the jsonweboken
+- [then choose the name of your database
+- [then add you DATABASEUSER and your DATABASEPASSWORD of your MYSQL database
 - At the root of the back, create an "images" directory where the images will be downloaded
 
 ### Front
