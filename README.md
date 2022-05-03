@@ -27,8 +27,18 @@
 
 after npm run serve a link to
 http://localhost:8080/
-will apppear in the console
+will appear in the console
 
 ## Back and Front
 
 - Use `Ctrl+C` in the terminal to stop the local server.
+
+# More details
+
+## Back
+
+- Database configuration : config -> configDb.js
+
+## Front
+
+- README.md
