@@ -33,11 +33,6 @@ const store = createStore({
   state: {
     status: "",
     user: user,
-    userInfos: {
-      firstName: "",
-      name: "",
-      email: "",
-    },
   },
   mutations: {
     setStatus: function (state, status) {
@@ -49,9 +44,6 @@ const store = createStore({
       localStorage.setItem("user", JSON.stringify(user));
       state.user = user;
     },
-    userInfos: function (state, userInfos) {
-      state.userInfos = userInfos;
-    },
     logout: function (state) {
       state.user = {
         userId: -1,
@@ -60,6 +52,8 @@ const store = createStore({
       localStorage.removeItem("user");
     },
   },
+  //Actions are similar to mutations, the differences being that:
+  //Instead of mutating the state, actions ***commit*** mutations.
   actions: {
     login: ({ commit }, userInfos) => {
       commit("setStatus", "loading");

@@ -120,7 +120,12 @@ export default {
   computed: {
     validatedFields: function () {
       if (this.mode == "signup") {
-        if (this.email != "" && this.password != "") {
+        if (
+          this.email != "" &&
+          this.password != "" &&
+          this.firstName != "" &&
+          this.secondName != ""
+        ) {
           return true;
         } else {
           return false;
@@ -237,6 +242,7 @@ export default {
     switchToLogin: function () {
       this.mode = "login";
     },
+    //Actions are triggered with the store.dispatch method
     login: function () {
       const self = this;
       this.$store
@@ -253,6 +259,7 @@ export default {
           }
         );
     },
+    //Actions are triggered with the store.dispatch method
     signup: function () {
       const self = this;
       this.$store
