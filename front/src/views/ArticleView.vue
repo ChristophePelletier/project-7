@@ -37,7 +37,11 @@
                   {{ article.content }}
                 </p>
                 <div @click="scrollToBottom">
-                  <button type="button" @click="showForm = !showForm">
+                  <button
+                    class="show-comment"
+                    type="button"
+                    @click="showForm = !showForm"
+                  >
                     <span> Commenter</span>
                   </button>
                 </div>
@@ -78,6 +82,11 @@
             <span> Supprimer ce commentaire</span>
           </button>
         </article>
+        <div @click="scrollToBottom">
+          <button type="button" @click="showForm = !showForm">
+            <span> Commenter</span>
+          </button>
+        </div>
       </div>
       <!--FIN DES COMMENTAIRES -->
     </div>
@@ -226,5 +235,14 @@ img.illustration {
   height: 600px;
   object-fit: cover;
   border-radius: 15px;
+}
+@media screen and (max-width: 768px) {
+  img.illustration {
+    width: 90%;
+    height: 350px;
+    object-fit: cover;
+    object-position: 50% top;
+    border-radius: 15px;
+  }
 }
 </style>

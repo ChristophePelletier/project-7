@@ -132,19 +132,13 @@ button.user {
   margin-bottom: 55px;
 }
 
-button.annexe {
-  width: 150px !important;
-  height: 35px;
-  padding: 2px 0 0 0;
-}
-
-.annexe-txt {
-  padding-top: 0px !important;
-}
-
 button.alert {
   background-color: #fd2d01;
   transition: background-color color 0.5s;
+}
+
+button.show-comment {
+  margin-bottom: 25px;
 }
 
 button.alert:hover {
@@ -609,6 +603,17 @@ p#my-account {
 Responsive
 */
 @media screen and (max-width: 1200px) {
+  div.news,
+  #contributions {
+    border: #fd2d01 4px solid;
+    margin-top: 45px;
+  }
+  h2 {
+    margin-top: 25px;
+  }
+  h3 {
+    margin-top: 45px;
+  }
   nav {
     display: flex;
     flex-direction: column;
@@ -687,6 +692,11 @@ Responsive
   }
 }
 @media screen and (max-width: 768px) {
+  .article-container {
+    display: flex;
+    flex-direction: column !important;
+  }
+
   nav > div {
     padding: 15px;
     margin-bottom: 25px;
