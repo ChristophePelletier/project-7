@@ -69,7 +69,7 @@
         </p>
       </div>
       <div v-if="mode == 'login' && status == 'error_login'">
-        Adresse mail et/ou mot de passe invalide
+        <p>Adresse mail et/ou mot de passe invalide(s)</p>
       </div>
     </form>
     <ul v-if="mode == 'login'">
@@ -84,11 +84,7 @@
     </ul>
     <p v-html="error" />
     <div>
-      <button
-        v-if="mode == 'login'"
-        @click="login()"
-        class="button btn btn-primary"
-      >
+      <button v-if="mode == 'login'" @click="login()" class="button">
         <span v-if="status == 'loading'">Connexion en cours...</span>
         <span v-else>Connexion</span>
       </button>
