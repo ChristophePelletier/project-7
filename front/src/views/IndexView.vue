@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <button v-if="$store.state.user.userId == -1" class="article">
-      <router-link to="/login">
-        <span>S'inscrire / se connecter</span>
-      </router-link>
-    </button>
+  <div class="econnect">
+    <div id="connect">
+      <button v-if="$store.state.user.userId == -1" class="article">
+        <router-link to="/login">
+          <span>S'inscrire / se connecter</span>
+        </router-link>
+      </button>
+    </div>
     <div v-if="$store.state.user.userId !== -1" class="article">
       <h1>Accueil : les derniers posts</h1>
       <!--

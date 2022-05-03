@@ -8,11 +8,11 @@
     <div id="hnav">
       <nav>
         <!--ACCUEIL-->
-        <div>
+        <div class="route">
           <router-link to="/" class="nav-link active">Accueil</router-link>
         </div>
         <!--RÉDIGER UN ARTICLE-->
-        <div v-if="$store.state.user.userId !== -1">
+        <div class="route" v-if="$store.state.user.userId !== -1">
           <router-link to="/articles" class="nav-link active">
             <!--  :class="{ vide: enteredFirstName }"-->
             Tous les posts
@@ -23,7 +23,7 @@
         <!--****************-->
         <!--****************-->
         <!--RÉDIGER UN ARTICLE-->
-        <div v-if="$store.state.user.userId !== -1">
+        <div class="route" v-if="$store.state.user.userId !== -1">
           <router-link to="/article-create" class="nav-link active">
             <!--  :class="{ vide: enteredFirstName }"-->
             Rédiger un post
@@ -32,14 +32,14 @@
         <!--****************-->
         <!--****************-->
         <!--LOGIN-->
-        <div v-if="$store.state.user.userId == -1">
+        <div class="route" v-if="$store.state.user.userId == -1">
           <router-link to="/login" class="nav-link active"> Login </router-link>
         </div>
         <!--****************-->
         <!--****************-->
 
         <!--MON COMPTE-->
-        <div v-if="$store.state.user.userId !== -1">
+        <div class="route" v-if="$store.state.user.userId !== -1">
           <a
             v-bind:class="{ actif: userUrl }"
             v-on:click="monCompte()"
@@ -55,7 +55,7 @@
         <!--****************-->
         <!--****************-->
         <!--ADMINISTRATION-->
-        <div v-if="$store.state.user.admin == true">
+        <div class="route" v-if="$store.state.user.admin == true">
           <router-link to="/admin" class="nav-link active">
             Administration
           </router-link>
@@ -63,7 +63,7 @@
         <!--****************-->
         <!--****************-->
         <!--DÉCONNEXION-->
-        <div class="deconnect" v-if="$store.state.user.userId !== -1">
+        <div class="deconnect route" v-if="$store.state.user.userId !== -1">
           <a v-on:click="logout()" class="nav-link active pointer">
             Déconnexion
           </a>

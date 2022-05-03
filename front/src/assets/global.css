@@ -45,7 +45,9 @@ img.brand {
 p.imageOk {
   background-color: red;
 }
-
+ul {
+  padding-left: 0 !important;
+}
 ul li {
   list-style-type: none;
 }
@@ -603,10 +605,49 @@ p#my-account {
 Responsive
 */
 @media screen and (max-width: 1200px) {
+  form {
+    width: 100%;
+  }
+  form > div {
+    width: 100%;
+  }
+  input {
+    width: 90% !important;
+  }
+
+  #hnav {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  div#connect {
+    width: 100%;
+    margin: 0;
+  }
+
+  #completeArticle {
+    width: 95%;
+  }
+
   div.news,
   #contributions {
     border: #fd2d01 4px solid;
     margin-top: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+  .econnect {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  button.article {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80% !important;
   }
   h2 {
     margin-top: 25px;
@@ -617,19 +658,30 @@ Responsive
   nav {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 80% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     padding: 0;
-    margin: 0;
+  }
+  .route {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
   }
   nav > div {
-    margin-bottom: 15px;
+    margin-bottom: 15px !important;
+    margin-left: 0;
+    margin-right: 0;
   }
   div#containeur {
     border: #fd2d01 1px dotted;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 25px;
     flex-direction: column;
     border-radius: 15px;
@@ -700,7 +752,7 @@ Responsive
   nav > div {
     padding: 15px;
     margin-bottom: 25px;
-    width: 275px;
+    width: 100%;
   }
   div.news {
     width: 95%;
@@ -718,12 +770,19 @@ Responsive
   article.principal {
     width: 96%;
   }
-
+  .route {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
   article.comment {
     width: 96%;
   }
   #contributions {
     flex-direction: column;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
     align-items: center;
   }
   #user-articles {
