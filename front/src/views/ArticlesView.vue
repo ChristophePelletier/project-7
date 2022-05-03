@@ -90,6 +90,8 @@
                 {{ article.comments[0].firstName }}
                 {{ article.comments[0].secondName }}
               </router-link>
+              <br />
+              ({{ getFormattedDate(article.comments[0].createdAt) }})
             </p>
             <p class="comment-content" v-snip="5">
               {{ article.comments[0].content }}

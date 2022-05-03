@@ -54,14 +54,14 @@
           <h3>
             {{ comment.title }}
           </h3>
-          <p class="article-content">
-            {{ comment.content }}
-          </p>
           <p>
             <router-link :to="'/user/' + comment.userId">
               {{ comment.firstName }} {{ comment.secondName }}</router-link
             ><br />Commentaire du :
             {{ getFormattedDate(comment.createdAt) }}
+          </p>
+          <p class="article-content">
+            {{ comment.content }}
           </p>
 
           <button
