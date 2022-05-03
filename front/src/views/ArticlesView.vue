@@ -72,12 +72,12 @@
           <h3 v-if="!article.comments[0]" class="attente-comment">
             Personne n'a encore réagi à ce poste ;<br />
             <router-link :to="'/article/' + article.id">
-              lire la suite ou commenter...</router-link
+              lire la suite</router-link
             >
           </h3>
           <p v-if="!article.comments[0]">
             <router-link :to="'/article/' + article.id">
-              <img class="brand" alt="" src="../../public/images/chat.png" />
+              <img class="brand" alt="" src="../../public/images/chat-2.png" />
             </router-link>
           </p>
           <div v-if="article.comments[0]">

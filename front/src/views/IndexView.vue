@@ -77,7 +77,7 @@
           </h3>
           <p v-if="!article.comments[0]">
             <router-link :to="'/article/' + article.id">
-              <img class="brand" alt="" src="../../public/images/chat.png" />
+              <img class="brand" alt="" src="../../public/images/chat-2.png" />
             </router-link>
           </p>
 
@@ -186,5 +186,14 @@ img.illustration {
     border-radius: 5px;
     box-shadow: 10px 5px 5px lightgray;
   }
+}
+img.brand {
+  width: 83px;
+  opacity: 0.2;
+  transition: all 1s;
+}
+img.brand:hover {
+  width: 83px;
+  opacity: 1;
 }
 </style>
