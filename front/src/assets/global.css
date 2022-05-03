@@ -644,10 +644,18 @@ Responsive
     margin-right: auto;
   }
 
-  button.article {
+  button.article,
+  button {
     margin-left: auto;
     margin-right: auto;
-    width: 80% !important;
+    width: 90% !important;
+  }
+
+  button.alert {
+    padding-top: 0.2em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90% !important;
   }
   h2 {
     margin-top: 25px;
