@@ -49,4 +49,14 @@ db.article.belongsTo(db.user, {
   onDelete: 'cascade',
 })
 
+db.user.hasMany(db.comment, {
+  as: 'comments',
+})
+
+db.comment.belongsTo(db.user, {
+  foreignKey: 'userId',
+  as: 'users',
+  onDelete: 'cascade',
+})
+
 module.exports = db
