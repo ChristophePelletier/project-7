@@ -82,7 +82,7 @@
       <li v-if="email == ''">Merci de remplir votre mail</li>
       <li v-if="password == ''">Merci de choisir un mot de passe</li>
     </ul>
-    <p v-html="error" />
+    <p v-if="mode == 'signup'" v-html="error" />
     <div>
       <button v-if="mode == 'login'" @click="login()" class="button">
         <span v-if="status == 'loading'">Connexion en cours...</span>
