@@ -1,35 +1,32 @@
-# GROUPOMANIA
+GROUPOMANIA
 
-## Installation
+# Installation
 
-### Back
+## Back
 
 - npm install
 - npm start
 
-### Front
+## Front
 
 - npm install
 - npm run serve
 
-## Usage
+# Usage
 
-### Back
+## Back
 
-#### You can use the .env-model for the environment variables
+### You can use the .env-model for the environment variables :
 
-#### first rename the file : .env
-
-#### then choose the RTS : the signature for the encoding of the jsonweboken
-
-#### then choose the name of your database
-
-#### then add you DATABASEUSER and your DATABASEPASSWORD of your MYSQL database
+- first rename the file : .env
+- then choose the RTS : the signature for the encoding of the jsonweboken
+- then choose the name of your database
+- then add you DATABASEUSER and your DATABASEPASSWORD of your MYSQL database
 
 ### At the root of the back, create an "images" directory where the images will be downloaded
 
-### Front
+## Front
 
-### Back and Front
+## Back and Front
 
 - Use `Ctrl+C` in the terminal to stop the local server.
