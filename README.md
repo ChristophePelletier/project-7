@@ -1,5 +1,3 @@
-GROUPOMANIA
-
 # Installation
 
 ## Back
