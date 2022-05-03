@@ -133,7 +133,6 @@ exports.getAllArticlesWithComments = (req, res, next) => {
 }
 
 exports.getArticlesWithComments = (req, res, next) => {
-  console.log('testgetartcomment')
   Article.findAll({
     include: [{ all: true, nested: true }],
     limit: 6,
@@ -142,6 +141,7 @@ exports.getArticlesWithComments = (req, res, next) => {
     .then((articles) => {
       res.send(articles)
       //res.send(articles)
+      //conseil Jeremie
       /*
       articles.map(article =>{
         let comments = Comment.findAll({ 
@@ -149,7 +149,7 @@ exports.getArticlesWithComments = (req, res, next) => {
           include: [
             {
               model: User,
-              attributes: ["prenom", "nom", "id", "avatar"],
+              attributes: ["firstName", "secondName", "userId"],
             }
           ]
         })
@@ -189,36 +189,3 @@ exports.deleteOneArticle = (req, res, next) => {
       })
     })
 }
-
-/*
-exports.getArticleComments = (req, res, next) => {
-  const id = req.params.id
-  Article.findOne({
-    include: [
-      {
-        model: Commment,
-        as: 'comment',
-      },
-    ],
-    where: { id: id },
-  })
-    .then((comments) => {
-      res.status(200).send(comments)
-    })
-    .catch((error) => {
-      res.status(404).json({
-        error: error,
-      })
-    })
-}
-
-delete articleObject.id
-
-  if (articleObject.userId !== req.auth.userId) {
-    console.log('non autorisé')
-    return res.status(401).json({
-      message: 'unauthorized',
-    })
-  }
-
-*/

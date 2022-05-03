@@ -299,6 +299,20 @@ textarea {
 /*
 Form admin
 */
+#admin-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#admin-page-1 {
+  width: 45%;
+}
+
+#admin-page-2 {
+  width: 45%;
+}
+
 form#administration {
   background-color: white;
 }
@@ -679,6 +693,20 @@ Responsive
   div#containeur-1-1-1-1 p {
     padding-left: 15px;
   }
+  #admin-page {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  #admin-page-1 {
+    width: 100%;
+    order: 1;
+  }
+
+  #admin-page-2 {
+    width: 100%;
+    order: -10 !important;
+  }
 }
 /*
 Admin
@@ -690,7 +718,7 @@ ul li {
 
 #admin ul li:first-child {
   font-size: 26px;
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 #wcag {

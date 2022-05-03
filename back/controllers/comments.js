@@ -47,8 +47,7 @@ exports.getArticleComments = (req, res, next) => {
 exports.deleteOneComment = (req, res, next) => {
   Comment.findByPk(req.params.id)
     .then((comment) => {
-      /*
-      if (req.auth.userId !== true) {
+      if (req.auth.admin !== true) {
         console.log('non autorisé')
         console.log('req.params.id', req.params.id)
         return res.status(401).json({
@@ -56,7 +55,6 @@ exports.deleteOneComment = (req, res, next) => {
             'non autorisé ; seuls les administrateurs peuvent modérer les commentaires ; contacter un administrateur',
         })
       }
-      */
       Comment.destroy({ where: { id: comment.id } })
       console.log('req.params.id', req.params.id)
       console.log('ok')

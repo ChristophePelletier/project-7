@@ -57,14 +57,13 @@
           <p class="article-content">
             {{ comment.content }}
           </p>
-          <router-link :to="'/user/' + comment.userId" class="nav-link active">
-            {{ comment.firstName }} {{ comment.email }}</router-link
-          >
-
           <p>
-            Commentaire du :
+            <router-link :to="'/user/' + comment.userId">
+              {{ comment.firstName }} {{ comment.secondName }}</router-link
+            ><br />Commentaire du :
             {{ getFormattedDate(comment.createdAt) }}
           </p>
+
           <button
             v-if="$store.state.user.admin == true"
             type="button"

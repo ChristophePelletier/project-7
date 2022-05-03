@@ -79,7 +79,7 @@ exports.login = (req, res, next) => {
 }
 
 exports.getAllUsers = (req, res, next) => {
-  User.findAll({ order: [['createdAt', 'DESC']] })
+  User.findAll({ order: [['secondName', 'ASC']] })
     .then((user) => {
       res.send(user)
     })
