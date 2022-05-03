@@ -72,7 +72,7 @@
           <h3 v-if="!article.comments[0]" class="attente-comment">
             Personne n'a encore réagi à ce poste ;<br />
             <router-link :to="'/article/' + article.id">
-              lire la suite</router-link
+              lire la suite ou commenter</router-link
             >
           </h3>
           <p v-if="!article.comments[0]">
@@ -81,9 +81,9 @@
             </router-link>
           </p>
           <div v-if="article.comments[0]">
-            <p class="comment-title">
+            <h4 class="comment-title">
               {{ article.comments[0].title }}
-            </p>
+            </h4>
             <p class="auteur">
               par
               <router-link :to="'/user/' + article.comments[0].userId">

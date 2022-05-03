@@ -91,13 +91,16 @@
                 {{ article.comments[0].firstName }}
                 {{ article.comments[0].secondName }}
               </router-link>
+              <br />
+              ({{ getFormattedDate(article.comments[0].createdAt) }})
             </p>
+
             <p class="comment-content" v-snip="5">
               {{ article.comments[0].content }}
             </p>
             <p class="coldInfo">
               <router-link :to="'/article/' + article.id">
-                Lire la suite</router-link
+                Lire la suite | commenter</router-link
               >
             </p>
           </div>
@@ -117,7 +120,7 @@
             </p>
             <p class="coldInfo">
               <router-link :to="'/article/' + article.id">
-                Lire la suite</router-link
+                Lire la suite | commenter</router-link
               >
             </p>
           </div>

@@ -11,8 +11,12 @@
         Mail :
         {{ user.email }}
       </p>
-      <!--  v-if="$store.state.user.userId == this.$route.params.id" -->
-      <button type="button" class="alert" @click="deleted">
+      <button
+        v-if="$store.state.user.userId == this.$route.params.id"
+        type="button"
+        class="alert"
+        @click="deleted"
+      >
         <span>Supprimer mon compte</span>
       </button>
     </div>
@@ -126,18 +130,4 @@ export default {
     },
   },
 };
-
-/*
-
-async print() {
-    this.user = (await userService.deleteOneUser(this.$route.params.id)).data;
-    console.log(this.user);
-  },
-*/
 </script>
-
-<style>
-a#user:visited {
-  color: pink;
-}
-</style>
