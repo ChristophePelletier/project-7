@@ -17,7 +17,7 @@
             <div id="containeur-1-1-1-1">
               <div>
                 <p>
-                  Article rédigé le :<br />
+                  Post du<br />
                   {{ getFormattedDate(article.createdAt) }}
                 </p>
                 <p class="auteur">
@@ -36,6 +36,11 @@
                 <p class="article-content">
                   {{ article.content }}
                 </p>
+                <div @click="scrollToBottom">
+                  <button type="button" @click="showForm = !showForm">
+                    <span> Commenter</span>
+                  </button>
+                </div>
                 <img
                   v-if="article.image"
                   class="illustration"
@@ -80,10 +85,7 @@
     <!--FORMS -->
     <div>
       <div>
-        <div>
-          <button type="button" @click="showForm = !showForm">
-            <span> Commenter</span>
-          </button>
+        <div id="form-comment">
           <form class="commentaire" v-show="showForm">
             <div>
               <input
@@ -179,6 +181,10 @@ export default {
     },
     getFormattedDate(date) {
       return moment(date).format("Do MMMM YYYY");
+    },
+    scrollToBottom() {
+      let element = document.getElementById("form-comment");
+      element.scrollIntoView({ behavior: "smooth", block: "end" });
     },
     persist() {
       console.log("id article :", this.$route.params.id);

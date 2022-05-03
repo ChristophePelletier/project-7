@@ -31,7 +31,7 @@
               </p>
               <p class="coldInfo">
                 <router-link :to="'/article/' + article.id">
-                  Lire la suite</router-link
+                  Lire la suite | commenter</router-link
                 >
               </p>
             </div>
@@ -53,9 +53,7 @@
             <p class="auteur">
               <router-link :to="'/user/' + article.userId">
                 <span class="coldInfo">par</span>
-                {{ article.firstName }} {{ article.secondName }} <br /><span
-                  class="coldInfo"
-                >
+                {{ article.firstName }} {{ article.secondName }} <br /><span>
                   {{ article.email }}</span
                 ></router-link
               >

@@ -14,7 +14,7 @@
       <button
         v-if="$store.state.user.userId == this.$route.params.id"
         type="button"
-        class="alert"
+        class="alert user"
         @click="deleted"
       >
         <span>Supprimer mon compte</span>
@@ -54,6 +54,7 @@
             Mail de l'auteur :
             {{ article.email }}
           </p>
+          <!--<p v-if="article[0] == null" class="auteur">Rien</p>-->
         </div>
       </div>
       <!--articles

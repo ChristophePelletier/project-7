@@ -39,7 +39,7 @@
         <!--****************-->
 
         <!--MON COMPTE-->
-        <div v-if="$store.state.user.userId !== this.$route.params.userId">
+        <div v-if="$store.state.user.userId !== -1">
           <a
             v-bind:class="{ actif: userUrl }"
             v-on:click="monCompte()"
