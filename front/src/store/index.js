@@ -55,11 +55,11 @@ const store = createStore({
   //Actions are similar to mutations, the differences being that:
   //Instead of mutating the state, actions ***commit*** mutations.
   actions: {
-    login: ({ commit }, userInfos) => {
+    login: ({ commit }, user) => {
       commit("setStatus", "loading");
       return new Promise((resolve, reject) => {
         instance
-          .post("/api/auth/login", userInfos)
+          .post("/api/auth/login", user)
           .then(function (response) {
             commit("setStatus", "");
             commit("logUser", response.data);
@@ -71,12 +71,12 @@ const store = createStore({
           });
       });
     },
-    signup: ({ commit }, userInfos) => {
+    signup: ({ commit }, user) => {
       commit("setStatus", "loading");
       return new Promise((resolve, reject) => {
         commit;
         instance
-          .post("/api/auth/signup", userInfos)
+          .post("/api/auth/signup", user)
           .then(function (response) {
             commit("setStatus", "created");
             resolve(response);
