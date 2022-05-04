@@ -3,7 +3,7 @@ const Joi = require('joi')
 module.exports = (req, res, next) => {
   const schema = Joi.object({
     email: Joi.string().email(),
-    password: Joi.string().regex(new RegExp('^[a-zA-Z0-9]{5,12}$')),
+    password: Joi.string().regex(new RegExp('^[a-zA-Z0-9@$!%*#?&^_-]{4,20}$')),
   })
 
   const { error } = schema.validate(req.body)
@@ -17,14 +17,14 @@ module.exports = (req, res, next) => {
         break
       case 'password':
         res.status(400).send({
-          error: `<p>Le mot de passe ne rentre pas dans nos règles de sécurité informatique.</p> <p>Le mot de passe doit contenir uniquement minuscules, majuscules et nombres.</p><p>Le mot de passe doit contenir entre 5 et 12 caractères</p>`,
+          error: `<p>Le mot de passe doit contenir entre 4 et 20 caractères</p>`,
         })
         break
 
       default:
         next() /*
         res.status(400).send({
-          error: 'Invalid registration information',
+          error: 'Information d'identification invalide',
         })*/
     }
   } else {
