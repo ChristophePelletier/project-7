@@ -83,7 +83,9 @@ h3.attente-comment {
   font-size: 20px;
   padding-top: 75px;
 }
-
+#attente {
+  align-self: center;
+}
 p {
   line-height: 1.5em !important;
 }
@@ -101,9 +103,26 @@ p.lien {
   padding: 15px;
   border-radius: 8px;
   background-color: lightgray;
-  transition: background-color 0.5s;
+  transition: 0.5s;
   cursor: pointer;
 }
+
+#attente {
+  transition: all 0.5s;
+  margin-top: 45px;
+}
+
+#attente:hover,
+button:hover {
+  cursor: pointer;
+  background-color: #ffd7d7;
+}
+
+#attente:hover > img.brand {
+  width: 83px;
+  opacity: 1;
+}
+
 p.lien:hover,
 button:hover {
   cursor: pointer;
@@ -496,10 +515,11 @@ div.meta {
   justify-content: center;
   align-items: center;
   margin-top: 15px;
-  background-color: lightgray;
+  background-color: white;
   padding: 15px;
   display: flex;
   border-radius: 15px;
+  border: 1px solid lightgray;
   box-shadow: 10px 5px 5px lightgray;
 }
 

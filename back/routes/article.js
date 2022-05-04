@@ -3,7 +3,7 @@ const router = express.Router()
 const multer = require('../middlewares/multer')
 const articleCtrl = require('../controllers/articles')
 const auth = require('../middlewares/auth')
-//const authConsult = require('../middlewares/authConsult')
+//
 router.delete('/article/:id', auth, articleCtrl.deleteOneArticle)
 router.get('/articles', auth, articleCtrl.getAllArticles)
 router.get('/article/:id', auth, articleCtrl.getOneArticle)
@@ -15,5 +15,5 @@ router.get(
   auth,
   articleCtrl.getAllArticlesWithComments
 )
-//router.get('/articlecomments/:articleId', articleCtrl.getArticleWithComments)
+//
 module.exports = router

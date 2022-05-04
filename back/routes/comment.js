@@ -5,7 +5,6 @@ const commentCtrl = require('../controllers/comments')
 const auth = require('../middlewares/auth')
 const authConsult = require('../middlewares/authConsult')
 //
-//router.get('/comments', articleCtrl.getCommentsArticle)
 router.post('/comment', auth, commentCtrl.createComment)
 router.get('/comment', auth, commentCtrl.getAllComments)
 router.get('/onecomment/:articleId', auth, commentCtrl.getOneComment)
@@ -22,4 +21,5 @@ router.get(
   auth,
   commentCtrl.getUserCommentsWithArticles
 )
+//
 module.exports = router

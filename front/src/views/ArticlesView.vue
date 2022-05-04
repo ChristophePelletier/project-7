@@ -112,6 +112,8 @@
                 {{ article.comments[1].firstName }}
                 {{ article.comments[1].secondName }}
               </router-link>
+              <br />
+              ({{ getFormattedDate(article.comments[1].createdAt) }})
             </p>
             <p class="comment-content" v-snip="5">
               {{ article.comments[1].content }}
@@ -128,10 +130,12 @@
             </h4>
             <p class="auteur">
               <span class="coldInfo">par </span>
-              <router-link :to="'/user/' + article.comments[1].userId">
+              <router-link :to="'/user/' + article.comments[2].userId">
                 {{ article.comments[2].firstName }}
                 {{ article.comments[2].secondName }}
               </router-link>
+              <br />
+              ({{ getFormattedDate(article.comments[2].createdAt) }})
             </p>
             <p class="comment-content" v-snip="5">
               {{ article.comments[2].content }}
