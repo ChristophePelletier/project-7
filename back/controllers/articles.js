@@ -204,22 +204,23 @@ exports.deleteOneArticle = (req, res, next) => {
             'non autorisé ; seuls les administrateurs peuvent modérer les commentaires ; contacter un administrateur',
         })
       }
+
       const filename = article.image.split('/images/')[1]
-      if (article.image) {
-        console.log('1')
+      if (article.image != null) {
+        console.log('2')
         fs.unlink(`images/${filename}`, () => {
           Article.destroy({ where: { id: article.id } })
-            .then(() => res.status(200).json({ message: 'Article supprimé !' }))
+            .then(() => res.status(200).json({ message: 'Article supprimé' }))
             .catch((error) => res.status(400).json({ error }))
         })
-      }
-      if (!article.file) {
-        console.log('2')
+      } else {
+        console.log('artid', article.id)
         Article.destroy({ where: { id: article.id } })
+        res.status(200).json('ok : article bien supprimé')
       }
     })
     .catch((error) => {
-      console.log('erreur')
+      console.log('erreur suppression post')
       res.status(404).json({
         error: error,
       })
