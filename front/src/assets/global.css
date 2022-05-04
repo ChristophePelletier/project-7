@@ -17,7 +17,15 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-family: 'Roboto', sans-serif;
+  background-color: #ffd7d75d;
   color: darkslategrey;
+}
+
+div#app {
+  background-color: white;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 15px;
 }
 
 h1,
@@ -415,6 +423,7 @@ div.user-article {
   justify-content: space-between;
   border-radius: 15px;
   box-shadow: 10px 5px 5px lightgray;
+  border: 1px solid lightgray;
 }
 
 div.user-article {
@@ -622,6 +631,7 @@ div#user-articles-byone {
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 div#one-user .user-article {
@@ -642,6 +652,7 @@ div#one-user div#user-comments-byone {
   display: flex;
   flex-direction: row;
   width: 100%;
+  flex-wrap: wrap;
   justify-content: space-around;
 }
 
@@ -657,6 +668,16 @@ div#one-user div.user-comment {
 Responsive
 */
 @media screen and (max-width: 1200px) {
+  body {
+    background-color: white;
+  }
+
+  div#app {
+    background-color: white;
+    margin-top: 0;
+    padding: 0;
+    border-radius: 0;
+  }
   form {
     width: 100%;
   }
@@ -665,6 +686,9 @@ Responsive
   }
   input {
     width: 90% !important;
+  }
+  img.brand {
+    width: 250px;
   }
 
   #hnav {
@@ -744,8 +768,8 @@ Responsive
     margin-right: auto;
     margin-top: 25px;
     flex-direction: column;
-    border-radius: 15px;
-    padding: 16px;
+    border-radius: 5px;
+    padding: 8px;
     background-color: white;
   }
 
@@ -810,7 +834,7 @@ Responsive
   }
 
   nav > div {
-    padding: 15px;
+    padding: 15px 0 15px 0;
     margin-bottom: 25px;
     width: 100%;
   }
@@ -890,6 +914,7 @@ Responsive
   div#one-user div#user-comments-byone {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 
@@ -904,10 +929,11 @@ Responsive
   div#one-user div.user-comments-byone {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
   }
 
   div#one-user div.user-comment {
-    width: 90%;
+    width: 100%;
   }
 }
 /*
