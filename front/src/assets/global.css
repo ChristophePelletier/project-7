@@ -855,6 +855,62 @@ Responsive
   #user-comments {
     width: 90%;
   }
+  div#one-user {
+    width: 90%;
+  }
+  div#one-user #contributions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  div#one-user #user-articles {
+    width: 100%;
+  }
+
+  div#user-articles-byone {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  div#one-user .user-article {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-top: 25px;
+    width: 90%;
+  }
+
+  div#one-user #user-comments {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin-top: 25px;
+    width: 100%;
+  }
+
+  div#one-user div#user-comments-byone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  div#one-user div.user-article {
+    width: 90%;
+  }
+
+  div#one-user div.user-comments-byone {
+    display: flex;
+    flex-direction: column;
+  }
+
+  div#one-user div.user-comment {
+    width: 90%;
+  }
 }
 /*
 Admin
