@@ -49,20 +49,7 @@
             <p class="article-content">
               {{ article.content }}
             </p>
-            <p
-              v-if="$store.state.user.userId !== article.userId"
-              class="auteur"
-            >
-              Auteur de l'article :
-              {{ article.firstName }} {{ article.secondName }}
-            </p>
-            <p
-              v-if="$store.state.user.userId !== article.userId"
-              class="auteur"
-            >
-              Mail de l'auteur :
-              {{ article.email }}
-            </p>
+
             <!--<p v-if="article[0] == null" class="auteur">Rien</p>-->
           </div>
         </div>

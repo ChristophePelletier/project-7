@@ -608,6 +608,8 @@ div#one-user {
 div#one-user #contributions {
   flex-direction: column;
   width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 div#one-user #user-articles {
@@ -626,7 +628,7 @@ div#one-user .user-article {
   padding-top: 25px;
   padding-bottom: 25px;
   margin-top: 25px;
-  width: 50%;
+  width: 47%;
 }
 
 div#one-user #user-comments {
@@ -641,10 +643,6 @@ div#one-user div#user-comments-byone {
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
-}
-
-div#one-user div.user-article {
-  width: 40%;
 }
 
 div#one-user div.user-comments-byone {
@@ -856,7 +854,7 @@ Responsive
     width: 90%;
   }
   div#one-user {
-    width: 90%;
+    width: 100%;
   }
   div#one-user #contributions {
     flex-direction: column;
