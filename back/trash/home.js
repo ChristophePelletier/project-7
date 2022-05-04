@@ -88,3 +88,13 @@ exports.getArticleComments = (req, res, next) => {
       })
     })
 }
+
+//delete articleObject.id
+/*
+  if (articleObject.userId !== req.auth.userId) {
+    console.log('non autorisé')
+    return res.status(401).json({
+      message: 'unauthorized',
+    })
+  }
+  */

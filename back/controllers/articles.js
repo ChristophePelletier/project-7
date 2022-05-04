@@ -142,7 +142,7 @@ exports.getArticlesWithComments = (req, res, next) => {
     .then((articles) => {
       res.send(articles)
       //res.send(articles)
-      //conseil Jeremie
+      //conseils Jeremie
       /*
       articles.map(article =>{
         let comments = Comment.findAll({ 
@@ -166,32 +166,6 @@ exports.getArticlesWithComments = (req, res, next) => {
       })
     })
 }
-
-/*
-exports.deleteOneArticle = (req, res, next) => {
-  Article.findByPk(req.params.id)
-    .then((article) => {
-      if (req.auth.admin !== true) {
-        console.log('non autorisé')
-        console.log('req.params.id', req.params.id)
-        return res.status(401).json({
-          message:
-            'non autorisé ; seuls les administrateurs peuvent modérer les commentaires ; contacter un administrateur',
-        })
-      }
-      Article.destroy({ where: { id: article.id } })
-      console.log('req.params.id', req.params.id)
-      console.log('ok')
-      res.status(200).json('ok : article bien supprimé')
-      //return res.status(200).json({ ok: 'suppression du du commentaire' })
-    })
-    .catch((error) => {
-      res.status(404).json({
-        error: error,
-      })
-    })
-}
-*/
 
 exports.deleteOneArticle = (req, res, next) => {
   Article.findByPk(req.params.id)
@@ -226,3 +200,30 @@ exports.deleteOneArticle = (req, res, next) => {
       })
     })
 }
+
+//si choix ce conserver les images après suppression d'un post
+/*
+exports.deleteOneArticle = (req, res, next) => {
+  Article.findByPk(req.params.id)
+    .then((article) => {
+      if (req.auth.admin !== true) {
+        console.log('non autorisé')
+        console.log('req.params.id', req.params.id)
+        return res.status(401).json({
+          message:
+            'non autorisé ; seuls les administrateurs peuvent modérer les commentaires ; contacter un administrateur',
+        })
+      }
+      Article.destroy({ where: { id: article.id } })
+      console.log('req.params.id', req.params.id)
+      console.log('ok')
+      res.status(200).json('ok : article bien supprimé')
+      //return res.status(200).json({ ok: 'suppression du du commentaire' })
+    })
+    .catch((error) => {
+      res.status(404).json({
+        error: error,
+      })
+    })
+}
+*/
