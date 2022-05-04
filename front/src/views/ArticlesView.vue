@@ -142,6 +142,11 @@
               >
             </p>
           </div>
+          <div v-if="article.comments[3]">
+            <router-link :to="'/article/' + article.id"
+              ><p>Lire les commentaires suivants</p></router-link
+            >
+          </div>
         </article>
       </div>
       <button type="button" @click="navigateTo({ name: 'article-create' })">
