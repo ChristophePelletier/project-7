@@ -1,5 +1,6 @@
 const db = require('../models')
 const Article = db.article
+const fs = require('fs')
 const Comment = db.comment
 
 exports.createArticle = (req, res) => {
@@ -166,6 +167,7 @@ exports.getArticlesWithComments = (req, res, next) => {
     })
 }
 
+/*
 exports.deleteOneArticle = (req, res, next) => {
   Article.findByPk(req.params.id)
     .then((article) => {
@@ -184,6 +186,40 @@ exports.deleteOneArticle = (req, res, next) => {
       //return res.status(200).json({ ok: 'suppression du du commentaire' })
     })
     .catch((error) => {
+      res.status(404).json({
+        error: error,
+      })
+    })
+}
+*/
+
+exports.deleteOneArticle = (req, res, next) => {
+  Article.findByPk(req.params.id)
+    .then((article) => {
+      if (req.auth.admin !== true) {
+        console.log('non autorisé')
+        console.log('req.params.id', req.params.id)
+        return res.status(401).json({
+          message:
+            'non autorisé ; seuls les administrateurs peuvent modérer les commentaires ; contacter un administrateur',
+        })
+      }
+      const filename = article.image.split('/images/')[1]
+      if (article.image) {
+        console.log('1')
+        fs.unlink(`images/${filename}`, () => {
+          Article.destroy({ where: { id: article.id } })
+            .then(() => res.status(200).json({ message: 'Article supprimé !' }))
+            .catch((error) => res.status(400).json({ error }))
+        })
+      }
+      if (!article.file) {
+        console.log('2')
+        Article.destroy({ where: { id: article.id } })
+      }
+    })
+    .catch((error) => {
+      console.log('erreur')
       res.status(404).json({
         error: error,
       })
