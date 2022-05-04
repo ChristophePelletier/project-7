@@ -855,7 +855,7 @@ Responsive
     width: 96%;
   }
   .route {
-    width: 80%;
+    width: 250px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -934,6 +934,12 @@ Responsive
 
   div#one-user div.user-comment {
     width: 100%;
+  }
+  input#titleComment {
+    min-height: 150px;
+  }
+  form textarea {
+    width: 95%;
   }
 }
 /*
