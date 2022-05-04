@@ -601,6 +601,60 @@ p#my-account {
 #user-template h2 {
   margin-top: 24px;
 }
+div#one-user {
+  flex-direction: column;
+  width: 100%;
+}
+div#one-user #contributions {
+  flex-direction: column;
+  width: 100%;
+}
+
+div#one-user #user-articles {
+  width: 100%;
+}
+
+div#user-articles-byone {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+div#one-user .user-article {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-top: 25px;
+  width: 50%;
+}
+
+div#one-user #user-comments {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-top: 25px;
+  width: 100%;
+}
+
+div#one-user div#user-comments-byone {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+div#one-user div.user-article {
+  width: 40%;
+}
+
+div#one-user div.user-comments-byone {
+  display: flex;
+  flex-direction: row;
+}
+
+div#one-user div.user-comment {
+  width: 30%;
+}
 /*
 Responsive
 */

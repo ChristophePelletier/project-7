@@ -29,49 +29,60 @@
     <h2 v-else>Les dernières contributions</h2>
 
     <div id="contributions">
-      <!--articles
-    -->
       <div id="user-articles">
         <h3>Articles</h3>
-        <div class="user-article" v-for="article in articles" :key="article.id">
-          <h2>
-            <router-link :to="'/article/' + article.id">
-              {{ article.title }}</router-link
+        <div id="user-articles-byone">
+          <div
+            class="user-article"
+            v-for="article in articles"
+            :key="article.id"
+          >
+            <h2>
+              <router-link :to="'/article/' + article.id">
+                {{ article.title }}</router-link
+              >
+            </h2>
+            <p class="coldInfo">
+              Article rédigé le :
+              {{ getFormattedDate(article.createdAt) }}
+            </p>
+            <p class="article-content">
+              {{ article.content }}
+            </p>
+            <p
+              v-if="$store.state.user.userId !== article.userId"
+              class="auteur"
             >
-          </h2>
-          <p class="coldInfo">
-            Article rédigé le :
-            {{ getFormattedDate(article.createdAt) }}
-          </p>
-          <p class="article-content">
-            {{ article.content }}
-          </p>
-          <p v-if="$store.state.user.userId !== article.userId" class="auteur">
-            Auteur de l'article :
-            {{ article.firstName }} {{ article.secondName }}
-          </p>
-          <p v-if="$store.state.user.userId !== article.userId" class="auteur">
-            Mail de l'auteur :
-            {{ article.email }}
-          </p>
-          <!--<p v-if="article[0] == null" class="auteur">Rien</p>-->
+              Auteur de l'article :
+              {{ article.firstName }} {{ article.secondName }}
+            </p>
+            <p
+              v-if="$store.state.user.userId !== article.userId"
+              class="auteur"
+            >
+              Mail de l'auteur :
+              {{ article.email }}
+            </p>
+            <!--<p v-if="article[0] == null" class="auteur">Rien</p>-->
+          </div>
         </div>
       </div>
       <!--articles
     -->
-      <div id="user-comments">
+      <div id="user-articles">
         <h3>Commentaires</h3>
-
-        <div class="user-comment" v-for="comment in comments" :key="comment">
-          <h2>{{ comment.title }}</h2>
-          <p class="article-content">
-            {{ comment.content }}
-          </p>
-          <p>
-            <router-link :to="'/article/' + comment.articleId"
-              >Lire l'article
-            </router-link>
-          </p>
+        <div id="user-comments-byone">
+          <div class="user-comment" v-for="comment in comments" :key="comment">
+            <h2>{{ comment.title }}</h2>
+            <p class="article-content">
+              {{ comment.content }}
+            </p>
+            <p>
+              <router-link :to="'/article/' + comment.articleId"
+                >Lire l'article
+              </router-link>
+            </p>
+          </div>
         </div>
       </div>
     </div>
