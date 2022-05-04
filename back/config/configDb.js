@@ -1,3 +1,4 @@
+//DATABASE CONFIGURATION
 module.exports = {
   hostname: 'localhost',
   user: process.env.DATABASEUSER,

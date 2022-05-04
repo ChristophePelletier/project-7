@@ -1,6 +1,9 @@
 const db = require('../models')
 const Comment = db.comment
 
+/**
+CREATE COMMENT
+*/
 exports.createComment = (req, res) => {
   //const id = req.body.id
   console.log('req.body, ', req.body)
@@ -19,7 +22,9 @@ exports.createComment = (req, res) => {
   const comment = Comment.create(data)
   res.status(200).send(comment)
 }
-
+/**
+GET ALL COMMENTS
+*/
 exports.getAllComments = (req, res, next) => {
   Comment.findAll({ limit: 15, order: [['createdAt', 'DESC']] })
     .then((comments) => {
@@ -31,7 +36,9 @@ exports.getAllComments = (req, res, next) => {
       })
     })
 }
-
+/**
+GET ARTICLES WITH COMMENTS
+*/
 exports.getArticleComments = (req, res, next) => {
   Comment.findAll({ where: { articleId: req.params.articleId } })
     .then((comments) => {
@@ -43,7 +50,9 @@ exports.getArticleComments = (req, res, next) => {
       })
     })
 }
-
+/**
+DELETE ONE COMMENT
+*/
 exports.deleteOneComment = (req, res, next) => {
   Comment.findByPk(req.params.id)
     .then((comment) => {

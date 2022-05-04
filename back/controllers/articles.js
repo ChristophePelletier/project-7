@@ -1,8 +1,10 @@
 const db = require('../models')
 const Article = db.article
 const fs = require('fs')
-const Comment = db.comment
 
+/**
+CREATE ONE ARTICLE
+*/
 exports.createArticle = (req, res) => {
   //console.log('***req :***', req)
   console.log('***req.body :***', req.body)
@@ -62,77 +64,9 @@ exports.createArticle = (req, res) => {
   }
 }
 
-exports.getAllArticles = (req, res, next) => {
-  Article.findAll({ limit: 15, order: [['createdAt', 'DESC']] })
-    .then((articles) => {
-      res.send(articles)
-    })
-    .catch((error) => {
-      res.status(500).json({
-        error: error,
-      })
-    })
-}
-
-exports.getRecentArticles = (req, res, next) => {
-  Article.findAll({ limit: 5, order: [['createdAt', 'DESC']] })
-    .then((articles) => {
-      res.send(articles)
-    })
-    .catch((error) => {
-      res.status(500).json({
-        error: error,
-      })
-    })
-}
-
-exports.getOneArticle = (req, res, next) => {
-  console.log('getOneArticle')
-  Article.findByPk(req.params.id)
-    .then((article) => {
-      //console.log('article dans get One :', article)
-      console.log('req.params.id :', req.params.id)
-      res.status(200).json(article)
-    })
-    .catch((error) => {
-      res.status(404).json({
-        error: error,
-      })
-    })
-}
-
-exports.userRecentArticles = (req, res, next) => {
-  Article.findAll({
-    where: { userId: req.params.userId },
-    articlelimit: 5,
-    order: [['createdAt', 'DESC']],
-  })
-    .then((articles) => {
-      res.send(articles)
-    })
-    .catch((error) => {
-      res.status(500).json({
-        error: error,
-      })
-    })
-}
-
-exports.getAllArticlesWithComments = (req, res, next) => {
-  Article.findAll({
-    include: [{ all: true, nested: true }],
-    limit: 50,
-    order: [['createdAt', 'DESC']],
-  })
-    .then((articles) => {
-      res.send(articles)
-    })
-    .catch((error) => {
-      res.status(500).json({
-        error: error,
-      })
-    })
-}
-
+/**
+GET ARTICLES WITH COMMENTS
+*/
 exports.getArticlesWithComments = (req, res, next) => {
   Article.findAll({
     include: [{ all: true, nested: true }],
@@ -166,7 +100,9 @@ exports.getArticlesWithComments = (req, res, next) => {
       })
     })
 }
-
+/**
+DELETE ONE ARTICLE AND THE IMAGE IF IMAGE WITH ARTICLE
+*/
 exports.deleteOneArticle = (req, res, next) => {
   Article.findByPk(req.params.id)
     .then((article) => {
@@ -196,6 +132,89 @@ exports.deleteOneArticle = (req, res, next) => {
     .catch((error) => {
       console.log('erreur suppression post')
       res.status(404).json({
+        error: error,
+      })
+    })
+}
+
+/**
+GET ALL ARTICLES
+*/
+exports.getAllArticles = (req, res, next) => {
+  Article.findAll({ limit: 15, order: [['createdAt', 'DESC']] })
+    .then((articles) => {
+      res.send(articles)
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error: error,
+      })
+    })
+}
+
+/**
+GET RECENT ARTICLES
+*/
+exports.getRecentArticles = (req, res, next) => {
+  Article.findAll({ limit: 5, order: [['createdAt', 'DESC']] })
+    .then((articles) => {
+      res.send(articles)
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error: error,
+      })
+    })
+}
+/**
+GET ONE ARTICLE
+*/
+exports.getOneArticle = (req, res, next) => {
+  console.log('getOneArticle')
+  Article.findByPk(req.params.id)
+    .then((article) => {
+      //console.log('article dans get One :', article)
+      console.log('req.params.id :', req.params.id)
+      res.status(200).json(article)
+    })
+    .catch((error) => {
+      res.status(404).json({
+        error: error,
+      })
+    })
+}
+/**
+GET USER RECENT ARTICLES
+*/
+exports.userRecentArticles = (req, res, next) => {
+  Article.findAll({
+    where: { userId: req.params.userId },
+    articlelimit: 5,
+    order: [['createdAt', 'DESC']],
+  })
+    .then((articles) => {
+      res.send(articles)
+    })
+    .catch((error) => {
+      res.status(500).json({
+        error: error,
+      })
+    })
+}
+/**
+GET ALL ARTICLES WITH COMMENTS ** LIMIT OF 100 CAN BE CHANGED IN THE LIMIT BELOW
+*/
+exports.getAllArticlesWithComments = (req, res, next) => {
+  Article.findAll({
+    include: [{ all: true, nested: true }],
+    limit: 100,
+    order: [['createdAt', 'DESC']],
+  })
+    .then((articles) => {
+      res.send(articles)
+    })
+    .catch((error) => {
+      res.status(500).json({
         error: error,
       })
     })
