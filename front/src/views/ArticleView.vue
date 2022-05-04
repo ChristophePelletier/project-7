@@ -82,11 +82,6 @@
             <span> Supprimer ce commentaire</span>
           </button>
         </article>
-        <div @click="scrollToBottom">
-          <button type="button" @click="showForm = !showForm">
-            <span> Commenter</span>
-          </button>
-        </div>
       </div>
       <!--FIN DES COMMENTAIRES -->
     </div>

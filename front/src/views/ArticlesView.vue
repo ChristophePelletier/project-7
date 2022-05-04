@@ -67,7 +67,7 @@
             Commentaire
           </h3>
           <h3 v-if="article.comments[0] && article.comments[1]">
-            Commentaires
+            Les derniers commentaires
           </h3>
           <h3 v-if="!article.comments[0]" class="attente-comment">
             Personne n'a encore réagi à ce poste ;<br />
@@ -103,9 +103,9 @@
             </p>
           </div>
           <div v-if="article.comments[1]">
-            <p class="comment-title">
+            <h4 class="comment-title">
               {{ article.comments[1].title }}
-            </p>
+            </h4>
             <p class="auteur">
               <span class="coldInfo">par </span>
               <router-link :to="'/user/' + article.comments[1].userId">
@@ -115,6 +115,26 @@
             </p>
             <p class="comment-content" v-snip="5">
               {{ article.comments[1].content }}
+            </p>
+            <p class="coldInfo">
+              <router-link :to="'/article/' + article.id">
+                Lire la suite</router-link
+              >
+            </p>
+          </div>
+          <div v-if="article.comments[2]">
+            <h4 class="comment-title">
+              {{ article.comments[2].title }}
+            </h4>
+            <p class="auteur">
+              <span class="coldInfo">par </span>
+              <router-link :to="'/user/' + article.comments[1].userId">
+                {{ article.comments[2].firstName }}
+                {{ article.comments[2].secondName }}
+              </router-link>
+            </p>
+            <p class="comment-content" v-snip="5">
+              {{ article.comments[2].content }}
             </p>
             <p class="coldInfo">
               <router-link :to="'/article/' + article.id">
