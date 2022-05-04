@@ -205,8 +205,8 @@ exports.deleteOneArticle = (req, res, next) => {
         })
       }
 
-      const filename = article.image.split('/images/')[1]
       if (article.image != null) {
+        const filename = article.image.split('/images/')[1]
         console.log('2')
         fs.unlink(`images/${filename}`, () => {
           Article.destroy({ where: { id: article.id } })
