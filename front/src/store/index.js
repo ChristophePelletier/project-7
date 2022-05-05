@@ -11,6 +11,9 @@ const instance = axios.create({
   baseURL: "http://localhost:3000/",
 });
 
+//we declare the user before everything else
+//so we get the user from the localStorage it he exists
+//else -> no token an userId: -1
 let user = localStorage.getItem("user");
 console.log("user : 1", user);
 if (!user) {
@@ -21,10 +24,11 @@ if (!user) {
 } else {
   try {
     user = JSON.parse(user);
+    //we parse the user in the localStorage
     console.log("user : 2", user);
     //instance.defaults.headers.common["Authorization"] = user.token;
     //instance.defaults.headers.common["Authorization"] = `Bearer ${user.token}`;
-  } catch (ex) {
+  } catch (pb) {
     user = {
       userId: -1,
       token: "",
@@ -36,7 +40,9 @@ if (!user) {
 const store = createStore({
   //STATE --> DATA
   state: {
+    //statut empty at the beginning
     status: "",
+    //
     user: user,
   },
   //MUTATIONS
@@ -47,6 +53,7 @@ const store = createStore({
     logUser: function (state, user) {
       //instance.defaults.headers.common["Authorization"] = `Bearer ${user.token}`;
       //instance.defaults.headers.common["Authorization"] = user.token;
+      //we store the user in the localStorage so keep his token and retrieve it after a refresh
       localStorage.setItem("user", JSON.stringify(user));
       state.user = user;
     },
@@ -89,7 +96,7 @@ const store = createStore({
             resolve(response);
           })
           .catch(function (error) {
-            commit("setStatus", "erreur_login");
+            commit("setStatus", "erreur_signup");
             reject(error);
           });
       });

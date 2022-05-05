@@ -71,7 +71,7 @@
         </p>
       </div>
       <div v-if="mode == 'login' && status == 'erreur_login'">
-        <p>Adresse mail et/ou mot de passe invalide(s)</p>
+        <p>Adresse mail et / ou mot de passe invalide(s)</p>
       </div>
     </form>
     <ul v-if="mode == 'login'">
@@ -87,11 +87,13 @@
     <p v-if="mode == 'signup'" v-html="error" />
     <div>
       <button v-if="mode == 'login'" @click="login()" class="button">
-        <span v-if="status == 'chargement'">Connexion en cours...</span>
+        <span v-if="status == 'chargement'"
+          >Connexion à votre compte en cours</span
+        >
         <span v-else>Connexion</span>
       </button>
       <button v-else @click="signup()">
-        <span v-if="status == 'chargement'">Création en cours...</span>
+        <span v-if="status == 'chargement'">Création du compte en cours</span>
         <span v-else>Créer mon compte</span>
       </button>
     </div>
@@ -99,7 +101,7 @@
 </template>
 
 <script>
-//ref to the stote status without using $store
+//[1] ref to the store status without using $store
 import { mapState } from "vuex";
 export default {
   name: "Login",
@@ -141,27 +143,13 @@ export default {
         }
       }
     },
-    //ref to the stote status without using $store
+    //[1] ref to the stote status without using $store
     // status -->
     //erreur_login / chargement / créé
+    //add to the computed the state status via mapState :
     ...mapState(["status"]),
   },
   methods: {
-    checkForm: function (e) {
-      if (this.mode == "signup") {
-        if (this.firstName && this.secondName) {
-          return true;
-        }
-        this.erreurs = [];
-        if (!this.firstName) {
-          this.erreurs.push("Name required.");
-        }
-        if (!this.secondName) {
-          this.erreurs.push("SedondName required.");
-        }
-        e.preventDefault();
-      }
-    },
     enteredEmail: function () {
       if (this.mode == "signup") {
         if (this.email != "") {
@@ -275,6 +263,7 @@ export default {
           secondName: this.secondName,
           firstName: this.firstName,
         })
+        //we automatically log the user after signup
         .then(
           function () {
             self.login();
