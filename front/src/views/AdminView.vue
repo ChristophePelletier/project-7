@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="$store.state.user.admin == true">
     <!--v-if="$store.state.user.admin == true" -->
     <h1>Administration</h1>
     <div id="admin-page">
