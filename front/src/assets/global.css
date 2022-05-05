@@ -66,8 +66,8 @@ h2 {
 }
 
 h2 a {
-  text-decoration: none;
-  color: #fd2d01;
+  text-decoration: underline;
+  color: darkslategrey;
   margin-top: 0;
   padding-top: 0;
   transition: all 0.5s;
@@ -163,7 +163,7 @@ button.user {
 
 button.alert {
   background-color: #fd2d01;
-  transition: background-color color 0.5s;
+  transition: 0.5s;
 }
 
 button.show-comment {
@@ -221,13 +221,13 @@ nav > div.deconnect {
   width: 255px;
   padding-top: 15px;
   transition: 0.5s;
-  background-color: #fd2d01;
+  background-color: darkslategrey !important;
   border-radius: 25px;
 }
 
 nav > div.deconnect:hover {
   transition: 0.5s;
-  background-color: darkslategrey;
+  background-color: rgb(89, 124, 124) !important;
 }
 nav > div.deconnect a {
   color: white;
@@ -279,16 +279,12 @@ textarea#completeArticle {
 p,
 input[placeholder] {
   font-size: 20px !important;
-  border: 4px solid #fd2d01;
   border: 2px;
 }
 form input {
-  border: 4px solid black;
+  border: 2px solid darkslategrey !important;
 }
 
-form input.rempli {
-  border: 4px solid #ffd7d7;
-}
 form {
   display: flex;
   flex-direction: column;
@@ -552,7 +548,8 @@ article.comment-one {
 }
 
 h4.comment-title {
-  color: #fd2d01;
+  color: darkslategrey;
+
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 0 !important;
@@ -705,7 +702,7 @@ Responsive
     width: 100%;
   }
   input {
-    width: 90% !important;
+    width: 70% !important;
   }
   img.brand {
     width: 250px;
@@ -960,6 +957,9 @@ Responsive
   }
   form textarea {
     width: 95%;
+  }
+  input {
+    width: 90% !important;
   }
 }
 /*

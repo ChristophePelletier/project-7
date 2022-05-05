@@ -1,4 +1,8 @@
-//d'après méthode Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s
+//STORE
+// WE ONLY STORE DATAS THAT WILL BE USED IN MULTIPLE COMPONENTS
+
+// adaptation méthode Wawa Sensei
+// https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s
 //
 
 import { createStore } from "vuex";
@@ -30,10 +34,12 @@ if (!user) {
 
 // Create a new store instance.
 const store = createStore({
+  //STATE --> DATA
   state: {
     status: "",
     user: user,
   },
+  //MUTATIONS
   mutations: {
     setStatus: function (state, status) {
       state.status = status;
@@ -52,37 +58,38 @@ const store = createStore({
       localStorage.removeItem("user");
     },
   },
+  //ACTIONS
   //Actions are similar to mutations, the differences being that:
   //Instead of mutating the state, actions ***commit*** mutations.
   actions: {
-    login: ({ commit }, userInfos) => {
-      commit("setStatus", "loading");
+    login: ({ commit }, user) => {
+      commit("setStatus", "chargement");
       return new Promise((resolve, reject) => {
         instance
-          .post("/api/auth/login", userInfos)
+          .post("/api/auth/login", user)
           .then(function (response) {
             commit("setStatus", "");
             commit("logUser", response.data);
             resolve(response);
           })
           .catch(function (error) {
-            commit("setStatus", "error_login");
+            commit("setStatus", "erreur_login");
             reject(error);
           });
       });
     },
-    signup: ({ commit }, userInfos) => {
-      commit("setStatus", "loading");
+    signup: ({ commit }, user) => {
+      commit("setStatus", "chargement");
       return new Promise((resolve, reject) => {
         commit;
         instance
-          .post("/api/auth/signup", userInfos)
+          .post("/api/auth/signup", user)
           .then(function (response) {
-            commit("setStatus", "created");
+            commit("setStatus", "créé");
             resolve(response);
           })
           .catch(function (error) {
-            commit("setStatus", "error_signup");
+            commit("setStatus", "erreur_login");
             reject(error);
           });
       });

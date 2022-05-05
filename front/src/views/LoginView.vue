@@ -1,6 +1,9 @@
 <template>
   <div>
-    <!--méthode d'après Wawa Sensei : https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s-->
+    <!--
+      // adaptation méthode Wawa Sensei
+      // https://www.youtube.com/watch?v=W2ZWbE45vkg&t=551s
+      -->
     <!--TITRE-->
     <h1 v-if="mode == 'login'">Connexion</h1>
     <h1 v-else>Inscription</h1>
@@ -62,13 +65,12 @@
             :class="{ rempli: enteredPassword }"
             v-model="password"
             type="password"
-            placeholder="Votre mot de passe"
             id="password"
             class="form-control"
           />
         </p>
       </div>
-      <div v-if="mode == 'login' && status == 'error_login'">
+      <div v-if="mode == 'login' && status == 'erreur_login'">
         <p>Adresse mail et/ou mot de passe invalide(s)</p>
       </div>
     </form>
@@ -85,11 +87,11 @@
     <p v-if="mode == 'signup'" v-html="error" />
     <div>
       <button v-if="mode == 'login'" @click="login()" class="button">
-        <span v-if="status == 'loading'">Connexion en cours...</span>
+        <span v-if="status == 'chargement'">Connexion en cours...</span>
         <span v-else>Connexion</span>
       </button>
       <button v-else @click="signup()">
-        <span v-if="status == 'loading'">Création en cours...</span>
+        <span v-if="status == 'chargement'">Création en cours...</span>
         <span v-else>Créer mon compte</span>
       </button>
     </div>
@@ -97,6 +99,7 @@
 </template>
 
 <script>
+//ref to the stote status without using $store
 import { mapState } from "vuex";
 export default {
   name: "Login",
@@ -138,6 +141,9 @@ export default {
         }
       }
     },
+    //ref to the stote status without using $store
+    // status -->
+    //erreur_login / chargement / créé
     ...mapState(["status"]),
   },
   methods: {
