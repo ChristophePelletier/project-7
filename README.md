@@ -27,7 +27,10 @@
 
 just comment lines 89 to 94
 in controllers / user.js -> signupAdmin
-after : decomment them
+then :
+http://localhost:8080/admin
+to create the admin
+after : decomment the lines
 
 ## Front
 
