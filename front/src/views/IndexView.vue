@@ -33,7 +33,7 @@
               </p>
               <p class="coldInfo">
                 <router-link :to="'/article/' + article.id">
-                  Lire la suite | commenter</router-link
+                  ... lire la suite | commenter</router-link
                 >
               </p>
             </div>

@@ -31,7 +31,7 @@
               </p>
               <p class="coldInfo">
                 <router-link :to="'/article/' + article.id">
-                  Lire la suite</router-link
+                  ... lire la suite | commenter</router-link
                 >
               </p>
             </div>
@@ -69,17 +69,18 @@
           <h3 v-if="article.comments[0] && article.comments[1]">
             Les derniers commentaires
           </h3>
-          <h3 v-if="!article.comments[0]" class="attente-comment">
-            Personne n'a encore réagi à ce poste ;<br />
+          <div id="attente" v-if="!article.comments[0]">
             <router-link :to="'/article/' + article.id">
-              lire la suite ou commenter</router-link
-            >
-          </h3>
-          <p v-if="!article.comments[0]">
-            <router-link :to="'/article/' + article.id">
+              <h3 class="attente-comment">
+                Personne n'a encore réagi à ce poste ;<br />
+                <router-link :to="'/article/' + article.id">
+                  lire la suite ou commenter</router-link
+                >
+              </h3>
               <img class="brand" alt="" src="../../public/images/chat-2.png" />
             </router-link>
-          </p>
+          </div>
+
           <div v-if="article.comments[0]">
             <h4 class="comment-title">
               {{ article.comments[0].title }}
