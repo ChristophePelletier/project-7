@@ -23,6 +23,12 @@
 
 ### At the root of the back, create an "images" directory where the images will be downloaded
 
+### if you want to create a first admin user
+
+just comment lines 89 to 94
+in controllers / user.js -> signupAdmin
+after : decomment them
+
 ## Front
 
 after npm run serve a link to
