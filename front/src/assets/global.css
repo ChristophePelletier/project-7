@@ -61,7 +61,7 @@ ul li {
 }
 
 h2 {
-  color: #fd2d01;
+  color: darkslategrey;
   font-weight: bold;
 }
 
@@ -84,9 +84,7 @@ p.attente-comment {
   padding-top: 5px;
   font-size: 20px;
 }
-#attente {
-  align-self: center;
-}
+
 p {
   line-height: 1.5em !important;
 }
@@ -237,7 +235,7 @@ nav > div.deconnect a {
 }
 
 nav > div:hover {
-  background-color: white;
+  background-color: #ffd7d75d;
 }
 
 nav > div a {
@@ -685,6 +683,10 @@ div#one-user div.user-comments-byone {
 div#one-user div.user-comment {
   width: 30%;
 }
+
+div#one-user h3 {
+  margin-top: 1em;
+}
 /*
 Responsive
 */
@@ -758,7 +760,7 @@ Responsive
     margin-top: 25px;
   }
   h3 {
-    margin-top: 45px;
+    margin-top: 25px;
   }
   nav {
     display: flex;
@@ -847,11 +849,18 @@ Responsive
     width: 100%;
     order: -10 !important;
   }
+
+  #attente {
+    margin-top: 70px;
+  }
 }
 @media screen and (max-width: 768px) {
   .article-container {
     display: flex;
     flex-direction: column !important;
+  }
+  #attente {
+    margin-top: 20px;
   }
 
   nav > div {
