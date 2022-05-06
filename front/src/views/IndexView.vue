@@ -78,7 +78,7 @@
             <p class="attente-comment">
               Personne n'a encore réagi à ce poste ;<br />
               <router-link :to="'/article/' + article.id">
-                lire la suite ou commenter...</router-link
+                ...lire | commenter</router-link
               >
             </p>
           </div>
@@ -121,7 +121,7 @@
             </p>
             <p class="coldInfo">
               <router-link :to="'/article/' + article.id">
-                Lire la suite | commenter</router-link
+                ...lire | commenter</router-link
               >
             </p>
           </div>
