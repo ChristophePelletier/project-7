@@ -109,7 +109,11 @@
               >
             </p>
           </div>
-          <div class="cliquable" v-if="article.comments[1]">
+          <div
+            class="cliquable"
+            v-if="article.comments[1]"
+            @click="navigateTo('/article/' + article.id)"
+          >
             <h4 class="comment-title">
               {{ article.comments[1].title }}
             </h4>
@@ -131,7 +135,11 @@
               >
             </p>
           </div>
-          <div class="cliquable" v-if="article.comments[2]">
+          <div
+            class="cliquable"
+            v-if="article.comments[2]"
+            @click="navigateTo('/article/' + article.id)"
+          >
             <h4 class="comment-title">
               {{ article.comments[2].title }}
             </h4>
