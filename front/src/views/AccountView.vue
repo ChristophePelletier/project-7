@@ -56,6 +56,7 @@
     -->
       <div id="user-articles">
         <h3>Commentaires</h3>
+        <!--<h3 v-if="comments != null">Commentaires</h3>-->
         <div id="user-comments-byone">
           <div class="user-comment" v-for="comment in comments" :key="comment">
             <h2>{{ comment.title }}</h2>
