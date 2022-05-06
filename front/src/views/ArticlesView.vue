@@ -213,7 +213,7 @@ img.comment {
   opacity: 0.2;
   transition: all 1s;
 }
-img.brand:hover {
+img.comment:hover {
   width: 83px;
   opacity: 1;
 }
