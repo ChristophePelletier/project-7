@@ -69,19 +69,25 @@
           <h3 v-if="article.comments[0] && article.comments[1]">
             Les derniers commentaires
           </h3>
-          <div id="attente" v-if="!article.comments[0]">
-            <router-link :to="'/article/' + article.id">
-              <h3 class="attente-comment">
-                Personne n'a encore réagi à ce poste ;<br />
-                <router-link :to="'/article/' + article.id">
-                  lire la suite ou commenter</router-link
-                >
-              </h3>
-              <img class="brand" alt="" src="../../public/images/chat-2.png" />
-            </router-link>
+          <div
+            @click="navigateTo('/article/' + article.id)"
+            id="attente"
+            v-if="!article.comments[0]"
+          >
+            <img class="comment" alt="" src="../../public/images/chat-2.png" />
+            <p class="attente-comment">
+              Personne n'a encore réagi à ce poste ;<br />
+              <router-link :to="'/article/' + article.id">
+                lire la suite ou commenter</router-link
+              >
+            </p>
           </div>
 
-          <div v-if="article.comments[0]">
+          <div
+            class="cliquable"
+            v-if="article.comments[0]"
+            @click="navigateTo('/article/' + article.id)"
+          >
             <h4 class="comment-title">
               {{ article.comments[0].title }}
             </h4>
@@ -103,7 +109,7 @@
               >
             </p>
           </div>
-          <div v-if="article.comments[1]">
+          <div class="cliquable" v-if="article.comments[1]">
             <h4 class="comment-title">
               {{ article.comments[1].title }}
             </h4>
@@ -125,7 +131,7 @@
               >
             </p>
           </div>
-          <div v-if="article.comments[2]">
+          <div class="cliquable" v-if="article.comments[2]">
             <h4 class="comment-title">
               {{ article.comments[2].title }}
             </h4>
@@ -147,7 +153,7 @@
               >
             </p>
           </div>
-          <div v-if="article.comments[3]">
+          <div class="cliquable" v-if="article.comments[3]">
             <router-link :to="'/article/' + article.id"
               ><p>Lire les commentaires suivants</p></router-link
             >
@@ -206,7 +212,7 @@ img.illustration {
   border-radius: 7px;
   box-shadow: 2px 1px 1px lightgray;
 }
-img.brand {
+img.comment {
   width: 83px;
   opacity: 0.2;
   transition: all 1s;
@@ -223,7 +229,7 @@ img.brand:hover {
     border-radius: 5px;
     box-shadow: 5px 2px 2px lightgray;
   }
-  img.brand {
+  img.comment {
     width: 50px;
   }
 }

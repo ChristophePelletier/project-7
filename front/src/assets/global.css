@@ -79,9 +79,10 @@ h2 a::after {
   transition: all 0.5s;
 }
 
-h3.attente-comment {
+p.attente-comment {
   font-size: 20px;
-  padding-top: 75px;
+  padding-top: 5px;
+  font-size: 20px;
 }
 #attente {
   align-self: center;
@@ -89,7 +90,9 @@ h3.attente-comment {
 p {
   line-height: 1.5em !important;
 }
-
+.cliquable:hover {
+  cursor: pointer;
+}
 /*
 Liens
 */
@@ -118,7 +121,7 @@ button:hover {
   background-color: #ffd7d7;
 }
 
-#attente:hover > img.brand {
+#attente:hover > img.comment {
   width: 83px;
   opacity: 1;
 }
