@@ -60,11 +60,6 @@ ul li {
   list-style-type: none;
 }
 
-h2 {
-  color: #fd2d01;
-  font-weight: bold;
-}
-
 h2 a {
   text-decoration: underline;
   color: darkslategrey;
@@ -73,15 +68,25 @@ h2 a {
   transition: all 0.5s;
 }
 
-h2 a::after {
+h2 a::after,
+#containeur-1-1-1 h1::after {
   content: url(../assets/link.png);
-  padding-left: 25px;
+  padding-left: 20px;
   transition: all 0.5s;
 }
 
-h3.attente-comment {
+.r-attente {
+  background-color: whitesmoke;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 5%;
+  box-shadow: 10px 5px 5px lightgray;
+}
+
+p.attente-comment {
   font-size: 20px;
-  padding-top: 75px;
+  padding-top: 15px;
+  text-decoration: none;
 }
 #attente {
   align-self: center;
@@ -682,6 +687,27 @@ div#one-user div.user-comment {
   width: 30%;
 }
 /*
+Admin
+*/
+
+ul li {
+  font-size: 20px;
+}
+
+#admin ul li:first-child {
+  font-size: 26px;
+  font-weight: bold !important;
+}
+
+#wcag {
+  text-decoration: none;
+}
+
+/*
+RESPONSIVE
+*/
+
+/*
 Responsive
 */
 @media screen and (max-width: 1200px) {
@@ -748,7 +774,7 @@ Responsive
     padding-top: 0.2em;
     margin-left: auto;
     margin-right: auto;
-    width: 90% !important;
+    width: 50% !important;
   }
   h2 {
     margin-top: 25px;
@@ -810,6 +836,10 @@ Responsive
 
   div#containeur-1-2 {
     width: 100%;
+  }
+
+  div#containeur-1-2 h2 {
+    color: darkslategrey !important;
   }
 
   div#containeur-1-1-1 {
@@ -961,20 +991,9 @@ Responsive
   input {
     width: 90% !important;
   }
-}
-/*
-Admin
-*/
 
-ul li {
-  font-size: 20px;
-}
-
-#admin ul li:first-child {
-  font-size: 26px;
-  font-weight: bold !important;
-}
-
-#wcag {
-  text-decoration: none;
+  button.alert,
+  button {
+    width: 80% !important;
+  }
 }

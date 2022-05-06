@@ -71,12 +71,12 @@
           </h3>
           <div id="attente" v-if="!article.comments[0]">
             <router-link :to="'/article/' + article.id">
-              <h3 class="attente-comment">
+              <p class="attente-comment">
                 Personne n'a encore réagi à ce poste ;<br />
                 <router-link :to="'/article/' + article.id">
                   lire la suite ou commenter</router-link
                 >
-              </h3>
+              </p>
               <img class="brand" alt="" src="../../public/images/chat-2.png" />
             </router-link>
           </div>
@@ -211,6 +211,10 @@ img.brand {
   opacity: 0.2;
   transition: all 1s;
 }
+div#attente:hover > router-link > img.brand {
+  opacity: 1;
+}
+
 img.brand:hover {
   width: 83px;
   opacity: 1;
