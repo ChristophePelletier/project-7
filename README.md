@@ -29,10 +29,10 @@ after npm run serve a link to
 http://localhost:8080/
 will appear in the console
 
-- in services/app.js
+- in services/api.js
   the baseURL for the back is : http://localhost:3000
 - in router/index.js
-  baseURL: "http://localhost:3000/"
+  the baseURL for the back is : "http://localhost:3000/"
 
 ## Back and Front
 
