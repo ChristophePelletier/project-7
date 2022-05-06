@@ -7,7 +7,7 @@ import LoginView from "../views/LoginView.vue";
 import AdminView from "../views/AdminView.vue";
 import UserView from "../views/UserView.vue";
 import createAdminView from "../views/createAdmin.vue";
-
+import AccountView from "../views/AccountView.vue";
 const routes = [
   {
     path: "/",
@@ -68,6 +68,14 @@ const routes = [
     path: "/user/:id",
     name: "user",
     component: UserView,
+    meta: {
+      title: "Utilisateur",
+    },
+  },
+  {
+    path: "/account/:id",
+    name: "account",
+    component: AccountView,
     meta: {
       title: "Mon compte",
     },

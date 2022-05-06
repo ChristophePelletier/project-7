@@ -101,7 +101,7 @@ export default {
       this.$router.push("/articles");
     },
     monCompte: function () {
-      this.$router.push("/user/" + this.$store.state.user.userId);
+      this.$router.push("/account/" + this.$store.state.user.userId);
     },
   },
   computed: {
