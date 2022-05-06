@@ -49,7 +49,7 @@
           </div>
           <div class="meta">
             <p class="date">
-              Post rédigé le :<br />
+              Post rédigé le&nbsp;:<br />
               {{ getFormattedDate(article.createdAt) }}
             </p>
             <p class="auteur">

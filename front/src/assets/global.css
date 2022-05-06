@@ -510,6 +510,7 @@ div#containeur-1-1-1-1 p {
 
 div.meta {
   display: flex;
+  width: 100%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -523,7 +524,7 @@ div.meta {
 }
 
 div.meta p {
-  width: 25%;
+  width: 45%;
   margin: 0;
   padding: 0;
 }
