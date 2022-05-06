@@ -74,7 +74,7 @@
             id="attente"
             v-if="!article.comments[0]"
           >
-            <img class="brand" alt="" src="../../public/images/chat-2.png" />
+            <img class="comment" alt="" src="../../public/images/chat-2.png" />
             <p class="attente-comment">
               Personne n'a encore réagi à ce poste ;<br />
               <router-link :to="'/article/' + article.id">
@@ -196,12 +196,12 @@ img.illustration {
     box-shadow: 10px 5px 5px lightgray;
   }
 }
-img.brand {
+img.comment {
   width: 83px;
   opacity: 0.2;
   transition: all 1s;
 }
-img.brand:hover {
+img.comment:hover {
   width: 83px;
   opacity: 1;
 }

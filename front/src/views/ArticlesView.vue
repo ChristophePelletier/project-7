@@ -83,11 +83,7 @@
             </p>
           </div>
 
-          <div
-            class="cliquable"
-            v-if="article.comments[0]"
-            @click="navigateTo('/article/' + article.id)"
-          >
+          <div v-if="article.comments[0]">
             <h4 class="comment-title">
               {{ article.comments[0].title }}
             </h4>
@@ -109,7 +105,7 @@
               >
             </p>
           </div>
-          <div class="cliquable" v-if="article.comments[1]">
+          <div v-if="article.comments[1]">
             <h4 class="comment-title">
               {{ article.comments[1].title }}
             </h4>
@@ -131,7 +127,7 @@
               >
             </p>
           </div>
-          <div class="cliquable" v-if="article.comments[2]">
+          <div v-if="article.comments[2]">
             <h4 class="comment-title">
               {{ article.comments[2].title }}
             </h4>
